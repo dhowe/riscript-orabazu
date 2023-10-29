@@ -1,10 +1,9 @@
 {
   "name": "rscript-ozu",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "url": "https://github.com/dhowe/rscript-ozu",
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/riscript.cjs",
+  "module": "lib/riscript.js",
   "type": "module",
   "files": [
     "lib",
