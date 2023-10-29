@@ -5,7 +5,7 @@ const env = process.env.NODE_ENV;
 export const tsup: Options = {
   name: "riscript",
   target: 'es2020',
-  entry: ['src/index.js'],
+  entry: { riscript: 'src/index.js' },
   format: ['cjs', 'esm'], // generate cjs and esm files
   splitting: true,
   sourcemap: env === 'prod', // source map is only available in prod
