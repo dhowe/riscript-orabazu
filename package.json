@@ -1,18 +1,7 @@
 {
-  "name": "tsup-library-template",
+  "name": "rscript-ozu",
   "version": "0.0.1",
-  "url": "https://github.com/orabazu/tsup-libary-template",
-  "scripts": {
-    "ts-types": "tsc",
-    "build:dev": "rm -rf lib/ && tsup",
-    "build:prod": "rm -rf dist/ && env NODE_ENV=production tsup",
-    "build:watch": "tsup --watch"
-  },
-  "devDependencies": {
-    "@types/node": "^20.8.9",
-    "tsup": "^6.0.1",
-    "typescript": "^4.7.2"
-  },
+  "url": "https://github.com/dhowe/rscript-ozu",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -20,5 +9,27 @@
   "files": [
     "lib",
     "dist"
-  ]
+  ],
+  "scripts": {
+    "ts-types": "tsc",
+    "build:dev": "rm -rf lib/ && tsup",
+    "build:prod": "rm -rf dist/ && env NODE_ENV=production tsup",
+    "build:watch": "tsup --watch"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.9",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "^20.8.9",
+    "chai": "^4.3.10",
+    "cross-env": "^7.0.3",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.7.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "chevrotain": "^11.0.3",
+    "he": "^1.2.0",
+    "mingo": "^6.4.8"
+  }
 }
