@@ -2,17 +2,16 @@
   "name": "rscript-ozu",
   "version": "0.1.4",
   "url": "https://github.com/dhowe/rscript-ozu",
-  "main": "lib/riscript.cjs",
-  "module": "lib/riscript.js",
+  "main": "dist/riscript.js",
+  "module": "dist/riscript.js",
   "type": "module",
   "files": [
-    "lib",
+    "src",
     "dist"
   ],
   "scripts": {
     "ts-types": "tsc",
-    "build:dev": "rm -rf lib/ &&  env NODE_ENV=dev tsup",
-    "build:prod": "rm -rf dist/ && env NODE_ENV=prod tsup",
+    "build": "rm -rf dist/ && env NODE_ENV=prod tsup",
     "build:watch": "tsup --watch"
   },
   "devDependencies": {
