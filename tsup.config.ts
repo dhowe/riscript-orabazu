@@ -5,6 +5,7 @@ const env = process.env.NODE_ENV;
 export const tsup: Options = {
   name: "riscript",
   target: 'es2020',
+  noExternal: ['chevrotain'],
   entry: { riscript: 'src/index.js' },
   format: ['cjs', 'esm'], // generate cjs and esm files
   splitting: true,
