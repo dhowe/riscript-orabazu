@@ -9,7 +9,7 @@ export const tsup: Options = {
   entry: { riscript: 'src/index.js' },
   format: [/*'cjs',*/ 'esm'], // generate cjs and esm files
   splitting: true,
-  clean: true, // rimraf dist
+  clean: true, // rm dist/*
   dts: false, // generate dts file for main module
   minify: env === 'prod',
   bundle: env === 'prod',

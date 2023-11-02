@@ -10,7 +10,6 @@
     "dist"
   ],
   "scripts": {
-    "ts-types": "tsc",
     "build": "rm -rf dist/ && env NODE_ENV=prod tsup",
     "build:watch": "tsup --watch"
   },
