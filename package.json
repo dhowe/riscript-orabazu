@@ -3,13 +3,12 @@
   "version": "0.1.5",
   "url": "https://github.com/dhowe/rscript-ozu",
   "main": "dist/riscript.js",
-  "module": "dist/riscript.js",
   "type": "module",
   "files": [
-    "src",
     "dist"
   ],
   "scripts": {
+    "test": "NODE_ENV=dev npx mocha",
     "build": "rm -rf dist/ && env NODE_ENV=prod tsup",
     "build:watch": "tsup --watch"
   },
@@ -18,11 +17,8 @@
     "@types/mocha": "^10.0.3",
     "@types/node": "^20.8.9",
     "chai": "^4.3.10",
-    "cross-env": "^7.0.3",
     "mocha": "^10.2.0",
-    "ts-node": "^10.9.1",
-    "tsup": "^6.7.0",
-    "typescript": "^4.9.5"
+    "tsup": "^6.7.0"
   },
   "dependencies": {
     "chevrotain": "^11.0.3",

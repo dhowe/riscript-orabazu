@@ -1582,7 +1582,7 @@ describe('RiScript.v3', function () {
       };
 
       let ok = false;
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 20; i++) {
         const res = RiGrammar.expand(script);
         // console.log(i, 'res=' + res);
         const parts = res.split(':');
