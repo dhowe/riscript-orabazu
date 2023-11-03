@@ -1,7 +1,7 @@
 {
-  "name": "rscript-ozu",
-  "version": "0.1.6",
-  "url": "https://github.com/dhowe/rscript-ozu",
+  "name": "rscript",
+  "version": "1.0.6",
+  "url": "https://github.com/dhowe/rscript",
   "main": "./dist/riscript.js",
   "type": "module",
   "files": [

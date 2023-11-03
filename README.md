@@ -1,1 +1,1 @@
-riscript-ozu build
+RiScript v3
