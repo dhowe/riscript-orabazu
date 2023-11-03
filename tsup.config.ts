@@ -2,20 +2,38 @@ import type { Options } from 'tsup';
 
 const env = process.env.NODE_ENV;
 
-export const tsup: Options = {
+const opts: Options = {
   name: "riscript",
-  target: 'es2020',
-  // noExternal: ['chevrotain'],
   entry: { riscript: 'src/index.js' },
-  format: [/*'cjs',*/ 'esm'], // generate cjs and esm files
+  outDir: 'dist',
+  watch: false,
+  clean: true,
+  minify: true,
+  sourcemap: true,
+  dts: false,
+  bundle: true,
   splitting: true,
-  clean: true, // rm dist/*
-  dts: false, // generate dts file for main module
-  minify: env === 'prod',
-  bundle: env === 'prod',
-  sourcemap: env === 'prod', // source map is only available in prod
+}
+
+const esmOpts: Options = {
+  target: 'es2020',
+  format: [ 'esm'],
   skipNodeModulesBundle: true,
-  watch: false,//env === 'development',
-  outDir: env === 'prod' ? 'dist' : 'lib',
-  //format: ['cjs', 'esm'], // generate cjs and esm files
-};
+}
+
+const cjsOpts: Options = {
+  target: 'es2020',
+  noExternal: ['chevrotain'],
+  format: ['cjs'],
+  skipNodeModulesBundle: false,
+  platform: "node",
+}
+
+export const tsup: Options = { ...opts, ...cjsOpts }
+
+
+
+/*
+  bundle: true,
+  platform: "node",
+*/

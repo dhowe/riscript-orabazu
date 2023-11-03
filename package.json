@@ -2,14 +2,20 @@
   "name": "rscript-ozu",
   "version": "0.1.5",
   "url": "https://github.com/dhowe/rscript-ozu",
-  "main": "dist/riscript.js",
+  "main": "./dist/riscript.js",
   "type": "module",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/riscript.js",
+      "require": "./dist/riscript.cjs"
+    }
+  },
   "scripts": {
     "test": "NODE_ENV=dev npx mocha",
-    "build": "rm -rf dist/ && env NODE_ENV=prod tsup",
+    "build": "rm -rf ./dist/ && env NODE_ENV=prod tsup",
     "build:watch": "tsup --watch"
   },
   "devDependencies": {
