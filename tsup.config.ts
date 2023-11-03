@@ -1,6 +1,8 @@
 import type { Options } from 'tsup';
+import { defineConfig } from 'tsup';
 
-const env = process.env.NODE_ENV;
+
+// const env = process.env.NODE_ENV;
 
 const opts: Options = {
   name: "riscript",
@@ -16,24 +18,19 @@ const opts: Options = {
 }
 
 const esmOpts: Options = {
+  format: ['esm'],
+  ...opts,
   target: 'es2020',
-  format: [ 'esm'],
-  skipNodeModulesBundle: true,
+  skipNodeModulesBundle: true, // ?
 }
 
 const cjsOpts: Options = {
-  target: 'es2020',
-  noExternal: ['chevrotain'],
   format: ['cjs'],
-  skipNodeModulesBundle: false,
-  platform: "node",
+  ...opts,
+  target: 'es2020', // ?
+  noExternal: ['chevrotain'], // ?
+  skipNodeModulesBundle: false, // ?
+  platform: "node"
 }
 
-export const tsup: Options = { ...opts, ...cjsOpts }
-
-
-
-/*
-  bundle: true,
-  platform: "node",
-*/
+export default defineConfig([esmOpts, cjsOpts]);
