@@ -1,3 +1,3 @@
-import RiScript from '../dist/riscript.js';
+import RiScript from '../src/riscript.js';
 
 export default RiScript
