@@ -1,126 +1,10474 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; } function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } } function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }var uc=Object.defineProperty;var pc=(e,t,r)=>t in e?uc(e,t,{enumerable:!0,configurable:!0,writable:!0,value:r}):e[t]=r;var qr=(e,t,r)=>(pc(e,typeof t!="symbol"?t+"":t,r),r);var _he = require('he'); var _he2 = _interopRequireDefault(_he);var _mingo = require('mingo');var hc=typeof global=="object"&&global&&global.Object===Object&&global,Jr=hc;var dc=typeof self=="object"&&self&&self.Object===Object&&self,mc=Jr||dc||Function("return this")(),J=mc;var gc=J.Symbol,ot=gc;var so=Object.prototype,xc=so.hasOwnProperty,Ec=so.toString,yr=ot?ot.toStringTag:void 0;function Tc(e){var t=xc.call(e,yr),r=e[yr];try{e[yr]=void 0;var n=!0}catch (e2){}var i=Ec.call(e);return n&&(t?e[yr]=r:delete e[yr]),i}var ao=Tc;var Ac=Object.prototype,Ic=Ac.toString;function yc(e){return Ic.call(e)}var lo=yc;var Rc="[object Null]",Sc="[object Undefined]",co=ot?ot.toStringTag:void 0;function Oc(e){return e==null?e===void 0?Sc:Rc:co&&co in Object(e)?ao(e):lo(e)}var ht=Oc;function Nc(e){return e!=null&&typeof e=="object"}var z=Nc;var _c="[object Symbol]";function Cc(e){return typeof e=="symbol"||z(e)&&ht(e)==_c}var oe=Cc;function vc(e,t){for(var r=-1,n=e==null?0:e.length,i=Array(n);++r<n;)i[r]=t(e[r],r,e);return i}var wt=vc;var bc=Array.isArray,A=bc;var Lc=1/0,fo=ot?ot.prototype:void 0,uo=fo?fo.toString:void 0;function po(e){if(typeof e=="string")return e;if(A(e))return wt(e,po)+"";if(oe(e))return uo?uo.call(e):"";var t=e+"";return t=="0"&&1/e==-Lc?"-0":t}var ho=po;var Pc=/\s/;function kc(e){for(var t=e.length;t--&&Pc.test(e.charAt(t)););return t}var mo=kc;var Mc=/^\s+/;function wc(e){return e&&e.slice(0,mo(e)+1).replace(Mc,"")}var go=wc;function Fc(e){var t=typeof e;return e!=null&&(t=="object"||t=="function")}var B=Fc;var xo=0/0,Uc=/^[-+]0x[0-9a-f]+$/i,Dc=/^0b[01]+$/i,Gc=/^0o[0-7]+$/i,$c=parseInt;function Bc(e){if(typeof e=="number")return e;if(oe(e))return xo;if(B(e)){var t=typeof e.valueOf=="function"?e.valueOf():e;e=B(t)?t+"":t}if(typeof e!="string")return e===0?e:+e;e=go(e);var r=Dc.test(e);return r||Gc.test(e)?$c(e.slice(2),r?2:8):Uc.test(e)?xo:+e}var Eo=Bc;var To=1/0,Wc=17976931348623157e292;function jc(e){if(!e)return e===0?e:0;if(e=Eo(e),e===To||e===-To){var t=e<0?-1:1;return t*Wc}return e===e?e:0}var Ao=jc;function Kc(e){var t=Ao(e),r=t%1;return t===t?r?t-r:t:0}var Ft=Kc;function Hc(e){return e}var _t=Hc;var zc="[object AsyncFunction]",Vc="[object Function]",Yc="[object GeneratorFunction]",Xc="[object Proxy]";function qc(e){if(!B(e))return!1;var t=ht(e);return t==Vc||t==Yc||t==zc||t==Xc}var dt=qc;var Jc=J["__core-js_shared__"],Zr=Jc;var Io=function(){var e=/[^.]+$/.exec(Zr&&Zr.keys&&Zr.keys.IE_PROTO||"");return e?"Symbol(src)_1."+e:""}();function Zc(e){return!!Io&&Io in e}var yo=Zc;var Qc=Function.prototype,tf=Qc.toString;function ef(e){if(e!=null){try{return tf.call(e)}catch (e3){}try{return e+""}catch (e4){}}return""}var Xt=ef;var rf=/[\\^$.*+?()[\]{}|]/g,nf=/^\[object .+?Constructor\]$/,of=Function.prototype,sf=Object.prototype,af=of.toString,lf=sf.hasOwnProperty,cf=RegExp("^"+af.call(lf).replace(rf,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$");function ff(e){if(!B(e)||yo(e))return!1;var t=dt(e)?cf:nf;return t.test(Xt(e))}var Ro=ff;function uf(e,t){return _optionalChain([e, 'optionalAccess', _2 => _2[t]])}var So=uf;function pf(e,t){var r=So(e,t);return Ro(r)?r:void 0}var At=pf;var hf=At(J,"WeakMap"),Qr=hf;var Oo=Object.create,df=function(){function e(){}return function(t){if(!B(t))return{};if(Oo)return Oo(t);e.prototype=t;var r=new e;return e.prototype=void 0,r}}(),No=df;function mf(e,t,r){switch(r.length){case 0:return e.call(t);case 1:return e.call(t,r[0]);case 2:return e.call(t,r[0],r[1]);case 3:return e.call(t,r[0],r[1],r[2])}return e.apply(t,r)}var _o=mf;function gf(){}var W=gf;function xf(e,t){var r=-1,n=e.length;for(t||(t=Array(n));++r<n;)t[r]=e[r];return t}var Co=xf;var Ef=800,Tf=16,Af=Date.now;function If(e){var t=0,r=0;return function(){var n=Af(),i=Tf-(n-r);if(r=n,i>0){if(++t>=Ef)return arguments[0]}else t=0;return e.apply(void 0,arguments)}}var vo=If;function yf(e){return function(){return e}}var bo=yf;var Rf=function(){try{var e=At(Object,"defineProperty");return e({},"",{}),e}catch (e5){}}(),Fe=Rf;var Sf=Fe?function(e,t){return Fe(e,"toString",{configurable:!0,enumerable:!1,value:bo(t),writable:!0})}:_t,Lo=Sf;var Of=vo(Lo),Po=Of;function Nf(e,t){for(var r=-1,n=e==null?0:e.length;++r<n&&t(e[r],r,e)!==!1;);return e}var tn=Nf;function _f(e,t,r,n){for(var i=e.length,o=r+(n?1:-1);n?o--:++o<i;)if(t(e[o],o,e))return o;return-1}var en=_f;function Cf(e){return e!==e}var ko=Cf;function vf(e,t,r){for(var n=r-1,i=e.length;++n<i;)if(e[n]===t)return n;return-1}var Mo=vf;function bf(e,t,r){return t===t?Mo(e,t,r):en(e,ko,r)}var Ue=bf;function Lf(e,t){var r=e==null?0:e.length;return!!r&&Ue(e,t,0)>-1}var rn=Lf;var Pf=9007199254740991,kf=/^(?:0|[1-9]\d*)$/;function Mf(e,t){var r=typeof e;return t=_nullishCoalesce(t, () => (Pf)),!!t&&(r=="number"||r!="symbol"&&kf.test(e))&&e>-1&&e%1==0&&e<t}var se=Mf;function wf(e,t,r){t=="__proto__"&&Fe?Fe(e,t,{configurable:!0,enumerable:!0,value:r,writable:!0}):e[t]=r}var De=wf;function Ff(e,t){return e===t||e!==e&&t!==t}var Ut=Ff;var Uf=Object.prototype,Df=Uf.hasOwnProperty;function Gf(e,t,r){var n=e[t];(!(Df.call(e,t)&&Ut(n,r))||r===void 0&&!(t in e))&&De(e,t,r)}var ae=Gf;function $f(e,t,r,n){var i=!r;r||(r={});for(var o=-1,s=t.length;++o<s;){var a=t[o],l=n?n(r[a],e[a],a,r,e):void 0;l===void 0&&(l=e[a]),i?De(r,a,l):ae(r,a,l)}return r}var Dt=$f;var wo=Math.max;function Bf(e,t,r){return t=wo(t===void 0?e.length-1:t,0),function(){for(var n=arguments,i=-1,o=wo(n.length-t,0),s=Array(o);++i<o;)s[i]=n[t+i];i=-1;for(var a=Array(t+1);++i<t;)a[i]=n[i];return a[t]=r(s),_o(e,this,a)}}var Fo=Bf;function Wf(e,t){return Po(Fo(e,t,_t),e+"")}var Ge=Wf;var jf=9007199254740991;function Kf(e){return typeof e=="number"&&e>-1&&e%1==0&&e<=jf}var $e=Kf;function Hf(e){return e!=null&&$e(e.length)&&!dt(e)}var Z=Hf;function zf(e,t,r){if(!B(r))return!1;var n=typeof t;return(n=="number"?Z(r)&&se(t,r.length):n=="string"&&t in r)?Ut(r[t],e):!1}var le=zf;function Vf(e){return Ge(function(t,r){var n=-1,i=r.length,o=i>1?r[i-1]:void 0,s=i>2?r[2]:void 0;for(o=e.length>3&&typeof o=="function"?(i--,o):void 0,s&&le(r[0],r[1],s)&&(o=i<3?void 0:o,i=1),t=Object(t);++n<i;){var a=r[n];a&&e(t,a,n,o)}return t})}var Uo=Vf;var Yf=Object.prototype;function Xf(e){var t=e&&e.constructor,r=typeof t=="function"&&t.prototype||Yf;return e===r}var Gt=Xf;function qf(e,t){for(var r=-1,n=Array(e);++r<e;)n[r]=t(r);return n}var Do=qf;var Jf="[object Arguments]";function Zf(e){return z(e)&&ht(e)==Jf}var di=Zf;var Go=Object.prototype,Qf=Go.hasOwnProperty,tu=Go.propertyIsEnumerable,eu=di(function(){return arguments}())?di:function(e){return z(e)&&Qf.call(e,"callee")&&!tu.call(e,"callee")},ce=eu;function ru(){return!1}var $o=ru;var jo=typeof exports=="object"&&exports&&!exports.nodeType&&exports,Bo=jo&&typeof module=="object"&&module&&!module.nodeType&&module,nu=Bo&&Bo.exports===jo,Wo=nu?J.Buffer:void 0,iu=Wo?Wo.isBuffer:void 0,ou=iu||$o,qt=ou;var su="[object Arguments]",au="[object Array]",lu="[object Boolean]",cu="[object Date]",fu="[object Error]",uu="[object Function]",pu="[object Map]",hu="[object Number]",du="[object Object]",mu="[object RegExp]",gu="[object Set]",xu="[object String]",Eu="[object WeakMap]",Tu="[object ArrayBuffer]",Au="[object DataView]",Iu="[object Float32Array]",yu="[object Float64Array]",Ru="[object Int8Array]",Su="[object Int16Array]",Ou="[object Int32Array]",Nu="[object Uint8Array]",_u="[object Uint8ClampedArray]",Cu="[object Uint16Array]",vu="[object Uint32Array]",U={};U[Iu]=U[yu]=U[Ru]=U[Su]=U[Ou]=U[Nu]=U[_u]=U[Cu]=U[vu]=!0;U[su]=U[au]=U[Tu]=U[lu]=U[Au]=U[cu]=U[fu]=U[uu]=U[pu]=U[hu]=U[du]=U[mu]=U[gu]=U[xu]=U[Eu]=!1;function bu(e){return z(e)&&$e(e.length)&&!!U[ht(e)]}var Ko=bu;function Lu(e){return function(t){return e(t)}}var $t=Lu;var Ho=typeof exports=="object"&&exports&&!exports.nodeType&&exports,Rr=Ho&&typeof module=="object"&&module&&!module.nodeType&&module,Pu=Rr&&Rr.exports===Ho,mi=Pu&&Jr.process,ku=function(){try{var e=Rr&&Rr.require&&Rr.require("util").types;return e||mi&&mi.binding&&mi.binding("util")}catch (e6){}}(),Ct=ku;var zo=Ct&&Ct.isTypedArray,Mu=zo?$t(zo):Ko,Be=Mu;var wu=Object.prototype,Fu=wu.hasOwnProperty;function Uu(e,t){var r=A(e),n=!r&&ce(e),i=!r&&!n&&qt(e),o=!r&&!n&&!i&&Be(e),s=r||n||i||o,a=s?Do(e.length,String):[],l=a.length;for(var c in e)(t||Fu.call(e,c))&&!(s&&(c=="length"||i&&(c=="offset"||c=="parent")||o&&(c=="buffer"||c=="byteLength"||c=="byteOffset")||se(c,l)))&&a.push(c);return a}var nn=Uu;function Du(e,t){return function(r){return e(t(r))}}var on=Du;var Gu=on(Object.keys,Object),Vo=Gu;var $u=Object.prototype,Bu=$u.hasOwnProperty;function Wu(e){if(!Gt(e))return Vo(e);var t=[];for(var r in Object(e))Bu.call(e,r)&&r!="constructor"&&t.push(r);return t}var sn=Wu;function ju(e){return Z(e)?nn(e):sn(e)}var P=ju;var Ku=Object.prototype,Hu=Ku.hasOwnProperty,zu=Uo(function(e,t){if(Gt(t)||Z(t)){Dt(t,P(t),e);return}for(var r in t)Hu.call(t,r)&&ae(e,r,t[r])}),at=zu;function Vu(e){var t=[];if(e!=null)for(var r in Object(e))t.push(r);return t}var Yo=Vu;var Yu=Object.prototype,Xu=Yu.hasOwnProperty;function qu(e){if(!B(e))return Yo(e);var t=Gt(e),r=[];for(var n in e)n=="constructor"&&(t||!Xu.call(e,n))||r.push(n);return r}var Xo=qu;function Ju(e){return Z(e)?nn(e,!0):Xo(e)}var fe=Ju;var Zu=/\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,Qu=/^\w*$/;function tp(e,t){if(A(e))return!1;var r=typeof e;return r=="number"||r=="symbol"||r=="boolean"||e==null||oe(e)?!0:Qu.test(e)||!Zu.test(e)||t!=null&&e in Object(t)}var We=tp;var ep=At(Object,"create"),Jt=ep;function rp(){this.__data__=Jt?Jt(null):{},this.size=0}var qo=rp;function np(e){var t=this.has(e)&&delete this.__data__[e];return this.size-=t?1:0,t}var Jo=np;var ip="__lodash_hash_undefined__",op=Object.prototype,sp=op.hasOwnProperty;function ap(e){var t=this.__data__;if(Jt){var r=t[e];return r===ip?void 0:r}return sp.call(t,e)?t[e]:void 0}var Zo=ap;var lp=Object.prototype,cp=lp.hasOwnProperty;function fp(e){var t=this.__data__;return Jt?t[e]!==void 0:cp.call(t,e)}var Qo=fp;var up="__lodash_hash_undefined__";function pp(e,t){var r=this.__data__;return this.size+=this.has(e)?0:1,r[e]=Jt&&t===void 0?up:t,this}var ts=pp;function je(e){var t=-1,r=e==null?0:e.length;for(this.clear();++t<r;){var n=e[t];this.set(n[0],n[1])}}je.prototype.clear=qo;je.prototype.delete=Jo;je.prototype.get=Zo;je.prototype.has=Qo;je.prototype.set=ts;var gi=je;function hp(){this.__data__=[],this.size=0}var es=hp;function dp(e,t){for(var r=e.length;r--;)if(Ut(e[r][0],t))return r;return-1}var ue=dp;var mp=Array.prototype,gp=mp.splice;function xp(e){var t=this.__data__,r=ue(t,e);if(r<0)return!1;var n=t.length-1;return r==n?t.pop():gp.call(t,r,1),--this.size,!0}var rs=xp;function Ep(e){var t=this.__data__,r=ue(t,e);return r<0?void 0:t[r][1]}var ns=Ep;function Tp(e){return ue(this.__data__,e)>-1}var is=Tp;function Ap(e,t){var r=this.__data__,n=ue(r,e);return n<0?(++this.size,r.push([e,t])):r[n][1]=t,this}var os=Ap;function Ke(e){var t=-1,r=e==null?0:e.length;for(this.clear();++t<r;){var n=e[t];this.set(n[0],n[1])}}Ke.prototype.clear=es;Ke.prototype.delete=rs;Ke.prototype.get=ns;Ke.prototype.has=is;Ke.prototype.set=os;var pe=Ke;var Ip=At(J,"Map"),he=Ip;function yp(){this.size=0,this.__data__={hash:new gi,map:new(he||pe),string:new gi}}var ss=yp;function Rp(e){var t=typeof e;return t=="string"||t=="number"||t=="symbol"||t=="boolean"?e!=="__proto__":e===null}var as=Rp;function Sp(e,t){var r=e.__data__;return as(t)?r[typeof t=="string"?"string":"hash"]:r.map}var de=Sp;function Op(e){var t=de(this,e).delete(e);return this.size-=t?1:0,t}var ls=Op;function Np(e){return de(this,e).get(e)}var cs=Np;function _p(e){return de(this,e).has(e)}var fs=_p;function Cp(e,t){var r=de(this,e),n=r.size;return r.set(e,t),this.size+=r.size==n?0:1,this}var us=Cp;function He(e){var t=-1,r=e==null?0:e.length;for(this.clear();++t<r;){var n=e[t];this.set(n[0],n[1])}}He.prototype.clear=ss;He.prototype.delete=ls;He.prototype.get=cs;He.prototype.has=fs;He.prototype.set=us;var Se=He;var vp="Expected a function";function xi(e,t){if(typeof e!="function"||t!=null&&typeof t!="function")throw new TypeError(vp);var r=function(){var n=arguments,i=t?t.apply(this,n):n[0],o=r.cache;if(o.has(i))return o.get(i);var s=e.apply(this,n);return r.cache=o.set(i,s)||o,s};return r.cache=new(xi.Cache||Se),r}xi.Cache=Se;var ps=xi;var bp=500;function Lp(e){var t=ps(e,function(n){return r.size===bp&&r.clear(),n}),r=t.cache;return t}var hs=Lp;var Pp=/[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,kp=/\\(\\)?/g,Mp=hs(function(e){var t=[];return e.charCodeAt(0)===46&&t.push(""),e.replace(Pp,function(r,n,i,o){t.push(i?o.replace(kp,"$1"):n||r)}),t}),ds=Mp;function wp(e){return e==null?"":ho(e)}var ms=wp;function Fp(e,t){return A(e)?e:We(e,t)?[e]:ds(ms(e))}var me=Fp;var Up=1/0;function Dp(e){if(typeof e=="string"||oe(e))return e;var t=e+"";return t=="0"&&1/e==-Up?"-0":t}var Bt=Dp;function Gp(e,t){t=me(t,e);for(var r=0,n=t.length;e!=null&&r<n;)e=e[Bt(t[r++])];return r&&r==n?e:void 0}var ze=Gp;function $p(e,t,r){var n=e==null?void 0:ze(e,t);return n===void 0?r:n}var gs=$p;function Bp(e,t){for(var r=-1,n=t.length,i=e.length;++r<n;)e[i+r]=t[r];return e}var Ve=Bp;var xs=ot?ot.isConcatSpreadable:void 0;function Wp(e){return A(e)||ce(e)||!!(xs&&e&&e[xs])}var Es=Wp;function Ts(e,t,r,n,i){var o=-1,s=e.length;for(r||(r=Es),i||(i=[]);++o<s;){var a=e[o];t>0&&r(a)?t>1?Ts(a,t-1,r,n,i):Ve(i,a):n||(i[i.length]=a)}return i}var Ye=Ts;function jp(e){var t=e==null?0:e.length;return t?Ye(e,1):[]}var rt=jp;var Kp=on(Object.getPrototypeOf,Object),an=Kp;function Hp(e,t,r){var n=-1,i=e.length;t<0&&(t=-t>i?0:i+t),r=r>i?i:r,r<0&&(r+=i),i=t>r?0:r-t>>>0,t>>>=0;for(var o=Array(i);++n<i;)o[n]=e[n+t];return o}var ln=Hp;function zp(e,t,r,n){var i=-1,o=e==null?0:e.length;for(n&&o&&(r=e[++i]);++i<o;)r=t(r,e[i],i,e);return r}var As=zp;function Vp(){this.__data__=new pe,this.size=0}var Is=Vp;function Yp(e){var t=this.__data__,r=t.delete(e);return this.size=t.size,r}var ys=Yp;function Xp(e){return this.__data__.get(e)}var Rs=Xp;function qp(e){return this.__data__.has(e)}var Ss=qp;var Jp=200;function Zp(e,t){var r=this.__data__;if(r instanceof pe){var n=r.__data__;if(!he||n.length<Jp-1)return n.push([e,t]),this.size=++r.size,this;r=this.__data__=new Se(n)}return r.set(e,t),this.size=r.size,this}var Os=Zp;function Xe(e){var t=this.__data__=new pe(e);this.size=t.size}Xe.prototype.clear=Is;Xe.prototype.delete=ys;Xe.prototype.get=Rs;Xe.prototype.has=Ss;Xe.prototype.set=Os;var ge=Xe;function Qp(e,t){return e&&Dt(t,P(t),e)}var Ns=Qp;function th(e,t){return e&&Dt(t,fe(t),e)}var _s=th;var Ls=typeof exports=="object"&&exports&&!exports.nodeType&&exports,Cs=Ls&&typeof module=="object"&&module&&!module.nodeType&&module,eh=Cs&&Cs.exports===Ls,vs=eh?J.Buffer:void 0,bs=vs?vs.allocUnsafe:void 0;function rh(e,t){if(t)return e.slice();var r=e.length,n=bs?bs(r):new e.constructor(r);return e.copy(n),n}var Ps=rh;function nh(e,t){for(var r=-1,n=e==null?0:e.length,i=0,o=[];++r<n;){var s=e[r];t(s,r,e)&&(o[i++]=s)}return o}var qe=nh;function ih(){return[]}var cn=ih;var oh=Object.prototype,sh=oh.propertyIsEnumerable,ks=Object.getOwnPropertySymbols,ah=ks?function(e){return e==null?[]:(e=Object(e),qe(ks(e),function(t){return sh.call(e,t)}))}:cn,Je=ah;function lh(e,t){return Dt(e,Je(e),t)}var Ms=lh;var ch=Object.getOwnPropertySymbols,fh=ch?function(e){for(var t=[];e;)Ve(t,Je(e)),e=an(e);return t}:cn,fn=fh;function uh(e,t){return Dt(e,fn(e),t)}var ws=uh;function ph(e,t,r){var n=t(e);return A(e)?n:Ve(n,r(e))}var un=ph;function hh(e){return un(e,P,Je)}var Sr=hh;function dh(e){return un(e,fe,fn)}var pn=dh;var mh=At(J,"DataView"),hn=mh;var gh=At(J,"Promise"),dn=gh;var xh=At(J,"Set"),xe=xh;var Fs="[object Map]",Eh="[object Object]",Us="[object Promise]",Ds="[object Set]",Gs="[object WeakMap]",$s="[object DataView]",Th=Xt(hn),Ah=Xt(he),Ih=Xt(dn),yh=Xt(xe),Rh=Xt(Qr),Oe=ht;(hn&&Oe(new hn(new ArrayBuffer(1)))!=$s||he&&Oe(new he)!=Fs||dn&&Oe(dn.resolve())!=Us||xe&&Oe(new xe)!=Ds||Qr&&Oe(new Qr)!=Gs)&&(Oe=function(e){var t=ht(e),r=t==Eh?e.constructor:void 0,n=r?Xt(r):"";if(n)switch(n){case Th:return $s;case Ah:return Fs;case Ih:return Us;case yh:return Ds;case Rh:return Gs}return t});var Pt=Oe;var Sh=Object.prototype,Oh=Sh.hasOwnProperty;function Nh(e){var t=e.length,r=new e.constructor(t);return t&&typeof e[0]=="string"&&Oh.call(e,"index")&&(r.index=e.index,r.input=e.input),r}var Bs=Nh;var _h=J.Uint8Array,Ze=_h;function Ch(e){var t=new e.constructor(e.byteLength);return new Ze(t).set(new Ze(e)),t}var Qe=Ch;function vh(e,t){var r=t?Qe(e.buffer):e.buffer;return new e.constructor(r,e.byteOffset,e.byteLength)}var Ws=vh;var bh=/\w*$/;function Lh(e){var t=new e.constructor(e.source,bh.exec(e));return t.lastIndex=e.lastIndex,t}var js=Lh;var Ks=ot?ot.prototype:void 0,Hs=Ks?Ks.valueOf:void 0;function Ph(e){return Hs?Object(Hs.call(e)):{}}var zs=Ph;function kh(e,t){var r=t?Qe(e.buffer):e.buffer;return new e.constructor(r,e.byteOffset,e.length)}var Vs=kh;var Mh="[object Boolean]",wh="[object Date]",Fh="[object Map]",Uh="[object Number]",Dh="[object RegExp]",Gh="[object Set]",$h="[object String]",Bh="[object Symbol]",Wh="[object ArrayBuffer]",jh="[object DataView]",Kh="[object Float32Array]",Hh="[object Float64Array]",zh="[object Int8Array]",Vh="[object Int16Array]",Yh="[object Int32Array]",Xh="[object Uint8Array]",qh="[object Uint8ClampedArray]",Jh="[object Uint16Array]",Zh="[object Uint32Array]";function Qh(e,t,r){var n=e.constructor;switch(t){case Wh:return Qe(e);case Mh:case wh:return new n(+e);case jh:return Ws(e,r);case Kh:case Hh:case zh:case Vh:case Yh:case Xh:case qh:case Jh:case Zh:return Vs(e,r);case Fh:return new n;case Uh:case $h:return new n(e);case Dh:return js(e);case Gh:return new n;case Bh:return zs(e)}}var Ys=Qh;function td(e){return typeof e.constructor=="function"&&!Gt(e)?No(an(e)):{}}var Xs=td;var ed="[object Map]";function rd(e){return z(e)&&Pt(e)==ed}var qs=rd;var Js=Ct&&Ct.isMap,nd=Js?$t(Js):qs,Zs=nd;var id="[object Set]";function od(e){return z(e)&&Pt(e)==id}var Qs=od;var ta=Ct&&Ct.isSet,sd=ta?$t(ta):Qs,ea=sd;var ad=1,ld=2,cd=4,ra="[object Arguments]",fd="[object Array]",ud="[object Boolean]",pd="[object Date]",hd="[object Error]",na="[object Function]",dd="[object GeneratorFunction]",md="[object Map]",gd="[object Number]",ia="[object Object]",xd="[object RegExp]",Ed="[object Set]",Td="[object String]",Ad="[object Symbol]",Id="[object WeakMap]",yd="[object ArrayBuffer]",Rd="[object DataView]",Sd="[object Float32Array]",Od="[object Float64Array]",Nd="[object Int8Array]",_d="[object Int16Array]",Cd="[object Int32Array]",vd="[object Uint8Array]",bd="[object Uint8ClampedArray]",Ld="[object Uint16Array]",Pd="[object Uint32Array]",k={};k[ra]=k[fd]=k[yd]=k[Rd]=k[ud]=k[pd]=k[Sd]=k[Od]=k[Nd]=k[_d]=k[Cd]=k[md]=k[gd]=k[ia]=k[xd]=k[Ed]=k[Td]=k[Ad]=k[vd]=k[bd]=k[Ld]=k[Pd]=!0;k[hd]=k[na]=k[Id]=!1;function mn(e,t,r,n,i,o){var s,a=t&ad,l=t&ld,c=t&cd;if(r&&(s=i?r(e,n,i,o):r(e)),s!==void 0)return s;if(!B(e))return e;var f=A(e);if(f){if(s=Bs(e),!a)return Co(e,s)}else{var u=Pt(e),p=u==na||u==dd;if(qt(e))return Ps(e,a);if(u==ia||u==ra||p&&!i){if(s=l||p?{}:Xs(e),!a)return l?ws(e,_s(s,e)):Ms(e,Ns(s,e))}else{if(!k[u])return i?e:{};s=Ys(e,u,a)}}o||(o=new ge);var d=o.get(e);if(d)return d;o.set(e,s),ea(e)?e.forEach(function(S){s.add(mn(S,t,r,S,e,o))}):Zs(e)&&e.forEach(function(S,E){s.set(E,mn(S,t,r,E,e,o))});var I=c?l?pn:Sr:l?fe:P,y=f?void 0:I(e);return tn(y||e,function(S,E){y&&(E=S,S=e[E]),ae(s,E,mn(S,t,r,E,e,o))}),s}var oa=mn;var kd=4;function Md(e){return oa(e,kd)}var M=Md;function wd(e){for(var t=-1,r=e==null?0:e.length,n=0,i=[];++t<r;){var o=e[t];o&&(i[n++]=o)}return i}var Wt=wd;var Fd="__lodash_hash_undefined__";function Ud(e){return this.__data__.set(e,Fd),this}var sa=Ud;function Dd(e){return this.__data__.has(e)}var aa=Dd;function gn(e){var t=-1,r=e==null?0:e.length;for(this.__data__=new Se;++t<r;)this.add(e[t])}gn.prototype.add=gn.prototype.push=sa;gn.prototype.has=aa;var tr=gn;function Gd(e,t){for(var r=-1,n=e==null?0:e.length;++r<n;)if(t(e[r],r,e))return!0;return!1}var xn=Gd;function $d(e,t){return e.has(t)}var er=$d;var Bd=1,Wd=2;function jd(e,t,r,n,i,o){var s=r&Bd,a=e.length,l=t.length;if(a!=l&&!(s&&l>a))return!1;var c=o.get(e),f=o.get(t);if(c&&f)return c==t&&f==e;var u=-1,p=!0,d=r&Wd?new tr:void 0;for(o.set(e,t),o.set(t,e);++u<a;){var I=e[u],y=t[u];if(n)var S=s?n(y,I,u,t,e,o):n(I,y,u,e,t,o);if(S!==void 0){if(S)continue;p=!1;break}if(d){if(!xn(t,function(E,m){if(!er(d,m)&&(I===E||i(I,E,r,n,o)))return d.push(m)})){p=!1;break}}else if(!(I===y||i(I,y,r,n,o))){p=!1;break}}return o.delete(e),o.delete(t),p}var En=jd;function Kd(e){var t=-1,r=Array(e.size);return e.forEach(function(n,i){r[++t]=[i,n]}),r}var la=Kd;function Hd(e){var t=-1,r=Array(e.size);return e.forEach(function(n){r[++t]=n}),r}var rr=Hd;var zd=1,Vd=2,Yd="[object Boolean]",Xd="[object Date]",qd="[object Error]",Jd="[object Map]",Zd="[object Number]",Qd="[object RegExp]",tm="[object Set]",em="[object String]",rm="[object Symbol]",nm="[object ArrayBuffer]",im="[object DataView]",ca=ot?ot.prototype:void 0,Ei=ca?ca.valueOf:void 0;function om(e,t,r,n,i,o,s){switch(r){case im:if(e.byteLength!=t.byteLength||e.byteOffset!=t.byteOffset)return!1;e=e.buffer,t=t.buffer;case nm:return!(e.byteLength!=t.byteLength||!o(new Ze(e),new Ze(t)));case Yd:case Xd:case Zd:return Ut(+e,+t);case qd:return e.name==t.name&&e.message==t.message;case Qd:case em:return e==t+"";case Jd:var a=la;case tm:var l=n&zd;if(a||(a=rr),e.size!=t.size&&!l)return!1;var c=s.get(e);if(c)return c==t;n|=Vd,s.set(e,t);var f=En(a(e),a(t),n,i,o,s);return s.delete(e),f;case rm:if(Ei)return Ei.call(e)==Ei.call(t)}return!1}var fa=om;var sm=1,am=Object.prototype,lm=am.hasOwnProperty;function cm(e,t,r,n,i,o){var s=r&sm,a=Sr(e),l=a.length,c=Sr(t),f=c.length;if(l!=f&&!s)return!1;for(var u=l;u--;){var p=a[u];if(!(s?p in t:lm.call(t,p)))return!1}var d=o.get(e),I=o.get(t);if(d&&I)return d==t&&I==e;var y=!0;o.set(e,t),o.set(t,e);for(var S=s;++u<l;){p=a[u];var E=e[p],m=t[p];if(n)var h=s?n(m,E,p,t,e,o):n(E,m,p,e,t,o);if(!(h===void 0?E===m||i(E,m,r,n,o):h)){y=!1;break}S||(S=p=="constructor")}if(y&&!S){var O=e.constructor,N=t.constructor;O!=N&&"constructor"in e&&"constructor"in t&&!(typeof O=="function"&&O instanceof O&&typeof N=="function"&&N instanceof N)&&(y=!1)}return o.delete(e),o.delete(t),y}var ua=cm;var fm=1,pa="[object Arguments]",ha="[object Array]",Tn="[object Object]",um=Object.prototype,da=um.hasOwnProperty;function pm(e,t,r,n,i,o){var s=A(e),a=A(t),l=s?ha:Pt(e),c=a?ha:Pt(t);l=l==pa?Tn:l,c=c==pa?Tn:c;var f=l==Tn,u=c==Tn,p=l==c;if(p&&qt(e)){if(!qt(t))return!1;s=!0,f=!1}if(p&&!f)return o||(o=new ge),s||Be(e)?En(e,t,r,n,i,o):fa(e,t,l,r,n,i,o);if(!(r&fm)){var d=f&&da.call(e,"__wrapped__"),I=u&&da.call(t,"__wrapped__");if(d||I){var y=d?e.value():e,S=I?t.value():t;return o||(o=new ge),i(y,S,r,n,o)}}return p?(o||(o=new ge),ua(e,t,r,n,i,o)):!1}var ma=pm;function ga(e,t,r,n,i){return e===t?!0:e==null||t==null||!z(e)&&!z(t)?e!==e&&t!==t:ma(e,t,r,n,ga,i)}var An=ga;var hm=1,dm=2;function mm(e,t,r,n){var i=r.length,o=i,s=!n;if(e==null)return!o;for(e=Object(e);i--;){var a=r[i];if(s&&a[2]?a[1]!==e[a[0]]:!(a[0]in e))return!1}for(;++i<o;){a=r[i];var l=a[0],c=e[l],f=a[1];if(s&&a[2]){if(c===void 0&&!(l in e))return!1}else{var u=new ge;if(n)var p=n(c,f,l,e,t,u);if(!(p===void 0?An(f,c,hm|dm,n,u):p))return!1}}return!0}var xa=mm;function gm(e){return e===e&&!B(e)}var In=gm;function xm(e){for(var t=P(e),r=t.length;r--;){var n=t[r],i=e[n];t[r]=[n,i,In(i)]}return t}var Ea=xm;function Em(e,t){return function(r){return r==null?!1:r[e]===t&&(t!==void 0||e in Object(r))}}var yn=Em;function Tm(e){var t=Ea(e);return t.length==1&&t[0][2]?yn(t[0][0],t[0][1]):function(r){return r===e||xa(r,e,t)}}var Ta=Tm;function Am(e,t){return e!=null&&t in Object(e)}var Aa=Am;function Im(e,t,r){t=me(t,e);for(var n=-1,i=t.length,o=!1;++n<i;){var s=Bt(t[n]);if(!(o=e!=null&&r(e,s)))break;e=e[s]}return o||++n!=i?o:(i=e==null?0:e.length,!!i&&$e(i)&&se(s,i)&&(A(e)||ce(e)))}var Rn=Im;function ym(e,t){return e!=null&&Rn(e,t,Aa)}var Ia=ym;var Rm=1,Sm=2;function Om(e,t){return We(e)&&In(t)?yn(Bt(e),t):function(r){var n=gs(r,e);return n===void 0&&n===t?Ia(r,e):An(t,n,Rm|Sm)}}var ya=Om;function Nm(e){return function(t){return _optionalChain([t, 'optionalAccess', _3 => _3[e]])}}var Ra=Nm;function _m(e){return function(t){return ze(t,e)}}var Sa=_m;function Cm(e){return We(e)?Ra(Bt(e)):Sa(e)}var Oa=Cm;function vm(e){return typeof e=="function"?e:e==null?_t:typeof e=="object"?A(e)?ya(e[0],e[1]):Ta(e):Oa(e)}var Q=vm;function bm(e,t,r,n){for(var i=-1,o=e==null?0:e.length;++i<o;){var s=e[i];t(n,s,r(s),e)}return n}var Na=bm;function Lm(e){return function(t,r,n){for(var i=-1,o=Object(t),s=n(t),a=s.length;a--;){var l=s[e?a:++i];if(r(o[l],l,o)===!1)break}return t}}var _a=Lm;var Pm=_a(),Ca=Pm;function km(e,t){return e&&Ca(e,t,P)}var va=km;function Mm(e,t){return function(r,n){if(r==null)return r;if(!Z(r))return e(r,n);for(var i=r.length,o=t?i:-1,s=Object(r);(t?o--:++o<i)&&n(s[o],o,s)!==!1;);return r}}var ba=Mm;var wm=ba(va),It=wm;function Fm(e,t,r,n){return It(e,function(i,o,s){t(n,i,r(i),s)}),n}var La=Fm;function Um(e,t){return function(r,n){var i=A(r)?Na:La,o=t?t():{};return i(r,e,Q(n,2),o)}}var Pa=Um;var ka=Object.prototype,Dm=ka.hasOwnProperty,Gm=Ge(function(e,t){e=Object(e);var r=-1,n=t.length,i=n>2?t[2]:void 0;for(i&&le(t[0],t[1],i)&&(n=1);++r<n;)for(var o=t[r],s=fe(o),a=-1,l=s.length;++a<l;){var c=s[a],f=e[c];(f===void 0||Ut(f,ka[c])&&!Dm.call(e,c))&&(e[c]=o[c])}return e}),nr=Gm;function $m(e){return z(e)&&Z(e)}var Ti=$m;function Bm(e,t,r){for(var n=-1,i=e==null?0:e.length;++n<i;)if(r(t,e[n]))return!0;return!1}var Sn=Bm;var Wm=200;function jm(e,t,r,n){var i=-1,o=rn,s=!0,a=e.length,l=[],c=t.length;if(!a)return l;r&&(t=wt(t,$t(r))),n?(o=Sn,s=!1):t.length>=Wm&&(o=er,s=!1,t=new tr(t));t:for(;++i<a;){var f=e[i],u=r==null?f:r(f);if(f=n||f!==0?f:0,s&&u===u){for(var p=c;p--;)if(t[p]===u)continue t;l.push(f)}else o(t,u,n)||l.push(f)}return l}var Ma=jm;var Km=Ge(function(e,t){return Ti(e)?Ma(e,Ye(t,1,Ti,!0)):[]}),Ee=Km;function Hm(e){var t=e==null?0:e.length;return t?e[t-1]:void 0}var jt=Hm;function zm(e,t,r){var n=e==null?0:e.length;return n?(t=r||t===void 0?1:Ft(t),ln(e,t<0?0:t,n)):[]}var V=zm;function Vm(e,t,r){var n=e==null?0:e.length;return n?(t=r||t===void 0?1:Ft(t),t=n-t,ln(e,0,t<0?0:t)):[]}var Zt=Vm;function Ym(e){return typeof e=="function"?e:_t}var wa=Ym;function Xm(e,t){var r=A(e)?tn:It;return r(e,wa(t))}var x=Xm;function qm(e,t){for(var r=-1,n=e==null?0:e.length;++r<n;)if(!t(e[r],r,e))return!1;return!0}var Fa=qm;function Jm(e,t){var r=!0;return It(e,function(n,i,o){return r=!!t(n,i,o),r}),r}var Ua=Jm;function Zm(e,t,r){var n=A(e)?Fa:Ua;return r&&le(e,t,r)&&(t=void 0),n(e,Q(t,3))}var ct=Zm;function Qm(e,t){var r=[];return It(e,function(n,i,o){t(n,i,o)&&r.push(n)}),r}var On=Qm;function tg(e,t){var r=A(e)?qe:On;return r(e,Q(t,3))}var ft=tg;function eg(e){return function(t,r,n){var i=Object(t);if(!Z(t)){var o=Q(r,3);t=P(t),r=function(a){return o(i[a],a,i)}}var s=e(t,r,n);return s>-1?i[o?t[s]:s]:void 0}}var Da=eg;var rg=Math.max;function ng(e,t,r){var n=e==null?0:e.length;if(!n)return-1;var i=r==null?0:Ft(r);return i<0&&(i=rg(n+i,0)),en(e,Q(t,3),i)}var Ga=ng;var ig=Da(Ga),Kt=ig;function og(e){return e&&e.length?e[0]:void 0}var st=og;function sg(e,t){var r=-1,n=Z(e)?Array(e.length):[];return It(e,function(i,o,s){n[++r]=t(i,o,s)}),n}var $a=sg;function ag(e,t){var r=A(e)?wt:$a;return r(e,Q(t,3))}var g=ag;function lg(e,t){return Ye(g(e,t),1)}var mt=lg;var cg=Object.prototype,fg=cg.hasOwnProperty,ug=Pa(function(e,t,r){fg.call(e,r)?e[r].push(t):De(e,r,[t])}),Ai=ug;var pg=Object.prototype,hg=pg.hasOwnProperty;function dg(e,t){return e!=null&&hg.call(e,t)}var Ba=dg;function mg(e,t){return e!=null&&Rn(e,t,Ba)}var T=mg;var gg="[object String]";function xg(e){return typeof e=="string"||!A(e)&&z(e)&&ht(e)==gg}var nt=xg;function Eg(e,t){return wt(t,function(r){return e[r]})}var Wa=Eg;function Tg(e){return e==null?[]:Wa(e,P(e))}var L=Tg;var Ag=Math.max;function Ig(e,t,r,n){e=Z(e)?e:L(e),r=r&&!n?Ft(r):0;var i=e.length;return r<0&&(r=Ag(i+r,0)),nt(e)?r<=i&&e.indexOf(t,r)>-1:!!i&&Ue(e,t,r)>-1}var G=Ig;var yg=Math.max;function Rg(e,t,r){var n=e==null?0:e.length;if(!n)return-1;var i=r==null?0:Ft(r);return i<0&&(i=yg(n+i,0)),Ue(e,t,i)}var Nn=Rg;var Sg="[object Map]",Og="[object Set]",Ng=Object.prototype,_g=Ng.hasOwnProperty;function Cg(e){if(e==null)return!0;if(Z(e)&&(A(e)||typeof e=="string"||typeof e.splice=="function"||qt(e)||Be(e)||ce(e)))return!e.length;var t=Pt(e);if(t==Sg||t==Og)return!e.size;if(Gt(e))return!sn(e).length;for(var r in e)if(_g.call(e,r))return!1;return!0}var _=Cg;var vg="[object RegExp]";function bg(e){return z(e)&&ht(e)==vg}var ja=bg;var Ka=Ct&&Ct.isRegExp,Lg=Ka?$t(Ka):ja,vt=Lg;function Pg(e){return e===void 0}var ut=Pg;var kg="Expected a function";function Mg(e){if(typeof e!="function")throw new TypeError(kg);return function(){var t=arguments;switch(t.length){case 0:return!e.call(this);case 1:return!e.call(this,t[0]);case 2:return!e.call(this,t[0],t[1]);case 3:return!e.call(this,t[0],t[1],t[2])}return!e.apply(this,t)}}var Ha=Mg;function wg(e,t,r,n){if(!B(e))return e;t=me(t,e);for(var i=-1,o=t.length,s=o-1,a=e;a!=null&&++i<o;){var l=Bt(t[i]),c=r;if(l==="__proto__"||l==="constructor"||l==="prototype")return e;if(i!=s){var f=a[l];c=n?n(f,l,a):void 0,c===void 0&&(c=B(f)?f:se(t[i+1])?[]:{})}ae(a,l,c),a=a[l]}return e}var za=wg;function Fg(e,t,r){for(var n=-1,i=t.length,o={};++n<i;){var s=t[n],a=ze(e,s);r(a,s)&&za(o,me(s,e),a)}return o}var Va=Fg;function Ug(e,t){if(e==null)return{};var r=wt(pn(e),function(n){return[n]});return t=Q(t),Va(e,r,function(n,i){return t(n,i[0])})}var yt=Ug;function Dg(e,t,r,n,i){return i(e,function(o,s,a){r=n?(n=!1,o):t(r,o,s,a)}),r}var Ya=Dg;function Gg(e,t,r){var n=A(e)?As:Ya,i=arguments.length<3;return n(e,Q(t,4),r,i,It)}var tt=Gg;function $g(e,t){var r=A(e)?qe:On;return r(e,Ha(Q(t,3)))}var Te=$g;function Bg(e,t){var r;return It(e,function(n,i,o){return r=t(n,i,o),!r}),!!r}var Xa=Bg;function Wg(e,t,r){var n=A(e)?xn:Xa;return r&&le(e,t,r)&&(t=void 0),n(e,Q(t,3))}var Or=Wg;var jg=1/0,Kg=xe&&1/rr(new xe([,-0]))[1]==jg?function(e){return new xe(e)}:W,qa=Kg;var Hg=200;function zg(e,t,r){var n=-1,i=rn,o=e.length,s=!0,a=[],l=a;if(r)s=!1,i=Sn;else if(o>=Hg){var c=t?null:qa(e);if(c)return rr(c);s=!1,i=er,l=new tr}else l=t?[]:a;t:for(;++n<o;){var f=e[n],u=t?t(f):f;if(f=r||f!==0?f:0,s&&u===u){for(var p=l.length;p--;)if(l[p]===u)continue t;t&&l.push(u),a.push(f)}else i(l,u,r)||(l!==a&&l.push(u),a.push(f))}return a}var Ja=zg;function Vg(e){return e&&e.length?Ja(e):[]}var ir=Vg;function or(e){console&&console.error&&console.error(`Error: ${e}`)}function Nr(e){console&&console.warn&&console.warn(`Warning: ${e}`)}function _r(e){let t=new Date().getTime(),r=e();return{time:new Date().getTime()-t,value:r}}function Cr(e){function t(){}t.prototype=e;let r=new t;function n(){return typeof r.bar}return n(),n(),e;(0,eval)(e)}function Yg(e){return Xg(e)?e.LABEL:e.name}function Xg(e){return nt(e.LABEL)&&e.LABEL!==""}var Ot=class{get definition(){return this._definition}set definition(t){this._definition=t}constructor(t){this._definition=t}accept(t){t.visit(this),x(this.definition,r=>{r.accept(t)})}},w=class extends Ot{constructor(t){super([]),this.idx=1,at(this,yt(t,r=>r!==void 0))}set definition(t){}get definition(){return this.referencedRule!==void 0?this.referencedRule.definition:[]}accept(t){t.visit(this)}},gt=class extends Ot{constructor(t){super(t.definition),this.orgText="",at(this,yt(t,r=>r!==void 0))}},F=class extends Ot{constructor(t){super(t.definition),this.ignoreAmbiguities=!1,at(this,yt(t,r=>r!==void 0))}},D=class extends Ot{constructor(t){super(t.definition),this.idx=1,at(this,yt(t,r=>r!==void 0))}},Y=class extends Ot{constructor(t){super(t.definition),this.idx=1,at(this,yt(t,r=>r!==void 0))}},X=class extends Ot{constructor(t){super(t.definition),this.idx=1,at(this,yt(t,r=>r!==void 0))}},v=class extends Ot{constructor(t){super(t.definition),this.idx=1,at(this,yt(t,r=>r!==void 0))}},K=class extends Ot{constructor(t){super(t.definition),this.idx=1,at(this,yt(t,r=>r!==void 0))}},H=class extends Ot{get definition(){return this._definition}set definition(t){this._definition=t}constructor(t){super(t.definition),this.idx=1,this.ignoreAmbiguities=!1,this.hasPredicates=!1,at(this,yt(t,r=>r!==void 0))}},C=class{constructor(t){this.idx=1,at(this,yt(t,r=>r!==void 0))}accept(t){t.visit(this)}};function _n(e){return g(e,sr)}function sr(e){function t(r){return g(r,sr)}if(e instanceof w){let r={type:"NonTerminal",name:e.nonTerminalName,idx:e.idx};return nt(e.label)&&(r.label=e.label),r}else{if(e instanceof F)return{type:"Alternative",definition:t(e.definition)};if(e instanceof D)return{type:"Option",idx:e.idx,definition:t(e.definition)};if(e instanceof Y)return{type:"RepetitionMandatory",idx:e.idx,definition:t(e.definition)};if(e instanceof X)return{type:"RepetitionMandatoryWithSeparator",idx:e.idx,separator:sr(new C({terminalType:e.separator})),definition:t(e.definition)};if(e instanceof K)return{type:"RepetitionWithSeparator",idx:e.idx,separator:sr(new C({terminalType:e.separator})),definition:t(e.definition)};if(e instanceof v)return{type:"Repetition",idx:e.idx,definition:t(e.definition)};if(e instanceof H)return{type:"Alternation",idx:e.idx,definition:t(e.definition)};if(e instanceof C){let r={type:"Terminal",name:e.terminalType.name,label:Yg(e.terminalType),idx:e.idx};nt(e.label)&&(r.terminalLabel=e.label);let n=e.terminalType.PATTERN;return e.terminalType.PATTERN&&(r.pattern=vt(n)?n.source:n),r}else{if(e instanceof gt)return{type:"Rule",name:e.name,orgText:e.orgText,definition:t(e.definition)};throw Error("non exhaustive match")}}}var xt=class{visit(t){let r=t;switch(r.constructor){case w:return this.visitNonTerminal(r);case F:return this.visitAlternative(r);case D:return this.visitOption(r);case Y:return this.visitRepetitionMandatory(r);case X:return this.visitRepetitionMandatoryWithSeparator(r);case K:return this.visitRepetitionWithSeparator(r);case v:return this.visitRepetition(r);case H:return this.visitAlternation(r);case C:return this.visitTerminal(r);case gt:return this.visitRule(r);default:throw Error("non exhaustive match")}}visitNonTerminal(t){}visitAlternative(t){}visitOption(t){}visitRepetition(t){}visitRepetitionMandatory(t){}visitRepetitionMandatoryWithSeparator(t){}visitRepetitionWithSeparator(t){}visitAlternation(t){}visitTerminal(t){}visitRule(t){}};function Ii(e){return e instanceof F||e instanceof D||e instanceof v||e instanceof Y||e instanceof X||e instanceof K||e instanceof C||e instanceof gt}function Ne(e,t=[]){return e instanceof D||e instanceof v||e instanceof K?!0:e instanceof H?Or(e.definition,n=>Ne(n,t)):e instanceof w&&G(t,e)?!1:e instanceof Ot?(e instanceof w&&t.push(e),ct(e.definition,n=>Ne(n,t))):!1}function yi(e){return e instanceof H}function Rt(e){if(e instanceof w)return"SUBRULE";if(e instanceof D)return"OPTION";if(e instanceof H)return"OR";if(e instanceof Y)return"AT_LEAST_ONE";if(e instanceof X)return"AT_LEAST_ONE_SEP";if(e instanceof K)return"MANY_SEP";if(e instanceof v)return"MANY";if(e instanceof C)return"CONSUME";throw Error("non exhaustive match")}var Qt=class{walk(t,r=[]){x(t.definition,(n,i)=>{let o=V(t.definition,i+1);if(n instanceof w)this.walkProdRef(n,o,r);else if(n instanceof C)this.walkTerminal(n,o,r);else if(n instanceof F)this.walkFlat(n,o,r);else if(n instanceof D)this.walkOption(n,o,r);else if(n instanceof Y)this.walkAtLeastOne(n,o,r);else if(n instanceof X)this.walkAtLeastOneSep(n,o,r);else if(n instanceof K)this.walkManySep(n,o,r);else if(n instanceof v)this.walkMany(n,o,r);else if(n instanceof H)this.walkOr(n,o,r);else throw Error("non exhaustive match")})}walkTerminal(t,r,n){}walkProdRef(t,r,n){}walkFlat(t,r,n){let i=r.concat(n);this.walk(t,i)}walkOption(t,r,n){let i=r.concat(n);this.walk(t,i)}walkAtLeastOne(t,r,n){let i=[new D({definition:t.definition})].concat(r,n);this.walk(t,i)}walkAtLeastOneSep(t,r,n){let i=Za(t,r,n);this.walk(t,i)}walkMany(t,r,n){let i=[new D({definition:t.definition})].concat(r,n);this.walk(t,i)}walkManySep(t,r,n){let i=Za(t,r,n);this.walk(t,i)}walkOr(t,r,n){let i=r.concat(n);x(t.definition,o=>{let s=new F({definition:[o]});this.walk(s,i)})}};function Za(e,t,r){return[new D({definition:[new C({terminalType:e.separator})].concat(e.definition)})].concat(t,r)}function _e(e){if(e instanceof w)return _e(e.referencedRule);if(e instanceof C)return Zg(e);if(Ii(e))return qg(e);if(yi(e))return Jg(e);throw Error("non exhaustive match")}function qg(e){let t=[],r=e.definition,n=0,i=r.length>n,o,s=!0;for(;i&&s;)o=r[n],s=Ne(o),t=t.concat(_e(o)),n=n+1,i=r.length>n;return ir(t)}function Jg(e){let t=g(e.definition,r=>_e(r));return ir(rt(t))}function Zg(e){return[e.terminalType]}var Cn="_~IN~_";var Ri=class extends Qt{constructor(t){super(),this.topProd=t,this.follows={}}startWalking(){return this.walk(this.topProd),this.follows}walkTerminal(t,r,n){}walkProdRef(t,r,n){let i=Qg(t.referencedRule,t.idx)+this.topProd.name,o=r.concat(n),s=new F({definition:o}),a=_e(s);this.follows[i]=a}};function Qa(e){let t={};return x(e,r=>{let n=new Ri(r).startWalking();at(t,n)}),t}function Qg(e,t){return e.name+t+Cn}function R(e){return e.charCodeAt(0)}function vn(e,t){Array.isArray(e)?e.forEach(function(r){t.push(r)}):t.push(e)}function ar(e,t){if(e[t]===!0)throw"duplicate flag "+t;let r=e[t];e[t]=!0}function Ce(e){if(e===void 0)throw Error("Internal Error - Should never get here!");return!0}function vr(){throw Error("Internal Error - Should never get here!")}function Si(e){return e.type==="Character"}var br=[];for(let e=R("0");e<=R("9");e++)br.push(e);var Lr=[R("_")].concat(br);for(let e=R("a");e<=R("z");e++)Lr.push(e);for(let e=R("A");e<=R("Z");e++)Lr.push(e);var Oi=[R(" "),R("\f"),R(`
-`),R("\r"),R("	"),R("\v"),R("	"),R("\xA0"),R("\u1680"),R("\u2000"),R("\u2001"),R("\u2002"),R("\u2003"),R("\u2004"),R("\u2005"),R("\u2006"),R("\u2007"),R("\u2008"),R("\u2009"),R("\u200A"),R("\u2028"),R("\u2029"),R("\u202F"),R("\u205F"),R("\u3000"),R("\uFEFF")];var tx=/[0-9a-fA-F]/,bn=/[0-9]/,ex=/[1-9]/,Pr=class{constructor(){this.idx=0,this.input="",this.groupIdx=0}saveState(){return{idx:this.idx,input:this.input,groupIdx:this.groupIdx}}restoreState(t){this.idx=t.idx,this.input=t.input,this.groupIdx=t.groupIdx}pattern(t){this.idx=0,this.input=t,this.groupIdx=0,this.consumeChar("/");let r=this.disjunction();this.consumeChar("/");let n={type:"Flags",loc:{begin:this.idx,end:t.length},global:!1,ignoreCase:!1,multiLine:!1,unicode:!1,sticky:!1};for(;this.isRegExpFlag();)switch(this.popChar()){case"g":ar(n,"global");break;case"i":ar(n,"ignoreCase");break;case"m":ar(n,"multiLine");break;case"u":ar(n,"unicode");break;case"y":ar(n,"sticky");break}if(this.idx!==this.input.length)throw Error("Redundant input: "+this.input.substring(this.idx));return{type:"Pattern",flags:n,value:r,loc:this.loc(0)}}disjunction(){let t=[],r=this.idx;for(t.push(this.alternative());this.peekChar()==="|";)this.consumeChar("|"),t.push(this.alternative());return{type:"Disjunction",value:t,loc:this.loc(r)}}alternative(){let t=[],r=this.idx;for(;this.isTerm();)t.push(this.term());return{type:"Alternative",value:t,loc:this.loc(r)}}term(){return this.isAssertion()?this.assertion():this.atom()}assertion(){let t=this.idx;switch(this.popChar()){case"^":return{type:"StartAnchor",loc:this.loc(t)};case"$":return{type:"EndAnchor",loc:this.loc(t)};case"\\":switch(this.popChar()){case"b":return{type:"WordBoundary",loc:this.loc(t)};case"B":return{type:"NonWordBoundary",loc:this.loc(t)}}throw Error("Invalid Assertion Escape");case"(":this.consumeChar("?");let r;switch(this.popChar()){case"=":r="Lookahead";break;case"!":r="NegativeLookahead";break}Ce(r);let n=this.disjunction();return this.consumeChar(")"),{type:r,value:n,loc:this.loc(t)}}return vr()}quantifier(t=!1){let r,n=this.idx;switch(this.popChar()){case"*":r={atLeast:0,atMost:1/0};break;case"+":r={atLeast:1,atMost:1/0};break;case"?":r={atLeast:0,atMost:1};break;case"{":let i=this.integerIncludingZero();switch(this.popChar()){case"}":r={atLeast:i,atMost:i};break;case",":let o;this.isDigit()?(o=this.integerIncludingZero(),r={atLeast:i,atMost:o}):r={atLeast:i,atMost:1/0},this.consumeChar("}");break}if(t===!0&&r===void 0)return;Ce(r);break}if(!(t===!0&&r===void 0)&&Ce(r))return this.peekChar(0)==="?"?(this.consumeChar("?"),r.greedy=!1):r.greedy=!0,r.type="Quantifier",r.loc=this.loc(n),r}atom(){let t,r=this.idx;switch(this.peekChar()){case".":t=this.dotAll();break;case"\\":t=this.atomEscape();break;case"[":t=this.characterClass();break;case"(":t=this.group();break}return t===void 0&&this.isPatternCharacter()&&(t=this.patternCharacter()),Ce(t)?(t.loc=this.loc(r),this.isQuantifier()&&(t.quantifier=this.quantifier()),t):vr()}dotAll(){return this.consumeChar("."),{type:"Set",complement:!0,value:[R(`
-`),R("\r"),R("\u2028"),R("\u2029")]}}atomEscape(){switch(this.consumeChar("\\"),this.peekChar()){case"1":case"2":case"3":case"4":case"5":case"6":case"7":case"8":case"9":return this.decimalEscapeAtom();case"d":case"D":case"s":case"S":case"w":case"W":return this.characterClassEscape();case"f":case"n":case"r":case"t":case"v":return this.controlEscapeAtom();case"c":return this.controlLetterEscapeAtom();case"0":return this.nulCharacterAtom();case"x":return this.hexEscapeSequenceAtom();case"u":return this.regExpUnicodeEscapeSequenceAtom();default:return this.identityEscapeAtom()}}decimalEscapeAtom(){return{type:"GroupBackReference",value:this.positiveInteger()}}characterClassEscape(){let t,r=!1;switch(this.popChar()){case"d":t=br;break;case"D":t=br,r=!0;break;case"s":t=Oi;break;case"S":t=Oi,r=!0;break;case"w":t=Lr;break;case"W":t=Lr,r=!0;break}return Ce(t)?{type:"Set",value:t,complement:r}:vr()}controlEscapeAtom(){let t;switch(this.popChar()){case"f":t=R("\f");break;case"n":t=R(`
-`);break;case"r":t=R("\r");break;case"t":t=R("	");break;case"v":t=R("\v");break}return Ce(t)?{type:"Character",value:t}:vr()}controlLetterEscapeAtom(){this.consumeChar("c");let t=this.popChar();if(/[a-zA-Z]/.test(t)===!1)throw Error("Invalid ");return{type:"Character",value:t.toUpperCase().charCodeAt(0)-64}}nulCharacterAtom(){return this.consumeChar("0"),{type:"Character",value:R("\0")}}hexEscapeSequenceAtom(){return this.consumeChar("x"),this.parseHexDigits(2)}regExpUnicodeEscapeSequenceAtom(){return this.consumeChar("u"),this.parseHexDigits(4)}identityEscapeAtom(){let t=this.popChar();return{type:"Character",value:R(t)}}classPatternCharacterAtom(){switch(this.peekChar()){case`
-`:case"\r":case"\u2028":case"\u2029":case"\\":case"]":throw Error("TBD");default:let t=this.popChar();return{type:"Character",value:R(t)}}}characterClass(){let t=[],r=!1;for(this.consumeChar("["),this.peekChar(0)==="^"&&(this.consumeChar("^"),r=!0);this.isClassAtom();){let n=this.classAtom(),i=n.type==="Character";if(Si(n)&&this.isRangeDash()){this.consumeChar("-");let o=this.classAtom(),s=o.type==="Character";if(Si(o)){if(o.value<n.value)throw Error("Range out of order in character class");t.push({from:n.value,to:o.value})}else vn(n.value,t),t.push(R("-")),vn(o.value,t)}else vn(n.value,t)}return this.consumeChar("]"),{type:"Set",complement:r,value:t}}classAtom(){switch(this.peekChar()){case"]":case`
-`:case"\r":case"\u2028":case"\u2029":throw Error("TBD");case"\\":return this.classEscape();default:return this.classPatternCharacterAtom()}}classEscape(){switch(this.consumeChar("\\"),this.peekChar()){case"b":return this.consumeChar("b"),{type:"Character",value:R("\b")};case"d":case"D":case"s":case"S":case"w":case"W":return this.characterClassEscape();case"f":case"n":case"r":case"t":case"v":return this.controlEscapeAtom();case"c":return this.controlLetterEscapeAtom();case"0":return this.nulCharacterAtom();case"x":return this.hexEscapeSequenceAtom();case"u":return this.regExpUnicodeEscapeSequenceAtom();default:return this.identityEscapeAtom()}}group(){let t=!0;switch(this.consumeChar("("),this.peekChar(0)){case"?":this.consumeChar("?"),this.consumeChar(":"),t=!1;break;default:this.groupIdx++;break}let r=this.disjunction();this.consumeChar(")");let n={type:"Group",capturing:t,value:r};return t&&(n.idx=this.groupIdx),n}positiveInteger(){let t=this.popChar();if(ex.test(t)===!1)throw Error("Expecting a positive integer");for(;bn.test(this.peekChar(0));)t+=this.popChar();return parseInt(t,10)}integerIncludingZero(){let t=this.popChar();if(bn.test(t)===!1)throw Error("Expecting an integer");for(;bn.test(this.peekChar(0));)t+=this.popChar();return parseInt(t,10)}patternCharacter(){let t=this.popChar();switch(t){case`
-`:case"\r":case"\u2028":case"\u2029":case"^":case"$":case"\\":case".":case"*":case"+":case"?":case"(":case")":case"[":case"|":throw Error("TBD");default:return{type:"Character",value:R(t)}}}isRegExpFlag(){switch(this.peekChar(0)){case"g":case"i":case"m":case"u":case"y":return!0;default:return!1}}isRangeDash(){return this.peekChar()==="-"&&this.isClassAtom(1)}isDigit(){return bn.test(this.peekChar(0))}isClassAtom(t=0){switch(this.peekChar(t)){case"]":case`
-`:case"\r":case"\u2028":case"\u2029":return!1;default:return!0}}isTerm(){return this.isAtom()||this.isAssertion()}isAtom(){if(this.isPatternCharacter())return!0;switch(this.peekChar(0)){case".":case"\\":case"[":case"(":return!0;default:return!1}}isAssertion(){switch(this.peekChar(0)){case"^":case"$":return!0;case"\\":switch(this.peekChar(1)){case"b":case"B":return!0;default:return!1}case"(":return this.peekChar(1)==="?"&&(this.peekChar(2)==="="||this.peekChar(2)==="!");default:return!1}}isQuantifier(){let t=this.saveState();try{return this.quantifier(!0)!==void 0}catch (e7){return!1}finally{this.restoreState(t)}}isPatternCharacter(){switch(this.peekChar()){case"^":case"$":case"\\":case".":case"*":case"+":case"?":case"(":case")":case"[":case"|":case"/":case`
-`:case"\r":case"\u2028":case"\u2029":return!1;default:return!0}}parseHexDigits(t){let r="";for(let i=0;i<t;i++){let o=this.popChar();if(tx.test(o)===!1)throw Error("Expecting a HexDecimal digits");r+=o}return{type:"Character",value:parseInt(r,16)}}peekChar(t=0){return this.input[this.idx+t]}popChar(){let t=this.peekChar(0);return this.consumeChar(void 0),t}consumeChar(t){if(t!==void 0&&this.input[this.idx]!==t)throw Error("Expected: '"+t+"' but found: '"+this.input[this.idx]+"' at offset: "+this.idx);if(this.idx>=this.input.length)throw Error("Unexpected end of input");this.idx++}loc(t){return{begin:t,end:this.idx}}};var Ae=class{visitChildren(t){for(let r in t){let n=t[r];t.hasOwnProperty(r)&&(n.type!==void 0?this.visit(n):Array.isArray(n)&&n.forEach(i=>{this.visit(i)},this))}}visit(t){switch(t.type){case"Pattern":this.visitPattern(t);break;case"Flags":this.visitFlags(t);break;case"Disjunction":this.visitDisjunction(t);break;case"Alternative":this.visitAlternative(t);break;case"StartAnchor":this.visitStartAnchor(t);break;case"EndAnchor":this.visitEndAnchor(t);break;case"WordBoundary":this.visitWordBoundary(t);break;case"NonWordBoundary":this.visitNonWordBoundary(t);break;case"Lookahead":this.visitLookahead(t);break;case"NegativeLookahead":this.visitNegativeLookahead(t);break;case"Character":this.visitCharacter(t);break;case"Set":this.visitSet(t);break;case"Group":this.visitGroup(t);break;case"GroupBackReference":this.visitGroupBackReference(t);break;case"Quantifier":this.visitQuantifier(t);break}this.visitChildren(t)}visitPattern(t){}visitFlags(t){}visitDisjunction(t){}visitAlternative(t){}visitStartAnchor(t){}visitEndAnchor(t){}visitWordBoundary(t){}visitNonWordBoundary(t){}visitLookahead(t){}visitNegativeLookahead(t){}visitCharacter(t){}visitSet(t){}visitGroup(t){}visitGroupBackReference(t){}visitQuantifier(t){}};var Ln={},rx=new Pr;function lr(e){let t=e.toString();if(Ln.hasOwnProperty(t))return Ln[t];{let r=rx.pattern(t);return Ln[t]=r,r}}function tl(){Ln={}}var rl="Complement Sets are not supported for first char optimization",kr=`Unable to use "first char" lexer optimizations:
-`;function nl(e,t=!1){try{let r=lr(e);return Ni(r.value,{},r.flags.ignoreCase)}catch(r){if(r.message===rl)t&&Nr(`${kr}	Unable to optimize: < ${e.toString()} >
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
+
+// src/index.js
+var src_exports = {};
+__export(src_exports, {
+  default: () => src_default
+});
+module.exports = __toCommonJS(src_exports);
+
+// src/riscript.js
+var import_he = __toESM(require("he"), 1);
+var import_mingo = require("mingo");
+
+// node_modules/lodash-es/_freeGlobal.js
+var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
+var freeGlobal_default = freeGlobal;
+
+// node_modules/lodash-es/_root.js
+var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+var root = freeGlobal_default || freeSelf || Function("return this")();
+var root_default = root;
+
+// node_modules/lodash-es/_Symbol.js
+var Symbol2 = root_default.Symbol;
+var Symbol_default = Symbol2;
+
+// node_modules/lodash-es/_getRawTag.js
+var objectProto = Object.prototype;
+var hasOwnProperty = objectProto.hasOwnProperty;
+var nativeObjectToString = objectProto.toString;
+var symToStringTag = Symbol_default ? Symbol_default.toStringTag : void 0;
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag), tag = value[symToStringTag];
+  try {
+    value[symToStringTag] = void 0;
+    var unmasked = true;
+  } catch (e) {
+  }
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+var getRawTag_default = getRawTag;
+
+// node_modules/lodash-es/_objectToString.js
+var objectProto2 = Object.prototype;
+var nativeObjectToString2 = objectProto2.toString;
+function objectToString(value) {
+  return nativeObjectToString2.call(value);
+}
+var objectToString_default = objectToString;
+
+// node_modules/lodash-es/_baseGetTag.js
+var nullTag = "[object Null]";
+var undefinedTag = "[object Undefined]";
+var symToStringTag2 = Symbol_default ? Symbol_default.toStringTag : void 0;
+function baseGetTag(value) {
+  if (value == null) {
+    return value === void 0 ? undefinedTag : nullTag;
+  }
+  return symToStringTag2 && symToStringTag2 in Object(value) ? getRawTag_default(value) : objectToString_default(value);
+}
+var baseGetTag_default = baseGetTag;
+
+// node_modules/lodash-es/isObjectLike.js
+function isObjectLike(value) {
+  return value != null && typeof value == "object";
+}
+var isObjectLike_default = isObjectLike;
+
+// node_modules/lodash-es/isSymbol.js
+var symbolTag = "[object Symbol]";
+function isSymbol(value) {
+  return typeof value == "symbol" || isObjectLike_default(value) && baseGetTag_default(value) == symbolTag;
+}
+var isSymbol_default = isSymbol;
+
+// node_modules/lodash-es/_arrayMap.js
+function arrayMap(array, iteratee) {
+  var index = -1, length = array == null ? 0 : array.length, result = Array(length);
+  while (++index < length) {
+    result[index] = iteratee(array[index], index, array);
+  }
+  return result;
+}
+var arrayMap_default = arrayMap;
+
+// node_modules/lodash-es/isArray.js
+var isArray = Array.isArray;
+var isArray_default = isArray;
+
+// node_modules/lodash-es/_baseToString.js
+var INFINITY = 1 / 0;
+var symbolProto = Symbol_default ? Symbol_default.prototype : void 0;
+var symbolToString = symbolProto ? symbolProto.toString : void 0;
+function baseToString(value) {
+  if (typeof value == "string") {
+    return value;
+  }
+  if (isArray_default(value)) {
+    return arrayMap_default(value, baseToString) + "";
+  }
+  if (isSymbol_default(value)) {
+    return symbolToString ? symbolToString.call(value) : "";
+  }
+  var result = value + "";
+  return result == "0" && 1 / value == -INFINITY ? "-0" : result;
+}
+var baseToString_default = baseToString;
+
+// node_modules/lodash-es/_trimmedEndIndex.js
+var reWhitespace = /\s/;
+function trimmedEndIndex(string) {
+  var index = string.length;
+  while (index-- && reWhitespace.test(string.charAt(index))) {
+  }
+  return index;
+}
+var trimmedEndIndex_default = trimmedEndIndex;
+
+// node_modules/lodash-es/_baseTrim.js
+var reTrimStart = /^\s+/;
+function baseTrim(string) {
+  return string ? string.slice(0, trimmedEndIndex_default(string) + 1).replace(reTrimStart, "") : string;
+}
+var baseTrim_default = baseTrim;
+
+// node_modules/lodash-es/isObject.js
+function isObject(value) {
+  var type = typeof value;
+  return value != null && (type == "object" || type == "function");
+}
+var isObject_default = isObject;
+
+// node_modules/lodash-es/toNumber.js
+var NAN = 0 / 0;
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+var reIsBinary = /^0b[01]+$/i;
+var reIsOctal = /^0o[0-7]+$/i;
+var freeParseInt = parseInt;
+function toNumber(value) {
+  if (typeof value == "number") {
+    return value;
+  }
+  if (isSymbol_default(value)) {
+    return NAN;
+  }
+  if (isObject_default(value)) {
+    var other = typeof value.valueOf == "function" ? value.valueOf() : value;
+    value = isObject_default(other) ? other + "" : other;
+  }
+  if (typeof value != "string") {
+    return value === 0 ? value : +value;
+  }
+  value = baseTrim_default(value);
+  var isBinary = reIsBinary.test(value);
+  return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
+}
+var toNumber_default = toNumber;
+
+// node_modules/lodash-es/toFinite.js
+var INFINITY2 = 1 / 0;
+var MAX_INTEGER = 17976931348623157e292;
+function toFinite(value) {
+  if (!value) {
+    return value === 0 ? value : 0;
+  }
+  value = toNumber_default(value);
+  if (value === INFINITY2 || value === -INFINITY2) {
+    var sign = value < 0 ? -1 : 1;
+    return sign * MAX_INTEGER;
+  }
+  return value === value ? value : 0;
+}
+var toFinite_default = toFinite;
+
+// node_modules/lodash-es/toInteger.js
+function toInteger(value) {
+  var result = toFinite_default(value), remainder = result % 1;
+  return result === result ? remainder ? result - remainder : result : 0;
+}
+var toInteger_default = toInteger;
+
+// node_modules/lodash-es/identity.js
+function identity(value) {
+  return value;
+}
+var identity_default = identity;
+
+// node_modules/lodash-es/isFunction.js
+var asyncTag = "[object AsyncFunction]";
+var funcTag = "[object Function]";
+var genTag = "[object GeneratorFunction]";
+var proxyTag = "[object Proxy]";
+function isFunction(value) {
+  if (!isObject_default(value)) {
+    return false;
+  }
+  var tag = baseGetTag_default(value);
+  return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+}
+var isFunction_default = isFunction;
+
+// node_modules/lodash-es/_coreJsData.js
+var coreJsData = root_default["__core-js_shared__"];
+var coreJsData_default = coreJsData;
+
+// node_modules/lodash-es/_isMasked.js
+var maskSrcKey = function() {
+  var uid = /[^.]+$/.exec(coreJsData_default && coreJsData_default.keys && coreJsData_default.keys.IE_PROTO || "");
+  return uid ? "Symbol(src)_1." + uid : "";
+}();
+function isMasked(func) {
+  return !!maskSrcKey && maskSrcKey in func;
+}
+var isMasked_default = isMasked;
+
+// node_modules/lodash-es/_toSource.js
+var funcProto = Function.prototype;
+var funcToString = funcProto.toString;
+function toSource(func) {
+  if (func != null) {
+    try {
+      return funcToString.call(func);
+    } catch (e) {
+    }
+    try {
+      return func + "";
+    } catch (e) {
+    }
+  }
+  return "";
+}
+var toSource_default = toSource;
+
+// node_modules/lodash-es/_baseIsNative.js
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+var reIsHostCtor = /^\[object .+?Constructor\]$/;
+var funcProto2 = Function.prototype;
+var objectProto3 = Object.prototype;
+var funcToString2 = funcProto2.toString;
+var hasOwnProperty2 = objectProto3.hasOwnProperty;
+var reIsNative = RegExp(
+  "^" + funcToString2.call(hasOwnProperty2).replace(reRegExpChar, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
+);
+function baseIsNative(value) {
+  if (!isObject_default(value) || isMasked_default(value)) {
+    return false;
+  }
+  var pattern = isFunction_default(value) ? reIsNative : reIsHostCtor;
+  return pattern.test(toSource_default(value));
+}
+var baseIsNative_default = baseIsNative;
+
+// node_modules/lodash-es/_getValue.js
+function getValue(object, key) {
+  return object == null ? void 0 : object[key];
+}
+var getValue_default = getValue;
+
+// node_modules/lodash-es/_getNative.js
+function getNative(object, key) {
+  var value = getValue_default(object, key);
+  return baseIsNative_default(value) ? value : void 0;
+}
+var getNative_default = getNative;
+
+// node_modules/lodash-es/_WeakMap.js
+var WeakMap = getNative_default(root_default, "WeakMap");
+var WeakMap_default = WeakMap;
+
+// node_modules/lodash-es/_baseCreate.js
+var objectCreate = Object.create;
+var baseCreate = function() {
+  function object() {
+  }
+  return function(proto) {
+    if (!isObject_default(proto)) {
+      return {};
+    }
+    if (objectCreate) {
+      return objectCreate(proto);
+    }
+    object.prototype = proto;
+    var result = new object();
+    object.prototype = void 0;
+    return result;
+  };
+}();
+var baseCreate_default = baseCreate;
+
+// node_modules/lodash-es/_apply.js
+function apply(func, thisArg, args) {
+  switch (args.length) {
+    case 0:
+      return func.call(thisArg);
+    case 1:
+      return func.call(thisArg, args[0]);
+    case 2:
+      return func.call(thisArg, args[0], args[1]);
+    case 3:
+      return func.call(thisArg, args[0], args[1], args[2]);
+  }
+  return func.apply(thisArg, args);
+}
+var apply_default = apply;
+
+// node_modules/lodash-es/noop.js
+function noop() {
+}
+var noop_default = noop;
+
+// node_modules/lodash-es/_copyArray.js
+function copyArray(source, array) {
+  var index = -1, length = source.length;
+  array || (array = Array(length));
+  while (++index < length) {
+    array[index] = source[index];
+  }
+  return array;
+}
+var copyArray_default = copyArray;
+
+// node_modules/lodash-es/_shortOut.js
+var HOT_COUNT = 800;
+var HOT_SPAN = 16;
+var nativeNow = Date.now;
+function shortOut(func) {
+  var count = 0, lastCalled = 0;
+  return function() {
+    var stamp = nativeNow(), remaining = HOT_SPAN - (stamp - lastCalled);
+    lastCalled = stamp;
+    if (remaining > 0) {
+      if (++count >= HOT_COUNT) {
+        return arguments[0];
+      }
+    } else {
+      count = 0;
+    }
+    return func.apply(void 0, arguments);
+  };
+}
+var shortOut_default = shortOut;
+
+// node_modules/lodash-es/constant.js
+function constant(value) {
+  return function() {
+    return value;
+  };
+}
+var constant_default = constant;
+
+// node_modules/lodash-es/_defineProperty.js
+var defineProperty = function() {
+  try {
+    var func = getNative_default(Object, "defineProperty");
+    func({}, "", {});
+    return func;
+  } catch (e) {
+  }
+}();
+var defineProperty_default = defineProperty;
+
+// node_modules/lodash-es/_baseSetToString.js
+var baseSetToString = !defineProperty_default ? identity_default : function(func, string) {
+  return defineProperty_default(func, "toString", {
+    "configurable": true,
+    "enumerable": false,
+    "value": constant_default(string),
+    "writable": true
+  });
+};
+var baseSetToString_default = baseSetToString;
+
+// node_modules/lodash-es/_setToString.js
+var setToString = shortOut_default(baseSetToString_default);
+var setToString_default = setToString;
+
+// node_modules/lodash-es/_arrayEach.js
+function arrayEach(array, iteratee) {
+  var index = -1, length = array == null ? 0 : array.length;
+  while (++index < length) {
+    if (iteratee(array[index], index, array) === false) {
+      break;
+    }
+  }
+  return array;
+}
+var arrayEach_default = arrayEach;
+
+// node_modules/lodash-es/_baseFindIndex.js
+function baseFindIndex(array, predicate, fromIndex, fromRight) {
+  var length = array.length, index = fromIndex + (fromRight ? 1 : -1);
+  while (fromRight ? index-- : ++index < length) {
+    if (predicate(array[index], index, array)) {
+      return index;
+    }
+  }
+  return -1;
+}
+var baseFindIndex_default = baseFindIndex;
+
+// node_modules/lodash-es/_baseIsNaN.js
+function baseIsNaN(value) {
+  return value !== value;
+}
+var baseIsNaN_default = baseIsNaN;
+
+// node_modules/lodash-es/_strictIndexOf.js
+function strictIndexOf(array, value, fromIndex) {
+  var index = fromIndex - 1, length = array.length;
+  while (++index < length) {
+    if (array[index] === value) {
+      return index;
+    }
+  }
+  return -1;
+}
+var strictIndexOf_default = strictIndexOf;
+
+// node_modules/lodash-es/_baseIndexOf.js
+function baseIndexOf(array, value, fromIndex) {
+  return value === value ? strictIndexOf_default(array, value, fromIndex) : baseFindIndex_default(array, baseIsNaN_default, fromIndex);
+}
+var baseIndexOf_default = baseIndexOf;
+
+// node_modules/lodash-es/_arrayIncludes.js
+function arrayIncludes(array, value) {
+  var length = array == null ? 0 : array.length;
+  return !!length && baseIndexOf_default(array, value, 0) > -1;
+}
+var arrayIncludes_default = arrayIncludes;
+
+// node_modules/lodash-es/_isIndex.js
+var MAX_SAFE_INTEGER = 9007199254740991;
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+function isIndex(value, length) {
+  var type = typeof value;
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return !!length && (type == "number" || type != "symbol" && reIsUint.test(value)) && (value > -1 && value % 1 == 0 && value < length);
+}
+var isIndex_default = isIndex;
+
+// node_modules/lodash-es/_baseAssignValue.js
+function baseAssignValue(object, key, value) {
+  if (key == "__proto__" && defineProperty_default) {
+    defineProperty_default(object, key, {
+      "configurable": true,
+      "enumerable": true,
+      "value": value,
+      "writable": true
+    });
+  } else {
+    object[key] = value;
+  }
+}
+var baseAssignValue_default = baseAssignValue;
+
+// node_modules/lodash-es/eq.js
+function eq(value, other) {
+  return value === other || value !== value && other !== other;
+}
+var eq_default = eq;
+
+// node_modules/lodash-es/_assignValue.js
+var objectProto4 = Object.prototype;
+var hasOwnProperty3 = objectProto4.hasOwnProperty;
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty3.call(object, key) && eq_default(objValue, value)) || value === void 0 && !(key in object)) {
+    baseAssignValue_default(object, key, value);
+  }
+}
+var assignValue_default = assignValue;
+
+// node_modules/lodash-es/_copyObject.js
+function copyObject(source, props, object, customizer) {
+  var isNew = !object;
+  object || (object = {});
+  var index = -1, length = props.length;
+  while (++index < length) {
+    var key = props[index];
+    var newValue = customizer ? customizer(object[key], source[key], key, object, source) : void 0;
+    if (newValue === void 0) {
+      newValue = source[key];
+    }
+    if (isNew) {
+      baseAssignValue_default(object, key, newValue);
+    } else {
+      assignValue_default(object, key, newValue);
+    }
+  }
+  return object;
+}
+var copyObject_default = copyObject;
+
+// node_modules/lodash-es/_overRest.js
+var nativeMax = Math.max;
+function overRest(func, start, transform) {
+  start = nativeMax(start === void 0 ? func.length - 1 : start, 0);
+  return function() {
+    var args = arguments, index = -1, length = nativeMax(args.length - start, 0), array = Array(length);
+    while (++index < length) {
+      array[index] = args[start + index];
+    }
+    index = -1;
+    var otherArgs = Array(start + 1);
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = transform(array);
+    return apply_default(func, this, otherArgs);
+  };
+}
+var overRest_default = overRest;
+
+// node_modules/lodash-es/_baseRest.js
+function baseRest(func, start) {
+  return setToString_default(overRest_default(func, start, identity_default), func + "");
+}
+var baseRest_default = baseRest;
+
+// node_modules/lodash-es/isLength.js
+var MAX_SAFE_INTEGER2 = 9007199254740991;
+function isLength(value) {
+  return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER2;
+}
+var isLength_default = isLength;
+
+// node_modules/lodash-es/isArrayLike.js
+function isArrayLike(value) {
+  return value != null && isLength_default(value.length) && !isFunction_default(value);
+}
+var isArrayLike_default = isArrayLike;
+
+// node_modules/lodash-es/_isIterateeCall.js
+function isIterateeCall(value, index, object) {
+  if (!isObject_default(object)) {
+    return false;
+  }
+  var type = typeof index;
+  if (type == "number" ? isArrayLike_default(object) && isIndex_default(index, object.length) : type == "string" && index in object) {
+    return eq_default(object[index], value);
+  }
+  return false;
+}
+var isIterateeCall_default = isIterateeCall;
+
+// node_modules/lodash-es/_createAssigner.js
+function createAssigner(assigner) {
+  return baseRest_default(function(object, sources) {
+    var index = -1, length = sources.length, customizer = length > 1 ? sources[length - 1] : void 0, guard = length > 2 ? sources[2] : void 0;
+    customizer = assigner.length > 3 && typeof customizer == "function" ? (length--, customizer) : void 0;
+    if (guard && isIterateeCall_default(sources[0], sources[1], guard)) {
+      customizer = length < 3 ? void 0 : customizer;
+      length = 1;
+    }
+    object = Object(object);
+    while (++index < length) {
+      var source = sources[index];
+      if (source) {
+        assigner(object, source, index, customizer);
+      }
+    }
+    return object;
+  });
+}
+var createAssigner_default = createAssigner;
+
+// node_modules/lodash-es/_isPrototype.js
+var objectProto5 = Object.prototype;
+function isPrototype(value) {
+  var Ctor = value && value.constructor, proto = typeof Ctor == "function" && Ctor.prototype || objectProto5;
+  return value === proto;
+}
+var isPrototype_default = isPrototype;
+
+// node_modules/lodash-es/_baseTimes.js
+function baseTimes(n, iteratee) {
+  var index = -1, result = Array(n);
+  while (++index < n) {
+    result[index] = iteratee(index);
+  }
+  return result;
+}
+var baseTimes_default = baseTimes;
+
+// node_modules/lodash-es/_baseIsArguments.js
+var argsTag = "[object Arguments]";
+function baseIsArguments(value) {
+  return isObjectLike_default(value) && baseGetTag_default(value) == argsTag;
+}
+var baseIsArguments_default = baseIsArguments;
+
+// node_modules/lodash-es/isArguments.js
+var objectProto6 = Object.prototype;
+var hasOwnProperty4 = objectProto6.hasOwnProperty;
+var propertyIsEnumerable = objectProto6.propertyIsEnumerable;
+var isArguments = baseIsArguments_default(function() {
+  return arguments;
+}()) ? baseIsArguments_default : function(value) {
+  return isObjectLike_default(value) && hasOwnProperty4.call(value, "callee") && !propertyIsEnumerable.call(value, "callee");
+};
+var isArguments_default = isArguments;
+
+// node_modules/lodash-es/stubFalse.js
+function stubFalse() {
+  return false;
+}
+var stubFalse_default = stubFalse;
+
+// node_modules/lodash-es/isBuffer.js
+var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
+var freeModule = freeExports && typeof module == "object" && module && !module.nodeType && module;
+var moduleExports = freeModule && freeModule.exports === freeExports;
+var Buffer2 = moduleExports ? root_default.Buffer : void 0;
+var nativeIsBuffer = Buffer2 ? Buffer2.isBuffer : void 0;
+var isBuffer = nativeIsBuffer || stubFalse_default;
+var isBuffer_default = isBuffer;
+
+// node_modules/lodash-es/_baseIsTypedArray.js
+var argsTag2 = "[object Arguments]";
+var arrayTag = "[object Array]";
+var boolTag = "[object Boolean]";
+var dateTag = "[object Date]";
+var errorTag = "[object Error]";
+var funcTag2 = "[object Function]";
+var mapTag = "[object Map]";
+var numberTag = "[object Number]";
+var objectTag = "[object Object]";
+var regexpTag = "[object RegExp]";
+var setTag = "[object Set]";
+var stringTag = "[object String]";
+var weakMapTag = "[object WeakMap]";
+var arrayBufferTag = "[object ArrayBuffer]";
+var dataViewTag = "[object DataView]";
+var float32Tag = "[object Float32Array]";
+var float64Tag = "[object Float64Array]";
+var int8Tag = "[object Int8Array]";
+var int16Tag = "[object Int16Array]";
+var int32Tag = "[object Int32Array]";
+var uint8Tag = "[object Uint8Array]";
+var uint8ClampedTag = "[object Uint8ClampedArray]";
+var uint16Tag = "[object Uint16Array]";
+var uint32Tag = "[object Uint32Array]";
+var typedArrayTags = {};
+typedArrayTags[float32Tag] = typedArrayTags[float64Tag] = typedArrayTags[int8Tag] = typedArrayTags[int16Tag] = typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] = typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] = typedArrayTags[uint32Tag] = true;
+typedArrayTags[argsTag2] = typedArrayTags[arrayTag] = typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] = typedArrayTags[dataViewTag] = typedArrayTags[dateTag] = typedArrayTags[errorTag] = typedArrayTags[funcTag2] = typedArrayTags[mapTag] = typedArrayTags[numberTag] = typedArrayTags[objectTag] = typedArrayTags[regexpTag] = typedArrayTags[setTag] = typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
+function baseIsTypedArray(value) {
+  return isObjectLike_default(value) && isLength_default(value.length) && !!typedArrayTags[baseGetTag_default(value)];
+}
+var baseIsTypedArray_default = baseIsTypedArray;
+
+// node_modules/lodash-es/_baseUnary.js
+function baseUnary(func) {
+  return function(value) {
+    return func(value);
+  };
+}
+var baseUnary_default = baseUnary;
+
+// node_modules/lodash-es/_nodeUtil.js
+var freeExports2 = typeof exports == "object" && exports && !exports.nodeType && exports;
+var freeModule2 = freeExports2 && typeof module == "object" && module && !module.nodeType && module;
+var moduleExports2 = freeModule2 && freeModule2.exports === freeExports2;
+var freeProcess = moduleExports2 && freeGlobal_default.process;
+var nodeUtil = function() {
+  try {
+    var types = freeModule2 && freeModule2.require && freeModule2.require("util").types;
+    if (types) {
+      return types;
+    }
+    return freeProcess && freeProcess.binding && freeProcess.binding("util");
+  } catch (e) {
+  }
+}();
+var nodeUtil_default = nodeUtil;
+
+// node_modules/lodash-es/isTypedArray.js
+var nodeIsTypedArray = nodeUtil_default && nodeUtil_default.isTypedArray;
+var isTypedArray = nodeIsTypedArray ? baseUnary_default(nodeIsTypedArray) : baseIsTypedArray_default;
+var isTypedArray_default = isTypedArray;
+
+// node_modules/lodash-es/_arrayLikeKeys.js
+var objectProto7 = Object.prototype;
+var hasOwnProperty5 = objectProto7.hasOwnProperty;
+function arrayLikeKeys(value, inherited) {
+  var isArr = isArray_default(value), isArg = !isArr && isArguments_default(value), isBuff = !isArr && !isArg && isBuffer_default(value), isType = !isArr && !isArg && !isBuff && isTypedArray_default(value), skipIndexes = isArr || isArg || isBuff || isType, result = skipIndexes ? baseTimes_default(value.length, String) : [], length = result.length;
+  for (var key in value) {
+    if ((inherited || hasOwnProperty5.call(value, key)) && !(skipIndexes && // Safari 9 has enumerable `arguments.length` in strict mode.
+    (key == "length" || // Node.js 0.10 has enumerable non-index properties on buffers.
+    isBuff && (key == "offset" || key == "parent") || // PhantomJS 2 has enumerable non-index properties on typed arrays.
+    isType && (key == "buffer" || key == "byteLength" || key == "byteOffset") || // Skip index properties.
+    isIndex_default(key, length)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+var arrayLikeKeys_default = arrayLikeKeys;
+
+// node_modules/lodash-es/_overArg.js
+function overArg(func, transform) {
+  return function(arg) {
+    return func(transform(arg));
+  };
+}
+var overArg_default = overArg;
+
+// node_modules/lodash-es/_nativeKeys.js
+var nativeKeys = overArg_default(Object.keys, Object);
+var nativeKeys_default = nativeKeys;
+
+// node_modules/lodash-es/_baseKeys.js
+var objectProto8 = Object.prototype;
+var hasOwnProperty6 = objectProto8.hasOwnProperty;
+function baseKeys(object) {
+  if (!isPrototype_default(object)) {
+    return nativeKeys_default(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty6.call(object, key) && key != "constructor") {
+      result.push(key);
+    }
+  }
+  return result;
+}
+var baseKeys_default = baseKeys;
+
+// node_modules/lodash-es/keys.js
+function keys(object) {
+  return isArrayLike_default(object) ? arrayLikeKeys_default(object) : baseKeys_default(object);
+}
+var keys_default = keys;
+
+// node_modules/lodash-es/assign.js
+var objectProto9 = Object.prototype;
+var hasOwnProperty7 = objectProto9.hasOwnProperty;
+var assign = createAssigner_default(function(object, source) {
+  if (isPrototype_default(source) || isArrayLike_default(source)) {
+    copyObject_default(source, keys_default(source), object);
+    return;
+  }
+  for (var key in source) {
+    if (hasOwnProperty7.call(source, key)) {
+      assignValue_default(object, key, source[key]);
+    }
+  }
+});
+var assign_default = assign;
+
+// node_modules/lodash-es/_nativeKeysIn.js
+function nativeKeysIn(object) {
+  var result = [];
+  if (object != null) {
+    for (var key in Object(object)) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+var nativeKeysIn_default = nativeKeysIn;
+
+// node_modules/lodash-es/_baseKeysIn.js
+var objectProto10 = Object.prototype;
+var hasOwnProperty8 = objectProto10.hasOwnProperty;
+function baseKeysIn(object) {
+  if (!isObject_default(object)) {
+    return nativeKeysIn_default(object);
+  }
+  var isProto = isPrototype_default(object), result = [];
+  for (var key in object) {
+    if (!(key == "constructor" && (isProto || !hasOwnProperty8.call(object, key)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+var baseKeysIn_default = baseKeysIn;
+
+// node_modules/lodash-es/keysIn.js
+function keysIn(object) {
+  return isArrayLike_default(object) ? arrayLikeKeys_default(object, true) : baseKeysIn_default(object);
+}
+var keysIn_default = keysIn;
+
+// node_modules/lodash-es/_isKey.js
+var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/;
+var reIsPlainProp = /^\w*$/;
+function isKey(value, object) {
+  if (isArray_default(value)) {
+    return false;
+  }
+  var type = typeof value;
+  if (type == "number" || type == "symbol" || type == "boolean" || value == null || isSymbol_default(value)) {
+    return true;
+  }
+  return reIsPlainProp.test(value) || !reIsDeepProp.test(value) || object != null && value in Object(object);
+}
+var isKey_default = isKey;
+
+// node_modules/lodash-es/_nativeCreate.js
+var nativeCreate = getNative_default(Object, "create");
+var nativeCreate_default = nativeCreate;
+
+// node_modules/lodash-es/_hashClear.js
+function hashClear() {
+  this.__data__ = nativeCreate_default ? nativeCreate_default(null) : {};
+  this.size = 0;
+}
+var hashClear_default = hashClear;
+
+// node_modules/lodash-es/_hashDelete.js
+function hashDelete(key) {
+  var result = this.has(key) && delete this.__data__[key];
+  this.size -= result ? 1 : 0;
+  return result;
+}
+var hashDelete_default = hashDelete;
+
+// node_modules/lodash-es/_hashGet.js
+var HASH_UNDEFINED = "__lodash_hash_undefined__";
+var objectProto11 = Object.prototype;
+var hasOwnProperty9 = objectProto11.hasOwnProperty;
+function hashGet(key) {
+  var data = this.__data__;
+  if (nativeCreate_default) {
+    var result = data[key];
+    return result === HASH_UNDEFINED ? void 0 : result;
+  }
+  return hasOwnProperty9.call(data, key) ? data[key] : void 0;
+}
+var hashGet_default = hashGet;
+
+// node_modules/lodash-es/_hashHas.js
+var objectProto12 = Object.prototype;
+var hasOwnProperty10 = objectProto12.hasOwnProperty;
+function hashHas(key) {
+  var data = this.__data__;
+  return nativeCreate_default ? data[key] !== void 0 : hasOwnProperty10.call(data, key);
+}
+var hashHas_default = hashHas;
+
+// node_modules/lodash-es/_hashSet.js
+var HASH_UNDEFINED2 = "__lodash_hash_undefined__";
+function hashSet(key, value) {
+  var data = this.__data__;
+  this.size += this.has(key) ? 0 : 1;
+  data[key] = nativeCreate_default && value === void 0 ? HASH_UNDEFINED2 : value;
+  return this;
+}
+var hashSet_default = hashSet;
+
+// node_modules/lodash-es/_Hash.js
+function Hash(entries) {
+  var index = -1, length = entries == null ? 0 : entries.length;
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+Hash.prototype.clear = hashClear_default;
+Hash.prototype["delete"] = hashDelete_default;
+Hash.prototype.get = hashGet_default;
+Hash.prototype.has = hashHas_default;
+Hash.prototype.set = hashSet_default;
+var Hash_default = Hash;
+
+// node_modules/lodash-es/_listCacheClear.js
+function listCacheClear() {
+  this.__data__ = [];
+  this.size = 0;
+}
+var listCacheClear_default = listCacheClear;
+
+// node_modules/lodash-es/_assocIndexOf.js
+function assocIndexOf(array, key) {
+  var length = array.length;
+  while (length--) {
+    if (eq_default(array[length][0], key)) {
+      return length;
+    }
+  }
+  return -1;
+}
+var assocIndexOf_default = assocIndexOf;
+
+// node_modules/lodash-es/_listCacheDelete.js
+var arrayProto = Array.prototype;
+var splice = arrayProto.splice;
+function listCacheDelete(key) {
+  var data = this.__data__, index = assocIndexOf_default(data, key);
+  if (index < 0) {
+    return false;
+  }
+  var lastIndex = data.length - 1;
+  if (index == lastIndex) {
+    data.pop();
+  } else {
+    splice.call(data, index, 1);
+  }
+  --this.size;
+  return true;
+}
+var listCacheDelete_default = listCacheDelete;
+
+// node_modules/lodash-es/_listCacheGet.js
+function listCacheGet(key) {
+  var data = this.__data__, index = assocIndexOf_default(data, key);
+  return index < 0 ? void 0 : data[index][1];
+}
+var listCacheGet_default = listCacheGet;
+
+// node_modules/lodash-es/_listCacheHas.js
+function listCacheHas(key) {
+  return assocIndexOf_default(this.__data__, key) > -1;
+}
+var listCacheHas_default = listCacheHas;
+
+// node_modules/lodash-es/_listCacheSet.js
+function listCacheSet(key, value) {
+  var data = this.__data__, index = assocIndexOf_default(data, key);
+  if (index < 0) {
+    ++this.size;
+    data.push([key, value]);
+  } else {
+    data[index][1] = value;
+  }
+  return this;
+}
+var listCacheSet_default = listCacheSet;
+
+// node_modules/lodash-es/_ListCache.js
+function ListCache(entries) {
+  var index = -1, length = entries == null ? 0 : entries.length;
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+ListCache.prototype.clear = listCacheClear_default;
+ListCache.prototype["delete"] = listCacheDelete_default;
+ListCache.prototype.get = listCacheGet_default;
+ListCache.prototype.has = listCacheHas_default;
+ListCache.prototype.set = listCacheSet_default;
+var ListCache_default = ListCache;
+
+// node_modules/lodash-es/_Map.js
+var Map2 = getNative_default(root_default, "Map");
+var Map_default = Map2;
+
+// node_modules/lodash-es/_mapCacheClear.js
+function mapCacheClear() {
+  this.size = 0;
+  this.__data__ = {
+    "hash": new Hash_default(),
+    "map": new (Map_default || ListCache_default)(),
+    "string": new Hash_default()
+  };
+}
+var mapCacheClear_default = mapCacheClear;
+
+// node_modules/lodash-es/_isKeyable.js
+function isKeyable(value) {
+  var type = typeof value;
+  return type == "string" || type == "number" || type == "symbol" || type == "boolean" ? value !== "__proto__" : value === null;
+}
+var isKeyable_default = isKeyable;
+
+// node_modules/lodash-es/_getMapData.js
+function getMapData(map2, key) {
+  var data = map2.__data__;
+  return isKeyable_default(key) ? data[typeof key == "string" ? "string" : "hash"] : data.map;
+}
+var getMapData_default = getMapData;
+
+// node_modules/lodash-es/_mapCacheDelete.js
+function mapCacheDelete(key) {
+  var result = getMapData_default(this, key)["delete"](key);
+  this.size -= result ? 1 : 0;
+  return result;
+}
+var mapCacheDelete_default = mapCacheDelete;
+
+// node_modules/lodash-es/_mapCacheGet.js
+function mapCacheGet(key) {
+  return getMapData_default(this, key).get(key);
+}
+var mapCacheGet_default = mapCacheGet;
+
+// node_modules/lodash-es/_mapCacheHas.js
+function mapCacheHas(key) {
+  return getMapData_default(this, key).has(key);
+}
+var mapCacheHas_default = mapCacheHas;
+
+// node_modules/lodash-es/_mapCacheSet.js
+function mapCacheSet(key, value) {
+  var data = getMapData_default(this, key), size = data.size;
+  data.set(key, value);
+  this.size += data.size == size ? 0 : 1;
+  return this;
+}
+var mapCacheSet_default = mapCacheSet;
+
+// node_modules/lodash-es/_MapCache.js
+function MapCache(entries) {
+  var index = -1, length = entries == null ? 0 : entries.length;
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+MapCache.prototype.clear = mapCacheClear_default;
+MapCache.prototype["delete"] = mapCacheDelete_default;
+MapCache.prototype.get = mapCacheGet_default;
+MapCache.prototype.has = mapCacheHas_default;
+MapCache.prototype.set = mapCacheSet_default;
+var MapCache_default = MapCache;
+
+// node_modules/lodash-es/memoize.js
+var FUNC_ERROR_TEXT = "Expected a function";
+function memoize(func, resolver) {
+  if (typeof func != "function" || resolver != null && typeof resolver != "function") {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  var memoized = function() {
+    var args = arguments, key = resolver ? resolver.apply(this, args) : args[0], cache = memoized.cache;
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+    var result = func.apply(this, args);
+    memoized.cache = cache.set(key, result) || cache;
+    return result;
+  };
+  memoized.cache = new (memoize.Cache || MapCache_default)();
+  return memoized;
+}
+memoize.Cache = MapCache_default;
+var memoize_default = memoize;
+
+// node_modules/lodash-es/_memoizeCapped.js
+var MAX_MEMOIZE_SIZE = 500;
+function memoizeCapped(func) {
+  var result = memoize_default(func, function(key) {
+    if (cache.size === MAX_MEMOIZE_SIZE) {
+      cache.clear();
+    }
+    return key;
+  });
+  var cache = result.cache;
+  return result;
+}
+var memoizeCapped_default = memoizeCapped;
+
+// node_modules/lodash-es/_stringToPath.js
+var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
+var reEscapeChar = /\\(\\)?/g;
+var stringToPath = memoizeCapped_default(function(string) {
+  var result = [];
+  if (string.charCodeAt(0) === 46) {
+    result.push("");
+  }
+  string.replace(rePropName, function(match, number, quote, subString) {
+    result.push(quote ? subString.replace(reEscapeChar, "$1") : number || match);
+  });
+  return result;
+});
+var stringToPath_default = stringToPath;
+
+// node_modules/lodash-es/toString.js
+function toString(value) {
+  return value == null ? "" : baseToString_default(value);
+}
+var toString_default = toString;
+
+// node_modules/lodash-es/_castPath.js
+function castPath(value, object) {
+  if (isArray_default(value)) {
+    return value;
+  }
+  return isKey_default(value, object) ? [value] : stringToPath_default(toString_default(value));
+}
+var castPath_default = castPath;
+
+// node_modules/lodash-es/_toKey.js
+var INFINITY3 = 1 / 0;
+function toKey(value) {
+  if (typeof value == "string" || isSymbol_default(value)) {
+    return value;
+  }
+  var result = value + "";
+  return result == "0" && 1 / value == -INFINITY3 ? "-0" : result;
+}
+var toKey_default = toKey;
+
+// node_modules/lodash-es/_baseGet.js
+function baseGet(object, path) {
+  path = castPath_default(path, object);
+  var index = 0, length = path.length;
+  while (object != null && index < length) {
+    object = object[toKey_default(path[index++])];
+  }
+  return index && index == length ? object : void 0;
+}
+var baseGet_default = baseGet;
+
+// node_modules/lodash-es/get.js
+function get(object, path, defaultValue) {
+  var result = object == null ? void 0 : baseGet_default(object, path);
+  return result === void 0 ? defaultValue : result;
+}
+var get_default = get;
+
+// node_modules/lodash-es/_arrayPush.js
+function arrayPush(array, values2) {
+  var index = -1, length = values2.length, offset = array.length;
+  while (++index < length) {
+    array[offset + index] = values2[index];
+  }
+  return array;
+}
+var arrayPush_default = arrayPush;
+
+// node_modules/lodash-es/_isFlattenable.js
+var spreadableSymbol = Symbol_default ? Symbol_default.isConcatSpreadable : void 0;
+function isFlattenable(value) {
+  return isArray_default(value) || isArguments_default(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
+}
+var isFlattenable_default = isFlattenable;
+
+// node_modules/lodash-es/_baseFlatten.js
+function baseFlatten(array, depth, predicate, isStrict, result) {
+  var index = -1, length = array.length;
+  predicate || (predicate = isFlattenable_default);
+  result || (result = []);
+  while (++index < length) {
+    var value = array[index];
+    if (depth > 0 && predicate(value)) {
+      if (depth > 1) {
+        baseFlatten(value, depth - 1, predicate, isStrict, result);
+      } else {
+        arrayPush_default(result, value);
+      }
+    } else if (!isStrict) {
+      result[result.length] = value;
+    }
+  }
+  return result;
+}
+var baseFlatten_default = baseFlatten;
+
+// node_modules/lodash-es/flatten.js
+function flatten(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? baseFlatten_default(array, 1) : [];
+}
+var flatten_default = flatten;
+
+// node_modules/lodash-es/_getPrototype.js
+var getPrototype = overArg_default(Object.getPrototypeOf, Object);
+var getPrototype_default = getPrototype;
+
+// node_modules/lodash-es/_baseSlice.js
+function baseSlice(array, start, end) {
+  var index = -1, length = array.length;
+  if (start < 0) {
+    start = -start > length ? 0 : length + start;
+  }
+  end = end > length ? length : end;
+  if (end < 0) {
+    end += length;
+  }
+  length = start > end ? 0 : end - start >>> 0;
+  start >>>= 0;
+  var result = Array(length);
+  while (++index < length) {
+    result[index] = array[index + start];
+  }
+  return result;
+}
+var baseSlice_default = baseSlice;
+
+// node_modules/lodash-es/_arrayReduce.js
+function arrayReduce(array, iteratee, accumulator, initAccum) {
+  var index = -1, length = array == null ? 0 : array.length;
+  if (initAccum && length) {
+    accumulator = array[++index];
+  }
+  while (++index < length) {
+    accumulator = iteratee(accumulator, array[index], index, array);
+  }
+  return accumulator;
+}
+var arrayReduce_default = arrayReduce;
+
+// node_modules/lodash-es/_stackClear.js
+function stackClear() {
+  this.__data__ = new ListCache_default();
+  this.size = 0;
+}
+var stackClear_default = stackClear;
+
+// node_modules/lodash-es/_stackDelete.js
+function stackDelete(key) {
+  var data = this.__data__, result = data["delete"](key);
+  this.size = data.size;
+  return result;
+}
+var stackDelete_default = stackDelete;
+
+// node_modules/lodash-es/_stackGet.js
+function stackGet(key) {
+  return this.__data__.get(key);
+}
+var stackGet_default = stackGet;
+
+// node_modules/lodash-es/_stackHas.js
+function stackHas(key) {
+  return this.__data__.has(key);
+}
+var stackHas_default = stackHas;
+
+// node_modules/lodash-es/_stackSet.js
+var LARGE_ARRAY_SIZE = 200;
+function stackSet(key, value) {
+  var data = this.__data__;
+  if (data instanceof ListCache_default) {
+    var pairs = data.__data__;
+    if (!Map_default || pairs.length < LARGE_ARRAY_SIZE - 1) {
+      pairs.push([key, value]);
+      this.size = ++data.size;
+      return this;
+    }
+    data = this.__data__ = new MapCache_default(pairs);
+  }
+  data.set(key, value);
+  this.size = data.size;
+  return this;
+}
+var stackSet_default = stackSet;
+
+// node_modules/lodash-es/_Stack.js
+function Stack(entries) {
+  var data = this.__data__ = new ListCache_default(entries);
+  this.size = data.size;
+}
+Stack.prototype.clear = stackClear_default;
+Stack.prototype["delete"] = stackDelete_default;
+Stack.prototype.get = stackGet_default;
+Stack.prototype.has = stackHas_default;
+Stack.prototype.set = stackSet_default;
+var Stack_default = Stack;
+
+// node_modules/lodash-es/_baseAssign.js
+function baseAssign(object, source) {
+  return object && copyObject_default(source, keys_default(source), object);
+}
+var baseAssign_default = baseAssign;
+
+// node_modules/lodash-es/_baseAssignIn.js
+function baseAssignIn(object, source) {
+  return object && copyObject_default(source, keysIn_default(source), object);
+}
+var baseAssignIn_default = baseAssignIn;
+
+// node_modules/lodash-es/_cloneBuffer.js
+var freeExports3 = typeof exports == "object" && exports && !exports.nodeType && exports;
+var freeModule3 = freeExports3 && typeof module == "object" && module && !module.nodeType && module;
+var moduleExports3 = freeModule3 && freeModule3.exports === freeExports3;
+var Buffer3 = moduleExports3 ? root_default.Buffer : void 0;
+var allocUnsafe = Buffer3 ? Buffer3.allocUnsafe : void 0;
+function cloneBuffer(buffer, isDeep) {
+  if (isDeep) {
+    return buffer.slice();
+  }
+  var length = buffer.length, result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+  buffer.copy(result);
+  return result;
+}
+var cloneBuffer_default = cloneBuffer;
+
+// node_modules/lodash-es/_arrayFilter.js
+function arrayFilter(array, predicate) {
+  var index = -1, length = array == null ? 0 : array.length, resIndex = 0, result = [];
+  while (++index < length) {
+    var value = array[index];
+    if (predicate(value, index, array)) {
+      result[resIndex++] = value;
+    }
+  }
+  return result;
+}
+var arrayFilter_default = arrayFilter;
+
+// node_modules/lodash-es/stubArray.js
+function stubArray() {
+  return [];
+}
+var stubArray_default = stubArray;
+
+// node_modules/lodash-es/_getSymbols.js
+var objectProto13 = Object.prototype;
+var propertyIsEnumerable2 = objectProto13.propertyIsEnumerable;
+var nativeGetSymbols = Object.getOwnPropertySymbols;
+var getSymbols = !nativeGetSymbols ? stubArray_default : function(object) {
+  if (object == null) {
+    return [];
+  }
+  object = Object(object);
+  return arrayFilter_default(nativeGetSymbols(object), function(symbol) {
+    return propertyIsEnumerable2.call(object, symbol);
+  });
+};
+var getSymbols_default = getSymbols;
+
+// node_modules/lodash-es/_copySymbols.js
+function copySymbols(source, object) {
+  return copyObject_default(source, getSymbols_default(source), object);
+}
+var copySymbols_default = copySymbols;
+
+// node_modules/lodash-es/_getSymbolsIn.js
+var nativeGetSymbols2 = Object.getOwnPropertySymbols;
+var getSymbolsIn = !nativeGetSymbols2 ? stubArray_default : function(object) {
+  var result = [];
+  while (object) {
+    arrayPush_default(result, getSymbols_default(object));
+    object = getPrototype_default(object);
+  }
+  return result;
+};
+var getSymbolsIn_default = getSymbolsIn;
+
+// node_modules/lodash-es/_copySymbolsIn.js
+function copySymbolsIn(source, object) {
+  return copyObject_default(source, getSymbolsIn_default(source), object);
+}
+var copySymbolsIn_default = copySymbolsIn;
+
+// node_modules/lodash-es/_baseGetAllKeys.js
+function baseGetAllKeys(object, keysFunc, symbolsFunc) {
+  var result = keysFunc(object);
+  return isArray_default(object) ? result : arrayPush_default(result, symbolsFunc(object));
+}
+var baseGetAllKeys_default = baseGetAllKeys;
+
+// node_modules/lodash-es/_getAllKeys.js
+function getAllKeys(object) {
+  return baseGetAllKeys_default(object, keys_default, getSymbols_default);
+}
+var getAllKeys_default = getAllKeys;
+
+// node_modules/lodash-es/_getAllKeysIn.js
+function getAllKeysIn(object) {
+  return baseGetAllKeys_default(object, keysIn_default, getSymbolsIn_default);
+}
+var getAllKeysIn_default = getAllKeysIn;
+
+// node_modules/lodash-es/_DataView.js
+var DataView = getNative_default(root_default, "DataView");
+var DataView_default = DataView;
+
+// node_modules/lodash-es/_Promise.js
+var Promise2 = getNative_default(root_default, "Promise");
+var Promise_default = Promise2;
+
+// node_modules/lodash-es/_Set.js
+var Set2 = getNative_default(root_default, "Set");
+var Set_default = Set2;
+
+// node_modules/lodash-es/_getTag.js
+var mapTag2 = "[object Map]";
+var objectTag2 = "[object Object]";
+var promiseTag = "[object Promise]";
+var setTag2 = "[object Set]";
+var weakMapTag2 = "[object WeakMap]";
+var dataViewTag2 = "[object DataView]";
+var dataViewCtorString = toSource_default(DataView_default);
+var mapCtorString = toSource_default(Map_default);
+var promiseCtorString = toSource_default(Promise_default);
+var setCtorString = toSource_default(Set_default);
+var weakMapCtorString = toSource_default(WeakMap_default);
+var getTag = baseGetTag_default;
+if (DataView_default && getTag(new DataView_default(new ArrayBuffer(1))) != dataViewTag2 || Map_default && getTag(new Map_default()) != mapTag2 || Promise_default && getTag(Promise_default.resolve()) != promiseTag || Set_default && getTag(new Set_default()) != setTag2 || WeakMap_default && getTag(new WeakMap_default()) != weakMapTag2) {
+  getTag = function(value) {
+    var result = baseGetTag_default(value), Ctor = result == objectTag2 ? value.constructor : void 0, ctorString = Ctor ? toSource_default(Ctor) : "";
+    if (ctorString) {
+      switch (ctorString) {
+        case dataViewCtorString:
+          return dataViewTag2;
+        case mapCtorString:
+          return mapTag2;
+        case promiseCtorString:
+          return promiseTag;
+        case setCtorString:
+          return setTag2;
+        case weakMapCtorString:
+          return weakMapTag2;
+      }
+    }
+    return result;
+  };
+}
+var getTag_default = getTag;
+
+// node_modules/lodash-es/_initCloneArray.js
+var objectProto14 = Object.prototype;
+var hasOwnProperty11 = objectProto14.hasOwnProperty;
+function initCloneArray(array) {
+  var length = array.length, result = new array.constructor(length);
+  if (length && typeof array[0] == "string" && hasOwnProperty11.call(array, "index")) {
+    result.index = array.index;
+    result.input = array.input;
+  }
+  return result;
+}
+var initCloneArray_default = initCloneArray;
+
+// node_modules/lodash-es/_Uint8Array.js
+var Uint8Array2 = root_default.Uint8Array;
+var Uint8Array_default = Uint8Array2;
+
+// node_modules/lodash-es/_cloneArrayBuffer.js
+function cloneArrayBuffer(arrayBuffer) {
+  var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
+  new Uint8Array_default(result).set(new Uint8Array_default(arrayBuffer));
+  return result;
+}
+var cloneArrayBuffer_default = cloneArrayBuffer;
+
+// node_modules/lodash-es/_cloneDataView.js
+function cloneDataView(dataView, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer_default(dataView.buffer) : dataView.buffer;
+  return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+}
+var cloneDataView_default = cloneDataView;
+
+// node_modules/lodash-es/_cloneRegExp.js
+var reFlags = /\w*$/;
+function cloneRegExp(regexp) {
+  var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
+  result.lastIndex = regexp.lastIndex;
+  return result;
+}
+var cloneRegExp_default = cloneRegExp;
+
+// node_modules/lodash-es/_cloneSymbol.js
+var symbolProto2 = Symbol_default ? Symbol_default.prototype : void 0;
+var symbolValueOf = symbolProto2 ? symbolProto2.valueOf : void 0;
+function cloneSymbol(symbol) {
+  return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
+}
+var cloneSymbol_default = cloneSymbol;
+
+// node_modules/lodash-es/_cloneTypedArray.js
+function cloneTypedArray(typedArray, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer_default(typedArray.buffer) : typedArray.buffer;
+  return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+}
+var cloneTypedArray_default = cloneTypedArray;
+
+// node_modules/lodash-es/_initCloneByTag.js
+var boolTag2 = "[object Boolean]";
+var dateTag2 = "[object Date]";
+var mapTag3 = "[object Map]";
+var numberTag2 = "[object Number]";
+var regexpTag2 = "[object RegExp]";
+var setTag3 = "[object Set]";
+var stringTag2 = "[object String]";
+var symbolTag2 = "[object Symbol]";
+var arrayBufferTag2 = "[object ArrayBuffer]";
+var dataViewTag3 = "[object DataView]";
+var float32Tag2 = "[object Float32Array]";
+var float64Tag2 = "[object Float64Array]";
+var int8Tag2 = "[object Int8Array]";
+var int16Tag2 = "[object Int16Array]";
+var int32Tag2 = "[object Int32Array]";
+var uint8Tag2 = "[object Uint8Array]";
+var uint8ClampedTag2 = "[object Uint8ClampedArray]";
+var uint16Tag2 = "[object Uint16Array]";
+var uint32Tag2 = "[object Uint32Array]";
+function initCloneByTag(object, tag, isDeep) {
+  var Ctor = object.constructor;
+  switch (tag) {
+    case arrayBufferTag2:
+      return cloneArrayBuffer_default(object);
+    case boolTag2:
+    case dateTag2:
+      return new Ctor(+object);
+    case dataViewTag3:
+      return cloneDataView_default(object, isDeep);
+    case float32Tag2:
+    case float64Tag2:
+    case int8Tag2:
+    case int16Tag2:
+    case int32Tag2:
+    case uint8Tag2:
+    case uint8ClampedTag2:
+    case uint16Tag2:
+    case uint32Tag2:
+      return cloneTypedArray_default(object, isDeep);
+    case mapTag3:
+      return new Ctor();
+    case numberTag2:
+    case stringTag2:
+      return new Ctor(object);
+    case regexpTag2:
+      return cloneRegExp_default(object);
+    case setTag3:
+      return new Ctor();
+    case symbolTag2:
+      return cloneSymbol_default(object);
+  }
+}
+var initCloneByTag_default = initCloneByTag;
+
+// node_modules/lodash-es/_initCloneObject.js
+function initCloneObject(object) {
+  return typeof object.constructor == "function" && !isPrototype_default(object) ? baseCreate_default(getPrototype_default(object)) : {};
+}
+var initCloneObject_default = initCloneObject;
+
+// node_modules/lodash-es/_baseIsMap.js
+var mapTag4 = "[object Map]";
+function baseIsMap(value) {
+  return isObjectLike_default(value) && getTag_default(value) == mapTag4;
+}
+var baseIsMap_default = baseIsMap;
+
+// node_modules/lodash-es/isMap.js
+var nodeIsMap = nodeUtil_default && nodeUtil_default.isMap;
+var isMap = nodeIsMap ? baseUnary_default(nodeIsMap) : baseIsMap_default;
+var isMap_default = isMap;
+
+// node_modules/lodash-es/_baseIsSet.js
+var setTag4 = "[object Set]";
+function baseIsSet(value) {
+  return isObjectLike_default(value) && getTag_default(value) == setTag4;
+}
+var baseIsSet_default = baseIsSet;
+
+// node_modules/lodash-es/isSet.js
+var nodeIsSet = nodeUtil_default && nodeUtil_default.isSet;
+var isSet = nodeIsSet ? baseUnary_default(nodeIsSet) : baseIsSet_default;
+var isSet_default = isSet;
+
+// node_modules/lodash-es/_baseClone.js
+var CLONE_DEEP_FLAG = 1;
+var CLONE_FLAT_FLAG = 2;
+var CLONE_SYMBOLS_FLAG = 4;
+var argsTag3 = "[object Arguments]";
+var arrayTag2 = "[object Array]";
+var boolTag3 = "[object Boolean]";
+var dateTag3 = "[object Date]";
+var errorTag2 = "[object Error]";
+var funcTag3 = "[object Function]";
+var genTag2 = "[object GeneratorFunction]";
+var mapTag5 = "[object Map]";
+var numberTag3 = "[object Number]";
+var objectTag3 = "[object Object]";
+var regexpTag3 = "[object RegExp]";
+var setTag5 = "[object Set]";
+var stringTag3 = "[object String]";
+var symbolTag3 = "[object Symbol]";
+var weakMapTag3 = "[object WeakMap]";
+var arrayBufferTag3 = "[object ArrayBuffer]";
+var dataViewTag4 = "[object DataView]";
+var float32Tag3 = "[object Float32Array]";
+var float64Tag3 = "[object Float64Array]";
+var int8Tag3 = "[object Int8Array]";
+var int16Tag3 = "[object Int16Array]";
+var int32Tag3 = "[object Int32Array]";
+var uint8Tag3 = "[object Uint8Array]";
+var uint8ClampedTag3 = "[object Uint8ClampedArray]";
+var uint16Tag3 = "[object Uint16Array]";
+var uint32Tag3 = "[object Uint32Array]";
+var cloneableTags = {};
+cloneableTags[argsTag3] = cloneableTags[arrayTag2] = cloneableTags[arrayBufferTag3] = cloneableTags[dataViewTag4] = cloneableTags[boolTag3] = cloneableTags[dateTag3] = cloneableTags[float32Tag3] = cloneableTags[float64Tag3] = cloneableTags[int8Tag3] = cloneableTags[int16Tag3] = cloneableTags[int32Tag3] = cloneableTags[mapTag5] = cloneableTags[numberTag3] = cloneableTags[objectTag3] = cloneableTags[regexpTag3] = cloneableTags[setTag5] = cloneableTags[stringTag3] = cloneableTags[symbolTag3] = cloneableTags[uint8Tag3] = cloneableTags[uint8ClampedTag3] = cloneableTags[uint16Tag3] = cloneableTags[uint32Tag3] = true;
+cloneableTags[errorTag2] = cloneableTags[funcTag3] = cloneableTags[weakMapTag3] = false;
+function baseClone(value, bitmask, customizer, key, object, stack) {
+  var result, isDeep = bitmask & CLONE_DEEP_FLAG, isFlat = bitmask & CLONE_FLAT_FLAG, isFull = bitmask & CLONE_SYMBOLS_FLAG;
+  if (customizer) {
+    result = object ? customizer(value, key, object, stack) : customizer(value);
+  }
+  if (result !== void 0) {
+    return result;
+  }
+  if (!isObject_default(value)) {
+    return value;
+  }
+  var isArr = isArray_default(value);
+  if (isArr) {
+    result = initCloneArray_default(value);
+    if (!isDeep) {
+      return copyArray_default(value, result);
+    }
+  } else {
+    var tag = getTag_default(value), isFunc = tag == funcTag3 || tag == genTag2;
+    if (isBuffer_default(value)) {
+      return cloneBuffer_default(value, isDeep);
+    }
+    if (tag == objectTag3 || tag == argsTag3 || isFunc && !object) {
+      result = isFlat || isFunc ? {} : initCloneObject_default(value);
+      if (!isDeep) {
+        return isFlat ? copySymbolsIn_default(value, baseAssignIn_default(result, value)) : copySymbols_default(value, baseAssign_default(result, value));
+      }
+    } else {
+      if (!cloneableTags[tag]) {
+        return object ? value : {};
+      }
+      result = initCloneByTag_default(value, tag, isDeep);
+    }
+  }
+  stack || (stack = new Stack_default());
+  var stacked = stack.get(value);
+  if (stacked) {
+    return stacked;
+  }
+  stack.set(value, result);
+  if (isSet_default(value)) {
+    value.forEach(function(subValue) {
+      result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+    });
+  } else if (isMap_default(value)) {
+    value.forEach(function(subValue, key2) {
+      result.set(key2, baseClone(subValue, bitmask, customizer, key2, value, stack));
+    });
+  }
+  var keysFunc = isFull ? isFlat ? getAllKeysIn_default : getAllKeys_default : isFlat ? keysIn_default : keys_default;
+  var props = isArr ? void 0 : keysFunc(value);
+  arrayEach_default(props || value, function(subValue, key2) {
+    if (props) {
+      key2 = subValue;
+      subValue = value[key2];
+    }
+    assignValue_default(result, key2, baseClone(subValue, bitmask, customizer, key2, value, stack));
+  });
+  return result;
+}
+var baseClone_default = baseClone;
+
+// node_modules/lodash-es/clone.js
+var CLONE_SYMBOLS_FLAG2 = 4;
+function clone(value) {
+  return baseClone_default(value, CLONE_SYMBOLS_FLAG2);
+}
+var clone_default = clone;
+
+// node_modules/lodash-es/compact.js
+function compact(array) {
+  var index = -1, length = array == null ? 0 : array.length, resIndex = 0, result = [];
+  while (++index < length) {
+    var value = array[index];
+    if (value) {
+      result[resIndex++] = value;
+    }
+  }
+  return result;
+}
+var compact_default = compact;
+
+// node_modules/lodash-es/_setCacheAdd.js
+var HASH_UNDEFINED3 = "__lodash_hash_undefined__";
+function setCacheAdd(value) {
+  this.__data__.set(value, HASH_UNDEFINED3);
+  return this;
+}
+var setCacheAdd_default = setCacheAdd;
+
+// node_modules/lodash-es/_setCacheHas.js
+function setCacheHas(value) {
+  return this.__data__.has(value);
+}
+var setCacheHas_default = setCacheHas;
+
+// node_modules/lodash-es/_SetCache.js
+function SetCache(values2) {
+  var index = -1, length = values2 == null ? 0 : values2.length;
+  this.__data__ = new MapCache_default();
+  while (++index < length) {
+    this.add(values2[index]);
+  }
+}
+SetCache.prototype.add = SetCache.prototype.push = setCacheAdd_default;
+SetCache.prototype.has = setCacheHas_default;
+var SetCache_default = SetCache;
+
+// node_modules/lodash-es/_arraySome.js
+function arraySome(array, predicate) {
+  var index = -1, length = array == null ? 0 : array.length;
+  while (++index < length) {
+    if (predicate(array[index], index, array)) {
+      return true;
+    }
+  }
+  return false;
+}
+var arraySome_default = arraySome;
+
+// node_modules/lodash-es/_cacheHas.js
+function cacheHas(cache, key) {
+  return cache.has(key);
+}
+var cacheHas_default = cacheHas;
+
+// node_modules/lodash-es/_equalArrays.js
+var COMPARE_PARTIAL_FLAG = 1;
+var COMPARE_UNORDERED_FLAG = 2;
+function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
+  var isPartial = bitmask & COMPARE_PARTIAL_FLAG, arrLength = array.length, othLength = other.length;
+  if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
+    return false;
+  }
+  var arrStacked = stack.get(array);
+  var othStacked = stack.get(other);
+  if (arrStacked && othStacked) {
+    return arrStacked == other && othStacked == array;
+  }
+  var index = -1, result = true, seen = bitmask & COMPARE_UNORDERED_FLAG ? new SetCache_default() : void 0;
+  stack.set(array, other);
+  stack.set(other, array);
+  while (++index < arrLength) {
+    var arrValue = array[index], othValue = other[index];
+    if (customizer) {
+      var compared = isPartial ? customizer(othValue, arrValue, index, other, array, stack) : customizer(arrValue, othValue, index, array, other, stack);
+    }
+    if (compared !== void 0) {
+      if (compared) {
+        continue;
+      }
+      result = false;
+      break;
+    }
+    if (seen) {
+      if (!arraySome_default(other, function(othValue2, othIndex) {
+        if (!cacheHas_default(seen, othIndex) && (arrValue === othValue2 || equalFunc(arrValue, othValue2, bitmask, customizer, stack))) {
+          return seen.push(othIndex);
+        }
+      })) {
+        result = false;
+        break;
+      }
+    } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))) {
+      result = false;
+      break;
+    }
+  }
+  stack["delete"](array);
+  stack["delete"](other);
+  return result;
+}
+var equalArrays_default = equalArrays;
+
+// node_modules/lodash-es/_mapToArray.js
+function mapToArray(map2) {
+  var index = -1, result = Array(map2.size);
+  map2.forEach(function(value, key) {
+    result[++index] = [key, value];
+  });
+  return result;
+}
+var mapToArray_default = mapToArray;
+
+// node_modules/lodash-es/_setToArray.js
+function setToArray(set) {
+  var index = -1, result = Array(set.size);
+  set.forEach(function(value) {
+    result[++index] = value;
+  });
+  return result;
+}
+var setToArray_default = setToArray;
+
+// node_modules/lodash-es/_equalByTag.js
+var COMPARE_PARTIAL_FLAG2 = 1;
+var COMPARE_UNORDERED_FLAG2 = 2;
+var boolTag4 = "[object Boolean]";
+var dateTag4 = "[object Date]";
+var errorTag3 = "[object Error]";
+var mapTag6 = "[object Map]";
+var numberTag4 = "[object Number]";
+var regexpTag4 = "[object RegExp]";
+var setTag6 = "[object Set]";
+var stringTag4 = "[object String]";
+var symbolTag4 = "[object Symbol]";
+var arrayBufferTag4 = "[object ArrayBuffer]";
+var dataViewTag5 = "[object DataView]";
+var symbolProto3 = Symbol_default ? Symbol_default.prototype : void 0;
+var symbolValueOf2 = symbolProto3 ? symbolProto3.valueOf : void 0;
+function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {
+  switch (tag) {
+    case dataViewTag5:
+      if (object.byteLength != other.byteLength || object.byteOffset != other.byteOffset) {
+        return false;
+      }
+      object = object.buffer;
+      other = other.buffer;
+    case arrayBufferTag4:
+      if (object.byteLength != other.byteLength || !equalFunc(new Uint8Array_default(object), new Uint8Array_default(other))) {
+        return false;
+      }
+      return true;
+    case boolTag4:
+    case dateTag4:
+    case numberTag4:
+      return eq_default(+object, +other);
+    case errorTag3:
+      return object.name == other.name && object.message == other.message;
+    case regexpTag4:
+    case stringTag4:
+      return object == other + "";
+    case mapTag6:
+      var convert = mapToArray_default;
+    case setTag6:
+      var isPartial = bitmask & COMPARE_PARTIAL_FLAG2;
+      convert || (convert = setToArray_default);
+      if (object.size != other.size && !isPartial) {
+        return false;
+      }
+      var stacked = stack.get(object);
+      if (stacked) {
+        return stacked == other;
+      }
+      bitmask |= COMPARE_UNORDERED_FLAG2;
+      stack.set(object, other);
+      var result = equalArrays_default(convert(object), convert(other), bitmask, customizer, equalFunc, stack);
+      stack["delete"](object);
+      return result;
+    case symbolTag4:
+      if (symbolValueOf2) {
+        return symbolValueOf2.call(object) == symbolValueOf2.call(other);
+      }
+  }
+  return false;
+}
+var equalByTag_default = equalByTag;
+
+// node_modules/lodash-es/_equalObjects.js
+var COMPARE_PARTIAL_FLAG3 = 1;
+var objectProto15 = Object.prototype;
+var hasOwnProperty12 = objectProto15.hasOwnProperty;
+function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
+  var isPartial = bitmask & COMPARE_PARTIAL_FLAG3, objProps = getAllKeys_default(object), objLength = objProps.length, othProps = getAllKeys_default(other), othLength = othProps.length;
+  if (objLength != othLength && !isPartial) {
+    return false;
+  }
+  var index = objLength;
+  while (index--) {
+    var key = objProps[index];
+    if (!(isPartial ? key in other : hasOwnProperty12.call(other, key))) {
+      return false;
+    }
+  }
+  var objStacked = stack.get(object);
+  var othStacked = stack.get(other);
+  if (objStacked && othStacked) {
+    return objStacked == other && othStacked == object;
+  }
+  var result = true;
+  stack.set(object, other);
+  stack.set(other, object);
+  var skipCtor = isPartial;
+  while (++index < objLength) {
+    key = objProps[index];
+    var objValue = object[key], othValue = other[key];
+    if (customizer) {
+      var compared = isPartial ? customizer(othValue, objValue, key, other, object, stack) : customizer(objValue, othValue, key, object, other, stack);
+    }
+    if (!(compared === void 0 ? objValue === othValue || equalFunc(objValue, othValue, bitmask, customizer, stack) : compared)) {
+      result = false;
+      break;
+    }
+    skipCtor || (skipCtor = key == "constructor");
+  }
+  if (result && !skipCtor) {
+    var objCtor = object.constructor, othCtor = other.constructor;
+    if (objCtor != othCtor && ("constructor" in object && "constructor" in other) && !(typeof objCtor == "function" && objCtor instanceof objCtor && typeof othCtor == "function" && othCtor instanceof othCtor)) {
+      result = false;
+    }
+  }
+  stack["delete"](object);
+  stack["delete"](other);
+  return result;
+}
+var equalObjects_default = equalObjects;
+
+// node_modules/lodash-es/_baseIsEqualDeep.js
+var COMPARE_PARTIAL_FLAG4 = 1;
+var argsTag4 = "[object Arguments]";
+var arrayTag3 = "[object Array]";
+var objectTag4 = "[object Object]";
+var objectProto16 = Object.prototype;
+var hasOwnProperty13 = objectProto16.hasOwnProperty;
+function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
+  var objIsArr = isArray_default(object), othIsArr = isArray_default(other), objTag = objIsArr ? arrayTag3 : getTag_default(object), othTag = othIsArr ? arrayTag3 : getTag_default(other);
+  objTag = objTag == argsTag4 ? objectTag4 : objTag;
+  othTag = othTag == argsTag4 ? objectTag4 : othTag;
+  var objIsObj = objTag == objectTag4, othIsObj = othTag == objectTag4, isSameTag = objTag == othTag;
+  if (isSameTag && isBuffer_default(object)) {
+    if (!isBuffer_default(other)) {
+      return false;
+    }
+    objIsArr = true;
+    objIsObj = false;
+  }
+  if (isSameTag && !objIsObj) {
+    stack || (stack = new Stack_default());
+    return objIsArr || isTypedArray_default(object) ? equalArrays_default(object, other, bitmask, customizer, equalFunc, stack) : equalByTag_default(object, other, objTag, bitmask, customizer, equalFunc, stack);
+  }
+  if (!(bitmask & COMPARE_PARTIAL_FLAG4)) {
+    var objIsWrapped = objIsObj && hasOwnProperty13.call(object, "__wrapped__"), othIsWrapped = othIsObj && hasOwnProperty13.call(other, "__wrapped__");
+    if (objIsWrapped || othIsWrapped) {
+      var objUnwrapped = objIsWrapped ? object.value() : object, othUnwrapped = othIsWrapped ? other.value() : other;
+      stack || (stack = new Stack_default());
+      return equalFunc(objUnwrapped, othUnwrapped, bitmask, customizer, stack);
+    }
+  }
+  if (!isSameTag) {
+    return false;
+  }
+  stack || (stack = new Stack_default());
+  return equalObjects_default(object, other, bitmask, customizer, equalFunc, stack);
+}
+var baseIsEqualDeep_default = baseIsEqualDeep;
+
+// node_modules/lodash-es/_baseIsEqual.js
+function baseIsEqual(value, other, bitmask, customizer, stack) {
+  if (value === other) {
+    return true;
+  }
+  if (value == null || other == null || !isObjectLike_default(value) && !isObjectLike_default(other)) {
+    return value !== value && other !== other;
+  }
+  return baseIsEqualDeep_default(value, other, bitmask, customizer, baseIsEqual, stack);
+}
+var baseIsEqual_default = baseIsEqual;
+
+// node_modules/lodash-es/_baseIsMatch.js
+var COMPARE_PARTIAL_FLAG5 = 1;
+var COMPARE_UNORDERED_FLAG3 = 2;
+function baseIsMatch(object, source, matchData, customizer) {
+  var index = matchData.length, length = index, noCustomizer = !customizer;
+  if (object == null) {
+    return !length;
+  }
+  object = Object(object);
+  while (index--) {
+    var data = matchData[index];
+    if (noCustomizer && data[2] ? data[1] !== object[data[0]] : !(data[0] in object)) {
+      return false;
+    }
+  }
+  while (++index < length) {
+    data = matchData[index];
+    var key = data[0], objValue = object[key], srcValue = data[1];
+    if (noCustomizer && data[2]) {
+      if (objValue === void 0 && !(key in object)) {
+        return false;
+      }
+    } else {
+      var stack = new Stack_default();
+      if (customizer) {
+        var result = customizer(objValue, srcValue, key, object, source, stack);
+      }
+      if (!(result === void 0 ? baseIsEqual_default(srcValue, objValue, COMPARE_PARTIAL_FLAG5 | COMPARE_UNORDERED_FLAG3, customizer, stack) : result)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+var baseIsMatch_default = baseIsMatch;
+
+// node_modules/lodash-es/_isStrictComparable.js
+function isStrictComparable(value) {
+  return value === value && !isObject_default(value);
+}
+var isStrictComparable_default = isStrictComparable;
+
+// node_modules/lodash-es/_getMatchData.js
+function getMatchData(object) {
+  var result = keys_default(object), length = result.length;
+  while (length--) {
+    var key = result[length], value = object[key];
+    result[length] = [key, value, isStrictComparable_default(value)];
+  }
+  return result;
+}
+var getMatchData_default = getMatchData;
+
+// node_modules/lodash-es/_matchesStrictComparable.js
+function matchesStrictComparable(key, srcValue) {
+  return function(object) {
+    if (object == null) {
+      return false;
+    }
+    return object[key] === srcValue && (srcValue !== void 0 || key in Object(object));
+  };
+}
+var matchesStrictComparable_default = matchesStrictComparable;
+
+// node_modules/lodash-es/_baseMatches.js
+function baseMatches(source) {
+  var matchData = getMatchData_default(source);
+  if (matchData.length == 1 && matchData[0][2]) {
+    return matchesStrictComparable_default(matchData[0][0], matchData[0][1]);
+  }
+  return function(object) {
+    return object === source || baseIsMatch_default(object, source, matchData);
+  };
+}
+var baseMatches_default = baseMatches;
+
+// node_modules/lodash-es/_baseHasIn.js
+function baseHasIn(object, key) {
+  return object != null && key in Object(object);
+}
+var baseHasIn_default = baseHasIn;
+
+// node_modules/lodash-es/_hasPath.js
+function hasPath(object, path, hasFunc) {
+  path = castPath_default(path, object);
+  var index = -1, length = path.length, result = false;
+  while (++index < length) {
+    var key = toKey_default(path[index]);
+    if (!(result = object != null && hasFunc(object, key))) {
+      break;
+    }
+    object = object[key];
+  }
+  if (result || ++index != length) {
+    return result;
+  }
+  length = object == null ? 0 : object.length;
+  return !!length && isLength_default(length) && isIndex_default(key, length) && (isArray_default(object) || isArguments_default(object));
+}
+var hasPath_default = hasPath;
+
+// node_modules/lodash-es/hasIn.js
+function hasIn(object, path) {
+  return object != null && hasPath_default(object, path, baseHasIn_default);
+}
+var hasIn_default = hasIn;
+
+// node_modules/lodash-es/_baseMatchesProperty.js
+var COMPARE_PARTIAL_FLAG6 = 1;
+var COMPARE_UNORDERED_FLAG4 = 2;
+function baseMatchesProperty(path, srcValue) {
+  if (isKey_default(path) && isStrictComparable_default(srcValue)) {
+    return matchesStrictComparable_default(toKey_default(path), srcValue);
+  }
+  return function(object) {
+    var objValue = get_default(object, path);
+    return objValue === void 0 && objValue === srcValue ? hasIn_default(object, path) : baseIsEqual_default(srcValue, objValue, COMPARE_PARTIAL_FLAG6 | COMPARE_UNORDERED_FLAG4);
+  };
+}
+var baseMatchesProperty_default = baseMatchesProperty;
+
+// node_modules/lodash-es/_baseProperty.js
+function baseProperty(key) {
+  return function(object) {
+    return object == null ? void 0 : object[key];
+  };
+}
+var baseProperty_default = baseProperty;
+
+// node_modules/lodash-es/_basePropertyDeep.js
+function basePropertyDeep(path) {
+  return function(object) {
+    return baseGet_default(object, path);
+  };
+}
+var basePropertyDeep_default = basePropertyDeep;
+
+// node_modules/lodash-es/property.js
+function property(path) {
+  return isKey_default(path) ? baseProperty_default(toKey_default(path)) : basePropertyDeep_default(path);
+}
+var property_default = property;
+
+// node_modules/lodash-es/_baseIteratee.js
+function baseIteratee(value) {
+  if (typeof value == "function") {
+    return value;
+  }
+  if (value == null) {
+    return identity_default;
+  }
+  if (typeof value == "object") {
+    return isArray_default(value) ? baseMatchesProperty_default(value[0], value[1]) : baseMatches_default(value);
+  }
+  return property_default(value);
+}
+var baseIteratee_default = baseIteratee;
+
+// node_modules/lodash-es/_arrayAggregator.js
+function arrayAggregator(array, setter, iteratee, accumulator) {
+  var index = -1, length = array == null ? 0 : array.length;
+  while (++index < length) {
+    var value = array[index];
+    setter(accumulator, value, iteratee(value), array);
+  }
+  return accumulator;
+}
+var arrayAggregator_default = arrayAggregator;
+
+// node_modules/lodash-es/_createBaseFor.js
+function createBaseFor(fromRight) {
+  return function(object, iteratee, keysFunc) {
+    var index = -1, iterable = Object(object), props = keysFunc(object), length = props.length;
+    while (length--) {
+      var key = props[fromRight ? length : ++index];
+      if (iteratee(iterable[key], key, iterable) === false) {
+        break;
+      }
+    }
+    return object;
+  };
+}
+var createBaseFor_default = createBaseFor;
+
+// node_modules/lodash-es/_baseFor.js
+var baseFor = createBaseFor_default();
+var baseFor_default = baseFor;
+
+// node_modules/lodash-es/_baseForOwn.js
+function baseForOwn(object, iteratee) {
+  return object && baseFor_default(object, iteratee, keys_default);
+}
+var baseForOwn_default = baseForOwn;
+
+// node_modules/lodash-es/_createBaseEach.js
+function createBaseEach(eachFunc, fromRight) {
+  return function(collection, iteratee) {
+    if (collection == null) {
+      return collection;
+    }
+    if (!isArrayLike_default(collection)) {
+      return eachFunc(collection, iteratee);
+    }
+    var length = collection.length, index = fromRight ? length : -1, iterable = Object(collection);
+    while (fromRight ? index-- : ++index < length) {
+      if (iteratee(iterable[index], index, iterable) === false) {
+        break;
+      }
+    }
+    return collection;
+  };
+}
+var createBaseEach_default = createBaseEach;
+
+// node_modules/lodash-es/_baseEach.js
+var baseEach = createBaseEach_default(baseForOwn_default);
+var baseEach_default = baseEach;
+
+// node_modules/lodash-es/_baseAggregator.js
+function baseAggregator(collection, setter, iteratee, accumulator) {
+  baseEach_default(collection, function(value, key, collection2) {
+    setter(accumulator, value, iteratee(value), collection2);
+  });
+  return accumulator;
+}
+var baseAggregator_default = baseAggregator;
+
+// node_modules/lodash-es/_createAggregator.js
+function createAggregator(setter, initializer) {
+  return function(collection, iteratee) {
+    var func = isArray_default(collection) ? arrayAggregator_default : baseAggregator_default, accumulator = initializer ? initializer() : {};
+    return func(collection, setter, baseIteratee_default(iteratee, 2), accumulator);
+  };
+}
+var createAggregator_default = createAggregator;
+
+// node_modules/lodash-es/defaults.js
+var objectProto17 = Object.prototype;
+var hasOwnProperty14 = objectProto17.hasOwnProperty;
+var defaults = baseRest_default(function(object, sources) {
+  object = Object(object);
+  var index = -1;
+  var length = sources.length;
+  var guard = length > 2 ? sources[2] : void 0;
+  if (guard && isIterateeCall_default(sources[0], sources[1], guard)) {
+    length = 1;
+  }
+  while (++index < length) {
+    var source = sources[index];
+    var props = keysIn_default(source);
+    var propsIndex = -1;
+    var propsLength = props.length;
+    while (++propsIndex < propsLength) {
+      var key = props[propsIndex];
+      var value = object[key];
+      if (value === void 0 || eq_default(value, objectProto17[key]) && !hasOwnProperty14.call(object, key)) {
+        object[key] = source[key];
+      }
+    }
+  }
+  return object;
+});
+var defaults_default = defaults;
+
+// node_modules/lodash-es/isArrayLikeObject.js
+function isArrayLikeObject(value) {
+  return isObjectLike_default(value) && isArrayLike_default(value);
+}
+var isArrayLikeObject_default = isArrayLikeObject;
+
+// node_modules/lodash-es/_arrayIncludesWith.js
+function arrayIncludesWith(array, value, comparator) {
+  var index = -1, length = array == null ? 0 : array.length;
+  while (++index < length) {
+    if (comparator(value, array[index])) {
+      return true;
+    }
+  }
+  return false;
+}
+var arrayIncludesWith_default = arrayIncludesWith;
+
+// node_modules/lodash-es/_baseDifference.js
+var LARGE_ARRAY_SIZE2 = 200;
+function baseDifference(array, values2, iteratee, comparator) {
+  var index = -1, includes2 = arrayIncludes_default, isCommon = true, length = array.length, result = [], valuesLength = values2.length;
+  if (!length) {
+    return result;
+  }
+  if (iteratee) {
+    values2 = arrayMap_default(values2, baseUnary_default(iteratee));
+  }
+  if (comparator) {
+    includes2 = arrayIncludesWith_default;
+    isCommon = false;
+  } else if (values2.length >= LARGE_ARRAY_SIZE2) {
+    includes2 = cacheHas_default;
+    isCommon = false;
+    values2 = new SetCache_default(values2);
+  }
+  outer:
+    while (++index < length) {
+      var value = array[index], computed = iteratee == null ? value : iteratee(value);
+      value = comparator || value !== 0 ? value : 0;
+      if (isCommon && computed === computed) {
+        var valuesIndex = valuesLength;
+        while (valuesIndex--) {
+          if (values2[valuesIndex] === computed) {
+            continue outer;
+          }
+        }
+        result.push(value);
+      } else if (!includes2(values2, computed, comparator)) {
+        result.push(value);
+      }
+    }
+  return result;
+}
+var baseDifference_default = baseDifference;
+
+// node_modules/lodash-es/difference.js
+var difference = baseRest_default(function(array, values2) {
+  return isArrayLikeObject_default(array) ? baseDifference_default(array, baseFlatten_default(values2, 1, isArrayLikeObject_default, true)) : [];
+});
+var difference_default = difference;
+
+// node_modules/lodash-es/last.js
+function last(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? array[length - 1] : void 0;
+}
+var last_default = last;
+
+// node_modules/lodash-es/drop.js
+function drop(array, n, guard) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return [];
+  }
+  n = guard || n === void 0 ? 1 : toInteger_default(n);
+  return baseSlice_default(array, n < 0 ? 0 : n, length);
+}
+var drop_default = drop;
+
+// node_modules/lodash-es/dropRight.js
+function dropRight(array, n, guard) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return [];
+  }
+  n = guard || n === void 0 ? 1 : toInteger_default(n);
+  n = length - n;
+  return baseSlice_default(array, 0, n < 0 ? 0 : n);
+}
+var dropRight_default = dropRight;
+
+// node_modules/lodash-es/_castFunction.js
+function castFunction(value) {
+  return typeof value == "function" ? value : identity_default;
+}
+var castFunction_default = castFunction;
+
+// node_modules/lodash-es/forEach.js
+function forEach(collection, iteratee) {
+  var func = isArray_default(collection) ? arrayEach_default : baseEach_default;
+  return func(collection, castFunction_default(iteratee));
+}
+var forEach_default = forEach;
+
+// node_modules/lodash-es/_arrayEvery.js
+function arrayEvery(array, predicate) {
+  var index = -1, length = array == null ? 0 : array.length;
+  while (++index < length) {
+    if (!predicate(array[index], index, array)) {
+      return false;
+    }
+  }
+  return true;
+}
+var arrayEvery_default = arrayEvery;
+
+// node_modules/lodash-es/_baseEvery.js
+function baseEvery(collection, predicate) {
+  var result = true;
+  baseEach_default(collection, function(value, index, collection2) {
+    result = !!predicate(value, index, collection2);
+    return result;
+  });
+  return result;
+}
+var baseEvery_default = baseEvery;
+
+// node_modules/lodash-es/every.js
+function every(collection, predicate, guard) {
+  var func = isArray_default(collection) ? arrayEvery_default : baseEvery_default;
+  if (guard && isIterateeCall_default(collection, predicate, guard)) {
+    predicate = void 0;
+  }
+  return func(collection, baseIteratee_default(predicate, 3));
+}
+var every_default = every;
+
+// node_modules/lodash-es/_baseFilter.js
+function baseFilter(collection, predicate) {
+  var result = [];
+  baseEach_default(collection, function(value, index, collection2) {
+    if (predicate(value, index, collection2)) {
+      result.push(value);
+    }
+  });
+  return result;
+}
+var baseFilter_default = baseFilter;
+
+// node_modules/lodash-es/filter.js
+function filter(collection, predicate) {
+  var func = isArray_default(collection) ? arrayFilter_default : baseFilter_default;
+  return func(collection, baseIteratee_default(predicate, 3));
+}
+var filter_default = filter;
+
+// node_modules/lodash-es/_createFind.js
+function createFind(findIndexFunc) {
+  return function(collection, predicate, fromIndex) {
+    var iterable = Object(collection);
+    if (!isArrayLike_default(collection)) {
+      var iteratee = baseIteratee_default(predicate, 3);
+      collection = keys_default(collection);
+      predicate = function(key) {
+        return iteratee(iterable[key], key, iterable);
+      };
+    }
+    var index = findIndexFunc(collection, predicate, fromIndex);
+    return index > -1 ? iterable[iteratee ? collection[index] : index] : void 0;
+  };
+}
+var createFind_default = createFind;
+
+// node_modules/lodash-es/findIndex.js
+var nativeMax2 = Math.max;
+function findIndex(array, predicate, fromIndex) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return -1;
+  }
+  var index = fromIndex == null ? 0 : toInteger_default(fromIndex);
+  if (index < 0) {
+    index = nativeMax2(length + index, 0);
+  }
+  return baseFindIndex_default(array, baseIteratee_default(predicate, 3), index);
+}
+var findIndex_default = findIndex;
+
+// node_modules/lodash-es/find.js
+var find = createFind_default(findIndex_default);
+var find_default = find;
+
+// node_modules/lodash-es/head.js
+function head(array) {
+  return array && array.length ? array[0] : void 0;
+}
+var head_default = head;
+
+// node_modules/lodash-es/_baseMap.js
+function baseMap(collection, iteratee) {
+  var index = -1, result = isArrayLike_default(collection) ? Array(collection.length) : [];
+  baseEach_default(collection, function(value, key, collection2) {
+    result[++index] = iteratee(value, key, collection2);
+  });
+  return result;
+}
+var baseMap_default = baseMap;
+
+// node_modules/lodash-es/map.js
+function map(collection, iteratee) {
+  var func = isArray_default(collection) ? arrayMap_default : baseMap_default;
+  return func(collection, baseIteratee_default(iteratee, 3));
+}
+var map_default = map;
+
+// node_modules/lodash-es/flatMap.js
+function flatMap(collection, iteratee) {
+  return baseFlatten_default(map_default(collection, iteratee), 1);
+}
+var flatMap_default = flatMap;
+
+// node_modules/lodash-es/groupBy.js
+var objectProto18 = Object.prototype;
+var hasOwnProperty15 = objectProto18.hasOwnProperty;
+var groupBy = createAggregator_default(function(result, value, key) {
+  if (hasOwnProperty15.call(result, key)) {
+    result[key].push(value);
+  } else {
+    baseAssignValue_default(result, key, [value]);
+  }
+});
+var groupBy_default = groupBy;
+
+// node_modules/lodash-es/_baseHas.js
+var objectProto19 = Object.prototype;
+var hasOwnProperty16 = objectProto19.hasOwnProperty;
+function baseHas(object, key) {
+  return object != null && hasOwnProperty16.call(object, key);
+}
+var baseHas_default = baseHas;
+
+// node_modules/lodash-es/has.js
+function has(object, path) {
+  return object != null && hasPath_default(object, path, baseHas_default);
+}
+var has_default = has;
+
+// node_modules/lodash-es/isString.js
+var stringTag5 = "[object String]";
+function isString(value) {
+  return typeof value == "string" || !isArray_default(value) && isObjectLike_default(value) && baseGetTag_default(value) == stringTag5;
+}
+var isString_default = isString;
+
+// node_modules/lodash-es/_baseValues.js
+function baseValues(object, props) {
+  return arrayMap_default(props, function(key) {
+    return object[key];
+  });
+}
+var baseValues_default = baseValues;
+
+// node_modules/lodash-es/values.js
+function values(object) {
+  return object == null ? [] : baseValues_default(object, keys_default(object));
+}
+var values_default = values;
+
+// node_modules/lodash-es/includes.js
+var nativeMax3 = Math.max;
+function includes(collection, value, fromIndex, guard) {
+  collection = isArrayLike_default(collection) ? collection : values_default(collection);
+  fromIndex = fromIndex && !guard ? toInteger_default(fromIndex) : 0;
+  var length = collection.length;
+  if (fromIndex < 0) {
+    fromIndex = nativeMax3(length + fromIndex, 0);
+  }
+  return isString_default(collection) ? fromIndex <= length && collection.indexOf(value, fromIndex) > -1 : !!length && baseIndexOf_default(collection, value, fromIndex) > -1;
+}
+var includes_default = includes;
+
+// node_modules/lodash-es/indexOf.js
+var nativeMax4 = Math.max;
+function indexOf(array, value, fromIndex) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return -1;
+  }
+  var index = fromIndex == null ? 0 : toInteger_default(fromIndex);
+  if (index < 0) {
+    index = nativeMax4(length + index, 0);
+  }
+  return baseIndexOf_default(array, value, index);
+}
+var indexOf_default = indexOf;
+
+// node_modules/lodash-es/isEmpty.js
+var mapTag7 = "[object Map]";
+var setTag7 = "[object Set]";
+var objectProto20 = Object.prototype;
+var hasOwnProperty17 = objectProto20.hasOwnProperty;
+function isEmpty(value) {
+  if (value == null) {
+    return true;
+  }
+  if (isArrayLike_default(value) && (isArray_default(value) || typeof value == "string" || typeof value.splice == "function" || isBuffer_default(value) || isTypedArray_default(value) || isArguments_default(value))) {
+    return !value.length;
+  }
+  var tag = getTag_default(value);
+  if (tag == mapTag7 || tag == setTag7) {
+    return !value.size;
+  }
+  if (isPrototype_default(value)) {
+    return !baseKeys_default(value).length;
+  }
+  for (var key in value) {
+    if (hasOwnProperty17.call(value, key)) {
+      return false;
+    }
+  }
+  return true;
+}
+var isEmpty_default = isEmpty;
+
+// node_modules/lodash-es/_baseIsRegExp.js
+var regexpTag5 = "[object RegExp]";
+function baseIsRegExp(value) {
+  return isObjectLike_default(value) && baseGetTag_default(value) == regexpTag5;
+}
+var baseIsRegExp_default = baseIsRegExp;
+
+// node_modules/lodash-es/isRegExp.js
+var nodeIsRegExp = nodeUtil_default && nodeUtil_default.isRegExp;
+var isRegExp = nodeIsRegExp ? baseUnary_default(nodeIsRegExp) : baseIsRegExp_default;
+var isRegExp_default = isRegExp;
+
+// node_modules/lodash-es/isUndefined.js
+function isUndefined(value) {
+  return value === void 0;
+}
+var isUndefined_default = isUndefined;
+
+// node_modules/lodash-es/negate.js
+var FUNC_ERROR_TEXT2 = "Expected a function";
+function negate(predicate) {
+  if (typeof predicate != "function") {
+    throw new TypeError(FUNC_ERROR_TEXT2);
+  }
+  return function() {
+    var args = arguments;
+    switch (args.length) {
+      case 0:
+        return !predicate.call(this);
+      case 1:
+        return !predicate.call(this, args[0]);
+      case 2:
+        return !predicate.call(this, args[0], args[1]);
+      case 3:
+        return !predicate.call(this, args[0], args[1], args[2]);
+    }
+    return !predicate.apply(this, args);
+  };
+}
+var negate_default = negate;
+
+// node_modules/lodash-es/_baseSet.js
+function baseSet(object, path, value, customizer) {
+  if (!isObject_default(object)) {
+    return object;
+  }
+  path = castPath_default(path, object);
+  var index = -1, length = path.length, lastIndex = length - 1, nested = object;
+  while (nested != null && ++index < length) {
+    var key = toKey_default(path[index]), newValue = value;
+    if (key === "__proto__" || key === "constructor" || key === "prototype") {
+      return object;
+    }
+    if (index != lastIndex) {
+      var objValue = nested[key];
+      newValue = customizer ? customizer(objValue, key, nested) : void 0;
+      if (newValue === void 0) {
+        newValue = isObject_default(objValue) ? objValue : isIndex_default(path[index + 1]) ? [] : {};
+      }
+    }
+    assignValue_default(nested, key, newValue);
+    nested = nested[key];
+  }
+  return object;
+}
+var baseSet_default = baseSet;
+
+// node_modules/lodash-es/_basePickBy.js
+function basePickBy(object, paths, predicate) {
+  var index = -1, length = paths.length, result = {};
+  while (++index < length) {
+    var path = paths[index], value = baseGet_default(object, path);
+    if (predicate(value, path)) {
+      baseSet_default(result, castPath_default(path, object), value);
+    }
+  }
+  return result;
+}
+var basePickBy_default = basePickBy;
+
+// node_modules/lodash-es/pickBy.js
+function pickBy(object, predicate) {
+  if (object == null) {
+    return {};
+  }
+  var props = arrayMap_default(getAllKeysIn_default(object), function(prop) {
+    return [prop];
+  });
+  predicate = baseIteratee_default(predicate);
+  return basePickBy_default(object, props, function(value, path) {
+    return predicate(value, path[0]);
+  });
+}
+var pickBy_default = pickBy;
+
+// node_modules/lodash-es/_baseReduce.js
+function baseReduce(collection, iteratee, accumulator, initAccum, eachFunc) {
+  eachFunc(collection, function(value, index, collection2) {
+    accumulator = initAccum ? (initAccum = false, value) : iteratee(accumulator, value, index, collection2);
+  });
+  return accumulator;
+}
+var baseReduce_default = baseReduce;
+
+// node_modules/lodash-es/reduce.js
+function reduce(collection, iteratee, accumulator) {
+  var func = isArray_default(collection) ? arrayReduce_default : baseReduce_default, initAccum = arguments.length < 3;
+  return func(collection, baseIteratee_default(iteratee, 4), accumulator, initAccum, baseEach_default);
+}
+var reduce_default = reduce;
+
+// node_modules/lodash-es/reject.js
+function reject(collection, predicate) {
+  var func = isArray_default(collection) ? arrayFilter_default : baseFilter_default;
+  return func(collection, negate_default(baseIteratee_default(predicate, 3)));
+}
+var reject_default = reject;
+
+// node_modules/lodash-es/_baseSome.js
+function baseSome(collection, predicate) {
+  var result;
+  baseEach_default(collection, function(value, index, collection2) {
+    result = predicate(value, index, collection2);
+    return !result;
+  });
+  return !!result;
+}
+var baseSome_default = baseSome;
+
+// node_modules/lodash-es/some.js
+function some(collection, predicate, guard) {
+  var func = isArray_default(collection) ? arraySome_default : baseSome_default;
+  if (guard && isIterateeCall_default(collection, predicate, guard)) {
+    predicate = void 0;
+  }
+  return func(collection, baseIteratee_default(predicate, 3));
+}
+var some_default = some;
+
+// node_modules/lodash-es/_createSet.js
+var INFINITY4 = 1 / 0;
+var createSet = !(Set_default && 1 / setToArray_default(new Set_default([, -0]))[1] == INFINITY4) ? noop_default : function(values2) {
+  return new Set_default(values2);
+};
+var createSet_default = createSet;
+
+// node_modules/lodash-es/_baseUniq.js
+var LARGE_ARRAY_SIZE3 = 200;
+function baseUniq(array, iteratee, comparator) {
+  var index = -1, includes2 = arrayIncludes_default, length = array.length, isCommon = true, result = [], seen = result;
+  if (comparator) {
+    isCommon = false;
+    includes2 = arrayIncludesWith_default;
+  } else if (length >= LARGE_ARRAY_SIZE3) {
+    var set = iteratee ? null : createSet_default(array);
+    if (set) {
+      return setToArray_default(set);
+    }
+    isCommon = false;
+    includes2 = cacheHas_default;
+    seen = new SetCache_default();
+  } else {
+    seen = iteratee ? [] : result;
+  }
+  outer:
+    while (++index < length) {
+      var value = array[index], computed = iteratee ? iteratee(value) : value;
+      value = comparator || value !== 0 ? value : 0;
+      if (isCommon && computed === computed) {
+        var seenIndex = seen.length;
+        while (seenIndex--) {
+          if (seen[seenIndex] === computed) {
+            continue outer;
+          }
+        }
+        if (iteratee) {
+          seen.push(computed);
+        }
+        result.push(value);
+      } else if (!includes2(seen, computed, comparator)) {
+        if (seen !== result) {
+          seen.push(computed);
+        }
+        result.push(value);
+      }
+    }
+  return result;
+}
+var baseUniq_default = baseUniq;
+
+// node_modules/lodash-es/uniq.js
+function uniq(array) {
+  return array && array.length ? baseUniq_default(array) : [];
+}
+var uniq_default = uniq;
+
+// node_modules/@chevrotain/utils/lib/src/print.js
+function PRINT_ERROR(msg) {
+  if (console && console.error) {
+    console.error(`Error: ${msg}`);
+  }
+}
+function PRINT_WARNING(msg) {
+  if (console && console.warn) {
+    console.warn(`Warning: ${msg}`);
+  }
+}
+
+// node_modules/@chevrotain/utils/lib/src/timer.js
+function timer(func) {
+  const start = (/* @__PURE__ */ new Date()).getTime();
+  const val = func();
+  const end = (/* @__PURE__ */ new Date()).getTime();
+  const total = end - start;
+  return { time: total, value: val };
+}
+
+// node_modules/@chevrotain/utils/lib/src/to-fast-properties.js
+function toFastProperties(toBecomeFast) {
+  function FakeConstructor() {
+  }
+  FakeConstructor.prototype = toBecomeFast;
+  const fakeInstance = new FakeConstructor();
+  function fakeAccess() {
+    return typeof fakeInstance.bar;
+  }
+  fakeAccess();
+  fakeAccess();
+  if (1)
+    return toBecomeFast;
+  (0, eval)(toBecomeFast);
+}
+
+// node_modules/@chevrotain/gast/lib/src/model.js
+function tokenLabel(tokType) {
+  if (hasTokenLabel(tokType)) {
+    return tokType.LABEL;
+  } else {
+    return tokType.name;
+  }
+}
+function hasTokenLabel(obj) {
+  return isString_default(obj.LABEL) && obj.LABEL !== "";
+}
+var AbstractProduction = class {
+  get definition() {
+    return this._definition;
+  }
+  set definition(value) {
+    this._definition = value;
+  }
+  constructor(_definition) {
+    this._definition = _definition;
+  }
+  accept(visitor) {
+    visitor.visit(this);
+    forEach_default(this.definition, (prod) => {
+      prod.accept(visitor);
+    });
+  }
+};
+var NonTerminal = class extends AbstractProduction {
+  constructor(options) {
+    super([]);
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+  set definition(definition) {
+  }
+  get definition() {
+    if (this.referencedRule !== void 0) {
+      return this.referencedRule.definition;
+    }
+    return [];
+  }
+  accept(visitor) {
+    visitor.visit(this);
+  }
+};
+var Rule = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.orgText = "";
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var Alternative = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.ignoreAmbiguities = false;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var Option = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var RepetitionMandatory = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var RepetitionMandatoryWithSeparator = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var Repetition = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var RepetitionWithSeparator = class extends AbstractProduction {
+  constructor(options) {
+    super(options.definition);
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var Alternation = class extends AbstractProduction {
+  get definition() {
+    return this._definition;
+  }
+  set definition(value) {
+    this._definition = value;
+  }
+  constructor(options) {
+    super(options.definition);
+    this.idx = 1;
+    this.ignoreAmbiguities = false;
+    this.hasPredicates = false;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+};
+var Terminal = class {
+  constructor(options) {
+    this.idx = 1;
+    assign_default(this, pickBy_default(options, (v) => v !== void 0));
+  }
+  accept(visitor) {
+    visitor.visit(this);
+  }
+};
+function serializeGrammar(topRules) {
+  return map_default(topRules, serializeProduction);
+}
+function serializeProduction(node) {
+  function convertDefinition(definition) {
+    return map_default(definition, serializeProduction);
+  }
+  if (node instanceof NonTerminal) {
+    const serializedNonTerminal = {
+      type: "NonTerminal",
+      name: node.nonTerminalName,
+      idx: node.idx
+    };
+    if (isString_default(node.label)) {
+      serializedNonTerminal.label = node.label;
+    }
+    return serializedNonTerminal;
+  } else if (node instanceof Alternative) {
+    return {
+      type: "Alternative",
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof Option) {
+    return {
+      type: "Option",
+      idx: node.idx,
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof RepetitionMandatory) {
+    return {
+      type: "RepetitionMandatory",
+      idx: node.idx,
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof RepetitionMandatoryWithSeparator) {
+    return {
+      type: "RepetitionMandatoryWithSeparator",
+      idx: node.idx,
+      separator: serializeProduction(new Terminal({ terminalType: node.separator })),
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof RepetitionWithSeparator) {
+    return {
+      type: "RepetitionWithSeparator",
+      idx: node.idx,
+      separator: serializeProduction(new Terminal({ terminalType: node.separator })),
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof Repetition) {
+    return {
+      type: "Repetition",
+      idx: node.idx,
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof Alternation) {
+    return {
+      type: "Alternation",
+      idx: node.idx,
+      definition: convertDefinition(node.definition)
+    };
+  } else if (node instanceof Terminal) {
+    const serializedTerminal = {
+      type: "Terminal",
+      name: node.terminalType.name,
+      label: tokenLabel(node.terminalType),
+      idx: node.idx
+    };
+    if (isString_default(node.label)) {
+      serializedTerminal.terminalLabel = node.label;
+    }
+    const pattern = node.terminalType.PATTERN;
+    if (node.terminalType.PATTERN) {
+      serializedTerminal.pattern = isRegExp_default(pattern) ? pattern.source : pattern;
+    }
+    return serializedTerminal;
+  } else if (node instanceof Rule) {
+    return {
+      type: "Rule",
+      name: node.name,
+      orgText: node.orgText,
+      definition: convertDefinition(node.definition)
+    };
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+
+// node_modules/@chevrotain/gast/lib/src/visitor.js
+var GAstVisitor = class {
+  visit(node) {
+    const nodeAny = node;
+    switch (nodeAny.constructor) {
+      case NonTerminal:
+        return this.visitNonTerminal(nodeAny);
+      case Alternative:
+        return this.visitAlternative(nodeAny);
+      case Option:
+        return this.visitOption(nodeAny);
+      case RepetitionMandatory:
+        return this.visitRepetitionMandatory(nodeAny);
+      case RepetitionMandatoryWithSeparator:
+        return this.visitRepetitionMandatoryWithSeparator(nodeAny);
+      case RepetitionWithSeparator:
+        return this.visitRepetitionWithSeparator(nodeAny);
+      case Repetition:
+        return this.visitRepetition(nodeAny);
+      case Alternation:
+        return this.visitAlternation(nodeAny);
+      case Terminal:
+        return this.visitTerminal(nodeAny);
+      case Rule:
+        return this.visitRule(nodeAny);
+      default:
+        throw Error("non exhaustive match");
+    }
+  }
+  /* c8 ignore next */
+  visitNonTerminal(node) {
+  }
+  /* c8 ignore next */
+  visitAlternative(node) {
+  }
+  /* c8 ignore next */
+  visitOption(node) {
+  }
+  /* c8 ignore next */
+  visitRepetition(node) {
+  }
+  /* c8 ignore next */
+  visitRepetitionMandatory(node) {
+  }
+  /* c8 ignore next 3 */
+  visitRepetitionMandatoryWithSeparator(node) {
+  }
+  /* c8 ignore next */
+  visitRepetitionWithSeparator(node) {
+  }
+  /* c8 ignore next */
+  visitAlternation(node) {
+  }
+  /* c8 ignore next */
+  visitTerminal(node) {
+  }
+  /* c8 ignore next */
+  visitRule(node) {
+  }
+};
+
+// node_modules/@chevrotain/gast/lib/src/helpers.js
+function isSequenceProd(prod) {
+  return prod instanceof Alternative || prod instanceof Option || prod instanceof Repetition || prod instanceof RepetitionMandatory || prod instanceof RepetitionMandatoryWithSeparator || prod instanceof RepetitionWithSeparator || prod instanceof Terminal || prod instanceof Rule;
+}
+function isOptionalProd(prod, alreadyVisited = []) {
+  const isDirectlyOptional = prod instanceof Option || prod instanceof Repetition || prod instanceof RepetitionWithSeparator;
+  if (isDirectlyOptional) {
+    return true;
+  }
+  if (prod instanceof Alternation) {
+    return some_default(prod.definition, (subProd) => {
+      return isOptionalProd(subProd, alreadyVisited);
+    });
+  } else if (prod instanceof NonTerminal && includes_default(alreadyVisited, prod)) {
+    return false;
+  } else if (prod instanceof AbstractProduction) {
+    if (prod instanceof NonTerminal) {
+      alreadyVisited.push(prod);
+    }
+    return every_default(prod.definition, (subProd) => {
+      return isOptionalProd(subProd, alreadyVisited);
+    });
+  } else {
+    return false;
+  }
+}
+function isBranchingProd(prod) {
+  return prod instanceof Alternation;
+}
+function getProductionDslName(prod) {
+  if (prod instanceof NonTerminal) {
+    return "SUBRULE";
+  } else if (prod instanceof Option) {
+    return "OPTION";
+  } else if (prod instanceof Alternation) {
+    return "OR";
+  } else if (prod instanceof RepetitionMandatory) {
+    return "AT_LEAST_ONE";
+  } else if (prod instanceof RepetitionMandatoryWithSeparator) {
+    return "AT_LEAST_ONE_SEP";
+  } else if (prod instanceof RepetitionWithSeparator) {
+    return "MANY_SEP";
+  } else if (prod instanceof Repetition) {
+    return "MANY";
+  } else if (prod instanceof Terminal) {
+    return "CONSUME";
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+
+// node_modules/chevrotain/lib/src/parse/grammar/rest.js
+var RestWalker = class {
+  walk(prod, prevRest = []) {
+    forEach_default(prod.definition, (subProd, index) => {
+      const currRest = drop_default(prod.definition, index + 1);
+      if (subProd instanceof NonTerminal) {
+        this.walkProdRef(subProd, currRest, prevRest);
+      } else if (subProd instanceof Terminal) {
+        this.walkTerminal(subProd, currRest, prevRest);
+      } else if (subProd instanceof Alternative) {
+        this.walkFlat(subProd, currRest, prevRest);
+      } else if (subProd instanceof Option) {
+        this.walkOption(subProd, currRest, prevRest);
+      } else if (subProd instanceof RepetitionMandatory) {
+        this.walkAtLeastOne(subProd, currRest, prevRest);
+      } else if (subProd instanceof RepetitionMandatoryWithSeparator) {
+        this.walkAtLeastOneSep(subProd, currRest, prevRest);
+      } else if (subProd instanceof RepetitionWithSeparator) {
+        this.walkManySep(subProd, currRest, prevRest);
+      } else if (subProd instanceof Repetition) {
+        this.walkMany(subProd, currRest, prevRest);
+      } else if (subProd instanceof Alternation) {
+        this.walkOr(subProd, currRest, prevRest);
+      } else {
+        throw Error("non exhaustive match");
+      }
+    });
+  }
+  walkTerminal(terminal, currRest, prevRest) {
+  }
+  walkProdRef(refProd, currRest, prevRest) {
+  }
+  walkFlat(flatProd, currRest, prevRest) {
+    const fullOrRest = currRest.concat(prevRest);
+    this.walk(flatProd, fullOrRest);
+  }
+  walkOption(optionProd, currRest, prevRest) {
+    const fullOrRest = currRest.concat(prevRest);
+    this.walk(optionProd, fullOrRest);
+  }
+  walkAtLeastOne(atLeastOneProd, currRest, prevRest) {
+    const fullAtLeastOneRest = [
+      new Option({ definition: atLeastOneProd.definition })
+    ].concat(currRest, prevRest);
+    this.walk(atLeastOneProd, fullAtLeastOneRest);
+  }
+  walkAtLeastOneSep(atLeastOneSepProd, currRest, prevRest) {
+    const fullAtLeastOneSepRest = restForRepetitionWithSeparator(atLeastOneSepProd, currRest, prevRest);
+    this.walk(atLeastOneSepProd, fullAtLeastOneSepRest);
+  }
+  walkMany(manyProd, currRest, prevRest) {
+    const fullManyRest = [
+      new Option({ definition: manyProd.definition })
+    ].concat(currRest, prevRest);
+    this.walk(manyProd, fullManyRest);
+  }
+  walkManySep(manySepProd, currRest, prevRest) {
+    const fullManySepRest = restForRepetitionWithSeparator(manySepProd, currRest, prevRest);
+    this.walk(manySepProd, fullManySepRest);
+  }
+  walkOr(orProd, currRest, prevRest) {
+    const fullOrRest = currRest.concat(prevRest);
+    forEach_default(orProd.definition, (alt) => {
+      const prodWrapper = new Alternative({ definition: [alt] });
+      this.walk(prodWrapper, fullOrRest);
+    });
+  }
+};
+function restForRepetitionWithSeparator(repSepProd, currRest, prevRest) {
+  const repSepRest = [
+    new Option({
+      definition: [
+        new Terminal({ terminalType: repSepProd.separator })
+      ].concat(repSepProd.definition)
+    })
+  ];
+  const fullRepSepRest = repSepRest.concat(currRest, prevRest);
+  return fullRepSepRest;
+}
+
+// node_modules/chevrotain/lib/src/parse/grammar/first.js
+function first(prod) {
+  if (prod instanceof NonTerminal) {
+    return first(prod.referencedRule);
+  } else if (prod instanceof Terminal) {
+    return firstForTerminal(prod);
+  } else if (isSequenceProd(prod)) {
+    return firstForSequence(prod);
+  } else if (isBranchingProd(prod)) {
+    return firstForBranching(prod);
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+function firstForSequence(prod) {
+  let firstSet = [];
+  const seq = prod.definition;
+  let nextSubProdIdx = 0;
+  let hasInnerProdsRemaining = seq.length > nextSubProdIdx;
+  let currSubProd;
+  let isLastInnerProdOptional = true;
+  while (hasInnerProdsRemaining && isLastInnerProdOptional) {
+    currSubProd = seq[nextSubProdIdx];
+    isLastInnerProdOptional = isOptionalProd(currSubProd);
+    firstSet = firstSet.concat(first(currSubProd));
+    nextSubProdIdx = nextSubProdIdx + 1;
+    hasInnerProdsRemaining = seq.length > nextSubProdIdx;
+  }
+  return uniq_default(firstSet);
+}
+function firstForBranching(prod) {
+  const allAlternativesFirsts = map_default(prod.definition, (innerProd) => {
+    return first(innerProd);
+  });
+  return uniq_default(flatten_default(allAlternativesFirsts));
+}
+function firstForTerminal(terminal) {
+  return [terminal.terminalType];
+}
+
+// node_modules/chevrotain/lib/src/parse/constants.js
+var IN = "_~IN~_";
+
+// node_modules/chevrotain/lib/src/parse/grammar/follow.js
+var ResyncFollowsWalker = class extends RestWalker {
+  constructor(topProd) {
+    super();
+    this.topProd = topProd;
+    this.follows = {};
+  }
+  startWalking() {
+    this.walk(this.topProd);
+    return this.follows;
+  }
+  walkTerminal(terminal, currRest, prevRest) {
+  }
+  walkProdRef(refProd, currRest, prevRest) {
+    const followName = buildBetweenProdsFollowPrefix(refProd.referencedRule, refProd.idx) + this.topProd.name;
+    const fullRest = currRest.concat(prevRest);
+    const restProd = new Alternative({ definition: fullRest });
+    const t_in_topProd_follows = first(restProd);
+    this.follows[followName] = t_in_topProd_follows;
+  }
+};
+function computeAllProdsFollows(topProductions) {
+  const reSyncFollows = {};
+  forEach_default(topProductions, (topProd) => {
+    const currRefsFollow = new ResyncFollowsWalker(topProd).startWalking();
+    assign_default(reSyncFollows, currRefsFollow);
+  });
+  return reSyncFollows;
+}
+function buildBetweenProdsFollowPrefix(inner, occurenceInParent) {
+  return inner.name + occurenceInParent + IN;
+}
+
+// node_modules/@chevrotain/regexp-to-ast/lib/src/utils.js
+function cc(char) {
+  return char.charCodeAt(0);
+}
+function insertToSet(item, set) {
+  if (Array.isArray(item)) {
+    item.forEach(function(subItem) {
+      set.push(subItem);
+    });
+  } else {
+    set.push(item);
+  }
+}
+function addFlag(flagObj, flagKey) {
+  if (flagObj[flagKey] === true) {
+    throw "duplicate flag " + flagKey;
+  }
+  const x = flagObj[flagKey];
+  flagObj[flagKey] = true;
+}
+function ASSERT_EXISTS(obj) {
+  if (obj === void 0) {
+    throw Error("Internal Error - Should never get here!");
+  }
+  return true;
+}
+function ASSERT_NEVER_REACH_HERE() {
+  throw Error("Internal Error - Should never get here!");
+}
+function isCharacter(obj) {
+  return obj["type"] === "Character";
+}
+
+// node_modules/@chevrotain/regexp-to-ast/lib/src/character-classes.js
+var digitsCharCodes = [];
+for (let i = cc("0"); i <= cc("9"); i++) {
+  digitsCharCodes.push(i);
+}
+var wordCharCodes = [cc("_")].concat(digitsCharCodes);
+for (let i = cc("a"); i <= cc("z"); i++) {
+  wordCharCodes.push(i);
+}
+for (let i = cc("A"); i <= cc("Z"); i++) {
+  wordCharCodes.push(i);
+}
+var whitespaceCodes = [
+  cc(" "),
+  cc("\f"),
+  cc("\n"),
+  cc("\r"),
+  cc("	"),
+  cc("\v"),
+  cc("	"),
+  cc("\xA0"),
+  cc("\u1680"),
+  cc("\u2000"),
+  cc("\u2001"),
+  cc("\u2002"),
+  cc("\u2003"),
+  cc("\u2004"),
+  cc("\u2005"),
+  cc("\u2006"),
+  cc("\u2007"),
+  cc("\u2008"),
+  cc("\u2009"),
+  cc("\u200A"),
+  cc("\u2028"),
+  cc("\u2029"),
+  cc("\u202F"),
+  cc("\u205F"),
+  cc("\u3000"),
+  cc("\uFEFF")
+];
+
+// node_modules/@chevrotain/regexp-to-ast/lib/src/regexp-parser.js
+var hexDigitPattern = /[0-9a-fA-F]/;
+var decimalPattern = /[0-9]/;
+var decimalPatternNoZero = /[1-9]/;
+var RegExpParser = class {
+  constructor() {
+    this.idx = 0;
+    this.input = "";
+    this.groupIdx = 0;
+  }
+  saveState() {
+    return {
+      idx: this.idx,
+      input: this.input,
+      groupIdx: this.groupIdx
+    };
+  }
+  restoreState(newState) {
+    this.idx = newState.idx;
+    this.input = newState.input;
+    this.groupIdx = newState.groupIdx;
+  }
+  pattern(input) {
+    this.idx = 0;
+    this.input = input;
+    this.groupIdx = 0;
+    this.consumeChar("/");
+    const value = this.disjunction();
+    this.consumeChar("/");
+    const flags = {
+      type: "Flags",
+      loc: { begin: this.idx, end: input.length },
+      global: false,
+      ignoreCase: false,
+      multiLine: false,
+      unicode: false,
+      sticky: false
+    };
+    while (this.isRegExpFlag()) {
+      switch (this.popChar()) {
+        case "g":
+          addFlag(flags, "global");
+          break;
+        case "i":
+          addFlag(flags, "ignoreCase");
+          break;
+        case "m":
+          addFlag(flags, "multiLine");
+          break;
+        case "u":
+          addFlag(flags, "unicode");
+          break;
+        case "y":
+          addFlag(flags, "sticky");
+          break;
+      }
+    }
+    if (this.idx !== this.input.length) {
+      throw Error("Redundant input: " + this.input.substring(this.idx));
+    }
+    return {
+      type: "Pattern",
+      flags,
+      value,
+      loc: this.loc(0)
+    };
+  }
+  disjunction() {
+    const alts = [];
+    const begin = this.idx;
+    alts.push(this.alternative());
+    while (this.peekChar() === "|") {
+      this.consumeChar("|");
+      alts.push(this.alternative());
+    }
+    return { type: "Disjunction", value: alts, loc: this.loc(begin) };
+  }
+  alternative() {
+    const terms = [];
+    const begin = this.idx;
+    while (this.isTerm()) {
+      terms.push(this.term());
+    }
+    return { type: "Alternative", value: terms, loc: this.loc(begin) };
+  }
+  term() {
+    if (this.isAssertion()) {
+      return this.assertion();
+    } else {
+      return this.atom();
+    }
+  }
+  assertion() {
+    const begin = this.idx;
+    switch (this.popChar()) {
+      case "^":
+        return {
+          type: "StartAnchor",
+          loc: this.loc(begin)
+        };
+      case "$":
+        return { type: "EndAnchor", loc: this.loc(begin) };
+      case "\\":
+        switch (this.popChar()) {
+          case "b":
+            return {
+              type: "WordBoundary",
+              loc: this.loc(begin)
+            };
+          case "B":
+            return {
+              type: "NonWordBoundary",
+              loc: this.loc(begin)
+            };
+        }
+        throw Error("Invalid Assertion Escape");
+      case "(":
+        this.consumeChar("?");
+        let type;
+        switch (this.popChar()) {
+          case "=":
+            type = "Lookahead";
+            break;
+          case "!":
+            type = "NegativeLookahead";
+            break;
+        }
+        ASSERT_EXISTS(type);
+        const disjunction = this.disjunction();
+        this.consumeChar(")");
+        return {
+          type,
+          value: disjunction,
+          loc: this.loc(begin)
+        };
+    }
+    return ASSERT_NEVER_REACH_HERE();
+  }
+  quantifier(isBacktracking = false) {
+    let range = void 0;
+    const begin = this.idx;
+    switch (this.popChar()) {
+      case "*":
+        range = {
+          atLeast: 0,
+          atMost: Infinity
+        };
+        break;
+      case "+":
+        range = {
+          atLeast: 1,
+          atMost: Infinity
+        };
+        break;
+      case "?":
+        range = {
+          atLeast: 0,
+          atMost: 1
+        };
+        break;
+      case "{":
+        const atLeast = this.integerIncludingZero();
+        switch (this.popChar()) {
+          case "}":
+            range = {
+              atLeast,
+              atMost: atLeast
+            };
+            break;
+          case ",":
+            let atMost;
+            if (this.isDigit()) {
+              atMost = this.integerIncludingZero();
+              range = {
+                atLeast,
+                atMost
+              };
+            } else {
+              range = {
+                atLeast,
+                atMost: Infinity
+              };
+            }
+            this.consumeChar("}");
+            break;
+        }
+        if (isBacktracking === true && range === void 0) {
+          return void 0;
+        }
+        ASSERT_EXISTS(range);
+        break;
+    }
+    if (isBacktracking === true && range === void 0) {
+      return void 0;
+    }
+    if (ASSERT_EXISTS(range)) {
+      if (this.peekChar(0) === "?") {
+        this.consumeChar("?");
+        range.greedy = false;
+      } else {
+        range.greedy = true;
+      }
+      range.type = "Quantifier";
+      range.loc = this.loc(begin);
+      return range;
+    }
+  }
+  atom() {
+    let atom;
+    const begin = this.idx;
+    switch (this.peekChar()) {
+      case ".":
+        atom = this.dotAll();
+        break;
+      case "\\":
+        atom = this.atomEscape();
+        break;
+      case "[":
+        atom = this.characterClass();
+        break;
+      case "(":
+        atom = this.group();
+        break;
+    }
+    if (atom === void 0 && this.isPatternCharacter()) {
+      atom = this.patternCharacter();
+    }
+    if (ASSERT_EXISTS(atom)) {
+      atom.loc = this.loc(begin);
+      if (this.isQuantifier()) {
+        atom.quantifier = this.quantifier();
+      }
+      return atom;
+    }
+    return ASSERT_NEVER_REACH_HERE();
+  }
+  dotAll() {
+    this.consumeChar(".");
+    return {
+      type: "Set",
+      complement: true,
+      value: [cc("\n"), cc("\r"), cc("\u2028"), cc("\u2029")]
+    };
+  }
+  atomEscape() {
+    this.consumeChar("\\");
+    switch (this.peekChar()) {
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+        return this.decimalEscapeAtom();
+      case "d":
+      case "D":
+      case "s":
+      case "S":
+      case "w":
+      case "W":
+        return this.characterClassEscape();
+      case "f":
+      case "n":
+      case "r":
+      case "t":
+      case "v":
+        return this.controlEscapeAtom();
+      case "c":
+        return this.controlLetterEscapeAtom();
+      case "0":
+        return this.nulCharacterAtom();
+      case "x":
+        return this.hexEscapeSequenceAtom();
+      case "u":
+        return this.regExpUnicodeEscapeSequenceAtom();
+      default:
+        return this.identityEscapeAtom();
+    }
+  }
+  decimalEscapeAtom() {
+    const value = this.positiveInteger();
+    return { type: "GroupBackReference", value };
+  }
+  characterClassEscape() {
+    let set;
+    let complement = false;
+    switch (this.popChar()) {
+      case "d":
+        set = digitsCharCodes;
+        break;
+      case "D":
+        set = digitsCharCodes;
+        complement = true;
+        break;
+      case "s":
+        set = whitespaceCodes;
+        break;
+      case "S":
+        set = whitespaceCodes;
+        complement = true;
+        break;
+      case "w":
+        set = wordCharCodes;
+        break;
+      case "W":
+        set = wordCharCodes;
+        complement = true;
+        break;
+    }
+    if (ASSERT_EXISTS(set)) {
+      return { type: "Set", value: set, complement };
+    }
+    return ASSERT_NEVER_REACH_HERE();
+  }
+  controlEscapeAtom() {
+    let escapeCode;
+    switch (this.popChar()) {
+      case "f":
+        escapeCode = cc("\f");
+        break;
+      case "n":
+        escapeCode = cc("\n");
+        break;
+      case "r":
+        escapeCode = cc("\r");
+        break;
+      case "t":
+        escapeCode = cc("	");
+        break;
+      case "v":
+        escapeCode = cc("\v");
+        break;
+    }
+    if (ASSERT_EXISTS(escapeCode)) {
+      return { type: "Character", value: escapeCode };
+    }
+    return ASSERT_NEVER_REACH_HERE();
+  }
+  controlLetterEscapeAtom() {
+    this.consumeChar("c");
+    const letter = this.popChar();
+    if (/[a-zA-Z]/.test(letter) === false) {
+      throw Error("Invalid ");
+    }
+    const letterCode = letter.toUpperCase().charCodeAt(0) - 64;
+    return { type: "Character", value: letterCode };
+  }
+  nulCharacterAtom() {
+    this.consumeChar("0");
+    return { type: "Character", value: cc("\0") };
+  }
+  hexEscapeSequenceAtom() {
+    this.consumeChar("x");
+    return this.parseHexDigits(2);
+  }
+  regExpUnicodeEscapeSequenceAtom() {
+    this.consumeChar("u");
+    return this.parseHexDigits(4);
+  }
+  identityEscapeAtom() {
+    const escapedChar = this.popChar();
+    return { type: "Character", value: cc(escapedChar) };
+  }
+  classPatternCharacterAtom() {
+    switch (this.peekChar()) {
+      case "\n":
+      case "\r":
+      case "\u2028":
+      case "\u2029":
+      case "\\":
+      case "]":
+        throw Error("TBD");
+      default:
+        const nextChar = this.popChar();
+        return { type: "Character", value: cc(nextChar) };
+    }
+  }
+  characterClass() {
+    const set = [];
+    let complement = false;
+    this.consumeChar("[");
+    if (this.peekChar(0) === "^") {
+      this.consumeChar("^");
+      complement = true;
+    }
+    while (this.isClassAtom()) {
+      const from = this.classAtom();
+      const isFromSingleChar = from.type === "Character";
+      if (isCharacter(from) && this.isRangeDash()) {
+        this.consumeChar("-");
+        const to = this.classAtom();
+        const isToSingleChar = to.type === "Character";
+        if (isCharacter(to)) {
+          if (to.value < from.value) {
+            throw Error("Range out of order in character class");
+          }
+          set.push({ from: from.value, to: to.value });
+        } else {
+          insertToSet(from.value, set);
+          set.push(cc("-"));
+          insertToSet(to.value, set);
+        }
+      } else {
+        insertToSet(from.value, set);
+      }
+    }
+    this.consumeChar("]");
+    return { type: "Set", complement, value: set };
+  }
+  classAtom() {
+    switch (this.peekChar()) {
+      case "]":
+      case "\n":
+      case "\r":
+      case "\u2028":
+      case "\u2029":
+        throw Error("TBD");
+      case "\\":
+        return this.classEscape();
+      default:
+        return this.classPatternCharacterAtom();
+    }
+  }
+  classEscape() {
+    this.consumeChar("\\");
+    switch (this.peekChar()) {
+      case "b":
+        this.consumeChar("b");
+        return { type: "Character", value: cc("\b") };
+      case "d":
+      case "D":
+      case "s":
+      case "S":
+      case "w":
+      case "W":
+        return this.characterClassEscape();
+      case "f":
+      case "n":
+      case "r":
+      case "t":
+      case "v":
+        return this.controlEscapeAtom();
+      case "c":
+        return this.controlLetterEscapeAtom();
+      case "0":
+        return this.nulCharacterAtom();
+      case "x":
+        return this.hexEscapeSequenceAtom();
+      case "u":
+        return this.regExpUnicodeEscapeSequenceAtom();
+      default:
+        return this.identityEscapeAtom();
+    }
+  }
+  group() {
+    let capturing = true;
+    this.consumeChar("(");
+    switch (this.peekChar(0)) {
+      case "?":
+        this.consumeChar("?");
+        this.consumeChar(":");
+        capturing = false;
+        break;
+      default:
+        this.groupIdx++;
+        break;
+    }
+    const value = this.disjunction();
+    this.consumeChar(")");
+    const groupAst = {
+      type: "Group",
+      capturing,
+      value
+    };
+    if (capturing) {
+      groupAst["idx"] = this.groupIdx;
+    }
+    return groupAst;
+  }
+  positiveInteger() {
+    let number = this.popChar();
+    if (decimalPatternNoZero.test(number) === false) {
+      throw Error("Expecting a positive integer");
+    }
+    while (decimalPattern.test(this.peekChar(0))) {
+      number += this.popChar();
+    }
+    return parseInt(number, 10);
+  }
+  integerIncludingZero() {
+    let number = this.popChar();
+    if (decimalPattern.test(number) === false) {
+      throw Error("Expecting an integer");
+    }
+    while (decimalPattern.test(this.peekChar(0))) {
+      number += this.popChar();
+    }
+    return parseInt(number, 10);
+  }
+  patternCharacter() {
+    const nextChar = this.popChar();
+    switch (nextChar) {
+      case "\n":
+      case "\r":
+      case "\u2028":
+      case "\u2029":
+      case "^":
+      case "$":
+      case "\\":
+      case ".":
+      case "*":
+      case "+":
+      case "?":
+      case "(":
+      case ")":
+      case "[":
+      case "|":
+        throw Error("TBD");
+      default:
+        return { type: "Character", value: cc(nextChar) };
+    }
+  }
+  isRegExpFlag() {
+    switch (this.peekChar(0)) {
+      case "g":
+      case "i":
+      case "m":
+      case "u":
+      case "y":
+        return true;
+      default:
+        return false;
+    }
+  }
+  isRangeDash() {
+    return this.peekChar() === "-" && this.isClassAtom(1);
+  }
+  isDigit() {
+    return decimalPattern.test(this.peekChar(0));
+  }
+  isClassAtom(howMuch = 0) {
+    switch (this.peekChar(howMuch)) {
+      case "]":
+      case "\n":
+      case "\r":
+      case "\u2028":
+      case "\u2029":
+        return false;
+      default:
+        return true;
+    }
+  }
+  isTerm() {
+    return this.isAtom() || this.isAssertion();
+  }
+  isAtom() {
+    if (this.isPatternCharacter()) {
+      return true;
+    }
+    switch (this.peekChar(0)) {
+      case ".":
+      case "\\":
+      case "[":
+      case "(":
+        return true;
+      default:
+        return false;
+    }
+  }
+  isAssertion() {
+    switch (this.peekChar(0)) {
+      case "^":
+      case "$":
+        return true;
+      case "\\":
+        switch (this.peekChar(1)) {
+          case "b":
+          case "B":
+            return true;
+          default:
+            return false;
+        }
+      case "(":
+        return this.peekChar(1) === "?" && (this.peekChar(2) === "=" || this.peekChar(2) === "!");
+      default:
+        return false;
+    }
+  }
+  isQuantifier() {
+    const prevState = this.saveState();
+    try {
+      return this.quantifier(true) !== void 0;
+    } catch (e) {
+      return false;
+    } finally {
+      this.restoreState(prevState);
+    }
+  }
+  isPatternCharacter() {
+    switch (this.peekChar()) {
+      case "^":
+      case "$":
+      case "\\":
+      case ".":
+      case "*":
+      case "+":
+      case "?":
+      case "(":
+      case ")":
+      case "[":
+      case "|":
+      case "/":
+      case "\n":
+      case "\r":
+      case "\u2028":
+      case "\u2029":
+        return false;
+      default:
+        return true;
+    }
+  }
+  parseHexDigits(howMany) {
+    let hexString = "";
+    for (let i = 0; i < howMany; i++) {
+      const hexChar = this.popChar();
+      if (hexDigitPattern.test(hexChar) === false) {
+        throw Error("Expecting a HexDecimal digits");
+      }
+      hexString += hexChar;
+    }
+    const charCode = parseInt(hexString, 16);
+    return { type: "Character", value: charCode };
+  }
+  peekChar(howMuch = 0) {
+    return this.input[this.idx + howMuch];
+  }
+  popChar() {
+    const nextChar = this.peekChar(0);
+    this.consumeChar(void 0);
+    return nextChar;
+  }
+  consumeChar(char) {
+    if (char !== void 0 && this.input[this.idx] !== char) {
+      throw Error("Expected: '" + char + "' but found: '" + this.input[this.idx] + "' at offset: " + this.idx);
+    }
+    if (this.idx >= this.input.length) {
+      throw Error("Unexpected end of input");
+    }
+    this.idx++;
+  }
+  loc(begin) {
+    return { begin, end: this.idx };
+  }
+};
+
+// node_modules/@chevrotain/regexp-to-ast/lib/src/base-regexp-visitor.js
+var BaseRegExpVisitor = class {
+  visitChildren(node) {
+    for (const key in node) {
+      const child = node[key];
+      if (node.hasOwnProperty(key)) {
+        if (child.type !== void 0) {
+          this.visit(child);
+        } else if (Array.isArray(child)) {
+          child.forEach((subChild) => {
+            this.visit(subChild);
+          }, this);
+        }
+      }
+    }
+  }
+  visit(node) {
+    switch (node.type) {
+      case "Pattern":
+        this.visitPattern(node);
+        break;
+      case "Flags":
+        this.visitFlags(node);
+        break;
+      case "Disjunction":
+        this.visitDisjunction(node);
+        break;
+      case "Alternative":
+        this.visitAlternative(node);
+        break;
+      case "StartAnchor":
+        this.visitStartAnchor(node);
+        break;
+      case "EndAnchor":
+        this.visitEndAnchor(node);
+        break;
+      case "WordBoundary":
+        this.visitWordBoundary(node);
+        break;
+      case "NonWordBoundary":
+        this.visitNonWordBoundary(node);
+        break;
+      case "Lookahead":
+        this.visitLookahead(node);
+        break;
+      case "NegativeLookahead":
+        this.visitNegativeLookahead(node);
+        break;
+      case "Character":
+        this.visitCharacter(node);
+        break;
+      case "Set":
+        this.visitSet(node);
+        break;
+      case "Group":
+        this.visitGroup(node);
+        break;
+      case "GroupBackReference":
+        this.visitGroupBackReference(node);
+        break;
+      case "Quantifier":
+        this.visitQuantifier(node);
+        break;
+    }
+    this.visitChildren(node);
+  }
+  visitPattern(node) {
+  }
+  visitFlags(node) {
+  }
+  visitDisjunction(node) {
+  }
+  visitAlternative(node) {
+  }
+  // Assertion
+  visitStartAnchor(node) {
+  }
+  visitEndAnchor(node) {
+  }
+  visitWordBoundary(node) {
+  }
+  visitNonWordBoundary(node) {
+  }
+  visitLookahead(node) {
+  }
+  visitNegativeLookahead(node) {
+  }
+  // atoms
+  visitCharacter(node) {
+  }
+  visitSet(node) {
+  }
+  visitGroup(node) {
+  }
+  visitGroupBackReference(node) {
+  }
+  visitQuantifier(node) {
+  }
+};
+
+// node_modules/chevrotain/lib/src/scan/reg_exp_parser.js
+var regExpAstCache = {};
+var regExpParser = new RegExpParser();
+function getRegExpAst(regExp) {
+  const regExpStr = regExp.toString();
+  if (regExpAstCache.hasOwnProperty(regExpStr)) {
+    return regExpAstCache[regExpStr];
+  } else {
+    const regExpAst = regExpParser.pattern(regExpStr);
+    regExpAstCache[regExpStr] = regExpAst;
+    return regExpAst;
+  }
+}
+function clearRegExpParserCache() {
+  regExpAstCache = {};
+}
+
+// node_modules/chevrotain/lib/src/scan/reg_exp.js
+var complementErrorMessage = "Complement Sets are not supported for first char optimization";
+var failedOptimizationPrefixMsg = 'Unable to use "first char" lexer optimizations:\n';
+function getOptimizedStartCodesIndices(regExp, ensureOptimizations = false) {
+  try {
+    const ast = getRegExpAst(regExp);
+    const firstChars = firstCharOptimizedIndices(ast.value, {}, ast.flags.ignoreCase);
+    return firstChars;
+  } catch (e) {
+    if (e.message === complementErrorMessage) {
+      if (ensureOptimizations) {
+        PRINT_WARNING(`${failedOptimizationPrefixMsg}	Unable to optimize: < ${regExp.toString()} >
 	Complement Sets cannot be automatically optimized.
 	This will disable the lexer's first char optimizations.
-	See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#COMPLEMENT for details.`);else{let n="";t&&(n=`
-	This will disable the lexer's first char optimizations.
-	See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#REGEXP_PARSING for details.`),or(`${kr}
-	Failed parsing: < ${e.toString()} >
+	See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#COMPLEMENT for details.`);
+      }
+    } else {
+      let msgSuffix = "";
+      if (ensureOptimizations) {
+        msgSuffix = "\n	This will disable the lexer's first char optimizations.\n	See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#REGEXP_PARSING for details.";
+      }
+      PRINT_ERROR(`${failedOptimizationPrefixMsg}
+	Failed parsing: < ${regExp.toString()} >
 	Using the @chevrotain/regexp-to-ast library
-	Please open an issue at: https://github.com/chevrotain/chevrotain/issues`+n)}}return[]}function Ni(e,t,r){switch(e.type){case"Disjunction":for(let i=0;i<e.value.length;i++)Ni(e.value[i],t,r);break;case"Alternative":let n=e.value;for(let i=0;i<n.length;i++){let o=n[i];switch(o.type){case"EndAnchor":case"GroupBackReference":case"Lookahead":case"NegativeLookahead":case"StartAnchor":case"WordBoundary":case"NonWordBoundary":continue}let s=o;switch(s.type){case"Character":Pn(s.value,t,r);break;case"Set":if(s.complement===!0)throw Error(rl);x(s.value,l=>{if(typeof l=="number")Pn(l,t,r);else{let c=l;if(r===!0)for(let f=c.from;f<=c.to;f++)Pn(f,t,r);else{for(let f=c.from;f<=c.to&&f<cr;f++)Pn(f,t,r);if(c.to>=cr){let f=c.from>=cr?c.from:cr,u=c.to,p=Ht(f),d=Ht(u);for(let I=p;I<=d;I++)t[I]=I}}}});break;case"Group":Ni(s.value,t,r);break;default:throw Error("Non Exhaustive Match")}let a=s.quantifier!==void 0&&s.quantifier.atLeast===0;if(s.type==="Group"&&_i(s)===!1||s.type!=="Group"&&a===!1)break}break;default:throw Error("non exhaustive match!")}return L(t)}function Pn(e,t,r){let n=Ht(e);t[n]=n,r===!0&&nx(e,t)}function nx(e,t){let r=String.fromCharCode(e),n=r.toUpperCase();if(n!==r){let i=Ht(n.charCodeAt(0));t[i]=i}else{let i=r.toLowerCase();if(i!==r){let o=Ht(i.charCodeAt(0));t[o]=o}}}function el(e,t){return Kt(e.value,r=>{if(typeof r=="number")return G(t,r);{let n=r;return Kt(t,i=>n.from<=i&&i<=n.to)!==void 0}})}function _i(e){let t=e.quantifier;return t&&t.atLeast===0?!0:e.value?A(e.value)?ct(e.value,_i):_i(e.value):!1}var Ci=class extends Ae{constructor(t){super(),this.targetCharCodes=t,this.found=!1}visitChildren(t){if(this.found!==!0){switch(t.type){case"Lookahead":this.visitLookahead(t);return;case"NegativeLookahead":this.visitNegativeLookahead(t);return}super.visitChildren(t)}}visitCharacter(t){G(this.targetCharCodes,t.value)&&(this.found=!0)}visitSet(t){t.complement?el(t,this.targetCharCodes)===void 0&&(this.found=!0):el(t,this.targetCharCodes)!==void 0&&(this.found=!0)}};function kn(e,t){if(t instanceof RegExp){let r=lr(t),n=new Ci(e);return n.visit(r),n.found}else return Kt(t,r=>G(e,r.charCodeAt(0)))!==void 0}var ve="PATTERN",fr="defaultMode",Mn="modes",bi=typeof new RegExp("(?:)").sticky=="boolean";function sl(e,t){t=nr(t,{useSticky:bi,debug:!1,safeMode:!1,positionTracking:"full",lineTerminatorCharacters:["\r",`
-`],tracer:(m,h)=>h()});let r=t.tracer;r("initCharCodeToOptimizedIndexMap",()=>{Ix()});let n;r("Reject Lexer.NA",()=>{n=Te(e,m=>m[ve]===et.NA)});let i=!1,o;r("Transform Patterns",()=>{i=!1,o=g(n,m=>{let h=m[ve];if(vt(h)){let O=h.source;return O.length===1&&O!=="^"&&O!=="$"&&O!=="."&&!h.ignoreCase?O:O.length===2&&O[0]==="\\"&&!G(["d","D","s","S","t","r","n","t","0","c","b","B","f","v","w","W"],O[1])?O[1]:t.useSticky?ol(h):il(h)}else{if(dt(h))return i=!0,{exec:h};if(typeof h=="object")return i=!0,h;if(typeof h=="string"){if(h.length===1)return h;{let O=h.replace(/[\\^$.*+?()[\]{}|]/g,"\\$&"),N=new RegExp(O);return t.useSticky?ol(N):il(N)}}else throw Error("non exhaustive match")}})});let s,a,l,c,f;r("misc mapping",()=>{s=g(n,m=>m.tokenTypeIdx),a=g(n,m=>{let h=m.GROUP;if(h!==et.SKIPPED){if(nt(h))return h;if(ut(h))return!1;throw Error("non exhaustive match")}}),l=g(n,m=>{let h=m.LONGER_ALT;if(h)return A(h)?g(h,N=>Nn(n,N)):[Nn(n,h)]}),c=g(n,m=>m.PUSH_MODE),f=g(n,m=>T(m,"POP_MODE"))});let u;r("Line Terminator Handling",()=>{let m=dl(t.lineTerminatorCharacters);u=g(n,h=>!1),t.positionTracking!=="onlyOffset"&&(u=g(n,h=>T(h,"LINE_BREAKS")?!!h.LINE_BREAKS:hl(h,m)===!1&&kn(m,h.PATTERN)))});let p,d,I,y;r("Misc Mapping #2",()=>{p=g(n,ul),d=g(o,Tx),I=tt(n,(m,h)=>{let O=h.GROUP;return nt(O)&&O!==et.SKIPPED&&(m[O]=[]),m},{}),y=g(o,(m,h)=>({pattern:o[h],longerAlt:l[h],canLineTerminator:u[h],isCustom:p[h],short:d[h],group:a[h],push:c[h],pop:f[h],tokenTypeIdx:s[h],tokenType:n[h]}))});let S=!0,E=[];return t.safeMode||r("First Char Optimization",()=>{E=tt(n,(m,h,O)=>{if(typeof h.PATTERN=="string"){let N=h.PATTERN.charCodeAt(0),Tt=Ht(N);vi(m,Tt,y[O])}else if(A(h.START_CHARS_HINT)){let N;x(h.START_CHARS_HINT,Tt=>{let Vr=typeof Tt=="string"?Tt.charCodeAt(0):Tt,bt=Ht(Vr);N!==bt&&(N=bt,vi(m,bt,y[O]))})}else if(vt(h.PATTERN))if(h.PATTERN.unicode)S=!1,t.ensureOptimizations&&or(`${kr}	Unable to analyze < ${h.PATTERN.toString()} > pattern.
+	Please open an issue at: https://github.com/chevrotain/chevrotain/issues` + msgSuffix);
+    }
+  }
+  return [];
+}
+function firstCharOptimizedIndices(ast, result, ignoreCase) {
+  switch (ast.type) {
+    case "Disjunction":
+      for (let i = 0; i < ast.value.length; i++) {
+        firstCharOptimizedIndices(ast.value[i], result, ignoreCase);
+      }
+      break;
+    case "Alternative":
+      const terms = ast.value;
+      for (let i = 0; i < terms.length; i++) {
+        const term = terms[i];
+        switch (term.type) {
+          case "EndAnchor":
+          case "GroupBackReference":
+          case "Lookahead":
+          case "NegativeLookahead":
+          case "StartAnchor":
+          case "WordBoundary":
+          case "NonWordBoundary":
+            continue;
+        }
+        const atom = term;
+        switch (atom.type) {
+          case "Character":
+            addOptimizedIdxToResult(atom.value, result, ignoreCase);
+            break;
+          case "Set":
+            if (atom.complement === true) {
+              throw Error(complementErrorMessage);
+            }
+            forEach_default(atom.value, (code) => {
+              if (typeof code === "number") {
+                addOptimizedIdxToResult(code, result, ignoreCase);
+              } else {
+                const range = code;
+                if (ignoreCase === true) {
+                  for (let rangeCode = range.from; rangeCode <= range.to; rangeCode++) {
+                    addOptimizedIdxToResult(rangeCode, result, ignoreCase);
+                  }
+                } else {
+                  for (let rangeCode = range.from; rangeCode <= range.to && rangeCode < minOptimizationVal; rangeCode++) {
+                    addOptimizedIdxToResult(rangeCode, result, ignoreCase);
+                  }
+                  if (range.to >= minOptimizationVal) {
+                    const minUnOptVal = range.from >= minOptimizationVal ? range.from : minOptimizationVal;
+                    const maxUnOptVal = range.to;
+                    const minOptIdx = charCodeToOptimizedIndex(minUnOptVal);
+                    const maxOptIdx = charCodeToOptimizedIndex(maxUnOptVal);
+                    for (let currOptIdx = minOptIdx; currOptIdx <= maxOptIdx; currOptIdx++) {
+                      result[currOptIdx] = currOptIdx;
+                    }
+                  }
+                }
+              }
+            });
+            break;
+          case "Group":
+            firstCharOptimizedIndices(atom.value, result, ignoreCase);
+            break;
+          default:
+            throw Error("Non Exhaustive Match");
+        }
+        const isOptionalQuantifier = atom.quantifier !== void 0 && atom.quantifier.atLeast === 0;
+        if (
+          // A group may be optional due to empty contents /(?:)/
+          // or if everything inside it is optional /((a)?)/
+          atom.type === "Group" && isWholeOptional(atom) === false || // If this term is not a group it may only be optional if it has an optional quantifier
+          atom.type !== "Group" && isOptionalQuantifier === false
+        ) {
+          break;
+        }
+      }
+      break;
+    default:
+      throw Error("non exhaustive match!");
+  }
+  return values_default(result);
+}
+function addOptimizedIdxToResult(code, result, ignoreCase) {
+  const optimizedCharIdx = charCodeToOptimizedIndex(code);
+  result[optimizedCharIdx] = optimizedCharIdx;
+  if (ignoreCase === true) {
+    handleIgnoreCase(code, result);
+  }
+}
+function handleIgnoreCase(code, result) {
+  const char = String.fromCharCode(code);
+  const upperChar = char.toUpperCase();
+  if (upperChar !== char) {
+    const optimizedCharIdx = charCodeToOptimizedIndex(upperChar.charCodeAt(0));
+    result[optimizedCharIdx] = optimizedCharIdx;
+  } else {
+    const lowerChar = char.toLowerCase();
+    if (lowerChar !== char) {
+      const optimizedCharIdx = charCodeToOptimizedIndex(lowerChar.charCodeAt(0));
+      result[optimizedCharIdx] = optimizedCharIdx;
+    }
+  }
+}
+function findCode(setNode, targetCharCodes) {
+  return find_default(setNode.value, (codeOrRange) => {
+    if (typeof codeOrRange === "number") {
+      return includes_default(targetCharCodes, codeOrRange);
+    } else {
+      const range = codeOrRange;
+      return find_default(targetCharCodes, (targetCode) => range.from <= targetCode && targetCode <= range.to) !== void 0;
+    }
+  });
+}
+function isWholeOptional(ast) {
+  const quantifier = ast.quantifier;
+  if (quantifier && quantifier.atLeast === 0) {
+    return true;
+  }
+  if (!ast.value) {
+    return false;
+  }
+  return isArray_default(ast.value) ? every_default(ast.value, isWholeOptional) : isWholeOptional(ast.value);
+}
+var CharCodeFinder = class extends BaseRegExpVisitor {
+  constructor(targetCharCodes) {
+    super();
+    this.targetCharCodes = targetCharCodes;
+    this.found = false;
+  }
+  visitChildren(node) {
+    if (this.found === true) {
+      return;
+    }
+    switch (node.type) {
+      case "Lookahead":
+        this.visitLookahead(node);
+        return;
+      case "NegativeLookahead":
+        this.visitNegativeLookahead(node);
+        return;
+    }
+    super.visitChildren(node);
+  }
+  visitCharacter(node) {
+    if (includes_default(this.targetCharCodes, node.value)) {
+      this.found = true;
+    }
+  }
+  visitSet(node) {
+    if (node.complement) {
+      if (findCode(node, this.targetCharCodes) === void 0) {
+        this.found = true;
+      }
+    } else {
+      if (findCode(node, this.targetCharCodes) !== void 0) {
+        this.found = true;
+      }
+    }
+  }
+};
+function canMatchCharCode(charCodes, pattern) {
+  if (pattern instanceof RegExp) {
+    const ast = getRegExpAst(pattern);
+    const charCodeFinder = new CharCodeFinder(charCodes);
+    charCodeFinder.visit(ast);
+    return charCodeFinder.found;
+  } else {
+    return find_default(pattern, (char) => {
+      return includes_default(charCodes, char.charCodeAt(0));
+    }) !== void 0;
+  }
+}
+
+// node_modules/chevrotain/lib/src/scan/lexer.js
+var PATTERN = "PATTERN";
+var DEFAULT_MODE = "defaultMode";
+var MODES = "modes";
+var SUPPORT_STICKY = typeof new RegExp("(?:)").sticky === "boolean";
+function analyzeTokenTypes(tokenTypes, options) {
+  options = defaults_default(options, {
+    useSticky: SUPPORT_STICKY,
+    debug: false,
+    safeMode: false,
+    positionTracking: "full",
+    lineTerminatorCharacters: ["\r", "\n"],
+    tracer: (msg, action) => action()
+  });
+  const tracer = options.tracer;
+  tracer("initCharCodeToOptimizedIndexMap", () => {
+    initCharCodeToOptimizedIndexMap();
+  });
+  let onlyRelevantTypes;
+  tracer("Reject Lexer.NA", () => {
+    onlyRelevantTypes = reject_default(tokenTypes, (currType) => {
+      return currType[PATTERN] === Lexer.NA;
+    });
+  });
+  let hasCustom = false;
+  let allTransformedPatterns;
+  tracer("Transform Patterns", () => {
+    hasCustom = false;
+    allTransformedPatterns = map_default(onlyRelevantTypes, (currType) => {
+      const currPattern = currType[PATTERN];
+      if (isRegExp_default(currPattern)) {
+        const regExpSource = currPattern.source;
+        if (regExpSource.length === 1 && // only these regExp meta characters which can appear in a length one regExp
+        regExpSource !== "^" && regExpSource !== "$" && regExpSource !== "." && !currPattern.ignoreCase) {
+          return regExpSource;
+        } else if (regExpSource.length === 2 && regExpSource[0] === "\\" && // not a meta character
+        !includes_default([
+          "d",
+          "D",
+          "s",
+          "S",
+          "t",
+          "r",
+          "n",
+          "t",
+          "0",
+          "c",
+          "b",
+          "B",
+          "f",
+          "v",
+          "w",
+          "W"
+        ], regExpSource[1])) {
+          return regExpSource[1];
+        } else {
+          return options.useSticky ? addStickyFlag(currPattern) : addStartOfInput(currPattern);
+        }
+      } else if (isFunction_default(currPattern)) {
+        hasCustom = true;
+        return { exec: currPattern };
+      } else if (typeof currPattern === "object") {
+        hasCustom = true;
+        return currPattern;
+      } else if (typeof currPattern === "string") {
+        if (currPattern.length === 1) {
+          return currPattern;
+        } else {
+          const escapedRegExpString = currPattern.replace(/[\\^$.*+?()[\]{}|]/g, "\\$&");
+          const wrappedRegExp = new RegExp(escapedRegExpString);
+          return options.useSticky ? addStickyFlag(wrappedRegExp) : addStartOfInput(wrappedRegExp);
+        }
+      } else {
+        throw Error("non exhaustive match");
+      }
+    });
+  });
+  let patternIdxToType;
+  let patternIdxToGroup;
+  let patternIdxToLongerAltIdxArr;
+  let patternIdxToPushMode;
+  let patternIdxToPopMode;
+  tracer("misc mapping", () => {
+    patternIdxToType = map_default(onlyRelevantTypes, (currType) => currType.tokenTypeIdx);
+    patternIdxToGroup = map_default(onlyRelevantTypes, (clazz) => {
+      const groupName = clazz.GROUP;
+      if (groupName === Lexer.SKIPPED) {
+        return void 0;
+      } else if (isString_default(groupName)) {
+        return groupName;
+      } else if (isUndefined_default(groupName)) {
+        return false;
+      } else {
+        throw Error("non exhaustive match");
+      }
+    });
+    patternIdxToLongerAltIdxArr = map_default(onlyRelevantTypes, (clazz) => {
+      const longerAltType = clazz.LONGER_ALT;
+      if (longerAltType) {
+        const longerAltIdxArr = isArray_default(longerAltType) ? map_default(longerAltType, (type) => indexOf_default(onlyRelevantTypes, type)) : [indexOf_default(onlyRelevantTypes, longerAltType)];
+        return longerAltIdxArr;
+      }
+    });
+    patternIdxToPushMode = map_default(onlyRelevantTypes, (clazz) => clazz.PUSH_MODE);
+    patternIdxToPopMode = map_default(onlyRelevantTypes, (clazz) => has_default(clazz, "POP_MODE"));
+  });
+  let patternIdxToCanLineTerminator;
+  tracer("Line Terminator Handling", () => {
+    const lineTerminatorCharCodes = getCharCodes(options.lineTerminatorCharacters);
+    patternIdxToCanLineTerminator = map_default(onlyRelevantTypes, (tokType) => false);
+    if (options.positionTracking !== "onlyOffset") {
+      patternIdxToCanLineTerminator = map_default(onlyRelevantTypes, (tokType) => {
+        if (has_default(tokType, "LINE_BREAKS")) {
+          return !!tokType.LINE_BREAKS;
+        } else {
+          return checkLineBreaksIssues(tokType, lineTerminatorCharCodes) === false && canMatchCharCode(lineTerminatorCharCodes, tokType.PATTERN);
+        }
+      });
+    }
+  });
+  let patternIdxToIsCustom;
+  let patternIdxToShort;
+  let emptyGroups;
+  let patternIdxToConfig;
+  tracer("Misc Mapping #2", () => {
+    patternIdxToIsCustom = map_default(onlyRelevantTypes, isCustomPattern);
+    patternIdxToShort = map_default(allTransformedPatterns, isShortPattern);
+    emptyGroups = reduce_default(onlyRelevantTypes, (acc, clazz) => {
+      const groupName = clazz.GROUP;
+      if (isString_default(groupName) && !(groupName === Lexer.SKIPPED)) {
+        acc[groupName] = [];
+      }
+      return acc;
+    }, {});
+    patternIdxToConfig = map_default(allTransformedPatterns, (x, idx) => {
+      return {
+        pattern: allTransformedPatterns[idx],
+        longerAlt: patternIdxToLongerAltIdxArr[idx],
+        canLineTerminator: patternIdxToCanLineTerminator[idx],
+        isCustom: patternIdxToIsCustom[idx],
+        short: patternIdxToShort[idx],
+        group: patternIdxToGroup[idx],
+        push: patternIdxToPushMode[idx],
+        pop: patternIdxToPopMode[idx],
+        tokenTypeIdx: patternIdxToType[idx],
+        tokenType: onlyRelevantTypes[idx]
+      };
+    });
+  });
+  let canBeOptimized = true;
+  let charCodeToPatternIdxToConfig = [];
+  if (!options.safeMode) {
+    tracer("First Char Optimization", () => {
+      charCodeToPatternIdxToConfig = reduce_default(onlyRelevantTypes, (result, currTokType, idx) => {
+        if (typeof currTokType.PATTERN === "string") {
+          const charCode = currTokType.PATTERN.charCodeAt(0);
+          const optimizedIdx = charCodeToOptimizedIndex(charCode);
+          addToMapOfArrays(result, optimizedIdx, patternIdxToConfig[idx]);
+        } else if (isArray_default(currTokType.START_CHARS_HINT)) {
+          let lastOptimizedIdx;
+          forEach_default(currTokType.START_CHARS_HINT, (charOrInt) => {
+            const charCode = typeof charOrInt === "string" ? charOrInt.charCodeAt(0) : charOrInt;
+            const currOptimizedIdx = charCodeToOptimizedIndex(charCode);
+            if (lastOptimizedIdx !== currOptimizedIdx) {
+              lastOptimizedIdx = currOptimizedIdx;
+              addToMapOfArrays(result, currOptimizedIdx, patternIdxToConfig[idx]);
+            }
+          });
+        } else if (isRegExp_default(currTokType.PATTERN)) {
+          if (currTokType.PATTERN.unicode) {
+            canBeOptimized = false;
+            if (options.ensureOptimizations) {
+              PRINT_ERROR(`${failedOptimizationPrefixMsg}	Unable to analyze < ${currTokType.PATTERN.toString()} > pattern.
 	The regexp unicode flag is not currently supported by the regexp-to-ast library.
 	This will disable the lexer's first char optimizations.
-	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#UNICODE_OPTIMIZE`);else{let N=nl(h.PATTERN,t.ensureOptimizations);_(N)&&(S=!1),x(N,Tt=>{vi(m,Tt,y[O])})}else t.ensureOptimizations&&or(`${kr}	TokenType: <${h.name}> is using a custom token pattern without providing <start_chars_hint> parameter.
+	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#UNICODE_OPTIMIZE`);
+            }
+          } else {
+            const optimizedCodes = getOptimizedStartCodesIndices(currTokType.PATTERN, options.ensureOptimizations);
+            if (isEmpty_default(optimizedCodes)) {
+              canBeOptimized = false;
+            }
+            forEach_default(optimizedCodes, (code) => {
+              addToMapOfArrays(result, code, patternIdxToConfig[idx]);
+            });
+          }
+        } else {
+          if (options.ensureOptimizations) {
+            PRINT_ERROR(`${failedOptimizationPrefixMsg}	TokenType: <${currTokType.name}> is using a custom token pattern without providing <start_chars_hint> parameter.
 	This will disable the lexer's first char optimizations.
-	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#CUSTOM_OPTIMIZE`),S=!1;return m},[])}),{emptyGroups:I,patternIdxToConfig:y,charCodeToPatternIdxToConfig:E,hasCustom:i,canBeOptimized:S}}function al(e,t){let r=[],n=ox(e);r=r.concat(n.errors);let i=sx(n.valid),o=i.valid;return r=r.concat(i.errors),r=r.concat(ix(o)),r=r.concat(dx(o)),r=r.concat(mx(o,t)),r=r.concat(gx(o)),r}function ix(e){let t=[],r=ft(e,n=>vt(n[ve]));return t=t.concat(lx(r)),t=t.concat(ux(r)),t=t.concat(px(r)),t=t.concat(hx(r)),t=t.concat(cx(r)),t}function ox(e){let t=ft(e,i=>!T(i,ve)),r=g(t,i=>({message:"Token Type: ->"+i.name+"<- missing static 'PATTERN' property",type:$.MISSING_PATTERN,tokenTypes:[i]})),n=Ee(e,t);return{errors:r,valid:n}}function sx(e){let t=ft(e,i=>{let o=i[ve];return!vt(o)&&!dt(o)&&!T(o,"exec")&&!nt(o)}),r=g(t,i=>({message:"Token Type: ->"+i.name+"<- static 'PATTERN' can only be a RegExp, a Function matching the {CustomPatternMatcherFunc} type or an Object matching the {ICustomPattern} interface.",type:$.INVALID_PATTERN,tokenTypes:[i]})),n=Ee(e,t);return{errors:r,valid:n}}var ax=/[^\\][$]/;function lx(e){class t extends Ae{constructor(){super(...arguments),this.found=!1}visitEndAnchor(o){this.found=!0}}let r=ft(e,i=>{let o=i.PATTERN;try{let s=lr(o),a=new t;return a.visit(s),a.found}catch (e8){return ax.test(o.source)}});return g(r,i=>({message:`Unexpected RegExp Anchor Error:
-	Token Type: ->`+i.name+`<- static 'PATTERN' cannot contain end of input anchor '$'
-	See chevrotain.io/docs/guide/resolving_lexer_errors.html#ANCHORS	for details.`,type:$.EOI_ANCHOR_FOUND,tokenTypes:[i]}))}function cx(e){let t=ft(e,n=>n.PATTERN.test(""));return g(t,n=>({message:"Token Type: ->"+n.name+"<- static 'PATTERN' must not match an empty string",type:$.EMPTY_MATCH_PATTERN,tokenTypes:[n]}))}var fx=/[^\\[][\^]|^\^/;function ux(e){class t extends Ae{constructor(){super(...arguments),this.found=!1}visitStartAnchor(o){this.found=!0}}let r=ft(e,i=>{let o=i.PATTERN;try{let s=lr(o),a=new t;return a.visit(s),a.found}catch (e9){return fx.test(o.source)}});return g(r,i=>({message:`Unexpected RegExp Anchor Error:
-	Token Type: ->`+i.name+`<- static 'PATTERN' cannot contain start of input anchor '^'
-	See https://chevrotain.io/docs/guide/resolving_lexer_errors.html#ANCHORS	for details.`,type:$.SOI_ANCHOR_FOUND,tokenTypes:[i]}))}function px(e){let t=ft(e,n=>{let i=n[ve];return i instanceof RegExp&&(i.multiline||i.global)});return g(t,n=>({message:"Token Type: ->"+n.name+"<- static 'PATTERN' may NOT contain global('g') or multiline('m')",type:$.UNSUPPORTED_FLAGS_FOUND,tokenTypes:[n]}))}function hx(e){let t=[],r=g(e,o=>tt(e,(s,a)=>(o.PATTERN.source===a.PATTERN.source&&!G(t,a)&&a.PATTERN!==et.NA&&(t.push(a),s.push(a)),s),[]));r=Wt(r);let n=ft(r,o=>o.length>1);return g(n,o=>{let s=g(o,l=>l.name);return{message:`The same RegExp pattern ->${st(o).PATTERN}<-has been used in all of the following Token Types: ${s.join(", ")} <-`,type:$.DUPLICATE_PATTERNS_FOUND,tokenTypes:o}})}function dx(e){let t=ft(e,n=>{if(!T(n,"GROUP"))return!1;let i=n.GROUP;return i!==et.SKIPPED&&i!==et.NA&&!nt(i)});return g(t,n=>({message:"Token Type: ->"+n.name+"<- static 'GROUP' can only be Lexer.SKIPPED/Lexer.NA/A String",type:$.INVALID_GROUP_TYPE_FOUND,tokenTypes:[n]}))}function mx(e,t){let r=ft(e,i=>i.PUSH_MODE!==void 0&&!G(t,i.PUSH_MODE));return g(r,i=>({message:`Token Type: ->${i.name}<- static 'PUSH_MODE' value cannot refer to a Lexer Mode ->${i.PUSH_MODE}<-which does not exist`,type:$.PUSH_MODE_DOES_NOT_EXIST,tokenTypes:[i]}))}function gx(e){let t=[],r=tt(e,(n,i,o)=>{let s=i.PATTERN;return s===et.NA||(nt(s)?n.push({str:s,idx:o,tokenType:i}):vt(s)&&Ex(s)&&n.push({str:s.source,idx:o,tokenType:i})),n},[]);return x(e,(n,i)=>{x(r,({str:o,idx:s,tokenType:a})=>{if(i<s&&xx(o,n.PATTERN)){let l=`Token: ->${a.name}<- can never be matched.
-Because it appears AFTER the Token Type ->${n.name}<-in the lexer's definition.
-See https://chevrotain.io/docs/guide/resolving_lexer_errors.html#UNREACHABLE`;t.push({message:l,type:$.UNREACHABLE_PATTERN,tokenTypes:[n,a]})}})}),t}function xx(e,t){if(vt(t)){let r=t.exec(e);return r!==null&&r.index===0}else{if(dt(t))return t(e,0,[],{});if(T(t,"exec"))return t.exec(e,0,[],{});if(typeof t=="string")return t===e;throw Error("non exhaustive match")}}function Ex(e){return Kt([".","\\","[","]","|","^","$","(",")","?","*","+","{"],r=>e.source.indexOf(r)!==-1)===void 0}function il(e){let t=e.ignoreCase?"i":"";return new RegExp(`^(?:${e.source})`,t)}function ol(e){let t=e.ignoreCase?"iy":"y";return new RegExp(`${e.source}`,t)}function ll(e,t,r){let n=[];return T(e,fr)||n.push({message:"A MultiMode Lexer cannot be initialized without a <"+fr+`> property in its definition
-`,type:$.MULTI_MODE_LEXER_WITHOUT_DEFAULT_MODE}),T(e,Mn)||n.push({message:"A MultiMode Lexer cannot be initialized without a <"+Mn+`> property in its definition
-`,type:$.MULTI_MODE_LEXER_WITHOUT_MODES_PROPERTY}),T(e,Mn)&&T(e,fr)&&!T(e.modes,e.defaultMode)&&n.push({message:`A MultiMode Lexer cannot be initialized with a ${fr}: <${e.defaultMode}>which does not exist
-`,type:$.MULTI_MODE_LEXER_DEFAULT_MODE_VALUE_DOES_NOT_EXIST}),T(e,Mn)&&x(e.modes,(i,o)=>{x(i,(s,a)=>{if(ut(s))n.push({message:`A Lexer cannot be initialized using an undefined Token Type. Mode:<${o}> at index: <${a}>
-`,type:$.LEXER_DEFINITION_CANNOT_CONTAIN_UNDEFINED});else if(T(s,"LONGER_ALT")){let l=A(s.LONGER_ALT)?s.LONGER_ALT:[s.LONGER_ALT];x(l,c=>{!ut(c)&&!G(i,c)&&n.push({message:`A MultiMode Lexer cannot be initialized with a longer_alt <${c.name}> on token <${s.name}> outside of mode <${o}>
-`,type:$.MULTI_MODE_LEXER_LONGER_ALT_NOT_IN_CURRENT_MODE})})}})}),n}function cl(e,t,r){let n=[],i=!1,o=Wt(rt(L(e.modes))),s=Te(o,l=>l[ve]===et.NA),a=dl(r);return t&&x(s,l=>{let c=hl(l,a);if(c!==!1){let u={message:Ax(l,c),type:c.issue,tokenType:l};n.push(u)}else T(l,"LINE_BREAKS")?l.LINE_BREAKS===!0&&(i=!0):kn(a,l.PATTERN)&&(i=!0)}),t&&!i&&n.push({message:`Warning: No LINE_BREAKS Found.
-	This Lexer has been defined to track line and column information,
-	But none of the Token Types can be identified as matching a line terminator.
-	See https://chevrotain.io/docs/guide/resolving_lexer_errors.html#LINE_BREAKS 
-	for details.`,type:$.NO_LINE_BREAKS_FLAGS}),n}function fl(e){let t={},r=P(e);return x(r,n=>{let i=e[n];if(A(i))t[n]=[];else throw Error("non exhaustive match")}),t}function ul(e){let t=e.PATTERN;if(vt(t))return!1;if(dt(t))return!0;if(T(t,"exec"))return!0;if(nt(t))return!1;throw Error("non exhaustive match")}function Tx(e){return nt(e)&&e.length===1?e.charCodeAt(0):!1}var pl={test:function(e){let t=e.length;for(let r=this.lastIndex;r<t;r++){let n=e.charCodeAt(r);if(n===10)return this.lastIndex=r+1,!0;if(n===13)return e.charCodeAt(r+1)===10?this.lastIndex=r+2:this.lastIndex=r+1,!0}return!1},lastIndex:0};function hl(e,t){if(T(e,"LINE_BREAKS"))return!1;if(vt(e.PATTERN)){try{kn(t,e.PATTERN)}catch(r){return{issue:$.IDENTIFY_TERMINATOR,errMsg:r.message}}return!1}else{if(nt(e.PATTERN))return!1;if(ul(e))return{issue:$.CUSTOM_LINE_BREAK};throw Error("non exhaustive match")}}function Ax(e,t){if(t.issue===$.IDENTIFY_TERMINATOR)return`Warning: unable to identify line terminator usage in pattern.
-	The problem is in the <${e.name}> Token Type
-	 Root cause: ${t.errMsg}.
-	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#IDENTIFY_TERMINATOR`;if(t.issue===$.CUSTOM_LINE_BREAK)return`Warning: A Custom Token Pattern should specify the <line_breaks> option.
-	The problem is in the <${e.name}> Token Type
-	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#CUSTOM_LINE_BREAK`;throw Error("non exhaustive match")}function dl(e){return g(e,r=>nt(r)?r.charCodeAt(0):r)}function vi(e,t,r){e[t]===void 0?e[t]=[r]:e[t].push(r)}var cr=256,wn=[];function Ht(e){return e<cr?e:wn[e]}function Ix(){if(_(wn)){wn=new Array(65536);for(let e=0;e<65536;e++)wn[e]=e>255?255+~~(e/255):e}}function te(e,t){let r=e.tokenTypeIdx;return r===t.tokenTypeIdx?!0:t.isParent===!0&&t.categoryMatchesMap[r]===!0}function ur(e,t){return e.tokenTypeIdx===t.tokenTypeIdx}var ml=1,xl={};function ee(e){let t=yx(e);Rx(t),Ox(t),Sx(t),x(t,r=>{r.isParent=r.categoryMatches.length>0})}function yx(e){let t=M(e),r=e,n=!0;for(;n;){r=Wt(rt(g(r,o=>o.CATEGORIES)));let i=Ee(r,t);t=t.concat(i),_(i)?n=!1:r=i}return t}function Rx(e){x(e,t=>{Li(t)||(xl[ml]=t,t.tokenTypeIdx=ml++),gl(t)&&!A(t.CATEGORIES)&&(t.CATEGORIES=[t.CATEGORIES]),gl(t)||(t.CATEGORIES=[]),Nx(t)||(t.categoryMatches=[]),_x(t)||(t.categoryMatchesMap={})})}function Sx(e){x(e,t=>{t.categoryMatches=[],x(t.categoryMatchesMap,(r,n)=>{t.categoryMatches.push(xl[n].tokenTypeIdx)})})}function Ox(e){x(e,t=>{El([],t)})}function El(e,t){x(e,r=>{t.categoryMatchesMap[r.tokenTypeIdx]=!0}),x(t.CATEGORIES,r=>{let n=e.concat(t);G(n,r)||El(n,r)})}function Li(e){return T(e,"tokenTypeIdx")}function gl(e){return T(e,"CATEGORIES")}function Nx(e){return T(e,"categoryMatches")}function _x(e){return T(e,"categoryMatchesMap")}function Tl(e){return T(e,"tokenTypeIdx")}var Pi={buildUnableToPopLexerModeMessage(e){return`Unable to pop Lexer Mode after encountering Token ->${e.image}<- The Mode Stack is empty`},buildUnexpectedCharactersMessage(e,t,r,n,i){return`unexpected character: ->${e.charAt(t)}<- at offset: ${t}, skipped ${r} characters.`}};var $;(function(e){e[e.MISSING_PATTERN=0]="MISSING_PATTERN",e[e.INVALID_PATTERN=1]="INVALID_PATTERN",e[e.EOI_ANCHOR_FOUND=2]="EOI_ANCHOR_FOUND",e[e.UNSUPPORTED_FLAGS_FOUND=3]="UNSUPPORTED_FLAGS_FOUND",e[e.DUPLICATE_PATTERNS_FOUND=4]="DUPLICATE_PATTERNS_FOUND",e[e.INVALID_GROUP_TYPE_FOUND=5]="INVALID_GROUP_TYPE_FOUND",e[e.PUSH_MODE_DOES_NOT_EXIST=6]="PUSH_MODE_DOES_NOT_EXIST",e[e.MULTI_MODE_LEXER_WITHOUT_DEFAULT_MODE=7]="MULTI_MODE_LEXER_WITHOUT_DEFAULT_MODE",e[e.MULTI_MODE_LEXER_WITHOUT_MODES_PROPERTY=8]="MULTI_MODE_LEXER_WITHOUT_MODES_PROPERTY",e[e.MULTI_MODE_LEXER_DEFAULT_MODE_VALUE_DOES_NOT_EXIST=9]="MULTI_MODE_LEXER_DEFAULT_MODE_VALUE_DOES_NOT_EXIST",e[e.LEXER_DEFINITION_CANNOT_CONTAIN_UNDEFINED=10]="LEXER_DEFINITION_CANNOT_CONTAIN_UNDEFINED",e[e.SOI_ANCHOR_FOUND=11]="SOI_ANCHOR_FOUND",e[e.EMPTY_MATCH_PATTERN=12]="EMPTY_MATCH_PATTERN",e[e.NO_LINE_BREAKS_FLAGS=13]="NO_LINE_BREAKS_FLAGS",e[e.UNREACHABLE_PATTERN=14]="UNREACHABLE_PATTERN",e[e.IDENTIFY_TERMINATOR=15]="IDENTIFY_TERMINATOR",e[e.CUSTOM_LINE_BREAK=16]="CUSTOM_LINE_BREAK",e[e.MULTI_MODE_LEXER_LONGER_ALT_NOT_IN_CURRENT_MODE=17]="MULTI_MODE_LEXER_LONGER_ALT_NOT_IN_CURRENT_MODE"})($||($={}));var Mr={deferDefinitionErrorsHandling:!1,positionTracking:"full",lineTerminatorsPattern:/\n|\r\n?/g,lineTerminatorCharacters:[`
-`,"\r"],ensureOptimizations:!1,safeMode:!1,errorMessageProvider:Pi,traceInitPerf:!1,skipValidations:!1,recoveryEnabled:!0};Object.freeze(Mr);var et=class{constructor(t,r=Mr){if(this.lexerDefinition=t,this.lexerDefinitionErrors=[],this.lexerDefinitionWarning=[],this.patternIdxToConfig={},this.charCodeToPatternIdxToConfig={},this.modes=[],this.emptyGroups={},this.trackStartLines=!0,this.trackEndLines=!0,this.hasCustom=!1,this.canModeBeOptimized={},this.TRACE_INIT=(i,o)=>{if(this.traceInitPerf===!0){this.traceInitIndent++;let s=new Array(this.traceInitIndent+1).join("	");this.traceInitIndent<this.traceInitMaxIdent&&console.log(`${s}--> <${i}>`);let{time:a,value:l}=_r(o),c=a>10?console.warn:console.log;return this.traceInitIndent<this.traceInitMaxIdent&&c(`${s}<-- <${i}> time: ${a}ms`),this.traceInitIndent--,l}else return o()},typeof r=="boolean")throw Error(`The second argument to the Lexer constructor is now an ILexerConfig Object.
-a boolean 2nd argument is no longer supported`);this.config=at({},Mr,r);let n=this.config.traceInitPerf;n===!0?(this.traceInitMaxIdent=1/0,this.traceInitPerf=!0):typeof n=="number"&&(this.traceInitMaxIdent=n,this.traceInitPerf=!0),this.traceInitIndent=-1,this.TRACE_INIT("Lexer Constructor",()=>{let i,o=!0;this.TRACE_INIT("Lexer Config handling",()=>{if(this.config.lineTerminatorsPattern===Mr.lineTerminatorsPattern)this.config.lineTerminatorsPattern=pl;else if(this.config.lineTerminatorCharacters===Mr.lineTerminatorCharacters)throw Error(`Error: Missing <lineTerminatorCharacters> property on the Lexer config.
-	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#MISSING_LINE_TERM_CHARS`);if(r.safeMode&&r.ensureOptimizations)throw Error('"safeMode" and "ensureOptimizations" flags are mutually exclusive.');this.trackStartLines=/full|onlyStart/i.test(this.config.positionTracking),this.trackEndLines=/full/i.test(this.config.positionTracking),A(t)?i={modes:{defaultMode:M(t)},defaultMode:fr}:(o=!1,i=M(t))}),this.config.skipValidations===!1&&(this.TRACE_INIT("performRuntimeChecks",()=>{this.lexerDefinitionErrors=this.lexerDefinitionErrors.concat(ll(i,this.trackStartLines,this.config.lineTerminatorCharacters))}),this.TRACE_INIT("performWarningRuntimeChecks",()=>{this.lexerDefinitionWarning=this.lexerDefinitionWarning.concat(cl(i,this.trackStartLines,this.config.lineTerminatorCharacters))})),i.modes=i.modes?i.modes:{},x(i.modes,(a,l)=>{i.modes[l]=Te(a,c=>ut(c))});let s=P(i.modes);if(x(i.modes,(a,l)=>{this.TRACE_INIT(`Mode: <${l}> processing`,()=>{if(this.modes.push(l),this.config.skipValidations===!1&&this.TRACE_INIT("validatePatterns",()=>{this.lexerDefinitionErrors=this.lexerDefinitionErrors.concat(al(a,s))}),_(this.lexerDefinitionErrors)){ee(a);let c;this.TRACE_INIT("analyzeTokenTypes",()=>{c=sl(a,{lineTerminatorCharacters:this.config.lineTerminatorCharacters,positionTracking:r.positionTracking,ensureOptimizations:r.ensureOptimizations,safeMode:r.safeMode,tracer:this.TRACE_INIT})}),this.patternIdxToConfig[l]=c.patternIdxToConfig,this.charCodeToPatternIdxToConfig[l]=c.charCodeToPatternIdxToConfig,this.emptyGroups=at({},this.emptyGroups,c.emptyGroups),this.hasCustom=c.hasCustom||this.hasCustom,this.canModeBeOptimized[l]=c.canBeOptimized}})}),this.defaultMode=i.defaultMode,!_(this.lexerDefinitionErrors)&&!this.config.deferDefinitionErrorsHandling){let l=g(this.lexerDefinitionErrors,c=>c.message).join(`-----------------------
-`);throw new Error(`Errors detected in definition of Lexer:
-`+l)}x(this.lexerDefinitionWarning,a=>{Nr(a.message)}),this.TRACE_INIT("Choosing sub-methods implementations",()=>{if(bi?(this.chopInput=_t,this.match=this.matchWithTest):(this.updateLastIndex=W,this.match=this.matchWithExec),o&&(this.handleModes=W),this.trackStartLines===!1&&(this.computeNewColumn=_t),this.trackEndLines===!1&&(this.updateTokenEndLineColumnLocation=W),/full/i.test(this.config.positionTracking))this.createTokenInstance=this.createFullToken;else if(/onlyStart/i.test(this.config.positionTracking))this.createTokenInstance=this.createStartOnlyToken;else if(/onlyOffset/i.test(this.config.positionTracking))this.createTokenInstance=this.createOffsetOnlyToken;else throw Error(`Invalid <positionTracking> config option: "${this.config.positionTracking}"`);this.hasCustom?(this.addToken=this.addTokenUsingPush,this.handlePayload=this.handlePayloadWithCustom):(this.addToken=this.addTokenUsingMemberAccess,this.handlePayload=this.handlePayloadNoCustom)}),this.TRACE_INIT("Failed Optimization Warnings",()=>{let a=tt(this.canModeBeOptimized,(l,c,f)=>(c===!1&&l.push(f),l),[]);if(r.ensureOptimizations&&!_(a))throw Error(`Lexer Modes: < ${a.join(", ")} > cannot be optimized.
+	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#CUSTOM_OPTIMIZE`);
+          }
+          canBeOptimized = false;
+        }
+        return result;
+      }, []);
+    });
+  }
+  return {
+    emptyGroups,
+    patternIdxToConfig,
+    charCodeToPatternIdxToConfig,
+    hasCustom,
+    canBeOptimized
+  };
+}
+function validatePatterns(tokenTypes, validModesNames) {
+  let errors = [];
+  const missingResult = findMissingPatterns(tokenTypes);
+  errors = errors.concat(missingResult.errors);
+  const invalidResult = findInvalidPatterns(missingResult.valid);
+  const validTokenTypes = invalidResult.valid;
+  errors = errors.concat(invalidResult.errors);
+  errors = errors.concat(validateRegExpPattern(validTokenTypes));
+  errors = errors.concat(findInvalidGroupType(validTokenTypes));
+  errors = errors.concat(findModesThatDoNotExist(validTokenTypes, validModesNames));
+  errors = errors.concat(findUnreachablePatterns(validTokenTypes));
+  return errors;
+}
+function validateRegExpPattern(tokenTypes) {
+  let errors = [];
+  const withRegExpPatterns = filter_default(tokenTypes, (currTokType) => isRegExp_default(currTokType[PATTERN]));
+  errors = errors.concat(findEndOfInputAnchor(withRegExpPatterns));
+  errors = errors.concat(findStartOfInputAnchor(withRegExpPatterns));
+  errors = errors.concat(findUnsupportedFlags(withRegExpPatterns));
+  errors = errors.concat(findDuplicatePatterns(withRegExpPatterns));
+  errors = errors.concat(findEmptyMatchRegExps(withRegExpPatterns));
+  return errors;
+}
+function findMissingPatterns(tokenTypes) {
+  const tokenTypesWithMissingPattern = filter_default(tokenTypes, (currType) => {
+    return !has_default(currType, PATTERN);
+  });
+  const errors = map_default(tokenTypesWithMissingPattern, (currType) => {
+    return {
+      message: "Token Type: ->" + currType.name + "<- missing static 'PATTERN' property",
+      type: LexerDefinitionErrorType.MISSING_PATTERN,
+      tokenTypes: [currType]
+    };
+  });
+  const valid = difference_default(tokenTypes, tokenTypesWithMissingPattern);
+  return { errors, valid };
+}
+function findInvalidPatterns(tokenTypes) {
+  const tokenTypesWithInvalidPattern = filter_default(tokenTypes, (currType) => {
+    const pattern = currType[PATTERN];
+    return !isRegExp_default(pattern) && !isFunction_default(pattern) && !has_default(pattern, "exec") && !isString_default(pattern);
+  });
+  const errors = map_default(tokenTypesWithInvalidPattern, (currType) => {
+    return {
+      message: "Token Type: ->" + currType.name + "<- static 'PATTERN' can only be a RegExp, a Function matching the {CustomPatternMatcherFunc} type or an Object matching the {ICustomPattern} interface.",
+      type: LexerDefinitionErrorType.INVALID_PATTERN,
+      tokenTypes: [currType]
+    };
+  });
+  const valid = difference_default(tokenTypes, tokenTypesWithInvalidPattern);
+  return { errors, valid };
+}
+var end_of_input = /[^\\][$]/;
+function findEndOfInputAnchor(tokenTypes) {
+  class EndAnchorFinder extends BaseRegExpVisitor {
+    constructor() {
+      super(...arguments);
+      this.found = false;
+    }
+    visitEndAnchor(node) {
+      this.found = true;
+    }
+  }
+  const invalidRegex = filter_default(tokenTypes, (currType) => {
+    const pattern = currType.PATTERN;
+    try {
+      const regexpAst = getRegExpAst(pattern);
+      const endAnchorVisitor = new EndAnchorFinder();
+      endAnchorVisitor.visit(regexpAst);
+      return endAnchorVisitor.found;
+    } catch (e) {
+      return end_of_input.test(pattern.source);
+    }
+  });
+  const errors = map_default(invalidRegex, (currType) => {
+    return {
+      message: "Unexpected RegExp Anchor Error:\n	Token Type: ->" + currType.name + "<- static 'PATTERN' cannot contain end of input anchor '$'\n	See chevrotain.io/docs/guide/resolving_lexer_errors.html#ANCHORS	for details.",
+      type: LexerDefinitionErrorType.EOI_ANCHOR_FOUND,
+      tokenTypes: [currType]
+    };
+  });
+  return errors;
+}
+function findEmptyMatchRegExps(tokenTypes) {
+  const matchesEmptyString = filter_default(tokenTypes, (currType) => {
+    const pattern = currType.PATTERN;
+    return pattern.test("");
+  });
+  const errors = map_default(matchesEmptyString, (currType) => {
+    return {
+      message: "Token Type: ->" + currType.name + "<- static 'PATTERN' must not match an empty string",
+      type: LexerDefinitionErrorType.EMPTY_MATCH_PATTERN,
+      tokenTypes: [currType]
+    };
+  });
+  return errors;
+}
+var start_of_input = /[^\\[][\^]|^\^/;
+function findStartOfInputAnchor(tokenTypes) {
+  class StartAnchorFinder extends BaseRegExpVisitor {
+    constructor() {
+      super(...arguments);
+      this.found = false;
+    }
+    visitStartAnchor(node) {
+      this.found = true;
+    }
+  }
+  const invalidRegex = filter_default(tokenTypes, (currType) => {
+    const pattern = currType.PATTERN;
+    try {
+      const regexpAst = getRegExpAst(pattern);
+      const startAnchorVisitor = new StartAnchorFinder();
+      startAnchorVisitor.visit(regexpAst);
+      return startAnchorVisitor.found;
+    } catch (e) {
+      return start_of_input.test(pattern.source);
+    }
+  });
+  const errors = map_default(invalidRegex, (currType) => {
+    return {
+      message: "Unexpected RegExp Anchor Error:\n	Token Type: ->" + currType.name + "<- static 'PATTERN' cannot contain start of input anchor '^'\n	See https://chevrotain.io/docs/guide/resolving_lexer_errors.html#ANCHORS	for details.",
+      type: LexerDefinitionErrorType.SOI_ANCHOR_FOUND,
+      tokenTypes: [currType]
+    };
+  });
+  return errors;
+}
+function findUnsupportedFlags(tokenTypes) {
+  const invalidFlags = filter_default(tokenTypes, (currType) => {
+    const pattern = currType[PATTERN];
+    return pattern instanceof RegExp && (pattern.multiline || pattern.global);
+  });
+  const errors = map_default(invalidFlags, (currType) => {
+    return {
+      message: "Token Type: ->" + currType.name + "<- static 'PATTERN' may NOT contain global('g') or multiline('m')",
+      type: LexerDefinitionErrorType.UNSUPPORTED_FLAGS_FOUND,
+      tokenTypes: [currType]
+    };
+  });
+  return errors;
+}
+function findDuplicatePatterns(tokenTypes) {
+  const found = [];
+  let identicalPatterns = map_default(tokenTypes, (outerType) => {
+    return reduce_default(tokenTypes, (result, innerType) => {
+      if (outerType.PATTERN.source === innerType.PATTERN.source && !includes_default(found, innerType) && innerType.PATTERN !== Lexer.NA) {
+        found.push(innerType);
+        result.push(innerType);
+        return result;
+      }
+      return result;
+    }, []);
+  });
+  identicalPatterns = compact_default(identicalPatterns);
+  const duplicatePatterns = filter_default(identicalPatterns, (currIdenticalSet) => {
+    return currIdenticalSet.length > 1;
+  });
+  const errors = map_default(duplicatePatterns, (setOfIdentical) => {
+    const tokenTypeNames = map_default(setOfIdentical, (currType) => {
+      return currType.name;
+    });
+    const dupPatternSrc = head_default(setOfIdentical).PATTERN;
+    return {
+      message: `The same RegExp pattern ->${dupPatternSrc}<-has been used in all of the following Token Types: ${tokenTypeNames.join(", ")} <-`,
+      type: LexerDefinitionErrorType.DUPLICATE_PATTERNS_FOUND,
+      tokenTypes: setOfIdentical
+    };
+  });
+  return errors;
+}
+function findInvalidGroupType(tokenTypes) {
+  const invalidTypes = filter_default(tokenTypes, (clazz) => {
+    if (!has_default(clazz, "GROUP")) {
+      return false;
+    }
+    const group = clazz.GROUP;
+    return group !== Lexer.SKIPPED && group !== Lexer.NA && !isString_default(group);
+  });
+  const errors = map_default(invalidTypes, (currType) => {
+    return {
+      message: "Token Type: ->" + currType.name + "<- static 'GROUP' can only be Lexer.SKIPPED/Lexer.NA/A String",
+      type: LexerDefinitionErrorType.INVALID_GROUP_TYPE_FOUND,
+      tokenTypes: [currType]
+    };
+  });
+  return errors;
+}
+function findModesThatDoNotExist(tokenTypes, validModes) {
+  const invalidModes = filter_default(tokenTypes, (clazz) => {
+    return clazz.PUSH_MODE !== void 0 && !includes_default(validModes, clazz.PUSH_MODE);
+  });
+  const errors = map_default(invalidModes, (tokType) => {
+    const msg = `Token Type: ->${tokType.name}<- static 'PUSH_MODE' value cannot refer to a Lexer Mode ->${tokType.PUSH_MODE}<-which does not exist`;
+    return {
+      message: msg,
+      type: LexerDefinitionErrorType.PUSH_MODE_DOES_NOT_EXIST,
+      tokenTypes: [tokType]
+    };
+  });
+  return errors;
+}
+function findUnreachablePatterns(tokenTypes) {
+  const errors = [];
+  const canBeTested = reduce_default(tokenTypes, (result, tokType, idx) => {
+    const pattern = tokType.PATTERN;
+    if (pattern === Lexer.NA) {
+      return result;
+    }
+    if (isString_default(pattern)) {
+      result.push({ str: pattern, idx, tokenType: tokType });
+    } else if (isRegExp_default(pattern) && noMetaChar(pattern)) {
+      result.push({ str: pattern.source, idx, tokenType: tokType });
+    }
+    return result;
+  }, []);
+  forEach_default(tokenTypes, (tokType, testIdx) => {
+    forEach_default(canBeTested, ({ str, idx, tokenType }) => {
+      if (testIdx < idx && testTokenType(str, tokType.PATTERN)) {
+        const msg = `Token: ->${tokenType.name}<- can never be matched.
+Because it appears AFTER the Token Type ->${tokType.name}<-in the lexer's definition.
+See https://chevrotain.io/docs/guide/resolving_lexer_errors.html#UNREACHABLE`;
+        errors.push({
+          message: msg,
+          type: LexerDefinitionErrorType.UNREACHABLE_PATTERN,
+          tokenTypes: [tokType, tokenType]
+        });
+      }
+    });
+  });
+  return errors;
+}
+function testTokenType(str, pattern) {
+  if (isRegExp_default(pattern)) {
+    const regExpArray = pattern.exec(str);
+    return regExpArray !== null && regExpArray.index === 0;
+  } else if (isFunction_default(pattern)) {
+    return pattern(str, 0, [], {});
+  } else if (has_default(pattern, "exec")) {
+    return pattern.exec(str, 0, [], {});
+  } else if (typeof pattern === "string") {
+    return pattern === str;
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+function noMetaChar(regExp) {
+  const metaChars = [
+    ".",
+    "\\",
+    "[",
+    "]",
+    "|",
+    "^",
+    "$",
+    "(",
+    ")",
+    "?",
+    "*",
+    "+",
+    "{"
+  ];
+  return find_default(metaChars, (char) => regExp.source.indexOf(char) !== -1) === void 0;
+}
+function addStartOfInput(pattern) {
+  const flags = pattern.ignoreCase ? "i" : "";
+  return new RegExp(`^(?:${pattern.source})`, flags);
+}
+function addStickyFlag(pattern) {
+  const flags = pattern.ignoreCase ? "iy" : "y";
+  return new RegExp(`${pattern.source}`, flags);
+}
+function performRuntimeChecks(lexerDefinition, trackLines, lineTerminatorCharacters) {
+  const errors = [];
+  if (!has_default(lexerDefinition, DEFAULT_MODE)) {
+    errors.push({
+      message: "A MultiMode Lexer cannot be initialized without a <" + DEFAULT_MODE + "> property in its definition\n",
+      type: LexerDefinitionErrorType.MULTI_MODE_LEXER_WITHOUT_DEFAULT_MODE
+    });
+  }
+  if (!has_default(lexerDefinition, MODES)) {
+    errors.push({
+      message: "A MultiMode Lexer cannot be initialized without a <" + MODES + "> property in its definition\n",
+      type: LexerDefinitionErrorType.MULTI_MODE_LEXER_WITHOUT_MODES_PROPERTY
+    });
+  }
+  if (has_default(lexerDefinition, MODES) && has_default(lexerDefinition, DEFAULT_MODE) && !has_default(lexerDefinition.modes, lexerDefinition.defaultMode)) {
+    errors.push({
+      message: `A MultiMode Lexer cannot be initialized with a ${DEFAULT_MODE}: <${lexerDefinition.defaultMode}>which does not exist
+`,
+      type: LexerDefinitionErrorType.MULTI_MODE_LEXER_DEFAULT_MODE_VALUE_DOES_NOT_EXIST
+    });
+  }
+  if (has_default(lexerDefinition, MODES)) {
+    forEach_default(lexerDefinition.modes, (currModeValue, currModeName) => {
+      forEach_default(currModeValue, (currTokType, currIdx) => {
+        if (isUndefined_default(currTokType)) {
+          errors.push({
+            message: `A Lexer cannot be initialized using an undefined Token Type. Mode:<${currModeName}> at index: <${currIdx}>
+`,
+            type: LexerDefinitionErrorType.LEXER_DEFINITION_CANNOT_CONTAIN_UNDEFINED
+          });
+        } else if (has_default(currTokType, "LONGER_ALT")) {
+          const longerAlt = isArray_default(currTokType.LONGER_ALT) ? currTokType.LONGER_ALT : [currTokType.LONGER_ALT];
+          forEach_default(longerAlt, (currLongerAlt) => {
+            if (!isUndefined_default(currLongerAlt) && !includes_default(currModeValue, currLongerAlt)) {
+              errors.push({
+                message: `A MultiMode Lexer cannot be initialized with a longer_alt <${currLongerAlt.name}> on token <${currTokType.name}> outside of mode <${currModeName}>
+`,
+                type: LexerDefinitionErrorType.MULTI_MODE_LEXER_LONGER_ALT_NOT_IN_CURRENT_MODE
+              });
+            }
+          });
+        }
+      });
+    });
+  }
+  return errors;
+}
+function performWarningRuntimeChecks(lexerDefinition, trackLines, lineTerminatorCharacters) {
+  const warnings = [];
+  let hasAnyLineBreak = false;
+  const allTokenTypes = compact_default(flatten_default(values_default(lexerDefinition.modes)));
+  const concreteTokenTypes = reject_default(allTokenTypes, (currType) => currType[PATTERN] === Lexer.NA);
+  const terminatorCharCodes = getCharCodes(lineTerminatorCharacters);
+  if (trackLines) {
+    forEach_default(concreteTokenTypes, (tokType) => {
+      const currIssue = checkLineBreaksIssues(tokType, terminatorCharCodes);
+      if (currIssue !== false) {
+        const message = buildLineBreakIssueMessage(tokType, currIssue);
+        const warningDescriptor = {
+          message,
+          type: currIssue.issue,
+          tokenType: tokType
+        };
+        warnings.push(warningDescriptor);
+      } else {
+        if (has_default(tokType, "LINE_BREAKS")) {
+          if (tokType.LINE_BREAKS === true) {
+            hasAnyLineBreak = true;
+          }
+        } else {
+          if (canMatchCharCode(terminatorCharCodes, tokType.PATTERN)) {
+            hasAnyLineBreak = true;
+          }
+        }
+      }
+    });
+  }
+  if (trackLines && !hasAnyLineBreak) {
+    warnings.push({
+      message: "Warning: No LINE_BREAKS Found.\n	This Lexer has been defined to track line and column information,\n	But none of the Token Types can be identified as matching a line terminator.\n	See https://chevrotain.io/docs/guide/resolving_lexer_errors.html#LINE_BREAKS \n	for details.",
+      type: LexerDefinitionErrorType.NO_LINE_BREAKS_FLAGS
+    });
+  }
+  return warnings;
+}
+function cloneEmptyGroups(emptyGroups) {
+  const clonedResult = {};
+  const groupKeys = keys_default(emptyGroups);
+  forEach_default(groupKeys, (currKey) => {
+    const currGroupValue = emptyGroups[currKey];
+    if (isArray_default(currGroupValue)) {
+      clonedResult[currKey] = [];
+    } else {
+      throw Error("non exhaustive match");
+    }
+  });
+  return clonedResult;
+}
+function isCustomPattern(tokenType) {
+  const pattern = tokenType.PATTERN;
+  if (isRegExp_default(pattern)) {
+    return false;
+  } else if (isFunction_default(pattern)) {
+    return true;
+  } else if (has_default(pattern, "exec")) {
+    return true;
+  } else if (isString_default(pattern)) {
+    return false;
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+function isShortPattern(pattern) {
+  if (isString_default(pattern) && pattern.length === 1) {
+    return pattern.charCodeAt(0);
+  } else {
+    return false;
+  }
+}
+var LineTerminatorOptimizedTester = {
+  // implements /\n|\r\n?/g.test
+  test: function(text) {
+    const len = text.length;
+    for (let i = this.lastIndex; i < len; i++) {
+      const c = text.charCodeAt(i);
+      if (c === 10) {
+        this.lastIndex = i + 1;
+        return true;
+      } else if (c === 13) {
+        if (text.charCodeAt(i + 1) === 10) {
+          this.lastIndex = i + 2;
+        } else {
+          this.lastIndex = i + 1;
+        }
+        return true;
+      }
+    }
+    return false;
+  },
+  lastIndex: 0
+};
+function checkLineBreaksIssues(tokType, lineTerminatorCharCodes) {
+  if (has_default(tokType, "LINE_BREAKS")) {
+    return false;
+  } else {
+    if (isRegExp_default(tokType.PATTERN)) {
+      try {
+        canMatchCharCode(lineTerminatorCharCodes, tokType.PATTERN);
+      } catch (e) {
+        return {
+          issue: LexerDefinitionErrorType.IDENTIFY_TERMINATOR,
+          errMsg: e.message
+        };
+      }
+      return false;
+    } else if (isString_default(tokType.PATTERN)) {
+      return false;
+    } else if (isCustomPattern(tokType)) {
+      return { issue: LexerDefinitionErrorType.CUSTOM_LINE_BREAK };
+    } else {
+      throw Error("non exhaustive match");
+    }
+  }
+}
+function buildLineBreakIssueMessage(tokType, details) {
+  if (details.issue === LexerDefinitionErrorType.IDENTIFY_TERMINATOR) {
+    return `Warning: unable to identify line terminator usage in pattern.
+	The problem is in the <${tokType.name}> Token Type
+	 Root cause: ${details.errMsg}.
+	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#IDENTIFY_TERMINATOR`;
+  } else if (details.issue === LexerDefinitionErrorType.CUSTOM_LINE_BREAK) {
+    return `Warning: A Custom Token Pattern should specify the <line_breaks> option.
+	The problem is in the <${tokType.name}> Token Type
+	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#CUSTOM_LINE_BREAK`;
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+function getCharCodes(charsOrCodes) {
+  const charCodes = map_default(charsOrCodes, (numOrString) => {
+    if (isString_default(numOrString)) {
+      return numOrString.charCodeAt(0);
+    } else {
+      return numOrString;
+    }
+  });
+  return charCodes;
+}
+function addToMapOfArrays(map2, key, value) {
+  if (map2[key] === void 0) {
+    map2[key] = [value];
+  } else {
+    map2[key].push(value);
+  }
+}
+var minOptimizationVal = 256;
+var charCodeToOptimizedIdxMap = [];
+function charCodeToOptimizedIndex(charCode) {
+  return charCode < minOptimizationVal ? charCode : charCodeToOptimizedIdxMap[charCode];
+}
+function initCharCodeToOptimizedIndexMap() {
+  if (isEmpty_default(charCodeToOptimizedIdxMap)) {
+    charCodeToOptimizedIdxMap = new Array(65536);
+    for (let i = 0; i < 65536; i++) {
+      charCodeToOptimizedIdxMap[i] = i > 255 ? 255 + ~~(i / 255) : i;
+    }
+  }
+}
+
+// node_modules/chevrotain/lib/src/scan/tokens.js
+function tokenStructuredMatcher(tokInstance, tokConstructor) {
+  const instanceType = tokInstance.tokenTypeIdx;
+  if (instanceType === tokConstructor.tokenTypeIdx) {
+    return true;
+  } else {
+    return tokConstructor.isParent === true && tokConstructor.categoryMatchesMap[instanceType] === true;
+  }
+}
+function tokenStructuredMatcherNoCategories(token, tokType) {
+  return token.tokenTypeIdx === tokType.tokenTypeIdx;
+}
+var tokenShortNameIdx = 1;
+var tokenIdxToClass = {};
+function augmentTokenTypes(tokenTypes) {
+  const tokenTypesAndParents = expandCategories(tokenTypes);
+  assignTokenDefaultProps(tokenTypesAndParents);
+  assignCategoriesMapProp(tokenTypesAndParents);
+  assignCategoriesTokensProp(tokenTypesAndParents);
+  forEach_default(tokenTypesAndParents, (tokType) => {
+    tokType.isParent = tokType.categoryMatches.length > 0;
+  });
+}
+function expandCategories(tokenTypes) {
+  let result = clone_default(tokenTypes);
+  let categories = tokenTypes;
+  let searching = true;
+  while (searching) {
+    categories = compact_default(flatten_default(map_default(categories, (currTokType) => currTokType.CATEGORIES)));
+    const newCategories = difference_default(categories, result);
+    result = result.concat(newCategories);
+    if (isEmpty_default(newCategories)) {
+      searching = false;
+    } else {
+      categories = newCategories;
+    }
+  }
+  return result;
+}
+function assignTokenDefaultProps(tokenTypes) {
+  forEach_default(tokenTypes, (currTokType) => {
+    if (!hasShortKeyProperty(currTokType)) {
+      tokenIdxToClass[tokenShortNameIdx] = currTokType;
+      currTokType.tokenTypeIdx = tokenShortNameIdx++;
+    }
+    if (hasCategoriesProperty(currTokType) && !isArray_default(currTokType.CATEGORIES)) {
+      currTokType.CATEGORIES = [currTokType.CATEGORIES];
+    }
+    if (!hasCategoriesProperty(currTokType)) {
+      currTokType.CATEGORIES = [];
+    }
+    if (!hasExtendingTokensTypesProperty(currTokType)) {
+      currTokType.categoryMatches = [];
+    }
+    if (!hasExtendingTokensTypesMapProperty(currTokType)) {
+      currTokType.categoryMatchesMap = {};
+    }
+  });
+}
+function assignCategoriesTokensProp(tokenTypes) {
+  forEach_default(tokenTypes, (currTokType) => {
+    currTokType.categoryMatches = [];
+    forEach_default(currTokType.categoryMatchesMap, (val, key) => {
+      currTokType.categoryMatches.push(tokenIdxToClass[key].tokenTypeIdx);
+    });
+  });
+}
+function assignCategoriesMapProp(tokenTypes) {
+  forEach_default(tokenTypes, (currTokType) => {
+    singleAssignCategoriesToksMap([], currTokType);
+  });
+}
+function singleAssignCategoriesToksMap(path, nextNode) {
+  forEach_default(path, (pathNode) => {
+    nextNode.categoryMatchesMap[pathNode.tokenTypeIdx] = true;
+  });
+  forEach_default(nextNode.CATEGORIES, (nextCategory) => {
+    const newPath = path.concat(nextNode);
+    if (!includes_default(newPath, nextCategory)) {
+      singleAssignCategoriesToksMap(newPath, nextCategory);
+    }
+  });
+}
+function hasShortKeyProperty(tokType) {
+  return has_default(tokType, "tokenTypeIdx");
+}
+function hasCategoriesProperty(tokType) {
+  return has_default(tokType, "CATEGORIES");
+}
+function hasExtendingTokensTypesProperty(tokType) {
+  return has_default(tokType, "categoryMatches");
+}
+function hasExtendingTokensTypesMapProperty(tokType) {
+  return has_default(tokType, "categoryMatchesMap");
+}
+function isTokenType(tokType) {
+  return has_default(tokType, "tokenTypeIdx");
+}
+
+// node_modules/chevrotain/lib/src/scan/lexer_errors_public.js
+var defaultLexerErrorProvider = {
+  buildUnableToPopLexerModeMessage(token) {
+    return `Unable to pop Lexer Mode after encountering Token ->${token.image}<- The Mode Stack is empty`;
+  },
+  buildUnexpectedCharactersMessage(fullText, startOffset, length, line, column) {
+    return `unexpected character: ->${fullText.charAt(startOffset)}<- at offset: ${startOffset}, skipped ${length} characters.`;
+  }
+};
+
+// node_modules/chevrotain/lib/src/scan/lexer_public.js
+var LexerDefinitionErrorType;
+(function(LexerDefinitionErrorType2) {
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["MISSING_PATTERN"] = 0] = "MISSING_PATTERN";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["INVALID_PATTERN"] = 1] = "INVALID_PATTERN";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["EOI_ANCHOR_FOUND"] = 2] = "EOI_ANCHOR_FOUND";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["UNSUPPORTED_FLAGS_FOUND"] = 3] = "UNSUPPORTED_FLAGS_FOUND";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["DUPLICATE_PATTERNS_FOUND"] = 4] = "DUPLICATE_PATTERNS_FOUND";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["INVALID_GROUP_TYPE_FOUND"] = 5] = "INVALID_GROUP_TYPE_FOUND";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["PUSH_MODE_DOES_NOT_EXIST"] = 6] = "PUSH_MODE_DOES_NOT_EXIST";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["MULTI_MODE_LEXER_WITHOUT_DEFAULT_MODE"] = 7] = "MULTI_MODE_LEXER_WITHOUT_DEFAULT_MODE";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["MULTI_MODE_LEXER_WITHOUT_MODES_PROPERTY"] = 8] = "MULTI_MODE_LEXER_WITHOUT_MODES_PROPERTY";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["MULTI_MODE_LEXER_DEFAULT_MODE_VALUE_DOES_NOT_EXIST"] = 9] = "MULTI_MODE_LEXER_DEFAULT_MODE_VALUE_DOES_NOT_EXIST";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["LEXER_DEFINITION_CANNOT_CONTAIN_UNDEFINED"] = 10] = "LEXER_DEFINITION_CANNOT_CONTAIN_UNDEFINED";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["SOI_ANCHOR_FOUND"] = 11] = "SOI_ANCHOR_FOUND";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["EMPTY_MATCH_PATTERN"] = 12] = "EMPTY_MATCH_PATTERN";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["NO_LINE_BREAKS_FLAGS"] = 13] = "NO_LINE_BREAKS_FLAGS";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["UNREACHABLE_PATTERN"] = 14] = "UNREACHABLE_PATTERN";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["IDENTIFY_TERMINATOR"] = 15] = "IDENTIFY_TERMINATOR";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["CUSTOM_LINE_BREAK"] = 16] = "CUSTOM_LINE_BREAK";
+  LexerDefinitionErrorType2[LexerDefinitionErrorType2["MULTI_MODE_LEXER_LONGER_ALT_NOT_IN_CURRENT_MODE"] = 17] = "MULTI_MODE_LEXER_LONGER_ALT_NOT_IN_CURRENT_MODE";
+})(LexerDefinitionErrorType || (LexerDefinitionErrorType = {}));
+var DEFAULT_LEXER_CONFIG = {
+  deferDefinitionErrorsHandling: false,
+  positionTracking: "full",
+  lineTerminatorsPattern: /\n|\r\n?/g,
+  lineTerminatorCharacters: ["\n", "\r"],
+  ensureOptimizations: false,
+  safeMode: false,
+  errorMessageProvider: defaultLexerErrorProvider,
+  traceInitPerf: false,
+  skipValidations: false,
+  recoveryEnabled: true
+};
+Object.freeze(DEFAULT_LEXER_CONFIG);
+var Lexer = class {
+  constructor(lexerDefinition, config = DEFAULT_LEXER_CONFIG) {
+    this.lexerDefinition = lexerDefinition;
+    this.lexerDefinitionErrors = [];
+    this.lexerDefinitionWarning = [];
+    this.patternIdxToConfig = {};
+    this.charCodeToPatternIdxToConfig = {};
+    this.modes = [];
+    this.emptyGroups = {};
+    this.trackStartLines = true;
+    this.trackEndLines = true;
+    this.hasCustom = false;
+    this.canModeBeOptimized = {};
+    this.TRACE_INIT = (phaseDesc, phaseImpl) => {
+      if (this.traceInitPerf === true) {
+        this.traceInitIndent++;
+        const indent = new Array(this.traceInitIndent + 1).join("	");
+        if (this.traceInitIndent < this.traceInitMaxIdent) {
+          console.log(`${indent}--> <${phaseDesc}>`);
+        }
+        const { time, value } = timer(phaseImpl);
+        const traceMethod = time > 10 ? console.warn : console.log;
+        if (this.traceInitIndent < this.traceInitMaxIdent) {
+          traceMethod(`${indent}<-- <${phaseDesc}> time: ${time}ms`);
+        }
+        this.traceInitIndent--;
+        return value;
+      } else {
+        return phaseImpl();
+      }
+    };
+    if (typeof config === "boolean") {
+      throw Error("The second argument to the Lexer constructor is now an ILexerConfig Object.\na boolean 2nd argument is no longer supported");
+    }
+    this.config = assign_default({}, DEFAULT_LEXER_CONFIG, config);
+    const traceInitVal = this.config.traceInitPerf;
+    if (traceInitVal === true) {
+      this.traceInitMaxIdent = Infinity;
+      this.traceInitPerf = true;
+    } else if (typeof traceInitVal === "number") {
+      this.traceInitMaxIdent = traceInitVal;
+      this.traceInitPerf = true;
+    }
+    this.traceInitIndent = -1;
+    this.TRACE_INIT("Lexer Constructor", () => {
+      let actualDefinition;
+      let hasOnlySingleMode = true;
+      this.TRACE_INIT("Lexer Config handling", () => {
+        if (this.config.lineTerminatorsPattern === DEFAULT_LEXER_CONFIG.lineTerminatorsPattern) {
+          this.config.lineTerminatorsPattern = LineTerminatorOptimizedTester;
+        } else {
+          if (this.config.lineTerminatorCharacters === DEFAULT_LEXER_CONFIG.lineTerminatorCharacters) {
+            throw Error("Error: Missing <lineTerminatorCharacters> property on the Lexer config.\n	For details See: https://chevrotain.io/docs/guide/resolving_lexer_errors.html#MISSING_LINE_TERM_CHARS");
+          }
+        }
+        if (config.safeMode && config.ensureOptimizations) {
+          throw Error('"safeMode" and "ensureOptimizations" flags are mutually exclusive.');
+        }
+        this.trackStartLines = /full|onlyStart/i.test(this.config.positionTracking);
+        this.trackEndLines = /full/i.test(this.config.positionTracking);
+        if (isArray_default(lexerDefinition)) {
+          actualDefinition = {
+            modes: { defaultMode: clone_default(lexerDefinition) },
+            defaultMode: DEFAULT_MODE
+          };
+        } else {
+          hasOnlySingleMode = false;
+          actualDefinition = clone_default(lexerDefinition);
+        }
+      });
+      if (this.config.skipValidations === false) {
+        this.TRACE_INIT("performRuntimeChecks", () => {
+          this.lexerDefinitionErrors = this.lexerDefinitionErrors.concat(performRuntimeChecks(actualDefinition, this.trackStartLines, this.config.lineTerminatorCharacters));
+        });
+        this.TRACE_INIT("performWarningRuntimeChecks", () => {
+          this.lexerDefinitionWarning = this.lexerDefinitionWarning.concat(performWarningRuntimeChecks(actualDefinition, this.trackStartLines, this.config.lineTerminatorCharacters));
+        });
+      }
+      actualDefinition.modes = actualDefinition.modes ? actualDefinition.modes : {};
+      forEach_default(actualDefinition.modes, (currModeValue, currModeName) => {
+        actualDefinition.modes[currModeName] = reject_default(currModeValue, (currTokType) => isUndefined_default(currTokType));
+      });
+      const allModeNames = keys_default(actualDefinition.modes);
+      forEach_default(actualDefinition.modes, (currModDef, currModName) => {
+        this.TRACE_INIT(`Mode: <${currModName}> processing`, () => {
+          this.modes.push(currModName);
+          if (this.config.skipValidations === false) {
+            this.TRACE_INIT(`validatePatterns`, () => {
+              this.lexerDefinitionErrors = this.lexerDefinitionErrors.concat(validatePatterns(currModDef, allModeNames));
+            });
+          }
+          if (isEmpty_default(this.lexerDefinitionErrors)) {
+            augmentTokenTypes(currModDef);
+            let currAnalyzeResult;
+            this.TRACE_INIT(`analyzeTokenTypes`, () => {
+              currAnalyzeResult = analyzeTokenTypes(currModDef, {
+                lineTerminatorCharacters: this.config.lineTerminatorCharacters,
+                positionTracking: config.positionTracking,
+                ensureOptimizations: config.ensureOptimizations,
+                safeMode: config.safeMode,
+                tracer: this.TRACE_INIT
+              });
+            });
+            this.patternIdxToConfig[currModName] = currAnalyzeResult.patternIdxToConfig;
+            this.charCodeToPatternIdxToConfig[currModName] = currAnalyzeResult.charCodeToPatternIdxToConfig;
+            this.emptyGroups = assign_default({}, this.emptyGroups, currAnalyzeResult.emptyGroups);
+            this.hasCustom = currAnalyzeResult.hasCustom || this.hasCustom;
+            this.canModeBeOptimized[currModName] = currAnalyzeResult.canBeOptimized;
+          }
+        });
+      });
+      this.defaultMode = actualDefinition.defaultMode;
+      if (!isEmpty_default(this.lexerDefinitionErrors) && !this.config.deferDefinitionErrorsHandling) {
+        const allErrMessages = map_default(this.lexerDefinitionErrors, (error) => {
+          return error.message;
+        });
+        const allErrMessagesString = allErrMessages.join("-----------------------\n");
+        throw new Error("Errors detected in definition of Lexer:\n" + allErrMessagesString);
+      }
+      forEach_default(this.lexerDefinitionWarning, (warningDescriptor) => {
+        PRINT_WARNING(warningDescriptor.message);
+      });
+      this.TRACE_INIT("Choosing sub-methods implementations", () => {
+        if (SUPPORT_STICKY) {
+          this.chopInput = identity_default;
+          this.match = this.matchWithTest;
+        } else {
+          this.updateLastIndex = noop_default;
+          this.match = this.matchWithExec;
+        }
+        if (hasOnlySingleMode) {
+          this.handleModes = noop_default;
+        }
+        if (this.trackStartLines === false) {
+          this.computeNewColumn = identity_default;
+        }
+        if (this.trackEndLines === false) {
+          this.updateTokenEndLineColumnLocation = noop_default;
+        }
+        if (/full/i.test(this.config.positionTracking)) {
+          this.createTokenInstance = this.createFullToken;
+        } else if (/onlyStart/i.test(this.config.positionTracking)) {
+          this.createTokenInstance = this.createStartOnlyToken;
+        } else if (/onlyOffset/i.test(this.config.positionTracking)) {
+          this.createTokenInstance = this.createOffsetOnlyToken;
+        } else {
+          throw Error(`Invalid <positionTracking> config option: "${this.config.positionTracking}"`);
+        }
+        if (this.hasCustom) {
+          this.addToken = this.addTokenUsingPush;
+          this.handlePayload = this.handlePayloadWithCustom;
+        } else {
+          this.addToken = this.addTokenUsingMemberAccess;
+          this.handlePayload = this.handlePayloadNoCustom;
+        }
+      });
+      this.TRACE_INIT("Failed Optimization Warnings", () => {
+        const unOptimizedModes = reduce_default(this.canModeBeOptimized, (cannotBeOptimized, canBeOptimized, modeName) => {
+          if (canBeOptimized === false) {
+            cannotBeOptimized.push(modeName);
+          }
+          return cannotBeOptimized;
+        }, []);
+        if (config.ensureOptimizations && !isEmpty_default(unOptimizedModes)) {
+          throw Error(`Lexer Modes: < ${unOptimizedModes.join(", ")} > cannot be optimized.
 	 Disable the "ensureOptimizations" lexer config flag to silently ignore this and run the lexer in an un-optimized mode.
-	 Or inspect the console log for details on how to resolve these issues.`)}),this.TRACE_INIT("clearRegExpParserCache",()=>{tl()}),this.TRACE_INIT("toFastProperties",()=>{Cr(this)})})}tokenize(t,r=this.defaultMode){if(!_(this.lexerDefinitionErrors)){let i=g(this.lexerDefinitionErrors,o=>o.message).join(`-----------------------
-`);throw new Error(`Unable to Tokenize because Errors detected in definition of Lexer:
-`+i)}return this.tokenizeInternal(t,r)}tokenizeInternal(t,r){let n,i,o,s,a,l,c,f,u,p,d,I,y,S,E,m,h=t,O=h.length,N=0,Tt=0,Vr=this.hasCustom?0:Math.floor(t.length/10),bt=new Array(Vr),Er=[],ye=this.trackStartLines?1:void 0,re=this.trackStartLines?1:void 0,Tr=fl(this.emptyGroups),cc=this.trackStartLines,pi=this.config.lineTerminatorsPattern,Yr=0,ne=[],Ar=[],Xr=[],to=[];Object.freeze(to);let Ir;function eo(){return ne}function ro(lt){let Nt=Ht(lt),we=Ar[Nt];return we===void 0?to:we}let fc=lt=>{if(Xr.length===1&&lt.tokenType.PUSH_MODE===void 0){let Nt=this.config.errorMessageProvider.buildUnableToPopLexerModeMessage(lt);Er.push({offset:lt.startOffset,line:lt.startLine,column:lt.startColumn,length:lt.image.length,message:Nt})}else{Xr.pop();let Nt=jt(Xr);ne=this.patternIdxToConfig[Nt],Ar=this.charCodeToPatternIdxToConfig[Nt],Yr=ne.length;let we=this.canModeBeOptimized[Nt]&&this.config.safeMode===!1;Ar&&we?Ir=ro:Ir=eo}};function no(lt){Xr.push(lt),Ar=this.charCodeToPatternIdxToConfig[lt],ne=this.patternIdxToConfig[lt],Yr=ne.length,Yr=ne.length;let Nt=this.canModeBeOptimized[lt]&&this.config.safeMode===!1;Ar&&Nt?Ir=ro:Ir=eo}no.call(this,r);let Lt,io=this.config.recoveryEnabled;for(;N<O;){l=null;let lt=h.charCodeAt(N),Nt=Ir(lt),we=Nt.length;for(n=0;n<we;n++){Lt=Nt[n];let St=Lt.pattern;c=null;let Vt=Lt.short;if(Vt!==!1?lt===Vt&&(l=St):Lt.isCustom===!0?(m=St.exec(h,N,bt,Tr),m!==null?(l=m[0],m.payload!==void 0&&(c=m.payload)):l=null):(this.updateLastIndex(St,N),l=this.match(St,t,N)),l!==null){if(a=Lt.longerAlt,a!==void 0){let ie=a.length;for(o=0;o<ie;o++){let Yt=ne[a[o]],Re=Yt.pattern;if(f=null,Yt.isCustom===!0?(m=Re.exec(h,N,bt,Tr),m!==null?(s=m[0],m.payload!==void 0&&(f=m.payload)):s=null):(this.updateLastIndex(Re,N),s=this.match(Re,t,N)),s&&s.length>l.length){l=s,c=f,Lt=Yt;break}}}break}}if(l!==null){if(u=l.length,p=Lt.group,p!==void 0&&(d=Lt.tokenTypeIdx,I=this.createTokenInstance(l,N,d,Lt.tokenType,ye,re,u),this.handlePayload(I,c),p===!1?Tt=this.addToken(bt,Tt,I):Tr[p].push(I)),t=this.chopInput(t,u),N=N+u,re=this.computeNewColumn(re,u),cc===!0&&Lt.canLineTerminator===!0){let St=0,Vt,ie;pi.lastIndex=0;do Vt=pi.test(l),Vt===!0&&(ie=pi.lastIndex-1,St++);while(Vt===!0);St!==0&&(ye=ye+St,re=u-ie,this.updateTokenEndLineColumnLocation(I,p,ie,St,ye,re,u))}this.handleModes(Lt,fc,no,I)}else{let St=N,Vt=ye,ie=re,Yt=io===!1;for(;Yt===!1&&N<O;)for(t=this.chopInput(t,1),N++,i=0;i<Yr;i++){let Re=ne[i],hi=Re.pattern,oo=Re.short;if(oo!==!1?h.charCodeAt(N)===oo&&(Yt=!0):Re.isCustom===!0?Yt=hi.exec(h,N,bt,Tr)!==null:(this.updateLastIndex(hi,N),Yt=hi.exec(t)!==null),Yt===!0)break}if(y=N-St,re=this.computeNewColumn(re,y),E=this.config.errorMessageProvider.buildUnexpectedCharactersMessage(h,St,y,Vt,ie),Er.push({offset:St,line:Vt,column:ie,length:y,message:E}),io===!1)break}}return this.hasCustom||(bt.length=Tt),{tokens:bt,groups:Tr,errors:Er}}handleModes(t,r,n,i){if(t.pop===!0){let o=t.push;r(i),o!==void 0&&n.call(this,o)}else t.push!==void 0&&n.call(this,t.push)}chopInput(t,r){return t.substring(r)}updateLastIndex(t,r){t.lastIndex=r}updateTokenEndLineColumnLocation(t,r,n,i,o,s,a){let l,c;r!==void 0&&(l=n===a-1,c=l?-1:0,i===1&&l===!0||(t.endLine=o+c,t.endColumn=s-1+-c))}computeNewColumn(t,r){return t+r}createOffsetOnlyToken(t,r,n,i){return{image:t,startOffset:r,tokenTypeIdx:n,tokenType:i}}createStartOnlyToken(t,r,n,i,o,s){return{image:t,startOffset:r,startLine:o,startColumn:s,tokenTypeIdx:n,tokenType:i}}createFullToken(t,r,n,i,o,s,a){return{image:t,startOffset:r,endOffset:r+a-1,startLine:o,endLine:o,startColumn:s,endColumn:s+a-1,tokenTypeIdx:n,tokenType:i}}addTokenUsingPush(t,r,n){return t.push(n),r}addTokenUsingMemberAccess(t,r,n){return t[r]=n,r++,r}handlePayloadNoCustom(t,r){}handlePayloadWithCustom(t,r){r!==null&&(t.payload=r)}matchWithTest(t,r,n){return t.test(r)===!0?r.substring(n,t.lastIndex):null}matchWithExec(t,r){let n=t.exec(r);return n!==null?n[0]:null}};et.SKIPPED="This marks a skipped Token pattern, this means each token identified by it willbe consumed and then thrown into oblivion, this can be used to for example to completely ignore whitespace.";et.NA=/NOT_APPLICABLE/;function be(e){return ki(e)?e.LABEL:e.name}function ki(e){return nt(e.LABEL)&&e.LABEL!==""}var Cx="parent",Al="categories",Il="label",yl="group",Rl="push_mode",Sl="pop_mode",Ol="longer_alt",Nl="line_breaks",_l="start_chars_hint";function q(e){return vx(e)}function vx(e){let t=e.pattern,r={};if(r.name=e.name,ut(t)||(r.PATTERN=t),T(e,Cx))throw`The parent property is no longer supported.
-See: https://github.com/chevrotain/chevrotain/issues/564#issuecomment-349062346 for details.`;return T(e,Al)&&(r.CATEGORIES=e[Al]),ee([r]),T(e,Il)&&(r.LABEL=e[Il]),T(e,yl)&&(r.GROUP=e[yl]),T(e,Sl)&&(r.POP_MODE=e[Sl]),T(e,Rl)&&(r.PUSH_MODE=e[Rl]),T(e,Ol)&&(r.LONGER_ALT=e[Ol]),T(e,Nl)&&(r.LINE_BREAKS=e[Nl]),T(e,_l)&&(r.START_CHARS_HINT=e[_l]),r}var kt=q({name:"EOF",pattern:et.NA});ee([kt]);function Le(e,t,r,n,i,o,s,a){return{image:t,startOffset:r,endOffset:n,startLine:i,endLine:o,startColumn:s,endColumn:a,tokenTypeIdx:e.tokenTypeIdx,tokenType:e}}function Mi(e,t){return te(e,t)}var Fn={buildMismatchTokenMessage({expected:e,actual:t,previous:r,ruleName:n}){return`Expecting ${ki(e)?`--> ${be(e)} <--`:`token of type --> ${e.name} <--`} but found --> '${t.image}' <--`},buildNotAllInputParsedMessage({firstRedundant:e,ruleName:t}){return"Redundant input, expecting EOF but found: "+e.image},buildNoViableAltMessage({expectedPathsPerAlt:e,actual:t,previous:r,customUserDescription:n,ruleName:i}){let o="Expecting: ",a=`
-but found: '`+st(t).image+"'";if(n)return o+n+a;{let l=tt(e,(p,d)=>p.concat(d),[]),c=g(l,p=>`[${g(p,d=>be(d)).join(", ")}]`),u=`one of these possible Token sequences:
-${g(c,(p,d)=>`  ${d+1}. ${p}`).join(`
-`)}`;return o+u+a}},buildEarlyExitMessage({expectedIterationPaths:e,actual:t,customUserDescription:r,ruleName:n}){let i="Expecting: ",s=`
-but found: '`+st(t).image+"'";if(r)return i+r+s;{let l=`expecting at least one iteration which starts with one of these possible Token sequences::
-  <${g(e,c=>`[${g(c,f=>be(f)).join(",")}]`).join(" ,")}>`;return i+l+s}}};Object.freeze(Fn);var Cl={buildRuleNotFoundError(e,t){return"Invalid grammar, reference to a rule which is not defined: ->"+t.nonTerminalName+`<-
-inside top level rule: ->`+e.name+"<-"}},Mt={buildDuplicateFoundError(e,t){function r(f){return f instanceof C?f.terminalType.name:f instanceof w?f.nonTerminalName:""}let n=e.name,i=st(t),o=i.idx,s=Rt(i),a=r(i),l=o>0,c=`->${s}${l?o:""}<- ${a?`with argument: ->${a}<-`:""}
-                  appears more than once (${t.length} times) in the top level rule: ->${n}<-.                  
+	 Or inspect the console log for details on how to resolve these issues.`);
+        }
+      });
+      this.TRACE_INIT("clearRegExpParserCache", () => {
+        clearRegExpParserCache();
+      });
+      this.TRACE_INIT("toFastProperties", () => {
+        toFastProperties(this);
+      });
+    });
+  }
+  tokenize(text, initialMode = this.defaultMode) {
+    if (!isEmpty_default(this.lexerDefinitionErrors)) {
+      const allErrMessages = map_default(this.lexerDefinitionErrors, (error) => {
+        return error.message;
+      });
+      const allErrMessagesString = allErrMessages.join("-----------------------\n");
+      throw new Error("Unable to Tokenize because Errors detected in definition of Lexer:\n" + allErrMessagesString);
+    }
+    return this.tokenizeInternal(text, initialMode);
+  }
+  // There is quite a bit of duplication between this and "tokenizeInternalLazy"
+  // This is intentional due to performance considerations.
+  // this method also used quite a bit of `!` none null assertions because it is too optimized
+  // for `tsc` to always understand it is "safe"
+  tokenizeInternal(text, initialMode) {
+    let i, j, k, matchAltImage, longerAlt, matchedImage, payload, altPayload, imageLength, group, tokType, newToken, errLength, droppedChar, msg, match;
+    const orgText = text;
+    const orgLength = orgText.length;
+    let offset = 0;
+    let matchedTokensIndex = 0;
+    const guessedNumberOfTokens = this.hasCustom ? 0 : Math.floor(text.length / 10);
+    const matchedTokens = new Array(guessedNumberOfTokens);
+    const errors = [];
+    let line = this.trackStartLines ? 1 : void 0;
+    let column = this.trackStartLines ? 1 : void 0;
+    const groups = cloneEmptyGroups(this.emptyGroups);
+    const trackLines = this.trackStartLines;
+    const lineTerminatorPattern = this.config.lineTerminatorsPattern;
+    let currModePatternsLength = 0;
+    let patternIdxToConfig = [];
+    let currCharCodeToPatternIdxToConfig = [];
+    const modeStack = [];
+    const emptyArray = [];
+    Object.freeze(emptyArray);
+    let getPossiblePatterns;
+    function getPossiblePatternsSlow() {
+      return patternIdxToConfig;
+    }
+    function getPossiblePatternsOptimized(charCode) {
+      const optimizedCharIdx = charCodeToOptimizedIndex(charCode);
+      const possiblePatterns = currCharCodeToPatternIdxToConfig[optimizedCharIdx];
+      if (possiblePatterns === void 0) {
+        return emptyArray;
+      } else {
+        return possiblePatterns;
+      }
+    }
+    const pop_mode = (popToken) => {
+      if (modeStack.length === 1 && // if we have both a POP_MODE and a PUSH_MODE this is in-fact a "transition"
+      // So no error should occur.
+      popToken.tokenType.PUSH_MODE === void 0) {
+        const msg2 = this.config.errorMessageProvider.buildUnableToPopLexerModeMessage(popToken);
+        errors.push({
+          offset: popToken.startOffset,
+          line: popToken.startLine,
+          column: popToken.startColumn,
+          length: popToken.image.length,
+          message: msg2
+        });
+      } else {
+        modeStack.pop();
+        const newMode = last_default(modeStack);
+        patternIdxToConfig = this.patternIdxToConfig[newMode];
+        currCharCodeToPatternIdxToConfig = this.charCodeToPatternIdxToConfig[newMode];
+        currModePatternsLength = patternIdxToConfig.length;
+        const modeCanBeOptimized = this.canModeBeOptimized[newMode] && this.config.safeMode === false;
+        if (currCharCodeToPatternIdxToConfig && modeCanBeOptimized) {
+          getPossiblePatterns = getPossiblePatternsOptimized;
+        } else {
+          getPossiblePatterns = getPossiblePatternsSlow;
+        }
+      }
+    };
+    function push_mode(newMode) {
+      modeStack.push(newMode);
+      currCharCodeToPatternIdxToConfig = this.charCodeToPatternIdxToConfig[newMode];
+      patternIdxToConfig = this.patternIdxToConfig[newMode];
+      currModePatternsLength = patternIdxToConfig.length;
+      currModePatternsLength = patternIdxToConfig.length;
+      const modeCanBeOptimized = this.canModeBeOptimized[newMode] && this.config.safeMode === false;
+      if (currCharCodeToPatternIdxToConfig && modeCanBeOptimized) {
+        getPossiblePatterns = getPossiblePatternsOptimized;
+      } else {
+        getPossiblePatterns = getPossiblePatternsSlow;
+      }
+    }
+    push_mode.call(this, initialMode);
+    let currConfig;
+    const recoveryEnabled = this.config.recoveryEnabled;
+    while (offset < orgLength) {
+      matchedImage = null;
+      const nextCharCode = orgText.charCodeAt(offset);
+      const chosenPatternIdxToConfig = getPossiblePatterns(nextCharCode);
+      const chosenPatternsLength = chosenPatternIdxToConfig.length;
+      for (i = 0; i < chosenPatternsLength; i++) {
+        currConfig = chosenPatternIdxToConfig[i];
+        const currPattern = currConfig.pattern;
+        payload = null;
+        const singleCharCode = currConfig.short;
+        if (singleCharCode !== false) {
+          if (nextCharCode === singleCharCode) {
+            matchedImage = currPattern;
+          }
+        } else if (currConfig.isCustom === true) {
+          match = currPattern.exec(orgText, offset, matchedTokens, groups);
+          if (match !== null) {
+            matchedImage = match[0];
+            if (match.payload !== void 0) {
+              payload = match.payload;
+            }
+          } else {
+            matchedImage = null;
+          }
+        } else {
+          this.updateLastIndex(currPattern, offset);
+          matchedImage = this.match(currPattern, text, offset);
+        }
+        if (matchedImage !== null) {
+          longerAlt = currConfig.longerAlt;
+          if (longerAlt !== void 0) {
+            const longerAltLength = longerAlt.length;
+            for (k = 0; k < longerAltLength; k++) {
+              const longerAltConfig = patternIdxToConfig[longerAlt[k]];
+              const longerAltPattern = longerAltConfig.pattern;
+              altPayload = null;
+              if (longerAltConfig.isCustom === true) {
+                match = longerAltPattern.exec(orgText, offset, matchedTokens, groups);
+                if (match !== null) {
+                  matchAltImage = match[0];
+                  if (match.payload !== void 0) {
+                    altPayload = match.payload;
+                  }
+                } else {
+                  matchAltImage = null;
+                }
+              } else {
+                this.updateLastIndex(longerAltPattern, offset);
+                matchAltImage = this.match(longerAltPattern, text, offset);
+              }
+              if (matchAltImage && matchAltImage.length > matchedImage.length) {
+                matchedImage = matchAltImage;
+                payload = altPayload;
+                currConfig = longerAltConfig;
+                break;
+              }
+            }
+          }
+          break;
+        }
+      }
+      if (matchedImage !== null) {
+        imageLength = matchedImage.length;
+        group = currConfig.group;
+        if (group !== void 0) {
+          tokType = currConfig.tokenTypeIdx;
+          newToken = this.createTokenInstance(matchedImage, offset, tokType, currConfig.tokenType, line, column, imageLength);
+          this.handlePayload(newToken, payload);
+          if (group === false) {
+            matchedTokensIndex = this.addToken(matchedTokens, matchedTokensIndex, newToken);
+          } else {
+            groups[group].push(newToken);
+          }
+        }
+        text = this.chopInput(text, imageLength);
+        offset = offset + imageLength;
+        column = this.computeNewColumn(column, imageLength);
+        if (trackLines === true && currConfig.canLineTerminator === true) {
+          let numOfLTsInMatch = 0;
+          let foundTerminator;
+          let lastLTEndOffset;
+          lineTerminatorPattern.lastIndex = 0;
+          do {
+            foundTerminator = lineTerminatorPattern.test(matchedImage);
+            if (foundTerminator === true) {
+              lastLTEndOffset = lineTerminatorPattern.lastIndex - 1;
+              numOfLTsInMatch++;
+            }
+          } while (foundTerminator === true);
+          if (numOfLTsInMatch !== 0) {
+            line = line + numOfLTsInMatch;
+            column = imageLength - lastLTEndOffset;
+            this.updateTokenEndLineColumnLocation(newToken, group, lastLTEndOffset, numOfLTsInMatch, line, column, imageLength);
+          }
+        }
+        this.handleModes(currConfig, pop_mode, push_mode, newToken);
+      } else {
+        const errorStartOffset = offset;
+        const errorLine = line;
+        const errorColumn = column;
+        let foundResyncPoint = recoveryEnabled === false;
+        while (foundResyncPoint === false && offset < orgLength) {
+          text = this.chopInput(text, 1);
+          offset++;
+          for (j = 0; j < currModePatternsLength; j++) {
+            const currConfig2 = patternIdxToConfig[j];
+            const currPattern = currConfig2.pattern;
+            const singleCharCode = currConfig2.short;
+            if (singleCharCode !== false) {
+              if (orgText.charCodeAt(offset) === singleCharCode) {
+                foundResyncPoint = true;
+              }
+            } else if (currConfig2.isCustom === true) {
+              foundResyncPoint = currPattern.exec(orgText, offset, matchedTokens, groups) !== null;
+            } else {
+              this.updateLastIndex(currPattern, offset);
+              foundResyncPoint = currPattern.exec(text) !== null;
+            }
+            if (foundResyncPoint === true) {
+              break;
+            }
+          }
+        }
+        errLength = offset - errorStartOffset;
+        column = this.computeNewColumn(column, errLength);
+        msg = this.config.errorMessageProvider.buildUnexpectedCharactersMessage(orgText, errorStartOffset, errLength, errorLine, errorColumn);
+        errors.push({
+          offset: errorStartOffset,
+          line: errorLine,
+          column: errorColumn,
+          length: errLength,
+          message: msg
+        });
+        if (recoveryEnabled === false) {
+          break;
+        }
+      }
+    }
+    if (!this.hasCustom) {
+      matchedTokens.length = matchedTokensIndex;
+    }
+    return {
+      tokens: matchedTokens,
+      groups,
+      errors
+    };
+  }
+  handleModes(config, pop_mode, push_mode, newToken) {
+    if (config.pop === true) {
+      const pushMode = config.push;
+      pop_mode(newToken);
+      if (pushMode !== void 0) {
+        push_mode.call(this, pushMode);
+      }
+    } else if (config.push !== void 0) {
+      push_mode.call(this, config.push);
+    }
+  }
+  chopInput(text, length) {
+    return text.substring(length);
+  }
+  updateLastIndex(regExp, newLastIndex) {
+    regExp.lastIndex = newLastIndex;
+  }
+  // TODO: decrease this under 600 characters? inspect stripping comments option in TSC compiler
+  updateTokenEndLineColumnLocation(newToken, group, lastLTIdx, numOfLTsInMatch, line, column, imageLength) {
+    let lastCharIsLT, fixForEndingInLT;
+    if (group !== void 0) {
+      lastCharIsLT = lastLTIdx === imageLength - 1;
+      fixForEndingInLT = lastCharIsLT ? -1 : 0;
+      if (!(numOfLTsInMatch === 1 && lastCharIsLT === true)) {
+        newToken.endLine = line + fixForEndingInLT;
+        newToken.endColumn = column - 1 + -fixForEndingInLT;
+      }
+    }
+  }
+  computeNewColumn(oldColumn, imageLength) {
+    return oldColumn + imageLength;
+  }
+  createOffsetOnlyToken(image, startOffset, tokenTypeIdx, tokenType) {
+    return {
+      image,
+      startOffset,
+      tokenTypeIdx,
+      tokenType
+    };
+  }
+  createStartOnlyToken(image, startOffset, tokenTypeIdx, tokenType, startLine, startColumn) {
+    return {
+      image,
+      startOffset,
+      startLine,
+      startColumn,
+      tokenTypeIdx,
+      tokenType
+    };
+  }
+  createFullToken(image, startOffset, tokenTypeIdx, tokenType, startLine, startColumn, imageLength) {
+    return {
+      image,
+      startOffset,
+      endOffset: startOffset + imageLength - 1,
+      startLine,
+      endLine: startLine,
+      startColumn,
+      endColumn: startColumn + imageLength - 1,
+      tokenTypeIdx,
+      tokenType
+    };
+  }
+  addTokenUsingPush(tokenVector, index, tokenToAdd) {
+    tokenVector.push(tokenToAdd);
+    return index;
+  }
+  addTokenUsingMemberAccess(tokenVector, index, tokenToAdd) {
+    tokenVector[index] = tokenToAdd;
+    index++;
+    return index;
+  }
+  handlePayloadNoCustom(token, payload) {
+  }
+  handlePayloadWithCustom(token, payload) {
+    if (payload !== null) {
+      token.payload = payload;
+    }
+  }
+  matchWithTest(pattern, text, offset) {
+    const found = pattern.test(text);
+    if (found === true) {
+      return text.substring(offset, pattern.lastIndex);
+    }
+    return null;
+  }
+  matchWithExec(pattern, text) {
+    const regExpArray = pattern.exec(text);
+    return regExpArray !== null ? regExpArray[0] : null;
+  }
+};
+Lexer.SKIPPED = "This marks a skipped Token pattern, this means each token identified by it willbe consumed and then thrown into oblivion, this can be used to for example to completely ignore whitespace.";
+Lexer.NA = /NOT_APPLICABLE/;
+
+// node_modules/chevrotain/lib/src/scan/tokens_public.js
+function tokenLabel2(tokType) {
+  if (hasTokenLabel2(tokType)) {
+    return tokType.LABEL;
+  } else {
+    return tokType.name;
+  }
+}
+function hasTokenLabel2(obj) {
+  return isString_default(obj.LABEL) && obj.LABEL !== "";
+}
+var PARENT = "parent";
+var CATEGORIES = "categories";
+var LABEL = "label";
+var GROUP = "group";
+var PUSH_MODE = "push_mode";
+var POP_MODE = "pop_mode";
+var LONGER_ALT = "longer_alt";
+var LINE_BREAKS = "line_breaks";
+var START_CHARS_HINT = "start_chars_hint";
+function createToken(config) {
+  return createTokenInternal(config);
+}
+function createTokenInternal(config) {
+  const pattern = config.pattern;
+  const tokenType = {};
+  tokenType.name = config.name;
+  if (!isUndefined_default(pattern)) {
+    tokenType.PATTERN = pattern;
+  }
+  if (has_default(config, PARENT)) {
+    throw "The parent property is no longer supported.\nSee: https://github.com/chevrotain/chevrotain/issues/564#issuecomment-349062346 for details.";
+  }
+  if (has_default(config, CATEGORIES)) {
+    tokenType.CATEGORIES = config[CATEGORIES];
+  }
+  augmentTokenTypes([tokenType]);
+  if (has_default(config, LABEL)) {
+    tokenType.LABEL = config[LABEL];
+  }
+  if (has_default(config, GROUP)) {
+    tokenType.GROUP = config[GROUP];
+  }
+  if (has_default(config, POP_MODE)) {
+    tokenType.POP_MODE = config[POP_MODE];
+  }
+  if (has_default(config, PUSH_MODE)) {
+    tokenType.PUSH_MODE = config[PUSH_MODE];
+  }
+  if (has_default(config, LONGER_ALT)) {
+    tokenType.LONGER_ALT = config[LONGER_ALT];
+  }
+  if (has_default(config, LINE_BREAKS)) {
+    tokenType.LINE_BREAKS = config[LINE_BREAKS];
+  }
+  if (has_default(config, START_CHARS_HINT)) {
+    tokenType.START_CHARS_HINT = config[START_CHARS_HINT];
+  }
+  return tokenType;
+}
+var EOF = createToken({ name: "EOF", pattern: Lexer.NA });
+augmentTokenTypes([EOF]);
+function createTokenInstance(tokType, image, startOffset, endOffset, startLine, endLine, startColumn, endColumn) {
+  return {
+    image,
+    startOffset,
+    endOffset,
+    startLine,
+    endLine,
+    startColumn,
+    endColumn,
+    tokenTypeIdx: tokType.tokenTypeIdx,
+    tokenType: tokType
+  };
+}
+function tokenMatcher(token, tokType) {
+  return tokenStructuredMatcher(token, tokType);
+}
+
+// node_modules/chevrotain/lib/src/parse/errors_public.js
+var defaultParserErrorProvider = {
+  buildMismatchTokenMessage({ expected, actual, previous, ruleName }) {
+    const hasLabel = hasTokenLabel2(expected);
+    const expectedMsg = hasLabel ? `--> ${tokenLabel2(expected)} <--` : `token of type --> ${expected.name} <--`;
+    const msg = `Expecting ${expectedMsg} but found --> '${actual.image}' <--`;
+    return msg;
+  },
+  buildNotAllInputParsedMessage({ firstRedundant, ruleName }) {
+    return "Redundant input, expecting EOF but found: " + firstRedundant.image;
+  },
+  buildNoViableAltMessage({ expectedPathsPerAlt, actual, previous, customUserDescription, ruleName }) {
+    const errPrefix = "Expecting: ";
+    const actualText = head_default(actual).image;
+    const errSuffix = "\nbut found: '" + actualText + "'";
+    if (customUserDescription) {
+      return errPrefix + customUserDescription + errSuffix;
+    } else {
+      const allLookAheadPaths = reduce_default(expectedPathsPerAlt, (result, currAltPaths) => result.concat(currAltPaths), []);
+      const nextValidTokenSequences = map_default(allLookAheadPaths, (currPath) => `[${map_default(currPath, (currTokenType) => tokenLabel2(currTokenType)).join(", ")}]`);
+      const nextValidSequenceItems = map_default(nextValidTokenSequences, (itemMsg, idx) => `  ${idx + 1}. ${itemMsg}`);
+      const calculatedDescription = `one of these possible Token sequences:
+${nextValidSequenceItems.join("\n")}`;
+      return errPrefix + calculatedDescription + errSuffix;
+    }
+  },
+  buildEarlyExitMessage({ expectedIterationPaths, actual, customUserDescription, ruleName }) {
+    const errPrefix = "Expecting: ";
+    const actualText = head_default(actual).image;
+    const errSuffix = "\nbut found: '" + actualText + "'";
+    if (customUserDescription) {
+      return errPrefix + customUserDescription + errSuffix;
+    } else {
+      const nextValidTokenSequences = map_default(expectedIterationPaths, (currPath) => `[${map_default(currPath, (currTokenType) => tokenLabel2(currTokenType)).join(",")}]`);
+      const calculatedDescription = `expecting at least one iteration which starts with one of these possible Token sequences::
+  <${nextValidTokenSequences.join(" ,")}>`;
+      return errPrefix + calculatedDescription + errSuffix;
+    }
+  }
+};
+Object.freeze(defaultParserErrorProvider);
+var defaultGrammarResolverErrorProvider = {
+  buildRuleNotFoundError(topLevelRule, undefinedRule) {
+    const msg = "Invalid grammar, reference to a rule which is not defined: ->" + undefinedRule.nonTerminalName + "<-\ninside top level rule: ->" + topLevelRule.name + "<-";
+    return msg;
+  }
+};
+var defaultGrammarValidatorErrorProvider = {
+  buildDuplicateFoundError(topLevelRule, duplicateProds) {
+    function getExtraProductionArgument2(prod) {
+      if (prod instanceof Terminal) {
+        return prod.terminalType.name;
+      } else if (prod instanceof NonTerminal) {
+        return prod.nonTerminalName;
+      } else {
+        return "";
+      }
+    }
+    const topLevelName = topLevelRule.name;
+    const duplicateProd = head_default(duplicateProds);
+    const index = duplicateProd.idx;
+    const dslName = getProductionDslName(duplicateProd);
+    const extraArgument = getExtraProductionArgument2(duplicateProd);
+    const hasExplicitIndex = index > 0;
+    let msg = `->${dslName}${hasExplicitIndex ? index : ""}<- ${extraArgument ? `with argument: ->${extraArgument}<-` : ""}
+                  appears more than once (${duplicateProds.length} times) in the top level rule: ->${topLevelName}<-.                  
                   For further details see: https://chevrotain.io/docs/FAQ.html#NUMERICAL_SUFFIXES 
-                  `;return c=c.replace(/[ \t]+/g," "),c=c.replace(/\s\s+/g,`
-`),c},buildNamespaceConflictError(e){return`Namespace conflict found in grammar.
-The grammar has both a Terminal(Token) and a Non-Terminal(Rule) named: <${e.name}>.
+                  `;
+    msg = msg.replace(/[ \t]+/g, " ");
+    msg = msg.replace(/\s\s+/g, "\n");
+    return msg;
+  },
+  buildNamespaceConflictError(rule) {
+    const errMsg = `Namespace conflict found in grammar.
+The grammar has both a Terminal(Token) and a Non-Terminal(Rule) named: <${rule.name}>.
 To resolve this make sure each Terminal and Non-Terminal names are unique
 This is easy to accomplish by using the convention that Terminal names start with an uppercase letter
-and Non-Terminal names start with a lower case letter.`},buildAlternationPrefixAmbiguityError(e){let t=g(e.prefixPath,i=>be(i)).join(", "),r=e.alternation.idx===0?"":e.alternation.idx;return`Ambiguous alternatives: <${e.ambiguityIndices.join(" ,")}> due to common lookahead prefix
-in <OR${r}> inside <${e.topLevelRule.name}> Rule,
-<${t}> may appears as a prefix path in all these alternatives.
+and Non-Terminal names start with a lower case letter.`;
+    return errMsg;
+  },
+  buildAlternationPrefixAmbiguityError(options) {
+    const pathMsg = map_default(options.prefixPath, (currTok) => tokenLabel2(currTok)).join(", ");
+    const occurrence = options.alternation.idx === 0 ? "" : options.alternation.idx;
+    const errMsg = `Ambiguous alternatives: <${options.ambiguityIndices.join(" ,")}> due to common lookahead prefix
+in <OR${occurrence}> inside <${options.topLevelRule.name}> Rule,
+<${pathMsg}> may appears as a prefix path in all these alternatives.
 See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#COMMON_PREFIX
-For Further details.`},buildAlternationAmbiguityError(e){let t=g(e.prefixPath,i=>be(i)).join(", "),r=e.alternation.idx===0?"":e.alternation.idx,n=`Ambiguous Alternatives Detected: <${e.ambiguityIndices.join(" ,")}> in <OR${r}> inside <${e.topLevelRule.name}> Rule,
-<${t}> may appears as a prefix path in all these alternatives.
-`;return n=n+`See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
-For Further details.`,n},buildEmptyRepetitionError(e){let t=Rt(e.repetition);return e.repetition.idx!==0&&(t+=e.repetition.idx),`The repetition <${t}> within Rule <${e.topLevelRule.name}> can never consume any tokens.
-This could lead to an infinite loop.`},buildTokenNameError(e){return"deprecated"},buildEmptyAlternationError(e){return`Ambiguous empty alternative: <${e.emptyChoiceIdx+1}> in <OR${e.alternation.idx}> inside <${e.topLevelRule.name}> Rule.
-Only the last alternative may be an empty alternative.`},buildTooManyAlternativesError(e){return`An Alternation cannot have more than 256 alternatives:
-<OR${e.alternation.idx}> inside <${e.topLevelRule.name}> Rule.
- has ${e.alternation.definition.length+1} alternatives.`},buildLeftRecursionError(e){let t=e.topLevelRule.name,r=g(e.leftRecursionPath,o=>o.name),n=`${t} --> ${r.concat([t]).join(" --> ")}`;return`Left Recursion found in grammar.
-rule: <${t}> can be invoked from itself (directly or indirectly)
+For Further details.`;
+    return errMsg;
+  },
+  buildAlternationAmbiguityError(options) {
+    const pathMsg = map_default(options.prefixPath, (currtok) => tokenLabel2(currtok)).join(", ");
+    const occurrence = options.alternation.idx === 0 ? "" : options.alternation.idx;
+    let currMessage = `Ambiguous Alternatives Detected: <${options.ambiguityIndices.join(" ,")}> in <OR${occurrence}> inside <${options.topLevelRule.name}> Rule,
+<${pathMsg}> may appears as a prefix path in all these alternatives.
+`;
+    currMessage = currMessage + `See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#AMBIGUOUS_ALTERNATIVES
+For Further details.`;
+    return currMessage;
+  },
+  buildEmptyRepetitionError(options) {
+    let dslName = getProductionDslName(options.repetition);
+    if (options.repetition.idx !== 0) {
+      dslName += options.repetition.idx;
+    }
+    const errMsg = `The repetition <${dslName}> within Rule <${options.topLevelRule.name}> can never consume any tokens.
+This could lead to an infinite loop.`;
+    return errMsg;
+  },
+  // TODO: remove - `errors_public` from nyc.config.js exclude
+  //       once this method is fully removed from this file
+  buildTokenNameError(options) {
+    return "deprecated";
+  },
+  buildEmptyAlternationError(options) {
+    const errMsg = `Ambiguous empty alternative: <${options.emptyChoiceIdx + 1}> in <OR${options.alternation.idx}> inside <${options.topLevelRule.name}> Rule.
+Only the last alternative may be an empty alternative.`;
+    return errMsg;
+  },
+  buildTooManyAlternativesError(options) {
+    const errMsg = `An Alternation cannot have more than 256 alternatives:
+<OR${options.alternation.idx}> inside <${options.topLevelRule.name}> Rule.
+ has ${options.alternation.definition.length + 1} alternatives.`;
+    return errMsg;
+  },
+  buildLeftRecursionError(options) {
+    const ruleName = options.topLevelRule.name;
+    const pathNames = map_default(options.leftRecursionPath, (currRule) => currRule.name);
+    const leftRecursivePath = `${ruleName} --> ${pathNames.concat([ruleName]).join(" --> ")}`;
+    const errMsg = `Left Recursion found in grammar.
+rule: <${ruleName}> can be invoked from itself (directly or indirectly)
 without consuming any Tokens. The grammar path that causes this is: 
- ${n}
+ ${leftRecursivePath}
  To fix this refactor your grammar to remove the left recursion.
-see: https://en.wikipedia.org/wiki/LL_parser#Left_factoring.`},buildInvalidRuleNameError(e){return"deprecated"},buildDuplicateRuleNameError(e){let t;return e.topLevelRule instanceof gt?t=e.topLevelRule.name:t=e.topLevelRule,`Duplicate definition, rule: ->${t}<- is already defined in the grammar: ->${e.grammarName}<-`}};function vl(e,t){let r=new wi(e,t);return r.resolveRefs(),r.errors}var wi=class extends xt{constructor(t,r){super(),this.nameToTopRule=t,this.errMsgProvider=r,this.errors=[]}resolveRefs(){x(L(this.nameToTopRule),t=>{this.currTopLevel=t,t.accept(this)})}visitNonTerminal(t){let r=this.nameToTopRule[t.nonTerminalName];if(r)t.referencedRule=r;else{let n=this.errMsgProvider.buildRuleNotFoundError(this.currTopLevel,t);this.errors.push({message:n,type:it.UNRESOLVED_SUBRULE_REF,ruleName:this.currTopLevel.name,unresolvedRefName:t.nonTerminalName})}}};var Fi=class extends Qt{constructor(t,r){super(),this.topProd=t,this.path=r,this.possibleTokTypes=[],this.nextProductionName="",this.nextProductionOccurrence=0,this.found=!1,this.isAtEndOfPath=!1}startWalking(){if(this.found=!1,this.path.ruleStack[0]!==this.topProd.name)throw Error("The path does not start with the walker's top Rule!");return this.ruleStack=M(this.path.ruleStack).reverse(),this.occurrenceStack=M(this.path.occurrenceStack).reverse(),this.ruleStack.pop(),this.occurrenceStack.pop(),this.updateExpectedNext(),this.walk(this.topProd),this.possibleTokTypes}walk(t,r=[]){this.found||super.walk(t,r)}walkProdRef(t,r,n){if(t.referencedRule.name===this.nextProductionName&&t.idx===this.nextProductionOccurrence){let i=r.concat(n);this.updateExpectedNext(),this.walk(t.referencedRule,i)}}updateExpectedNext(){_(this.ruleStack)?(this.nextProductionName="",this.nextProductionOccurrence=0,this.isAtEndOfPath=!0):(this.nextProductionName=this.ruleStack.pop(),this.nextProductionOccurrence=this.occurrenceStack.pop())}},Un=class extends Fi{constructor(t,r){super(t,r),this.path=r,this.nextTerminalName="",this.nextTerminalOccurrence=0,this.nextTerminalName=this.path.lastTok.name,this.nextTerminalOccurrence=this.path.lastTokOccurrence}walkTerminal(t,r,n){if(this.isAtEndOfPath&&t.terminalType.name===this.nextTerminalName&&t.idx===this.nextTerminalOccurrence&&!this.found){let i=r.concat(n),o=new F({definition:i});this.possibleTokTypes=_e(o),this.found=!0}}},pr=class extends Qt{constructor(t,r){super(),this.topRule=t,this.occurrence=r,this.result={token:void 0,occurrence:void 0,isEndOfRule:void 0}}startWalking(){return this.walk(this.topRule),this.result}},Dn=class extends pr{walkMany(t,r,n){if(t.idx===this.occurrence){let i=st(r.concat(n));this.result.isEndOfRule=i===void 0,i instanceof C&&(this.result.token=i.terminalType,this.result.occurrence=i.idx)}else super.walkMany(t,r,n)}},wr=class extends pr{walkManySep(t,r,n){if(t.idx===this.occurrence){let i=st(r.concat(n));this.result.isEndOfRule=i===void 0,i instanceof C&&(this.result.token=i.terminalType,this.result.occurrence=i.idx)}else super.walkManySep(t,r,n)}},Gn=class extends pr{walkAtLeastOne(t,r,n){if(t.idx===this.occurrence){let i=st(r.concat(n));this.result.isEndOfRule=i===void 0,i instanceof C&&(this.result.token=i.terminalType,this.result.occurrence=i.idx)}else super.walkAtLeastOne(t,r,n)}},Fr=class extends pr{walkAtLeastOneSep(t,r,n){if(t.idx===this.occurrence){let i=st(r.concat(n));this.result.isEndOfRule=i===void 0,i instanceof C&&(this.result.token=i.terminalType,this.result.occurrence=i.idx)}else super.walkAtLeastOneSep(t,r,n)}};function $n(e,t,r=[]){r=M(r);let n=[],i=0;function o(a){return a.concat(V(e,i+1))}function s(a){let l=$n(o(a),t,r);return n.concat(l)}for(;r.length<t&&i<e.length;){let a=e[i];if(a instanceof F)return s(a.definition);if(a instanceof w)return s(a.definition);if(a instanceof D)n=s(a.definition);else if(a instanceof Y){let l=a.definition.concat([new v({definition:a.definition})]);return s(l)}else if(a instanceof X){let l=[new F({definition:a.definition}),new v({definition:[new C({terminalType:a.separator})].concat(a.definition)})];return s(l)}else if(a instanceof K){let l=a.definition.concat([new v({definition:[new C({terminalType:a.separator})].concat(a.definition)})]);n=s(l)}else if(a instanceof v){let l=a.definition.concat([new v({definition:a.definition})]);n=s(l)}else{if(a instanceof H)return x(a.definition,l=>{_(l.definition)===!1&&(n=s(l.definition))}),n;if(a instanceof C)r.push(a.terminalType);else throw Error("non exhaustive match")}i++}return n.push({partialPath:r,suffixDef:V(e,i)}),n}function Bn(e,t,r,n){let i="EXIT_NONE_TERMINAL",o=[i],s="EXIT_ALTERNATIVE",a=!1,l=t.length,c=l-n-1,f=[],u=[];for(u.push({idx:-1,def:e,ruleStack:[],occurrenceStack:[]});!_(u);){let p=u.pop();if(p===s){a&&jt(u).idx<=c&&u.pop();continue}let d=p.def,I=p.idx,y=p.ruleStack,S=p.occurrenceStack;if(_(d))continue;let E=d[0];if(E===i){let m={idx:I,def:V(d),ruleStack:Zt(y),occurrenceStack:Zt(S)};u.push(m)}else if(E instanceof C)if(I<l-1){let m=I+1,h=t[m];if(r(h,E.terminalType)){let O={idx:m,def:V(d),ruleStack:y,occurrenceStack:S};u.push(O)}}else if(I===l-1)f.push({nextTokenType:E.terminalType,nextTokenOccurrence:E.idx,ruleStack:y,occurrenceStack:S}),a=!0;else throw Error("non exhaustive match");else if(E instanceof w){let m=M(y);m.push(E.nonTerminalName);let h=M(S);h.push(E.idx);let O={idx:I,def:E.definition.concat(o,V(d)),ruleStack:m,occurrenceStack:h};u.push(O)}else if(E instanceof D){let m={idx:I,def:V(d),ruleStack:y,occurrenceStack:S};u.push(m),u.push(s);let h={idx:I,def:E.definition.concat(V(d)),ruleStack:y,occurrenceStack:S};u.push(h)}else if(E instanceof Y){let m=new v({definition:E.definition,idx:E.idx}),h=E.definition.concat([m],V(d)),O={idx:I,def:h,ruleStack:y,occurrenceStack:S};u.push(O)}else if(E instanceof X){let m=new C({terminalType:E.separator}),h=new v({definition:[m].concat(E.definition),idx:E.idx}),O=E.definition.concat([h],V(d)),N={idx:I,def:O,ruleStack:y,occurrenceStack:S};u.push(N)}else if(E instanceof K){let m={idx:I,def:V(d),ruleStack:y,occurrenceStack:S};u.push(m),u.push(s);let h=new C({terminalType:E.separator}),O=new v({definition:[h].concat(E.definition),idx:E.idx}),N=E.definition.concat([O],V(d)),Tt={idx:I,def:N,ruleStack:y,occurrenceStack:S};u.push(Tt)}else if(E instanceof v){let m={idx:I,def:V(d),ruleStack:y,occurrenceStack:S};u.push(m),u.push(s);let h=new v({definition:E.definition,idx:E.idx}),O=E.definition.concat([h],V(d)),N={idx:I,def:O,ruleStack:y,occurrenceStack:S};u.push(N)}else if(E instanceof H)for(let m=E.definition.length-1;m>=0;m--){let h=E.definition[m],O={idx:I,def:h.definition.concat(V(d)),ruleStack:y,occurrenceStack:S};u.push(O),u.push(s)}else if(E instanceof F)u.push({idx:I,def:E.definition.concat(V(d)),ruleStack:y,occurrenceStack:S});else if(E instanceof gt)u.push(bx(E,I,y,S));else throw Error("non exhaustive match")}return f}function bx(e,t,r,n){let i=M(r);i.push(e.name);let o=M(n);return o.push(1),{idx:t,def:e.definition,ruleStack:i,occurrenceStack:o}}var j;(function(e){e[e.OPTION=0]="OPTION",e[e.REPETITION=1]="REPETITION",e[e.REPETITION_MANDATORY=2]="REPETITION_MANDATORY",e[e.REPETITION_MANDATORY_WITH_SEPARATOR=3]="REPETITION_MANDATORY_WITH_SEPARATOR",e[e.REPETITION_WITH_SEPARATOR=4]="REPETITION_WITH_SEPARATOR",e[e.ALTERNATION=5]="ALTERNATION"})(j||(j={}));function jn(e){if(e instanceof D||e==="Option")return j.OPTION;if(e instanceof v||e==="Repetition")return j.REPETITION;if(e instanceof Y||e==="RepetitionMandatory")return j.REPETITION_MANDATORY;if(e instanceof X||e==="RepetitionMandatoryWithSeparator")return j.REPETITION_MANDATORY_WITH_SEPARATOR;if(e instanceof K||e==="RepetitionWithSeparator")return j.REPETITION_WITH_SEPARATOR;if(e instanceof H||e==="Alternation")return j.ALTERNATION;throw Error("non exhaustive match")}function Ll(e,t,r,n,i,o){let s=Ur(e,t,r),a=Ul(s)?ur:te;return o(s,n,a,i)}function Pl(e,t,r,n,i,o){let s=Dr(e,t,i,r),a=Ul(s)?ur:te;return o(s[0],a,n)}function kl(e,t,r,n){let i=e.length,o=ct(e,s=>ct(s,a=>a.length===1));if(t)return function(s){let a=g(s,l=>l.GATE);for(let l=0;l<i;l++){let c=e[l],f=c.length,u=a[l];if(!(u!==void 0&&u.call(this)===!1))t:for(let p=0;p<f;p++){let d=c[p],I=d.length;for(let y=0;y<I;y++){let S=this.LA(y+1);if(r(S,d[y])===!1)continue t}return l}}};if(o&&!n){let s=g(e,l=>rt(l)),a=tt(s,(l,c,f)=>(x(c,u=>{T(l,u.tokenTypeIdx)||(l[u.tokenTypeIdx]=f),x(u.categoryMatches,p=>{T(l,p)||(l[p]=f)})}),l),{});return function(){let l=this.LA(1);return a[l.tokenTypeIdx]}}else return function(){for(let s=0;s<i;s++){let a=e[s],l=a.length;t:for(let c=0;c<l;c++){let f=a[c],u=f.length;for(let p=0;p<u;p++){let d=this.LA(p+1);if(r(d,f[p])===!1)continue t}return s}}}}function Ml(e,t,r){let n=ct(e,o=>o.length===1),i=e.length;if(n&&!r){let o=rt(e);if(o.length===1&&_(o[0].categoryMatches)){let a=o[0].tokenTypeIdx;return function(){return this.LA(1).tokenTypeIdx===a}}else{let s=tt(o,(a,l,c)=>(a[l.tokenTypeIdx]=!0,x(l.categoryMatches,f=>{a[f]=!0}),a),[]);return function(){let a=this.LA(1);return s[a.tokenTypeIdx]===!0}}}else return function(){t:for(let o=0;o<i;o++){let s=e[o],a=s.length;for(let l=0;l<a;l++){let c=this.LA(l+1);if(t(c,s[l])===!1)continue t}return!0}return!1}}var Di=class extends Qt{constructor(t,r,n){super(),this.topProd=t,this.targetOccurrence=r,this.targetProdType=n}startWalking(){return this.walk(this.topProd),this.restDef}checkIsTarget(t,r,n,i){return t.idx===this.targetOccurrence&&this.targetProdType===r?(this.restDef=n.concat(i),!0):!1}walkOption(t,r,n){this.checkIsTarget(t,j.OPTION,r,n)||super.walkOption(t,r,n)}walkAtLeastOne(t,r,n){this.checkIsTarget(t,j.REPETITION_MANDATORY,r,n)||super.walkOption(t,r,n)}walkAtLeastOneSep(t,r,n){this.checkIsTarget(t,j.REPETITION_MANDATORY_WITH_SEPARATOR,r,n)||super.walkOption(t,r,n)}walkMany(t,r,n){this.checkIsTarget(t,j.REPETITION,r,n)||super.walkOption(t,r,n)}walkManySep(t,r,n){this.checkIsTarget(t,j.REPETITION_WITH_SEPARATOR,r,n)||super.walkOption(t,r,n)}},Wn=class extends xt{constructor(t,r,n){super(),this.targetOccurrence=t,this.targetProdType=r,this.targetRef=n,this.result=[]}checkIsTarget(t,r){t.idx===this.targetOccurrence&&this.targetProdType===r&&(this.targetRef===void 0||t===this.targetRef)&&(this.result=t.definition)}visitOption(t){this.checkIsTarget(t,j.OPTION)}visitRepetition(t){this.checkIsTarget(t,j.REPETITION)}visitRepetitionMandatory(t){this.checkIsTarget(t,j.REPETITION_MANDATORY)}visitRepetitionMandatoryWithSeparator(t){this.checkIsTarget(t,j.REPETITION_MANDATORY_WITH_SEPARATOR)}visitRepetitionWithSeparator(t){this.checkIsTarget(t,j.REPETITION_WITH_SEPARATOR)}visitAlternation(t){this.checkIsTarget(t,j.ALTERNATION)}};function bl(e){let t=new Array(e);for(let r=0;r<e;r++)t[r]=[];return t}function Ui(e){let t=[""];for(let r=0;r<e.length;r++){let n=e[r],i=[];for(let o=0;o<t.length;o++){let s=t[o];i.push(s+"_"+n.tokenTypeIdx);for(let a=0;a<n.categoryMatches.length;a++){let l="_"+n.categoryMatches[a];i.push(s+l)}}t=i}return t}function Lx(e,t,r){for(let n=0;n<e.length;n++){if(n===r)continue;let i=e[n];for(let o=0;o<t.length;o++){let s=t[o];if(i[s]===!0)return!1}}return!0}function wl(e,t){let r=g(e,s=>$n([s],1)),n=bl(r.length),i=g(r,s=>{let a={};return x(s,l=>{let c=Ui(l.partialPath);x(c,f=>{a[f]=!0})}),a}),o=r;for(let s=1;s<=t;s++){let a=o;o=bl(a.length);for(let l=0;l<a.length;l++){let c=a[l];for(let f=0;f<c.length;f++){let u=c[f].partialPath,p=c[f].suffixDef,d=Ui(u);if(Lx(i,d,l)||_(p)||u.length===t){let y=n[l];if(Kn(y,u)===!1){y.push(u);for(let S=0;S<d.length;S++){let E=d[S];i[l][E]=!0}}}else{let y=$n(p,s+1,u);o[l]=o[l].concat(y),x(y,S=>{let E=Ui(S.partialPath);x(E,m=>{i[l][m]=!0})})}}}}return n}function Ur(e,t,r,n){let i=new Wn(e,j.ALTERNATION,n);return t.accept(i),wl(i.result,r)}function Dr(e,t,r,n){let i=new Wn(e,r);t.accept(i);let o=i.result,a=new Di(t,e,r).startWalking(),l=new F({definition:o}),c=new F({definition:a});return wl([l,c],n)}function Kn(e,t){t:for(let r=0;r<e.length;r++){let n=e[r];if(n.length===t.length){for(let i=0;i<n.length;i++){let o=t[i],s=n[i];if((o===s||s.categoryMatchesMap[o.tokenTypeIdx]!==void 0)===!1)continue t}return!0}}return!1}function Fl(e,t){return e.length<t.length&&ct(e,(r,n)=>{let i=t[n];return r===i||i.categoryMatchesMap[r.tokenTypeIdx]})}function Ul(e){return ct(e,t=>ct(t,r=>ct(r,n=>_(n.categoryMatches))))}function Dl(e){let t=e.lookaheadStrategy.validate({rules:e.rules,tokenTypes:e.tokenTypes,grammarName:e.grammarName});return g(t,r=>Object.assign({type:it.CUSTOM_LOOKAHEAD_VALIDATION},r))}function Gl(e,t,r,n){let i=mt(e,l=>Px(l,r)),o=Dx(e,t,r),s=mt(e,l=>wx(l,r)),a=mt(e,l=>Mx(l,e,n,r));return i.concat(o,s,a)}function Px(e,t){let r=new Gi;e.accept(r);let n=r.allProductions,i=Ai(n,kx),o=yt(i,a=>a.length>1);return g(L(o),a=>{let l=st(a),c=t.buildDuplicateFoundError(e,a),f=Rt(l),u={message:c,type:it.DUPLICATE_PRODUCTIONS,ruleName:e.name,dslName:f,occurrence:l.idx},p=$l(l);return p&&(u.parameter=p),u})}function kx(e){return`${Rt(e)}_#_${e.idx}_#_${$l(e)}`}function $l(e){return e instanceof C?e.terminalType.name:e instanceof w?e.nonTerminalName:""}var Gi=class extends xt{constructor(){super(...arguments),this.allProductions=[]}visitNonTerminal(t){this.allProductions.push(t)}visitOption(t){this.allProductions.push(t)}visitRepetitionWithSeparator(t){this.allProductions.push(t)}visitRepetitionMandatory(t){this.allProductions.push(t)}visitRepetitionMandatoryWithSeparator(t){this.allProductions.push(t)}visitRepetition(t){this.allProductions.push(t)}visitAlternation(t){this.allProductions.push(t)}visitTerminal(t){this.allProductions.push(t)}};function Mx(e,t,r,n){let i=[];if(tt(t,(s,a)=>a.name===e.name?s+1:s,0)>1){let s=n.buildDuplicateRuleNameError({topLevelRule:e,grammarName:r});i.push({message:s,type:it.DUPLICATE_RULE_NAME,ruleName:e.name})}return i}function Bl(e,t,r){let n=[],i;return G(t,e)||(i=`Invalid rule override, rule: ->${e}<- cannot be overridden in the grammar: ->${r}<-as it is not defined in any of the super grammars `,n.push({message:i,type:it.INVALID_RULE_OVERRIDE,ruleName:e})),n}function Bi(e,t,r,n=[]){let i=[],o=Hn(t.definition);if(_(o))return[];{let s=e.name;G(o,e)&&i.push({message:r.buildLeftRecursionError({topLevelRule:e,leftRecursionPath:n}),type:it.LEFT_RECURSION,ruleName:s});let l=Ee(o,n.concat([e])),c=mt(l,f=>{let u=M(n);return u.push(f),Bi(e,f,r,u)});return i.concat(c)}}function Hn(e){let t=[];if(_(e))return t;let r=st(e);if(r instanceof w)t.push(r.referencedRule);else if(r instanceof F||r instanceof D||r instanceof Y||r instanceof X||r instanceof K||r instanceof v)t=t.concat(Hn(r.definition));else if(r instanceof H)t=rt(g(r.definition,o=>Hn(o.definition)));else if(!(r instanceof C))throw Error("non exhaustive match");let n=Ne(r),i=e.length>1;if(n&&i){let o=V(e);return t.concat(Hn(o))}else return t}var Gr=class extends xt{constructor(){super(...arguments),this.alternations=[]}visitAlternation(t){this.alternations.push(t)}};function Wl(e,t){let r=new Gr;e.accept(r);let n=r.alternations;return mt(n,o=>{let s=Zt(o.definition);return mt(s,(a,l)=>{let c=Bn([a],[],te,1);return _(c)?[{message:t.buildEmptyAlternationError({topLevelRule:e,alternation:o,emptyChoiceIdx:l}),type:it.NONE_LAST_EMPTY_ALT,ruleName:e.name,occurrence:o.idx,alternative:l+1}]:[]})})}function jl(e,t,r){let n=new Gr;e.accept(n);let i=n.alternations;return i=Te(i,s=>s.ignoreAmbiguities===!0),mt(i,s=>{let a=s.idx,l=s.maxLookahead||t,c=Ur(a,e,l,s),f=Fx(c,s,e,r),u=Ux(c,s,e,r);return f.concat(u)})}var $i=class extends xt{constructor(){super(...arguments),this.allProductions=[]}visitRepetitionWithSeparator(t){this.allProductions.push(t)}visitRepetitionMandatory(t){this.allProductions.push(t)}visitRepetitionMandatoryWithSeparator(t){this.allProductions.push(t)}visitRepetition(t){this.allProductions.push(t)}};function wx(e,t){let r=new Gr;e.accept(r);let n=r.alternations;return mt(n,o=>o.definition.length>255?[{message:t.buildTooManyAlternativesError({topLevelRule:e,alternation:o}),type:it.TOO_MANY_ALTS,ruleName:e.name,occurrence:o.idx}]:[])}function Kl(e,t,r){let n=[];return x(e,i=>{let o=new $i;i.accept(o);let s=o.allProductions;x(s,a=>{let l=jn(a),c=a.maxLookahead||t,f=a.idx,p=Dr(f,i,l,c)[0];if(_(rt(p))){let d=r.buildEmptyRepetitionError({topLevelRule:i,repetition:a});n.push({message:d,type:it.NO_NON_EMPTY_LOOKAHEAD,ruleName:i.name})}})}),n}function Fx(e,t,r,n){let i=[],o=tt(e,(a,l,c)=>(t.definition[c].ignoreAmbiguities===!0||x(l,f=>{let u=[c];x(e,(p,d)=>{c!==d&&Kn(p,f)&&t.definition[d].ignoreAmbiguities!==!0&&u.push(d)}),u.length>1&&!Kn(i,f)&&(i.push(f),a.push({alts:u,path:f}))}),a),[]);return g(o,a=>{let l=g(a.alts,f=>f+1);return{message:n.buildAlternationAmbiguityError({topLevelRule:r,alternation:t,ambiguityIndices:l,prefixPath:a.path}),type:it.AMBIGUOUS_ALTS,ruleName:r.name,occurrence:t.idx,alternatives:a.alts}})}function Ux(e,t,r,n){let i=tt(e,(s,a,l)=>{let c=g(a,f=>({idx:l,path:f}));return s.concat(c)},[]);return Wt(mt(i,s=>{if(t.definition[s.idx].ignoreAmbiguities===!0)return[];let l=s.idx,c=s.path,f=ft(i,p=>t.definition[p.idx].ignoreAmbiguities!==!0&&p.idx<l&&Fl(p.path,c));return g(f,p=>{let d=[p.idx+1,l+1],I=t.idx===0?"":t.idx;return{message:n.buildAlternationPrefixAmbiguityError({topLevelRule:r,alternation:t,ambiguityIndices:d,prefixPath:p.path}),type:it.AMBIGUOUS_PREFIX_ALTS,ruleName:r.name,occurrence:I,alternatives:d}})}))}function Dx(e,t,r){let n=[],i=g(t,o=>o.name);return x(e,o=>{let s=o.name;if(G(i,s)){let a=r.buildNamespaceConflictError(o);n.push({message:a,type:it.CONFLICT_TOKENS_RULES_NAMESPACE,ruleName:s})}}),n}function Hl(e){let t=nr(e,{errMsgProvider:Cl}),r={};return x(e.rules,n=>{r[n.name]=n}),vl(r,t.errMsgProvider)}function zl(e){return e=nr(e,{errMsgProvider:Mt}),Gl(e.rules,e.tokenTypes,e.errMsgProvider,e.grammarName)}var Vl="MismatchedTokenException",Yl="NoViableAltException",Xl="EarlyExitException",ql="NotAllInputParsedException",Jl=[Vl,Yl,Xl,ql];Object.freeze(Jl);function Ie(e){return G(Jl,e.name)}var hr=class extends Error{constructor(t,r){super(t),this.token=r,this.resyncedTokens=[],Object.setPrototypeOf(this,new.target.prototype),Error.captureStackTrace&&Error.captureStackTrace(this,this.constructor)}},Pe=class extends hr{constructor(t,r,n){super(t,r),this.previousToken=n,this.name=Vl}},$r=class extends hr{constructor(t,r,n){super(t,r),this.previousToken=n,this.name=Yl}},Br=class extends hr{constructor(t,r){super(t,r),this.name=ql}},Wr=class extends hr{constructor(t,r,n){super(t,r),this.previousToken=n,this.name=Xl}};var Wi={},Ki="InRuleRecoveryException",ji=class extends Error{constructor(t){super(t),this.name=Ki}},zn=class{initRecoverable(t){this.firstAfterRepMap={},this.resyncFollows={},this.recoveryEnabled=T(t,"recoveryEnabled")?t.recoveryEnabled:Et.recoveryEnabled,this.recoveryEnabled&&(this.attemptInRepetitionRecovery=Gx)}getTokenToInsert(t){let r=Le(t,"",NaN,NaN,NaN,NaN,NaN,NaN);return r.isInsertedInRecovery=!0,r}canTokenTypeBeInsertedInRecovery(t){return!0}canTokenTypeBeDeletedInRecovery(t){return!0}tryInRepetitionRecovery(t,r,n,i){let o=this.findReSyncTokenType(),s=this.exportLexerState(),a=[],l=!1,c=this.LA(1),f=this.LA(1),u=()=>{let p=this.LA(0),d=this.errorMessageProvider.buildMismatchTokenMessage({expected:i,actual:c,previous:p,ruleName:this.getCurrRuleFullName()}),I=new Pe(d,c,this.LA(0));I.resyncedTokens=Zt(a),this.SAVE_ERROR(I)};for(;!l;)if(this.tokenMatcher(f,i)){u();return}else if(n.call(this)){u(),t.apply(this,r);return}else this.tokenMatcher(f,o)?l=!0:(f=this.SKIP_TOKEN(),this.addToResyncTokens(f,a));this.importLexerState(s)}shouldInRepetitionRecoveryBeTried(t,r,n){return!(n===!1||this.tokenMatcher(this.LA(1),t)||this.isBackTracking()||this.canPerformInRuleRecovery(t,this.getFollowsForInRuleRecovery(t,r)))}getFollowsForInRuleRecovery(t,r){let n=this.getCurrentGrammarPath(t,r);return this.getNextPossibleTokenTypes(n)}tryInRuleRecovery(t,r){if(this.canRecoverWithSingleTokenInsertion(t,r))return this.getTokenToInsert(t);if(this.canRecoverWithSingleTokenDeletion(t)){let n=this.SKIP_TOKEN();return this.consumeToken(),n}throw new ji("sad sad panda")}canPerformInRuleRecovery(t,r){return this.canRecoverWithSingleTokenInsertion(t,r)||this.canRecoverWithSingleTokenDeletion(t)}canRecoverWithSingleTokenInsertion(t,r){if(!this.canTokenTypeBeInsertedInRecovery(t)||_(r))return!1;let n=this.LA(1);return Kt(r,o=>this.tokenMatcher(n,o))!==void 0}canRecoverWithSingleTokenDeletion(t){return this.canTokenTypeBeDeletedInRecovery(t)?this.tokenMatcher(this.LA(2),t):!1}isInCurrentRuleReSyncSet(t){let r=this.getCurrFollowKey(),n=this.getFollowSetFromFollowKey(r);return G(n,t)}findReSyncTokenType(){let t=this.flattenFollowSet(),r=this.LA(1),n=2;for(;;){let i=Kt(t,o=>Mi(r,o));if(i!==void 0)return i;r=this.LA(n),n++}}getCurrFollowKey(){if(this.RULE_STACK.length===1)return Wi;let t=this.getLastExplicitRuleShortName(),r=this.getLastExplicitRuleOccurrenceIndex(),n=this.getPreviousExplicitRuleShortName();return{ruleName:this.shortRuleNameToFullName(t),idxInCallingRule:r,inRule:this.shortRuleNameToFullName(n)}}buildFullFollowKeyStack(){let t=this.RULE_STACK,r=this.RULE_OCCURRENCE_STACK;return g(t,(n,i)=>i===0?Wi:{ruleName:this.shortRuleNameToFullName(n),idxInCallingRule:r[i],inRule:this.shortRuleNameToFullName(t[i-1])})}flattenFollowSet(){let t=g(this.buildFullFollowKeyStack(),r=>this.getFollowSetFromFollowKey(r));return rt(t)}getFollowSetFromFollowKey(t){if(t===Wi)return[kt];let r=t.ruleName+t.idxInCallingRule+Cn+t.inRule;return this.resyncFollows[r]}addToResyncTokens(t,r){return this.tokenMatcher(t,kt)||r.push(t),r}reSyncTo(t){let r=[],n=this.LA(1);for(;this.tokenMatcher(n,t)===!1;)n=this.SKIP_TOKEN(),this.addToResyncTokens(n,r);return Zt(r)}attemptInRepetitionRecovery(t,r,n,i,o,s,a){}getCurrentGrammarPath(t,r){let n=this.getHumanReadableRuleStack(),i=M(this.RULE_OCCURRENCE_STACK);return{ruleStack:n,occurrenceStack:i,lastTok:t,lastTokOccurrence:r}}getHumanReadableRuleStack(){return g(this.RULE_STACK,t=>this.shortRuleNameToFullName(t))}};function Gx(e,t,r,n,i,o,s){let a=this.getKeyForAutomaticLookahead(n,i),l=this.firstAfterRepMap[a];if(l===void 0){let p=this.getCurrRuleFullName(),d=this.getGAstProductions()[p];l=new o(d,i).startWalking(),this.firstAfterRepMap[a]=l}let c=l.token,f=l.occurrence,u=l.isEndOfRule;this.RULE_STACK.length===1&&u&&c===void 0&&(c=kt,f=1),!(c===void 0||f===void 0)&&this.shouldInRepetitionRecoveryBeTried(c,f,s)&&this.tryInRepetitionRecovery(e,t,r,c)}function Vn(e,t,r){return r|t|e}var ek=32-8;var jr=class{constructor(t){var r;this.maxLookahead=(r=_optionalChain([t, 'optionalAccess', _4 => _4.maxLookahead]))!==null&&r!==void 0?r:Et.maxLookahead}validate(t){let r=this.validateNoLeftRecursion(t.rules);if(_(r)){let n=this.validateEmptyOrAlternatives(t.rules),i=this.validateAmbiguousAlternationAlternatives(t.rules,this.maxLookahead),o=this.validateSomeNonEmptyLookaheadPath(t.rules,this.maxLookahead);return[...r,...n,...i,...o]}return r}validateNoLeftRecursion(t){return mt(t,r=>Bi(r,r,Mt))}validateEmptyOrAlternatives(t){return mt(t,r=>Wl(r,Mt))}validateAmbiguousAlternationAlternatives(t,r){return mt(t,n=>jl(n,r,Mt))}validateSomeNonEmptyLookaheadPath(t,r){return Kl(t,r,Mt)}buildLookaheadForAlternation(t){return Ll(t.prodOccurrence,t.rule,t.maxLookahead,t.hasPredicates,t.dynamicTokensEnabled,kl)}buildLookaheadForOptional(t){return Pl(t.prodOccurrence,t.rule,t.maxLookahead,t.dynamicTokensEnabled,jn(t.prodType),Ml)}};var Xn=class{initLooksAhead(t){this.dynamicTokensEnabled=T(t,"dynamicTokensEnabled")?t.dynamicTokensEnabled:Et.dynamicTokensEnabled,this.maxLookahead=T(t,"maxLookahead")?t.maxLookahead:Et.maxLookahead,this.lookaheadStrategy=T(t,"lookaheadStrategy")?t.lookaheadStrategy:new jr({maxLookahead:this.maxLookahead}),this.lookAheadFuncsCache=new Map}preComputeLookaheadFunctions(t){x(t,r=>{this.TRACE_INIT(`${r.name} Rule Lookahead`,()=>{let{alternation:n,repetition:i,option:o,repetitionMandatory:s,repetitionMandatoryWithSeparator:a,repetitionWithSeparator:l}=$x(r);x(n,c=>{let f=c.idx===0?"":c.idx;this.TRACE_INIT(`${Rt(c)}${f}`,()=>{let u=this.lookaheadStrategy.buildLookaheadForAlternation({prodOccurrence:c.idx,rule:r,maxLookahead:c.maxLookahead||this.maxLookahead,hasPredicates:c.hasPredicates,dynamicTokensEnabled:this.dynamicTokensEnabled}),p=Vn(this.fullRuleNameToShort[r.name],256,c.idx);this.setLaFuncCache(p,u)})}),x(i,c=>{this.computeLookaheadFunc(r,c.idx,768,"Repetition",c.maxLookahead,Rt(c))}),x(o,c=>{this.computeLookaheadFunc(r,c.idx,512,"Option",c.maxLookahead,Rt(c))}),x(s,c=>{this.computeLookaheadFunc(r,c.idx,1024,"RepetitionMandatory",c.maxLookahead,Rt(c))}),x(a,c=>{this.computeLookaheadFunc(r,c.idx,1536,"RepetitionMandatoryWithSeparator",c.maxLookahead,Rt(c))}),x(l,c=>{this.computeLookaheadFunc(r,c.idx,1280,"RepetitionWithSeparator",c.maxLookahead,Rt(c))})})})}computeLookaheadFunc(t,r,n,i,o,s){this.TRACE_INIT(`${s}${r===0?"":r}`,()=>{let a=this.lookaheadStrategy.buildLookaheadForOptional({prodOccurrence:r,rule:t,maxLookahead:o||this.maxLookahead,dynamicTokensEnabled:this.dynamicTokensEnabled,prodType:i}),l=Vn(this.fullRuleNameToShort[t.name],n,r);this.setLaFuncCache(l,a)})}getKeyForAutomaticLookahead(t,r){let n=this.getLastExplicitRuleShortName();return Vn(n,t,r)}getLaFuncFromCache(t){return this.lookAheadFuncsCache.get(t)}setLaFuncCache(t,r){this.lookAheadFuncsCache.set(t,r)}},Hi=class extends xt{constructor(){super(...arguments),this.dslMethods={option:[],alternation:[],repetition:[],repetitionWithSeparator:[],repetitionMandatory:[],repetitionMandatoryWithSeparator:[]}}reset(){this.dslMethods={option:[],alternation:[],repetition:[],repetitionWithSeparator:[],repetitionMandatory:[],repetitionMandatoryWithSeparator:[]}}visitOption(t){this.dslMethods.option.push(t)}visitRepetitionWithSeparator(t){this.dslMethods.repetitionWithSeparator.push(t)}visitRepetitionMandatory(t){this.dslMethods.repetitionMandatory.push(t)}visitRepetitionMandatoryWithSeparator(t){this.dslMethods.repetitionMandatoryWithSeparator.push(t)}visitRepetition(t){this.dslMethods.repetition.push(t)}visitAlternation(t){this.dslMethods.alternation.push(t)}},Yn=new Hi;function $x(e){Yn.reset(),e.accept(Yn);let t=Yn.dslMethods;return Yn.reset(),t}function Yi(e,t){isNaN(e.startOffset)===!0?(e.startOffset=t.startOffset,e.endOffset=t.endOffset):e.endOffset<t.endOffset&&(e.endOffset=t.endOffset)}function Xi(e,t){isNaN(e.startOffset)===!0?(e.startOffset=t.startOffset,e.startColumn=t.startColumn,e.startLine=t.startLine,e.endOffset=t.endOffset,e.endColumn=t.endColumn,e.endLine=t.endLine):e.endOffset<t.endOffset&&(e.endOffset=t.endOffset,e.endColumn=t.endColumn,e.endLine=t.endLine)}function Zl(e,t,r){e.children[r]===void 0?e.children[r]=[t]:e.children[r].push(t)}function Ql(e,t,r){e.children[t]===void 0?e.children[t]=[r]:e.children[t].push(r)}var Bx="name";function qi(e,t){Object.defineProperty(e,Bx,{enumerable:!1,configurable:!0,writable:!1,value:t})}function Wx(e,t){let r=P(e),n=r.length;for(let i=0;i<n;i++){let o=r[i],s=e[o],a=s.length;for(let l=0;l<a;l++){let c=s[l];c.tokenTypeIdx===void 0&&this[c.name](c.children,t)}}}function tc(e,t){let r=function(){};qi(r,e+"BaseSemantics");let n={visit:function(i,o){if(A(i)&&(i=i[0]),!ut(i))return this[i.name](i.children,o)},validateVisitor:function(){let i=jx(this,t);if(!_(i)){let o=g(i,s=>s.msg);throw Error(`Errors Detected in CST Visitor <${this.constructor.name}>:
-	${o.join(`
+see: https://en.wikipedia.org/wiki/LL_parser#Left_factoring.`;
+    return errMsg;
+  },
+  // TODO: remove - `errors_public` from nyc.config.js exclude
+  //       once this method is fully removed from this file
+  buildInvalidRuleNameError(options) {
+    return "deprecated";
+  },
+  buildDuplicateRuleNameError(options) {
+    let ruleName;
+    if (options.topLevelRule instanceof Rule) {
+      ruleName = options.topLevelRule.name;
+    } else {
+      ruleName = options.topLevelRule;
+    }
+    const errMsg = `Duplicate definition, rule: ->${ruleName}<- is already defined in the grammar: ->${options.grammarName}<-`;
+    return errMsg;
+  }
+};
 
-`).replace(/\n/g,`
-	`)}`)}}};return r.prototype=n,r.prototype.constructor=r,r._RULE_NAMES=t,r}function ec(e,t,r){let n=function(){};qi(n,e+"BaseSemanticsWithDefaults");let i=Object.create(r.prototype);return x(t,o=>{i[o]=Wx}),n.prototype=i,n.prototype.constructor=n,n}var Ji;(function(e){e[e.REDUNDANT_METHOD=0]="REDUNDANT_METHOD",e[e.MISSING_METHOD=1]="MISSING_METHOD"})(Ji||(Ji={}));function jx(e,t){return Kx(e,t)}function Kx(e,t){let r=ft(t,i=>dt(e[i])===!1),n=g(r,i=>({msg:`Missing visitor method: <${i}> on ${e.constructor.name} CST Visitor.`,type:Ji.MISSING_METHOD,methodName:i}));return Wt(n)}var Qn=class{initTreeBuilder(t){if(this.CST_STACK=[],this.outputCst=t.outputCst,this.nodeLocationTracking=T(t,"nodeLocationTracking")?t.nodeLocationTracking:Et.nodeLocationTracking,!this.outputCst)this.cstInvocationStateUpdate=W,this.cstFinallyStateUpdate=W,this.cstPostTerminal=W,this.cstPostNonTerminal=W,this.cstPostRule=W;else if(/full/i.test(this.nodeLocationTracking))this.recoveryEnabled?(this.setNodeLocationFromToken=Xi,this.setNodeLocationFromNode=Xi,this.cstPostRule=W,this.setInitialNodeLocation=this.setInitialNodeLocationFullRecovery):(this.setNodeLocationFromToken=W,this.setNodeLocationFromNode=W,this.cstPostRule=this.cstPostRuleFull,this.setInitialNodeLocation=this.setInitialNodeLocationFullRegular);else if(/onlyOffset/i.test(this.nodeLocationTracking))this.recoveryEnabled?(this.setNodeLocationFromToken=Yi,this.setNodeLocationFromNode=Yi,this.cstPostRule=W,this.setInitialNodeLocation=this.setInitialNodeLocationOnlyOffsetRecovery):(this.setNodeLocationFromToken=W,this.setNodeLocationFromNode=W,this.cstPostRule=this.cstPostRuleOnlyOffset,this.setInitialNodeLocation=this.setInitialNodeLocationOnlyOffsetRegular);else if(/none/i.test(this.nodeLocationTracking))this.setNodeLocationFromToken=W,this.setNodeLocationFromNode=W,this.cstPostRule=W,this.setInitialNodeLocation=W;else throw Error(`Invalid <nodeLocationTracking> config option: "${t.nodeLocationTracking}"`)}setInitialNodeLocationOnlyOffsetRecovery(t){t.location={startOffset:NaN,endOffset:NaN}}setInitialNodeLocationOnlyOffsetRegular(t){t.location={startOffset:this.LA(1).startOffset,endOffset:NaN}}setInitialNodeLocationFullRecovery(t){t.location={startOffset:NaN,startLine:NaN,startColumn:NaN,endOffset:NaN,endLine:NaN,endColumn:NaN}}setInitialNodeLocationFullRegular(t){let r=this.LA(1);t.location={startOffset:r.startOffset,startLine:r.startLine,startColumn:r.startColumn,endOffset:NaN,endLine:NaN,endColumn:NaN}}cstInvocationStateUpdate(t){let r={name:t,children:Object.create(null)};this.setInitialNodeLocation(r),this.CST_STACK.push(r)}cstFinallyStateUpdate(){this.CST_STACK.pop()}cstPostRuleFull(t){let r=this.LA(0),n=t.location;n.startOffset<=r.startOffset?(n.endOffset=r.endOffset,n.endLine=r.endLine,n.endColumn=r.endColumn):(n.startOffset=NaN,n.startLine=NaN,n.startColumn=NaN)}cstPostRuleOnlyOffset(t){let r=this.LA(0),n=t.location;n.startOffset<=r.startOffset?n.endOffset=r.endOffset:n.startOffset=NaN}cstPostTerminal(t,r){let n=this.CST_STACK[this.CST_STACK.length-1];Zl(n,r,t),this.setNodeLocationFromToken(n.location,r)}cstPostNonTerminal(t,r){let n=this.CST_STACK[this.CST_STACK.length-1];Ql(n,r,t),this.setNodeLocationFromNode(n.location,t.location)}getBaseCstVisitorConstructor(){if(ut(this.baseCstVisitorConstructor)){let t=tc(this.className,P(this.gastProductionsCache));return this.baseCstVisitorConstructor=t,t}return this.baseCstVisitorConstructor}getBaseCstVisitorConstructorWithDefaults(){if(ut(this.baseCstVisitorWithDefaultsConstructor)){let t=ec(this.className,P(this.gastProductionsCache),this.getBaseCstVisitorConstructor());return this.baseCstVisitorWithDefaultsConstructor=t,t}return this.baseCstVisitorWithDefaultsConstructor}getLastExplicitRuleShortName(){let t=this.RULE_STACK;return t[t.length-1]}getPreviousExplicitRuleShortName(){let t=this.RULE_STACK;return t[t.length-2]}getLastExplicitRuleOccurrenceIndex(){let t=this.RULE_OCCURRENCE_STACK;return t[t.length-1]}};var ti=class{initLexerAdapter(){this.tokVector=[],this.tokVectorLength=0,this.currIdx=-1}set input(t){if(this.selfAnalysisDone!==!0)throw Error("Missing <performSelfAnalysis> invocation at the end of the Parser's constructor.");this.reset(),this.tokVector=t,this.tokVectorLength=t.length}get input(){return this.tokVector}SKIP_TOKEN(){return this.currIdx<=this.tokVector.length-2?(this.consumeToken(),this.LA(1)):dr}LA(t){let r=this.currIdx+t;return r<0||this.tokVectorLength<=r?dr:this.tokVector[r]}consumeToken(){this.currIdx++}exportLexerState(){return this.currIdx}importLexerState(t){this.currIdx=t}resetLexerState(){this.currIdx=-1}moveToTerminatedState(){this.currIdx=this.tokVector.length-1}getLexerPosition(){return this.exportLexerState()}};var ei=class{ACTION(t){return t.call(this)}consume(t,r,n){return this.consumeInternal(r,t,n)}subrule(t,r,n){return this.subruleInternal(r,t,n)}option(t,r){return this.optionInternal(r,t)}or(t,r){return this.orInternal(r,t)}many(t,r){return this.manyInternal(t,r)}atLeastOne(t,r){return this.atLeastOneInternal(t,r)}CONSUME(t,r){return this.consumeInternal(t,0,r)}CONSUME1(t,r){return this.consumeInternal(t,1,r)}CONSUME2(t,r){return this.consumeInternal(t,2,r)}CONSUME3(t,r){return this.consumeInternal(t,3,r)}CONSUME4(t,r){return this.consumeInternal(t,4,r)}CONSUME5(t,r){return this.consumeInternal(t,5,r)}CONSUME6(t,r){return this.consumeInternal(t,6,r)}CONSUME7(t,r){return this.consumeInternal(t,7,r)}CONSUME8(t,r){return this.consumeInternal(t,8,r)}CONSUME9(t,r){return this.consumeInternal(t,9,r)}SUBRULE(t,r){return this.subruleInternal(t,0,r)}SUBRULE1(t,r){return this.subruleInternal(t,1,r)}SUBRULE2(t,r){return this.subruleInternal(t,2,r)}SUBRULE3(t,r){return this.subruleInternal(t,3,r)}SUBRULE4(t,r){return this.subruleInternal(t,4,r)}SUBRULE5(t,r){return this.subruleInternal(t,5,r)}SUBRULE6(t,r){return this.subruleInternal(t,6,r)}SUBRULE7(t,r){return this.subruleInternal(t,7,r)}SUBRULE8(t,r){return this.subruleInternal(t,8,r)}SUBRULE9(t,r){return this.subruleInternal(t,9,r)}OPTION(t){return this.optionInternal(t,0)}OPTION1(t){return this.optionInternal(t,1)}OPTION2(t){return this.optionInternal(t,2)}OPTION3(t){return this.optionInternal(t,3)}OPTION4(t){return this.optionInternal(t,4)}OPTION5(t){return this.optionInternal(t,5)}OPTION6(t){return this.optionInternal(t,6)}OPTION7(t){return this.optionInternal(t,7)}OPTION8(t){return this.optionInternal(t,8)}OPTION9(t){return this.optionInternal(t,9)}OR(t){return this.orInternal(t,0)}OR1(t){return this.orInternal(t,1)}OR2(t){return this.orInternal(t,2)}OR3(t){return this.orInternal(t,3)}OR4(t){return this.orInternal(t,4)}OR5(t){return this.orInternal(t,5)}OR6(t){return this.orInternal(t,6)}OR7(t){return this.orInternal(t,7)}OR8(t){return this.orInternal(t,8)}OR9(t){return this.orInternal(t,9)}MANY(t){this.manyInternal(0,t)}MANY1(t){this.manyInternal(1,t)}MANY2(t){this.manyInternal(2,t)}MANY3(t){this.manyInternal(3,t)}MANY4(t){this.manyInternal(4,t)}MANY5(t){this.manyInternal(5,t)}MANY6(t){this.manyInternal(6,t)}MANY7(t){this.manyInternal(7,t)}MANY8(t){this.manyInternal(8,t)}MANY9(t){this.manyInternal(9,t)}MANY_SEP(t){this.manySepFirstInternal(0,t)}MANY_SEP1(t){this.manySepFirstInternal(1,t)}MANY_SEP2(t){this.manySepFirstInternal(2,t)}MANY_SEP3(t){this.manySepFirstInternal(3,t)}MANY_SEP4(t){this.manySepFirstInternal(4,t)}MANY_SEP5(t){this.manySepFirstInternal(5,t)}MANY_SEP6(t){this.manySepFirstInternal(6,t)}MANY_SEP7(t){this.manySepFirstInternal(7,t)}MANY_SEP8(t){this.manySepFirstInternal(8,t)}MANY_SEP9(t){this.manySepFirstInternal(9,t)}AT_LEAST_ONE(t){this.atLeastOneInternal(0,t)}AT_LEAST_ONE1(t){return this.atLeastOneInternal(1,t)}AT_LEAST_ONE2(t){this.atLeastOneInternal(2,t)}AT_LEAST_ONE3(t){this.atLeastOneInternal(3,t)}AT_LEAST_ONE4(t){this.atLeastOneInternal(4,t)}AT_LEAST_ONE5(t){this.atLeastOneInternal(5,t)}AT_LEAST_ONE6(t){this.atLeastOneInternal(6,t)}AT_LEAST_ONE7(t){this.atLeastOneInternal(7,t)}AT_LEAST_ONE8(t){this.atLeastOneInternal(8,t)}AT_LEAST_ONE9(t){this.atLeastOneInternal(9,t)}AT_LEAST_ONE_SEP(t){this.atLeastOneSepFirstInternal(0,t)}AT_LEAST_ONE_SEP1(t){this.atLeastOneSepFirstInternal(1,t)}AT_LEAST_ONE_SEP2(t){this.atLeastOneSepFirstInternal(2,t)}AT_LEAST_ONE_SEP3(t){this.atLeastOneSepFirstInternal(3,t)}AT_LEAST_ONE_SEP4(t){this.atLeastOneSepFirstInternal(4,t)}AT_LEAST_ONE_SEP5(t){this.atLeastOneSepFirstInternal(5,t)}AT_LEAST_ONE_SEP6(t){this.atLeastOneSepFirstInternal(6,t)}AT_LEAST_ONE_SEP7(t){this.atLeastOneSepFirstInternal(7,t)}AT_LEAST_ONE_SEP8(t){this.atLeastOneSepFirstInternal(8,t)}AT_LEAST_ONE_SEP9(t){this.atLeastOneSepFirstInternal(9,t)}RULE(t,r,n=mr){if(G(this.definedRulesNames,t)){let s={message:Mt.buildDuplicateRuleNameError({topLevelRule:t,grammarName:this.className}),type:it.DUPLICATE_RULE_NAME,ruleName:t};this.definitionErrors.push(s)}this.definedRulesNames.push(t);let i=this.defineRule(t,r,n);return this[t]=i,i}OVERRIDE_RULE(t,r,n=mr){let i=Bl(t,this.definedRulesNames,this.className);this.definitionErrors=this.definitionErrors.concat(i);let o=this.defineRule(t,r,n);return this[t]=o,o}BACKTRACK(t,r){return function(){this.isBackTrackingStack.push(1);let n=this.saveRecogState();try{return t.apply(this,r),!0}catch(i){if(Ie(i))return!1;throw i}finally{this.reloadRecogState(n),this.isBackTrackingStack.pop()}}}getGAstProductions(){return this.gastProductionsCache}getSerializedGastProductions(){return _n(L(this.gastProductionsCache))}};var ri=class{initRecognizerEngine(t,r){if(this.className=this.constructor.name,this.shortRuleNameToFull={},this.fullRuleNameToShort={},this.ruleShortNameIdx=256,this.tokenMatcher=ur,this.subruleIdx=0,this.definedRulesNames=[],this.tokensMap={},this.isBackTrackingStack=[],this.RULE_STACK=[],this.RULE_OCCURRENCE_STACK=[],this.gastProductionsCache={},T(r,"serializedGrammar"))throw Error(`The Parser's configuration can no longer contain a <serializedGrammar> property.
-	See: https://chevrotain.io/docs/changes/BREAKING_CHANGES.html#_6-0-0
-	For Further details.`);if(A(t)){if(_(t))throw Error(`A Token Vocabulary cannot be empty.
-	Note that the first argument for the parser constructor
-	is no longer a Token vector (since v4.0).`);if(typeof t[0].startOffset=="number")throw Error(`The Parser constructor no longer accepts a token vector as the first argument.
-	See: https://chevrotain.io/docs/changes/BREAKING_CHANGES.html#_4-0-0
-	For Further details.`)}if(A(t))this.tokensMap=tt(t,(o,s)=>(o[s.name]=s,o),{});else if(T(t,"modes")&&ct(rt(L(t.modes)),Tl)){let o=rt(L(t.modes)),s=ir(o);this.tokensMap=tt(s,(a,l)=>(a[l.name]=l,a),{})}else if(B(t))this.tokensMap=M(t);else throw new Error("<tokensDictionary> argument must be An Array of Token constructors, A dictionary of Token constructors or an IMultiModeLexerDefinition");this.tokensMap.EOF=kt;let n=T(t,"modes")?rt(L(t.modes)):L(t),i=ct(n,o=>_(o.categoryMatches));this.tokenMatcher=i?ur:te,ee(L(this.tokensMap))}defineRule(t,r,n){if(this.selfAnalysisDone)throw Error(`Grammar rule <${t}> may not be defined after the 'performSelfAnalysis' method has been called'
-Make sure that all grammar rule definitions are done before 'performSelfAnalysis' is called.`);let i=T(n,"resyncEnabled")?n.resyncEnabled:mr.resyncEnabled,o=T(n,"recoveryValueFunc")?n.recoveryValueFunc:mr.recoveryValueFunc,s=this.ruleShortNameIdx<<4+8;this.ruleShortNameIdx++,this.shortRuleNameToFull[s]=t,this.fullRuleNameToShort[t]=s;let a;return this.outputCst===!0?a=function(...f){try{this.ruleInvocationStateUpdate(s,t,this.subruleIdx),r.apply(this,f);let u=this.CST_STACK[this.CST_STACK.length-1];return this.cstPostRule(u),u}catch(u){return this.invokeRuleCatch(u,i,o)}finally{this.ruleFinallyStateUpdate()}}:a=function(...f){try{return this.ruleInvocationStateUpdate(s,t,this.subruleIdx),r.apply(this,f)}catch(u){return this.invokeRuleCatch(u,i,o)}finally{this.ruleFinallyStateUpdate()}},Object.assign(a,{ruleName:t,originalGrammarAction:r})}invokeRuleCatch(t,r,n){let i=this.RULE_STACK.length===1,o=r&&!this.isBackTracking()&&this.recoveryEnabled;if(Ie(t)){let s=t;if(o){let a=this.findReSyncTokenType();if(this.isInCurrentRuleReSyncSet(a))if(s.resyncedTokens=this.reSyncTo(a),this.outputCst){let l=this.CST_STACK[this.CST_STACK.length-1];return l.recoveredNode=!0,l}else return n(t);else{if(this.outputCst){let l=this.CST_STACK[this.CST_STACK.length-1];l.recoveredNode=!0,s.partialCstResult=l}throw s}}else{if(i)return this.moveToTerminatedState(),n(t);throw s}}else throw t}optionInternal(t,r){let n=this.getKeyForAutomaticLookahead(512,r);return this.optionInternalLogic(t,r,n)}optionInternalLogic(t,r,n){let i=this.getLaFuncFromCache(n),o;if(typeof t!="function"){o=t.DEF;let s=t.GATE;if(s!==void 0){let a=i;i=()=>s.call(this)&&a.call(this)}}else o=t;if(i.call(this)===!0)return o.call(this)}atLeastOneInternal(t,r){let n=this.getKeyForAutomaticLookahead(1024,t);return this.atLeastOneInternalLogic(t,r,n)}atLeastOneInternalLogic(t,r,n){let i=this.getLaFuncFromCache(n),o;if(typeof r!="function"){o=r.DEF;let s=r.GATE;if(s!==void 0){let a=i;i=()=>s.call(this)&&a.call(this)}}else o=r;if(i.call(this)===!0){let s=this.doSingleRepetition(o);for(;i.call(this)===!0&&s===!0;)s=this.doSingleRepetition(o)}else throw this.raiseEarlyExitException(t,j.REPETITION_MANDATORY,r.ERR_MSG);this.attemptInRepetitionRecovery(this.atLeastOneInternal,[t,r],i,1024,t,Gn)}atLeastOneSepFirstInternal(t,r){let n=this.getKeyForAutomaticLookahead(1536,t);this.atLeastOneSepFirstInternalLogic(t,r,n)}atLeastOneSepFirstInternalLogic(t,r,n){let i=r.DEF,o=r.SEP;if(this.getLaFuncFromCache(n).call(this)===!0){i.call(this);let a=()=>this.tokenMatcher(this.LA(1),o);for(;this.tokenMatcher(this.LA(1),o)===!0;)this.CONSUME(o),i.call(this);this.attemptInRepetitionRecovery(this.repetitionSepSecondInternal,[t,o,a,i,Fr],a,1536,t,Fr)}else throw this.raiseEarlyExitException(t,j.REPETITION_MANDATORY_WITH_SEPARATOR,r.ERR_MSG)}manyInternal(t,r){let n=this.getKeyForAutomaticLookahead(768,t);return this.manyInternalLogic(t,r,n)}manyInternalLogic(t,r,n){let i=this.getLaFuncFromCache(n),o;if(typeof r!="function"){o=r.DEF;let a=r.GATE;if(a!==void 0){let l=i;i=()=>a.call(this)&&l.call(this)}}else o=r;let s=!0;for(;i.call(this)===!0&&s===!0;)s=this.doSingleRepetition(o);this.attemptInRepetitionRecovery(this.manyInternal,[t,r],i,768,t,Dn,s)}manySepFirstInternal(t,r){let n=this.getKeyForAutomaticLookahead(1280,t);this.manySepFirstInternalLogic(t,r,n)}manySepFirstInternalLogic(t,r,n){let i=r.DEF,o=r.SEP;if(this.getLaFuncFromCache(n).call(this)===!0){i.call(this);let a=()=>this.tokenMatcher(this.LA(1),o);for(;this.tokenMatcher(this.LA(1),o)===!0;)this.CONSUME(o),i.call(this);this.attemptInRepetitionRecovery(this.repetitionSepSecondInternal,[t,o,a,i,wr],a,1280,t,wr)}}repetitionSepSecondInternal(t,r,n,i,o){for(;n();)this.CONSUME(r),i.call(this);this.attemptInRepetitionRecovery(this.repetitionSepSecondInternal,[t,r,n,i,o],n,1536,t,o)}doSingleRepetition(t){let r=this.getLexerPosition();return t.call(this),this.getLexerPosition()>r}orInternal(t,r){let n=this.getKeyForAutomaticLookahead(256,r),i=A(t)?t:t.DEF,s=this.getLaFuncFromCache(n).call(this,i);if(s!==void 0)return i[s].ALT.call(this);this.raiseNoAltException(r,t.ERR_MSG)}ruleFinallyStateUpdate(){if(this.RULE_STACK.pop(),this.RULE_OCCURRENCE_STACK.pop(),this.cstFinallyStateUpdate(),this.RULE_STACK.length===0&&this.isAtEndOfInput()===!1){let t=this.LA(1),r=this.errorMessageProvider.buildNotAllInputParsedMessage({firstRedundant:t,ruleName:this.getCurrRuleFullName()});this.SAVE_ERROR(new Br(r,t))}}subruleInternal(t,r,n){let i;try{let o=n!==void 0?n.ARGS:void 0;return this.subruleIdx=r,i=t.apply(this,o),this.cstPostNonTerminal(i,n!==void 0&&n.LABEL!==void 0?n.LABEL:t.ruleName),i}catch(o){throw this.subruleInternalError(o,n,t.ruleName)}}subruleInternalError(t,r,n){throw Ie(t)&&t.partialCstResult!==void 0&&(this.cstPostNonTerminal(t.partialCstResult,r!==void 0&&r.LABEL!==void 0?r.LABEL:n),delete t.partialCstResult),t}consumeInternal(t,r,n){let i;try{let o=this.LA(1);this.tokenMatcher(o,t)===!0?(this.consumeToken(),i=o):this.consumeInternalError(t,o,n)}catch(o){i=this.consumeInternalRecovery(t,r,o)}return this.cstPostTerminal(n!==void 0&&n.LABEL!==void 0?n.LABEL:t.name,i),i}consumeInternalError(t,r,n){let i,o=this.LA(0);throw n!==void 0&&n.ERR_MSG?i=n.ERR_MSG:i=this.errorMessageProvider.buildMismatchTokenMessage({expected:t,actual:r,previous:o,ruleName:this.getCurrRuleFullName()}),this.SAVE_ERROR(new Pe(i,r,o))}consumeInternalRecovery(t,r,n){if(this.recoveryEnabled&&n.name==="MismatchedTokenException"&&!this.isBackTracking()){let i=this.getFollowsForInRuleRecovery(t,r);try{return this.tryInRuleRecovery(t,i)}catch(o){throw o.name===Ki?n:o}}else throw n}saveRecogState(){let t=this.errors,r=M(this.RULE_STACK);return{errors:t,lexerState:this.exportLexerState(),RULE_STACK:r,CST_STACK:this.CST_STACK}}reloadRecogState(t){this.errors=t.errors,this.importLexerState(t.lexerState),this.RULE_STACK=t.RULE_STACK}ruleInvocationStateUpdate(t,r,n){this.RULE_OCCURRENCE_STACK.push(n),this.RULE_STACK.push(t),this.cstInvocationStateUpdate(r)}isBackTracking(){return this.isBackTrackingStack.length!==0}getCurrRuleFullName(){let t=this.getLastExplicitRuleShortName();return this.shortRuleNameToFull[t]}shortRuleNameToFullName(t){return this.shortRuleNameToFull[t]}isAtEndOfInput(){return this.tokenMatcher(this.LA(1),kt)}reset(){this.resetLexerState(),this.subruleIdx=0,this.isBackTrackingStack=[],this.errors=[],this.RULE_STACK=[],this.CST_STACK=[],this.RULE_OCCURRENCE_STACK=[]}};var ni=class{initErrorHandler(t){this._errors=[],this.errorMessageProvider=T(t,"errorMessageProvider")?t.errorMessageProvider:Et.errorMessageProvider}SAVE_ERROR(t){if(Ie(t))return t.context={ruleStack:this.getHumanReadableRuleStack(),ruleOccurrenceStack:M(this.RULE_OCCURRENCE_STACK)},this._errors.push(t),t;throw Error("Trying to save an Error which is not a RecognitionException")}get errors(){return M(this._errors)}set errors(t){this._errors=t}raiseEarlyExitException(t,r,n){let i=this.getCurrRuleFullName(),o=this.getGAstProductions()[i],a=Dr(t,o,r,this.maxLookahead)[0],l=[];for(let f=1;f<=this.maxLookahead;f++)l.push(this.LA(f));let c=this.errorMessageProvider.buildEarlyExitMessage({expectedIterationPaths:a,actual:l,previous:this.LA(0),customUserDescription:n,ruleName:i});throw this.SAVE_ERROR(new Wr(c,this.LA(1),this.LA(0)))}raiseNoAltException(t,r){let n=this.getCurrRuleFullName(),i=this.getGAstProductions()[n],o=Ur(t,i,this.maxLookahead),s=[];for(let c=1;c<=this.maxLookahead;c++)s.push(this.LA(c));let a=this.LA(0),l=this.errorMessageProvider.buildNoViableAltMessage({expectedPathsPerAlt:o,actual:s,previous:a,customUserDescription:r,ruleName:this.getCurrRuleFullName()});throw this.SAVE_ERROR(new $r(l,this.LA(1),a))}};var ii=class{initContentAssist(){}computeContentAssist(t,r){let n=this.gastProductionsCache[t];if(ut(n))throw Error(`Rule ->${t}<- does not exist in this grammar.`);return Bn([n],r,this.tokenMatcher,this.maxLookahead)}getNextPossibleTokenTypes(t){let r=st(t.ruleStack),i=this.getGAstProductions()[r];return new Un(i,t).startWalking()}};var ai={description:"This Object indicates the Parser is during Recording Phase"};Object.freeze(ai);var rc=!0,nc=Math.pow(2,8)-1,oc=q({name:"RECORDING_PHASE_TOKEN",pattern:et.NA});ee([oc]);var sc=Le(oc,`This IToken indicates the Parser is in Recording Phase
-	See: https://chevrotain.io/docs/guide/internals.html#grammar-recording for details`,-1,-1,-1,-1,-1,-1);Object.freeze(sc);var zx={name:`This CSTNode indicates the Parser is in Recording Phase
-	See: https://chevrotain.io/docs/guide/internals.html#grammar-recording for details`,children:{}},oi=class{initGastRecorder(t){this.recordingProdStack=[],this.RECORDING_PHASE=!1}enableRecording(){this.RECORDING_PHASE=!0,this.TRACE_INIT("Enable Recording",()=>{for(let t=0;t<10;t++){let r=t>0?t:"";this[`CONSUME${r}`]=function(n,i){return this.consumeInternalRecord(n,t,i)},this[`SUBRULE${r}`]=function(n,i){return this.subruleInternalRecord(n,t,i)},this[`OPTION${r}`]=function(n){return this.optionInternalRecord(n,t)},this[`OR${r}`]=function(n){return this.orInternalRecord(n,t)},this[`MANY${r}`]=function(n){this.manyInternalRecord(t,n)},this[`MANY_SEP${r}`]=function(n){this.manySepFirstInternalRecord(t,n)},this[`AT_LEAST_ONE${r}`]=function(n){this.atLeastOneInternalRecord(t,n)},this[`AT_LEAST_ONE_SEP${r}`]=function(n){this.atLeastOneSepFirstInternalRecord(t,n)}}this.consume=function(t,r,n){return this.consumeInternalRecord(r,t,n)},this.subrule=function(t,r,n){return this.subruleInternalRecord(r,t,n)},this.option=function(t,r){return this.optionInternalRecord(r,t)},this.or=function(t,r){return this.orInternalRecord(r,t)},this.many=function(t,r){this.manyInternalRecord(t,r)},this.atLeastOne=function(t,r){this.atLeastOneInternalRecord(t,r)},this.ACTION=this.ACTION_RECORD,this.BACKTRACK=this.BACKTRACK_RECORD,this.LA=this.LA_RECORD})}disableRecording(){this.RECORDING_PHASE=!1,this.TRACE_INIT("Deleting Recording methods",()=>{let t=this;for(let r=0;r<10;r++){let n=r>0?r:"";delete t[`CONSUME${n}`],delete t[`SUBRULE${n}`],delete t[`OPTION${n}`],delete t[`OR${n}`],delete t[`MANY${n}`],delete t[`MANY_SEP${n}`],delete t[`AT_LEAST_ONE${n}`],delete t[`AT_LEAST_ONE_SEP${n}`]}delete t.consume,delete t.subrule,delete t.option,delete t.or,delete t.many,delete t.atLeastOne,delete t.ACTION,delete t.BACKTRACK,delete t.LA})}ACTION_RECORD(t){}BACKTRACK_RECORD(t,r){return()=>!0}LA_RECORD(t){return dr}topLevelRuleRecord(t,r){try{let n=new gt({definition:[],name:t});return n.name=t,this.recordingProdStack.push(n),r.call(this),this.recordingProdStack.pop(),n}catch(n){if(n.KNOWN_RECORDER_ERROR!==!0)try{n.message=n.message+`
-	 This error was thrown during the "grammar recording phase" For more info see:
-	https://chevrotain.io/docs/guide/internals.html#grammar-recording`}catch (e10){throw n}throw n}}optionInternalRecord(t,r){return Hr.call(this,D,t,r)}atLeastOneInternalRecord(t,r){Hr.call(this,Y,r,t)}atLeastOneSepFirstInternalRecord(t,r){Hr.call(this,X,r,t,rc)}manyInternalRecord(t,r){Hr.call(this,v,r,t)}manySepFirstInternalRecord(t,r){Hr.call(this,K,r,t,rc)}orInternalRecord(t,r){return Vx.call(this,t,r)}subruleInternalRecord(t,r,n){if(si(r),!t||T(t,"ruleName")===!1){let a=new Error(`<SUBRULE${ic(r)}> argument is invalid expecting a Parser method reference but got: <${JSON.stringify(t)}>
- inside top level rule: <${this.recordingProdStack[0].name}>`);throw a.KNOWN_RECORDER_ERROR=!0,a}let i=jt(this.recordingProdStack),o=t.ruleName,s=new w({idx:r,nonTerminalName:o,label:_optionalChain([n, 'optionalAccess', _5 => _5.LABEL]),referencedRule:void 0});return i.definition.push(s),this.outputCst?zx:ai}consumeInternalRecord(t,r,n){if(si(r),!Li(t)){let s=new Error(`<CONSUME${ic(r)}> argument is invalid expecting a TokenType reference but got: <${JSON.stringify(t)}>
- inside top level rule: <${this.recordingProdStack[0].name}>`);throw s.KNOWN_RECORDER_ERROR=!0,s}let i=jt(this.recordingProdStack),o=new C({idx:r,terminalType:t,label:_optionalChain([n, 'optionalAccess', _6 => _6.LABEL])});return i.definition.push(o),sc}};function Hr(e,t,r,n=!1){si(r);let i=jt(this.recordingProdStack),o=dt(t)?t:t.DEF,s=new e({definition:[],idx:r});return n&&(s.separator=t.SEP),T(t,"MAX_LOOKAHEAD")&&(s.maxLookahead=t.MAX_LOOKAHEAD),this.recordingProdStack.push(s),o.call(this),i.definition.push(s),this.recordingProdStack.pop(),ai}function Vx(e,t){si(t);let r=jt(this.recordingProdStack),n=A(e)===!1,i=n===!1?e:e.DEF,o=new H({definition:[],idx:t,ignoreAmbiguities:n&&e.IGNORE_AMBIGUITIES===!0});T(e,"MAX_LOOKAHEAD")&&(o.maxLookahead=e.MAX_LOOKAHEAD);let s=Or(i,a=>dt(a.GATE));return o.hasPredicates=s,r.definition.push(o),x(i,a=>{let l=new F({definition:[]});o.definition.push(l),T(a,"IGNORE_AMBIGUITIES")?l.ignoreAmbiguities=a.IGNORE_AMBIGUITIES:T(a,"GATE")&&(l.ignoreAmbiguities=!0),this.recordingProdStack.push(l),a.ALT.call(this),this.recordingProdStack.pop()}),ai}function ic(e){return e===0?"":`${e}`}function si(e){if(e<0||e>nc){let t=new Error(`Invalid DSL Method idx value: <${e}>
-	Idx value must be a none negative value smaller than ${nc+1}`);throw t.KNOWN_RECORDER_ERROR=!0,t}}var li=class{initPerformanceTracer(t){if(T(t,"traceInitPerf")){let r=t.traceInitPerf,n=typeof r=="number";this.traceInitMaxIdent=n?r:1/0,this.traceInitPerf=n?r>0:r}else this.traceInitMaxIdent=0,this.traceInitPerf=Et.traceInitPerf;this.traceInitIndent=-1}TRACE_INIT(t,r){if(this.traceInitPerf===!0){this.traceInitIndent++;let n=new Array(this.traceInitIndent+1).join("	");this.traceInitIndent<this.traceInitMaxIdent&&console.log(`${n}--> <${t}>`);let{time:i,value:o}=_r(r),s=i>10?console.warn:console.log;return this.traceInitIndent<this.traceInitMaxIdent&&s(`${n}<-- <${t}> time: ${i}ms`),this.traceInitIndent--,o}else return r()}};function ac(e,t){t.forEach(r=>{let n=r.prototype;Object.getOwnPropertyNames(n).forEach(i=>{if(i==="constructor")return;let o=Object.getOwnPropertyDescriptor(n,i);o&&(o.get||o.set)?Object.defineProperty(e.prototype,i,o):e.prototype[i]=r.prototype[i]})})}var dr=Le(kt,"",NaN,NaN,NaN,NaN,NaN,NaN);Object.freeze(dr);var Et=Object.freeze({recoveryEnabled:!1,maxLookahead:3,dynamicTokensEnabled:!1,outputCst:!0,errorMessageProvider:Fn,nodeLocationTracking:"none",traceInitPerf:!1,skipValidations:!1}),mr=Object.freeze({recoveryValueFunc:()=>{},resyncEnabled:!0}),it;(function(e){e[e.INVALID_RULE_NAME=0]="INVALID_RULE_NAME",e[e.DUPLICATE_RULE_NAME=1]="DUPLICATE_RULE_NAME",e[e.INVALID_RULE_OVERRIDE=2]="INVALID_RULE_OVERRIDE",e[e.DUPLICATE_PRODUCTIONS=3]="DUPLICATE_PRODUCTIONS",e[e.UNRESOLVED_SUBRULE_REF=4]="UNRESOLVED_SUBRULE_REF",e[e.LEFT_RECURSION=5]="LEFT_RECURSION",e[e.NONE_LAST_EMPTY_ALT=6]="NONE_LAST_EMPTY_ALT",e[e.AMBIGUOUS_ALTS=7]="AMBIGUOUS_ALTS",e[e.CONFLICT_TOKENS_RULES_NAMESPACE=8]="CONFLICT_TOKENS_RULES_NAMESPACE",e[e.INVALID_TOKEN_NAME=9]="INVALID_TOKEN_NAME",e[e.NO_NON_EMPTY_LOOKAHEAD=10]="NO_NON_EMPTY_LOOKAHEAD",e[e.AMBIGUOUS_PREFIX_ALTS=11]="AMBIGUOUS_PREFIX_ALTS",e[e.TOO_MANY_ALTS=12]="TOO_MANY_ALTS",e[e.CUSTOM_LOOKAHEAD_VALIDATION=13]="CUSTOM_LOOKAHEAD_VALIDATION"})(it||(it={}));var ke=class{static performSelfAnalysis(t){throw Error("The **static** `performSelfAnalysis` method has been deprecated.	\nUse the **instance** method with the same name instead.")}performSelfAnalysis(){this.TRACE_INIT("performSelfAnalysis",()=>{let t;this.selfAnalysisDone=!0;let r=this.className;this.TRACE_INIT("toFastProps",()=>{Cr(this)}),this.TRACE_INIT("Grammar Recording",()=>{try{this.enableRecording(),x(this.definedRulesNames,i=>{let s=this[i].originalGrammarAction,a;this.TRACE_INIT(`${i} Rule`,()=>{a=this.topLevelRuleRecord(i,s)}),this.gastProductionsCache[i]=a})}finally{this.disableRecording()}});let n=[];if(this.TRACE_INIT("Grammar Resolving",()=>{n=Hl({rules:L(this.gastProductionsCache)}),this.definitionErrors=this.definitionErrors.concat(n)}),this.TRACE_INIT("Grammar Validations",()=>{if(_(n)&&this.skipValidations===!1){let i=zl({rules:L(this.gastProductionsCache),tokenTypes:L(this.tokensMap),errMsgProvider:Mt,grammarName:r}),o=Dl({lookaheadStrategy:this.lookaheadStrategy,rules:L(this.gastProductionsCache),tokenTypes:L(this.tokensMap),grammarName:r});this.definitionErrors=this.definitionErrors.concat(i,o)}}),_(this.definitionErrors)&&(this.recoveryEnabled&&this.TRACE_INIT("computeAllProdsFollows",()=>{let i=Qa(L(this.gastProductionsCache));this.resyncFollows=i}),this.TRACE_INIT("ComputeLookaheadFunctions",()=>{var i,o;(o=(i=this.lookaheadStrategy).initialize)===null||o===void 0||o.call(i,{rules:L(this.gastProductionsCache)}),this.preComputeLookaheadFunctions(L(this.gastProductionsCache))})),!ke.DEFER_DEFINITION_ERRORS_HANDLING&&!_(this.definitionErrors))throw t=g(this.definitionErrors,i=>i.message),new Error(`Parser Definition Errors detected:
- ${t.join(`
--------------------------------
-`)}`)})}constructor(t,r){this.definitionErrors=[],this.selfAnalysisDone=!1;let n=this;if(n.initErrorHandler(r),n.initLexerAdapter(),n.initLooksAhead(r),n.initRecognizerEngine(t,r),n.initRecoverable(r),n.initTreeBuilder(r),n.initContentAssist(),n.initGastRecorder(r),n.initPerformanceTracer(r),T(r,"ignoredIssues"))throw new Error(`The <ignoredIssues> IParserConfig property has been deprecated.
-	Please use the <IGNORE_AMBIGUITIES> flag on the relevant DSL method instead.
-	See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#IGNORING_AMBIGUITIES
-	For further details.`);this.skipValidations=T(r,"skipValidations")?r.skipValidations:Et.skipValidations}};ke.DEFER_DEFINITION_ERRORS_HANDLING=!1;ac(ke,[zn,Xn,Qn,ti,ri,ei,ni,ii,oi,li]);var zr=class extends ke{constructor(t,r=Et){let n=M(r);n.outputCst=!0,super(t,n)}};function lc(e){let t={OR:"|",ELSE:"||",DYNAMIC:"$",STATIC:"#",ENTITY:"&",OPEN_GATE:"@",CLOSE_GATE:"@",PENDING_GATE:"@@",OPEN_SILENT:"{",CLOSE_SILENT:"}"};Object.assign(t,e?{OPEN_CHOICE:"(",CLOSE_CHOICE:")",OPEN_WEIGHT:"[",CLOSE_WEIGHT:"]",CONTINUATION:"\\"}:{OPEN_CHOICE:"[",CLOSE_CHOICE:"]",OPEN_WEIGHT:"^",CLOSE_WEIGHT:"^",CONTINUATION:"~"});let i={};Object.entries(t).forEach(([Er,ye])=>{i[Er]=Xx(ye)});let o=new RegExp(`${i.PENDING_GATE}([0-9]{9,11})`);i.SPECIAL=Object.values(i).join("").replace(/[<>]/g,""),t.PENDING_GATE_RE=new RegExp(o.source,"g");let s=q({name:"ExitGate",pattern:new RegExp(`\\s*${i.CLOSE_GATE}`),pop_mode:!0}),a=q({name:"Gate",pattern:new RegExp(`[^${i.CLOSE_GATE}]+`)}),l=q({name:"PendingGate",pattern:o}),c=q({name:"EnterGate",pattern:new RegExp(`${i.OPEN_GATE}\\s*`),push_mode:"gate_mode"}),f=q({name:"OC",pattern:new RegExp(i.OPEN_CHOICE+"\\s*")}),u=q({name:"CC",pattern:new RegExp(`\\s*${i.CLOSE_CHOICE}`)}),p=q({name:"OR",pattern:/\s*\|\s*/}),d=q({name:"ELSE",pattern:/\s*\|\|\s*/}),I=q({name:"EQ",pattern:/\s*=\s*/}),y=q({name:"TF",pattern:/\.[A-Za-z_0-9][A-Za-z_0-9]*(\(\))?/}),S=q({name:"OS",pattern:new RegExp(`${i.OPEN_SILENT}\\s*`)}),E=q({name:"CS",pattern:new RegExp(`\\s*${i.CLOSE_SILENT}`)}),m=q({name:"SYM",pattern:new RegExp(`[${i.DYNAMIC}${i.STATIC}][A-Za-z_0-9]*`)}),h=q({name:"Entity",pattern:/&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-fA-F]{1,6});/i}),O=q({name:"Weight",pattern:new RegExp(`\\s*${i.OPEN_WEIGHT}.+${i.CLOSE_WEIGHT}\\s*`)}),N=q({name:"Raw",pattern:new RegExp(`[^${i.SPECIAL}]+`)});return{tokens:{modes:{normal:[h,O,d,f,u,p,I,m,y,S,E,l,N,c],gate_mode:[a,s]},defaultMode:"normal"},Constants:{Symbols:t,Escaped:i}}}function Xx(e){return e.replace(/[-\/\\^$*+?.()|[\]{}]/g,"\\$&")}var ci=class extends zr{constructor(t){super(t,{nodeLocationTracking:"full"}),this.atomTypes=["silent","assign","symbol","choice","pgate","text","entity"],this.buildRules()}parse(t){this.input=t.tokens;let r=this.script();if(this.errors.length>0)throw Error(`[PARSING]
-`+this.errors[0].message);return r}buildRules(){let t=this,r=this.tokensMap;t.RULE("script",()=>{t.MANY(()=>t.SUBRULE(t.expr))}),t.RULE("pgate",()=>{t.CONSUME(r.PendingGate),t.MANY(()=>t.CONSUME(r.TF))}),t.RULE("entity",()=>{t.CONSUME(r.Entity)}),t.RULE("gate",()=>{t.CONSUME(r.EnterGate),t.MANY(()=>t.CONSUME(r.Gate)),t.CONSUME(r.ExitGate)}),t.RULE("silent",()=>{t.CONSUME(r.OS),t.OPTION1(()=>t.SUBRULE(t.gate)),t.CONSUME(r.SYM),t.OPTION2(()=>{t.CONSUME(r.EQ),t.SUBRULE(t.expr)}),t.CONSUME(r.CS)}),t.RULE("assign",()=>{t.CONSUME(r.SYM),t.CONSUME(r.EQ),t.SUBRULE(t.expr)}),t.RULE("symbol",()=>{t.CONSUME(r.SYM),t.MANY(()=>t.CONSUME(r.TF))}),t.RULE("accept",()=>{t.SUBRULE(t.or_expr)}),t.RULE("reject",()=>{t.SUBRULE(t.or_expr)}),t.RULE("or_expr",()=>{t.MANY_SEP({SEP:r.OR,DEF:()=>t.SUBRULE(t.wexpr)})}),t.RULE("choice",()=>{t.CONSUME(r.OC),t.OPTION1(()=>t.SUBRULE(t.gate)),t.SUBRULE(t.accept),t.OPTION2(()=>{t.CONSUME(r.ELSE),t.SUBRULE(t.reject)}),t.CONSUME(r.CC),t.MANY(()=>t.CONSUME(r.TF))}),t.RULE("wexpr",()=>{t.MANY(()=>{t.OR([{ALT:()=>t.SUBRULE(t.expr)},{ALT:()=>t.CONSUME(r.Weight)}])})}),t.RULE("expr",()=>{t.AT_LEAST_ONE(()=>t.SUBRULE(t.atom))}),t.RULE("atom",()=>{t.OR(this.atomTypes.map(n=>({ALT:()=>t.SUBRULE(t[n])})))}),t.RULE("text",()=>{t.CONSUME(r.Raw)}),this.performSelfAnalysis()}};var Qi=class{constructor(t){this.input=0,this.path="",this.tracePath=!0,this.scripting=t,this.warnOnInvalidGates=!1,this.RiScript=this.scripting.constructor}isCstNode(t){return typeof t=="object"&&("accept"in t||"name"in t&&"location"in t&&"children"in t)}visit(t,r){if(Array.isArray(t)&&(t=t[0]),typeof t>"u")return;if(!this.isCstNode(t))throw Error("Non-cstNode passed to visit: "+JSON.stringify(t));let{name:n,location:i}=t;if(this.nodeText=this.input.substring(i.startOffset,i.endOffset+1),typeof this[n]!="function")throw Error(`BaseVisitor.visit: expecting function for this[${n}], found ${typeof this[n]}: ${JSON.stringify(this[n])}`);return this.tracePath&&!/(expr|atom|silent)/.test(n)&&(this.path+=n+"."),this[n](t.children,r)}validateVisitor(){}},gr=class extends Qi{constructor(t,r={}){super(t),this.context=r,this.trace=0,this.choices={},this.isNoRepeat=!1,this.symbols=this.scripting.Symbols,this.escaped=this.scripting.Escaped,this.statics={},this.dynamics={},this.pendingGates={},this.pendingSymbols=new Set,this.validateVisitor()}start(t={}){if(this.input=t.input,this.trace=t.trace,this.traceTx=t.traceTx,!t.cst)throw Error("no cst");return super.visit(t.cst)}script(t){this.order=0;let r=t.expr?t.expr.length:0;if(this.print("script","'"+this.RiScript._escapeText(this.input)+"' :: "+r+" expression(s)"),!r)return"";if(Object.keys(t).length!==1)throw Error("script: invalid expr");return this.visit(t.expr)}expr(t){let r=Object.keys(t);if(r.length!==1)throw Error("invalid expr: "+r.length);let n=t.atom.map(i=>this.visit(i));for(let i=1;i<n.length-1;i++)n[i].length===0&&n[i-1].endsWith(" ")&&n[i+1].startsWith(" ")&&(n[i+1]=n[i+1].substring(1));return n.join("")}wexpr(t){this.print("wexpr")}gate(t){if(t.Gate.length!==1)throw Error("Invalid gate: "+t.Gate);let r,n=t.Gate[0].image;try{r=this.scripting._query(n)}catch(l){if(!this.warnOnInvalidGates)throw Error(`Invalid gate[2]: "@${n}@"
+// node_modules/chevrotain/lib/src/parse/grammar/resolver.js
+function resolveGrammar(topLevels, errMsgProvider) {
+  const refResolver = new GastRefResolverVisitor(topLevels, errMsgProvider);
+  refResolver.resolveRefs();
+  return refResolver.errors;
+}
+var GastRefResolverVisitor = class extends GAstVisitor {
+  constructor(nameToTopRule, errMsgProvider) {
+    super();
+    this.nameToTopRule = nameToTopRule;
+    this.errMsgProvider = errMsgProvider;
+    this.errors = [];
+  }
+  resolveRefs() {
+    forEach_default(values_default(this.nameToTopRule), (prod) => {
+      this.currTopLevel = prod;
+      prod.accept(this);
+    });
+  }
+  visitNonTerminal(node) {
+    const ref = this.nameToTopRule[node.nonTerminalName];
+    if (!ref) {
+      const msg = this.errMsgProvider.buildRuleNotFoundError(this.currTopLevel, node);
+      this.errors.push({
+        message: msg,
+        type: ParserDefinitionErrorType.UNRESOLVED_SUBRULE_REF,
+        ruleName: this.currTopLevel.name,
+        unresolvedRefName: node.nonTerminalName
+      });
+    } else {
+      node.referencedRule = ref;
+    }
+  }
+};
 
-RootCause -> ${l}`);return!this.scripting.RiTa.SILENT&&!this.scripting.silent&&console.warn(`[WARN] Ignoring invalid gate: @${n}@
-`,l),{decision:"accept"}}let i={},o=[],s=r.operands();if(s.forEach(l=>{let{result:c,resolved:f,isStatic:u,isUser:p}=this.checkContext(l);typeof c=="function"&&(c=c.call(),f=!this.scripting.isParseable(c)),typeof c>"u"||!f?o.push(l):(u?this.statics[l]=c:p?this.context[l]=c:this.dynamics[l]=c,i[l]=c)}),Object.keys(i).length+o.length!==s.length)throw Error("invalid operands");if(o.length)return{decision:"defer",operands:o};let a=r.test(i);return!a&&this.castValues(i)&&(a=r.test(i)),{decision:a?"accept":"reject"}}assign(t,r){let n=t.SYM[0].image,i,o,s=n.replace(this.scripting.AnySymbolRE,"");if(n.startsWith(this.symbols.STATIC))i=this.visit(t.expr),this.scripting.isParseable(i)?(this.statics[s]=i,i=this.inlineAssignment(s,t.TF,i)):(this.statics[s]=i,this.pendingSymbols.delete(s),this.trace&&console.log("  [pending.delete]",n,this.pendingSymbols.length?JSON.stringify(this.pendingSymbols):"")),o=`${n} = ${this.RiScript._escapeText(i)} [#static] ${_optionalChain([r, 'optionalAccess', _7 => _7.silent])?"{silent}":""}`;else{let l=this;i=()=>l.visit(t.expr),o=`${n} = <f*:pending>`+(_optionalChain([r, 'optionalAccess', _8 => _8.silent])?"{silent}":""),this.dynamics[s]=i}return this.print("assign",o),i}silent(t){return t.EQ?this.assign(t,{silent:!0}):this.symbol(t,{silent:!0}),""}atom(t){let r,n=Object.keys(t);if(n.length!==1)throw Error("invalid atom: "+n);return this.scripting.parser.atomTypes.forEach(i=>{let o=t[i];if(o){if(o.length!==1)throw Error(i+": bad length -> "+t[i].length);r=this.visit(o[0])}}),typeof r=="function"&&(r=r.call()),r}text(t){if(t.Raw.length!==1)throw Error("[1] invalid text");if(Object.keys(t).length!==1)throw Error("[2] invalid text");let r=t.Raw[0].image;return this.print("text",this.RiScript._escapeText("'"+r+"'")),r}entity(t){return this.nodeText}symbol(t,r){if(t.SYM.length!==1)throw Error("[1] invalid symbol");let n=this.nodeText,i=t.SYM[0].image,o=i.replace(this.scripting.AnySymbolRE,"");if(this.isNoRepeat=this.hasNoRepeat(t.TF),this.pendingSymbols.has(o))return this.print("symbol",`${i} [is-pending]`),n;let{result:s,isStatic:a,isUser:l,resolved:c}=this.checkContext(o);if(!a&&i.startsWith(this.symbols.STATIC)&&!this.scripting.EntityRE.test(i))throw Error(`Attempt to refer to dynamic symbol '${o}' as ${this.symbols.STATIC}${o}, did you mean $${o}?`);if(typeof s=="function"&&(s=s.call(),c=!this.scripting.isParseable(s)),this.isNoRepeat&&(a||l)){this.isNoRepeat=!1;let u="Attempt to call norepeat() on "+(a?"static symbol '"+i+"'. Did you mean to use '"+this.symbols.DYNAMIC+o+"' ?":"non-dynamic symbol '"+o+"'. Did you mean to define '"+this.symbols.DYNAMIC+o+"' in riscript?");throw Error(u)}if(typeof s>"u")return this.print("symbol",i+" -> '"+n+"' ctx="+this.lookupsToString(),"[deferred]",_optionalChain([r, 'optionalAccess', _9 => _9.silent])?"{silent}":""),n;let f=n+" -> '"+s+"'"+(_optionalChain([r, 'optionalAccess', _10 => _10.silent])?" {silent}":"");return typeof s=="string"&&!c?(a?(this.pendingSymbols.add(o),s=this.inlineAssignment(o,t.TF,s),this.print("symbol*",`${n} -> ${s} :: pending.add(${o})`)):(t.TF&&(s=this.restoreTransforms(s,t.TF)),this.print("symbol",f)),s):(a&&(this.statics[o]=s),t.TF&&(s=this.applyTransforms(s,t.TF),f+=" -> '"+s+"'",this.isNoRepeat&&(f+=" (norepeat)")),this.print("symbol",f),this.pendingSymbols.has(o)&&(this.trace&&console.log("  [$pending.delete]",(a?"#":"$")+o,this.pendingSymbols.length?JSON.stringify(this.pendingSymbols):""),this.pendingSymbols.delete(o)),this.isNoRepeat=!1,s)}pgate(t){this.print("pgate",this.nodeText);let r=this.nodeText,n=r.replace(this.symbols.PENDING_GATE,""),i=this.pendingGates[n];if(!i)throw Error('no pending gate="'+r+'" pgates='+JSON.stringify(Object.keys(this.pendingGates)));return i.operands.some(a=>{let{result:l,resolved:c}=this.checkContext(a);return typeof l=="function"&&(l=l.call(),c=!this.scripting.isParseable(l)),typeof l>"u"||!c})?r:this.choice(i.deferredContext)}else(t){return this.visit(t.expr).trim()}choice(t,r){let n=this.symbols,i,o,s=this.nodeText,a=s,l=this.RiScript._stringHash(s+" #"+this.choiceId(t));if(!this.isNoRepeat&&this.hasNoRepeat(t.TF))throw Error("noRepeat() not allowed on choice (use a $variable instead): "+s);let c="accept";if(_optionalChain([r, 'optionalAccess', _11 => _11.forceReject]))c="reject";else if(t.gate&&(i=t.gate[0].children.Gate[0].image,o=this.visit(t.gate),c=o.decision,a+=`
-  [gate] ${i} -> ${c!=="defer"?c.toUpperCase():`DEFER ${n.PENDING_GATE}${l}`}  ${this.lookupsToString()}`),o&&o.decision==="defer")return this.pendingGates[l]={deferredContext:t,operands:o.operands},`${n.PENDING_GATE}${l}`;if(c==="reject"&&!("reject"in t))return"";let f=_optionalChain([t, 'access', _12 => _12[c], 'optionalAccess', _13 => _13[0], 'optionalAccess', _14 => _14.children, 'optionalAccess', _15 => _15.or_expr, 'optionalAccess', _16 => _16[0]]),u=this.parseOptions(f);if(!u)throw Error("No options in choice: "+s);let p=null,d=[],I=!1;for(;p===null;){if(p=this.choose(u,d).value,this.scripting.isParseable(p)){t.TF&&(p=this.restoreTransforms(p,t.TF)),I=!0;break}if(t.TF&&(p=this.applyTransforms(p,t.TF)),this.isNoRepeat&&p===this.choices[l]){this.print("choice.reject",p+" [norepeat]"),d.push(p),p=null;continue}}return I||(this.choices[l]=p),p}hasNoRepeat(t){let r=this.RiScript._transformNames(t);return r.length?r.includes("nr")||r.includes("norepeat"):!1}checkContext(t){let r=!1,n=!1,i;if(t.length===0)return{result:"",resolved:!0,isStatic:r,isUser:n};i=this.dynamics[t],typeof i>"u"&&(i=this.statics[t],typeof i<"u"&&(r=!0)),typeof i>"u"&&(i=this.context[t],typeof i<"u"?n=!0:i=this.context[this.symbols.DYNAMIC+t]);let o=!this.scripting.isParseable(i);return{result:i,isStatic:r,isUser:n,resolved:o}}inlineAssignment(t,r,n){let i=this.symbols,o=i.STATIC+t,s=this.restoreTransforms(n,r);return n=i.OPEN_CHOICE+(o+"="+s)+i.CLOSE_CHOICE,n}choiceId(t){if(!t.OC||!t.OC.length)throw Error("invalid choice");return t.OC[0].startOffset+"."+t.OC[0].endOffset}parseOptions(t){let r=[];if(t&&_optionalChain([t, 'optionalAccess', _17 => _17.children, 'optionalAccess', _18 => _18.wexpr])){let n=t.children.wexpr;for(let i=0;i<n.length;i++){let o=n[i],s=o.children.expr;if(s&&s.length!=1)throw Error("invalid choice-expr: "+s.length);let a=o.children.Weight;if(a){if(a.length!=1)throw Error("invalid weight: "+a.length);let l=1;try{l=parseInt(this.symbols.CLOSE_WEIGHT.length?a[0].image.trim().slice(1,-1):a[0].image.trim().slice(1))}catch (e11){console.log("EX: "+l)}Array.from({length:l},()=>r.push(s))}else r.push(s||"")}}return r}chooseUnique(t,r){for(;t.length;){let{index:i,value:o}=this.choose(t);if(o!==this.choices[r])return o;t.splice(i,1)}throw Error("No remaining options")}choose(t,r=[]){if(!t||!t.length)throw Error("Invalid choice: no options");let n=t.filter(a=>!r.includes(a));if(!n.length)throw Error("Invalid choice: no valid options");let i=this.scripting.RiTa.randi(n.length),o="",s=n[i];return typeof s=="string"?this.print("choice.text","''"):(this.path="choice."+this.path,o=this.visit(s)),typeof o=="string"&&(o=o.trim()),{index:i,value:o}}applyTransforms(t,r){this.traceTx&&console.log("applyTransforms",this.formatTxs(...arguments));for(let n=0;n<r.length;n++)t=this.applyTransform(t,r[n]);return t}restoreTransforms(t,r){return typeof t=="string"&&(new RegExp("^"+this.escaped.OPEN_CHOICE+".*"+this.escaped.CLOSE_CHOICE+"$").test(t)||(t=this.symbols.OPEN_CHOICE+t+this.symbols.CLOSE_CHOICE),r&&r.forEach(i=>t+=i.image),this.traceTx&&console.log("restoreTransforms:",t)),t}castValues(t){let r=!1;return Object.entries(t).forEach(([n,i])=>{let o=parseFloat(i);isNaN(o)||(r=!0,t[n]=o)}),r}contextIsResolved(t){let r=!0;return Object.entries(t).forEach(([n,i])=>{this.scripting.isParseable(i)||(r=!1)}),r}applyTransform(t,r){let n=r.image,i,o=t+n,s=n.substring(1).replace(/\(\)$/,"");return typeof this.dynamics[s]=="function"?i=this.dynamics[s](t):typeof this.statics[s]=="function"?i=this.statics[s](t):typeof this.context[s]=="function"?i=this.context[s](t):typeof this.RiScript.transforms[s]=="function"?i=this.RiScript.transforms[s](t):typeof t[s]=="function"?i=t[s]():t.hasOwnProperty(s)?i=t[s]:(!this.scripting.RiTa.SILENT&&!this.scripting.silent&&console.warn("[WARN] Unresolved transform: "+o),i=o.replace(/\(\)$/,"&lpar;&rpar;")),this.trace&&console.log(`${this.tindent()}[transform] ${o} -> '${i}'`),i}lookupsToString(){let t={},r={};return Object.entries(this.dynamics||{}).forEach(([n,i])=>t[`$${n} `]=i),Object.entries(this.statics||{}).forEach(([n,i])=>r[`#${n} `]=i),JSON.stringify({...this.context,...r,...t},(n,i)=>typeof i=="function"?"<f*:pending>":i).replace(/"/g,"")}formatTxs(t,r){return t+r.map(n=>n.image.replace(/()/,"")+"()").join("")}print(t,...r){this.trace&&(this.path&&t!=="script"&&(t=this.path.replace(/\.$/,"")),console.log(++this.order,`[${t}]`,...r),this.path="")}tindent(){return" ".repeat((this.order+"").length+1)}};var{decode:Zx}=_he2.default,Qx=/[aeiou]/,xr="_RE_",tE=/&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-fA-F]{1,6});/gi,ui=class extends _mingo.Query{constructor(t,r,n){if(typeof r=="string"){let i=r;r=t.parseJSOL(r)}super(r,n)}test(t){for(let r=0,n=this.compiled.length;r<n;r++)if(!this.compiled[r](t))return!1;return!0}operands(){let t=[this.condition],r=new Set;for(;_optionalChain([t, 'optionalAccess', _19 => _19.length])>0;){let n=t.pop();Object.keys(n).forEach(i=>{let o=n[i];i.startsWith("$")||r.add(i),typeof o=="object"&&o!==null&&(Array.isArray(o)?o:[o]).forEach(a=>t.push(a))})}return Array.from(r)}},pt=class{static evaluate(t,r,n={}){return new pt().evaluate(t,r,n)}constructor(t={}){this.visitor=0,this.v2Compatible=t.compatibility===2;let{Constants:r,tokens:n}=lc(this.v2Compatible);this.Escaped=r.Escaped,this.Symbols=r.Symbols;let i=r.Escaped.STATIC+r.Escaped.DYNAMIC,o=r.Escaped.OPEN_CHOICE,s=r.Escaped.CLOSE_CHOICE;this.JSOLIdentRE=new RegExp(`([${i}]?[A-Za-z_0-9][A-Za-z_0-9]*)\\s*:`,"g"),this.RawAssignRE=new RegExp(`^[${i}][A-Za-z_0-9][A-Za-z_0-9]*\\s*=`),this.ChoiceWrapRE=new RegExp("^"+o+"[^"+o+s+"]*"+s+"$"),this.SpecialRE=new RegExp(`[${this.Escaped.SPECIAL.replace("&","")}]`),this.ContinueRE=new RegExp(this.Escaped.CONTINUATION+"\\r?\\n","g"),this.WhitespaceRE=/[\u00a0\u2000-\u200b\u2028-\u2029\u3000]+/g,this.AnySymbolRE=new RegExp(`[${i}]`),this.silent=!1,this.lexer=new et(n),this.parser=new ci(n),this.RiTa=t.RiTa||{VERSION:0,randi:a=>Math.floor(Math.random()*a)}}lex(t){if(!t.input)throw Error("no input");let r=this.lexer.tokenize(t.input);if(r.errors.length)throw console.error("Input: "+t.input+`
-`,r.errors[0].message),Error("[LEXING] "+r.errors[0].message);t.trace&&this.printTokens(r.tokens),t.tokens=r.tokens}parse(t){t.cst=this.parser.parse(t)}visit(t){return this.visitor.start(t)}lexParseVisit(t={}){return this.lex(t),this.parse(t),this.visit(t)}evaluate(t,r,n={}){if(typeof t!="string")throw Error("RiScript.evaluate() expects a string, got "+typeof t);return n.input=t,n.visitor=new gr(this,r),this._evaluate(n)}_evaluate(t){let{input:r}=t,n,i=/\r?\n$/.test(r),o=this.preParse(r,t);if(!o)return"";if(t.trace&&console.log(`
-Input:  '${pt._escapeText(r)}'`),t.trace&&r!==o&&console.log(`Parsed: '${pt._escapeText(o)}'`),!t.visitor)throw Error("no visitor");this.visitor=t.visitor,delete t.visitor;for(let s=1;o!==n&&s<=10&&(n=o,t.trace&&console.log("-".repeat(20)+" Pass#"+s+" "+"-".repeat(20)),t.input=o,o=this.lexParseVisit(t),t.trace&&console.log(`Result(${s}) -> "${pt._escapeText(o)}" ctx=${this.visitor.lookupsToString()}`),!(t.onepass||!this.isParseable(o)));s++);return!this.silent&&!this.RiTa.SILENT&&this.AnySymbolRE.test(o.replace(tE,""))&&console.warn('[WARN] Unresolved symbol(s) in "'+o.replace(/\n/g,"\\n")+'" '),this.postParse(o,t)+(i?`
-`:"")}_query(t,r){return new ui(this,t,r)}printTokens(t){let r=t.reduce((n,i)=>{let{name:o}=i.tokenType,s=o;return s==="TEXT"&&(s=pt._escapeText(i.image,1)),s==="SYM"&&(s="sym("+i.image+")"),s==="TX"&&(s="tx("+i.image+")"),n+s+", "},"").slice(0,-2);console.log(`
-Tokens: [ `+r+" ]  Context:",this.visitor.lookupsToString())}postParse(t,r){if(typeof t!="string")return"";let i=Zx(t).replace(this.WhitespaceRE," ").replace(/\r?\n$/,"");return[...i.matchAll(this.Symbols.PENDING_GATE_RE)].forEach(s=>{if(!s||!s[0]||!s[1])throw Error("bad gate: "+s);let a=this.visitor.pendingGates[s[1]],{deferredContext:l,operands:c}=a;if(!c.length)throw Error("no operands");let f=this.visitor.choice(l,{forceReject:!0});i=i.replace(s[0],f),r.trace&&console.log("  "+s[0]+"-> "+f)}),r.trace&&console.log(`
-Final: '${i}'`),r.preserveLookups||(this.visitor.statics=void 0,this.visitor.dynamics=void 0),i}preParse(t,r){if(typeof t!="string")return"";let n=this.Symbols,i=t;this.v2Compatible||(i=i.replace(/\((\s*\d+\s*)\)/g,"^$1^")),i=i.replace(/\/\*[^]*?(\r?\n)?\//g,""),i=i.replace(/\/\/[^\n]+(\r?\n|$)/g,""),i=i.replace(this.ContinueRE,""),i=eE(i);let o="",s=i.split(/\r?\n/);for(let a=0;a<s.length;a++)if(this.RawAssignRE.test(s[a])){let l=s[a].indexOf("=");if(l<0)throw Error("invalid state: no assigment: "+s[a]);let c=s[a].substring(0,l),f=s[a].substring(l+1),u=fi(f,n.OPEN_CHOICE),p=fi(f,n.CLOSE_CHOICE);for(;u>p;){let d=s[++a];f+=`
-`+d,u+=fi(d,n.OPEN_CHOICE),p+=fi(d,n.CLOSE_CHOICE)}o+=n.OPEN_SILENT+(c+"="+f)+n.CLOSE_SILENT}else o+=s[a],a<s.length-1&&(o+=`
-`);return o}parseJSOL(t){let r=s=>{let a=s;if(typeof s=="string"&&s.startsWith(xr)&&s.endsWith(xr)){let l=s.split(xr);if(l.length!==4)throw Error("invalid regex in unescape");a=new RegExp(l[1],l[2])}return a},n=pt._escapeJSONRegex(t).replace(this.JSOLIdentRE,'"$1":').replace(/'/g,'"'),i=JSON.parse(n),o=r;return Object.keys(i).forEach(s=>i[s]=o(i[s])),i}isParseable(t){let r=!0;return/(string|number)/.test(typeof t)&&(r=this.SpecialRE.test(t.toString())),r}static articlize(t){if(!t||!t.length)return"";let r=t.split(/\s+/)[0];if(!_optionalChain([pt, 'access', _20 => _20.RiTa, 'optionalAccess', _21 => _21.phones]))return pt.RiTaWarnings.phones||(console.warn("[WARN] Install RiTa for proper phonemes"),pt.RiTaWarnings.phones=!0),(/^[aeiou].*/i.test(r)?"an ":"a ")+t;let n=pt.RiTa.phones(r,{silent:!0});return(n&&n.length&&Qx.test(n[0])?"an ":"a ")+t}static capitalize(t){return t?t[0].toUpperCase()+t.substring(1):""}static uppercase(t){return t?t.toUpperCase():""}static quotify(t){return"&#8220;"+(t||"")+"&#8221;"}static pluralize(t){return _optionalChain([pt, 'access', _22 => _22.RiTa, 'optionalAccess', _23 => _23.pluralize])?pt.RiTa.pluralize(t):(pt.RiTaWarnings.plurals||(pt.RiTaWarnings.plurals=!0,console.warn("[WARN] Install RiTa for proper pluralization")),t.endsWith("s")?t:t+"s")}static identity(t){return t}static _transformNames(t){return t&&t.length?t.map(r=>r.image.replace(/(^\.|\(\)$)/g,""),[]):[]}static _escapeText(t,r){if(typeof t!="string")return t;let n=t.replace(/\r?\n/g,"\\n");return r||!n.length?"'"+n+"'":n}static _escapeJSONRegex(t){return t.replace(/\/([^/]+?)\/([igmsuy]*)/g,`"${xr}$1${xr}$2${xr}"`)}static _stringHash(t){let r,n=0;for(let o=0;o<t.length;o++)r=t.charCodeAt(o),n=(n<<5)-n+r,n|=0;let i=n.toString();return n<0?i.replace("-","0"):i}},b=pt;qr(b,"Query",ui),qr(b,"VERSION","[VI]{version}[/VI]"),qr(b,"RiTaWarnings",{plurals:!1,phones:!1});b.transforms={quotify:b.quotify,pluralize:b.pluralize,capitalize:b.capitalize,articlize:b.articlize,uppercase:b.uppercase,norepeat:b.identity,art:b.articlize,nr:b.identity,cap:b.capitalize,ucf:b.capitalize,uc:b.uppercase,qq:b.quotify,s:b.pluralize};function eE(e){return e=zt(e,"\\(","&lpar;"),e=zt(e,"\\)","&rpar;"),e=zt(e,"\\[","&lsqb;"),e=zt(e,"\\]","&rsqb;"),e=zt(e,"\\{","&lcqb;"),e=zt(e,"\\}","&rcqb;"),e=zt(e,"\\@","&commat;"),e=zt(e,"\\#","&num;"),e=zt(e,"\\|"," &vert"),e=zt(e,"\\="," &equals"),e}function rE(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}function zt(e,t,r){return e.replace(new RegExp(rE(t),"g"),()=>r)}function fi(e,t){let r=0;for(let n=0;n<e.length;n++)e[n]===t&&r++;return r}var Me=class{constructor(t={},r={}){if(typeof t!="object")throw Error("RiGrammar: expecting object, found "+typeof t);this.scripting=new b,this.context=r,this.setRules(t)}static expand(t,r,n){return new Me(t,r).expand(n)}addTransform(){return b.addTransform(...arguments)}removeTransform(){return b.removeTransform(...arguments)}getTransforms(){return b.transforms}equals(t){return t.toJSON()===this.toJSON()}expand(t={}){if("context"in t)throw Error("pass context to RiScript.grammar() or new RiGrammar() instead");return t.visitor=t.visitor||new b.Visitor(this.scripting),t.visitor.context=this.context||{},t.input=this._toScript(t),this.scripting._evaluate(t)}addRule(t,r){this._validateRule(t,r),this.rules[t]=r}setRules(t){if(typeof t>"u")throw Error("undefined rules");this.rules={};let r=typeof t=="string"?nE(t):t,n=this;Object.entries(r).forEach(i=>n.addRule(...i))}removeRule(t){t in this.rules&&delete this.rules[t]}toJSON(){return JSON.stringify(this.rules,...arguments)}toString(t={}){let r=t.replacer||0,n=t.space||2,i=_optionalChain([t, 'optionalAccess', _24 => _24.linebreak]),o=this.toJSON(r,n);return i&&(o=o.replace(/\n/g,i)),o}static fromJSON(t,r){return new Me(JSON.parse(t),r)}_toScript(t){let r="",n=t.start||"start",{Symbols:i}=this.scripting;if(n.startsWith(i.DYNAMIC)&&(n=n.substring(i.DYNAMIC.length)),n.startsWith(i.STATIC)&&(n=n.substring(i.STATIC.length)),!(n in this.rules||i.STATIC+n in this.rules))throw Error('Rule: "'+n+'" not found in grammar');return Object.entries(this.rules).forEach(([o,s],a)=>{for(;o.startsWith(i.DYNAMIC);)o=o.substring(1);o.startsWith(i.STATIC)||(o=i.DYNAMIC+o),this.scripting.ChoiceWrapRE.test(s)||(s=i.OPEN_CHOICE+s+i.CLOSE_CHOICE),r+=`${o}=${s}
-`}),t.trace&&console.log(`Grammar:
-`+r.replace(/^\$/gm,"  $")),r+=`${i.DYNAMIC}${n}`,r}_validateRule(t,r){if(typeof t!="string"||t.length===0)throw Error("expected [string] name");if(typeof r>"u")throw Error("undefined rule def: "+t);let{Symbols:n}=this.scripting;if(t.startsWith(n.DYNAMIC))throw t=t.substring(n.DYNAMIC.length),Error("Grammar rules are dynamic by default; if you need a static rule, use '"+n.STATIC+t+"', otherwise just use '"+t+"'.")}};function nE(e){if(typeof e=="string")try{return JSON.parse(e)}catch (e12){throw Error(`RiGrammar appears to be invalid JSON, please check it at http://jsonlint.com/
-`+e)}}b.Grammar=Me;b.Visitor=gr;var Sw=b;exports.default = Sw;
+// node_modules/chevrotain/lib/src/parse/grammar/interpreter.js
+var AbstractNextPossibleTokensWalker = class extends RestWalker {
+  constructor(topProd, path) {
+    super();
+    this.topProd = topProd;
+    this.path = path;
+    this.possibleTokTypes = [];
+    this.nextProductionName = "";
+    this.nextProductionOccurrence = 0;
+    this.found = false;
+    this.isAtEndOfPath = false;
+  }
+  startWalking() {
+    this.found = false;
+    if (this.path.ruleStack[0] !== this.topProd.name) {
+      throw Error("The path does not start with the walker's top Rule!");
+    }
+    this.ruleStack = clone_default(this.path.ruleStack).reverse();
+    this.occurrenceStack = clone_default(this.path.occurrenceStack).reverse();
+    this.ruleStack.pop();
+    this.occurrenceStack.pop();
+    this.updateExpectedNext();
+    this.walk(this.topProd);
+    return this.possibleTokTypes;
+  }
+  walk(prod, prevRest = []) {
+    if (!this.found) {
+      super.walk(prod, prevRest);
+    }
+  }
+  walkProdRef(refProd, currRest, prevRest) {
+    if (refProd.referencedRule.name === this.nextProductionName && refProd.idx === this.nextProductionOccurrence) {
+      const fullRest = currRest.concat(prevRest);
+      this.updateExpectedNext();
+      this.walk(refProd.referencedRule, fullRest);
+    }
+  }
+  updateExpectedNext() {
+    if (isEmpty_default(this.ruleStack)) {
+      this.nextProductionName = "";
+      this.nextProductionOccurrence = 0;
+      this.isAtEndOfPath = true;
+    } else {
+      this.nextProductionName = this.ruleStack.pop();
+      this.nextProductionOccurrence = this.occurrenceStack.pop();
+    }
+  }
+};
+var NextAfterTokenWalker = class extends AbstractNextPossibleTokensWalker {
+  constructor(topProd, path) {
+    super(topProd, path);
+    this.path = path;
+    this.nextTerminalName = "";
+    this.nextTerminalOccurrence = 0;
+    this.nextTerminalName = this.path.lastTok.name;
+    this.nextTerminalOccurrence = this.path.lastTokOccurrence;
+  }
+  walkTerminal(terminal, currRest, prevRest) {
+    if (this.isAtEndOfPath && terminal.terminalType.name === this.nextTerminalName && terminal.idx === this.nextTerminalOccurrence && !this.found) {
+      const fullRest = currRest.concat(prevRest);
+      const restProd = new Alternative({ definition: fullRest });
+      this.possibleTokTypes = first(restProd);
+      this.found = true;
+    }
+  }
+};
+var AbstractNextTerminalAfterProductionWalker = class extends RestWalker {
+  constructor(topRule, occurrence) {
+    super();
+    this.topRule = topRule;
+    this.occurrence = occurrence;
+    this.result = {
+      token: void 0,
+      occurrence: void 0,
+      isEndOfRule: void 0
+    };
+  }
+  startWalking() {
+    this.walk(this.topRule);
+    return this.result;
+  }
+};
+var NextTerminalAfterManyWalker = class extends AbstractNextTerminalAfterProductionWalker {
+  walkMany(manyProd, currRest, prevRest) {
+    if (manyProd.idx === this.occurrence) {
+      const firstAfterMany = head_default(currRest.concat(prevRest));
+      this.result.isEndOfRule = firstAfterMany === void 0;
+      if (firstAfterMany instanceof Terminal) {
+        this.result.token = firstAfterMany.terminalType;
+        this.result.occurrence = firstAfterMany.idx;
+      }
+    } else {
+      super.walkMany(manyProd, currRest, prevRest);
+    }
+  }
+};
+var NextTerminalAfterManySepWalker = class extends AbstractNextTerminalAfterProductionWalker {
+  walkManySep(manySepProd, currRest, prevRest) {
+    if (manySepProd.idx === this.occurrence) {
+      const firstAfterManySep = head_default(currRest.concat(prevRest));
+      this.result.isEndOfRule = firstAfterManySep === void 0;
+      if (firstAfterManySep instanceof Terminal) {
+        this.result.token = firstAfterManySep.terminalType;
+        this.result.occurrence = firstAfterManySep.idx;
+      }
+    } else {
+      super.walkManySep(manySepProd, currRest, prevRest);
+    }
+  }
+};
+var NextTerminalAfterAtLeastOneWalker = class extends AbstractNextTerminalAfterProductionWalker {
+  walkAtLeastOne(atLeastOneProd, currRest, prevRest) {
+    if (atLeastOneProd.idx === this.occurrence) {
+      const firstAfterAtLeastOne = head_default(currRest.concat(prevRest));
+      this.result.isEndOfRule = firstAfterAtLeastOne === void 0;
+      if (firstAfterAtLeastOne instanceof Terminal) {
+        this.result.token = firstAfterAtLeastOne.terminalType;
+        this.result.occurrence = firstAfterAtLeastOne.idx;
+      }
+    } else {
+      super.walkAtLeastOne(atLeastOneProd, currRest, prevRest);
+    }
+  }
+};
+var NextTerminalAfterAtLeastOneSepWalker = class extends AbstractNextTerminalAfterProductionWalker {
+  walkAtLeastOneSep(atleastOneSepProd, currRest, prevRest) {
+    if (atleastOneSepProd.idx === this.occurrence) {
+      const firstAfterfirstAfterAtLeastOneSep = head_default(currRest.concat(prevRest));
+      this.result.isEndOfRule = firstAfterfirstAfterAtLeastOneSep === void 0;
+      if (firstAfterfirstAfterAtLeastOneSep instanceof Terminal) {
+        this.result.token = firstAfterfirstAfterAtLeastOneSep.terminalType;
+        this.result.occurrence = firstAfterfirstAfterAtLeastOneSep.idx;
+      }
+    } else {
+      super.walkAtLeastOneSep(atleastOneSepProd, currRest, prevRest);
+    }
+  }
+};
+function possiblePathsFrom(targetDef, maxLength, currPath = []) {
+  currPath = clone_default(currPath);
+  let result = [];
+  let i = 0;
+  function remainingPathWith(nextDef) {
+    return nextDef.concat(drop_default(targetDef, i + 1));
+  }
+  function getAlternativesForProd(definition) {
+    const alternatives = possiblePathsFrom(remainingPathWith(definition), maxLength, currPath);
+    return result.concat(alternatives);
+  }
+  while (currPath.length < maxLength && i < targetDef.length) {
+    const prod = targetDef[i];
+    if (prod instanceof Alternative) {
+      return getAlternativesForProd(prod.definition);
+    } else if (prod instanceof NonTerminal) {
+      return getAlternativesForProd(prod.definition);
+    } else if (prod instanceof Option) {
+      result = getAlternativesForProd(prod.definition);
+    } else if (prod instanceof RepetitionMandatory) {
+      const newDef = prod.definition.concat([
+        new Repetition({
+          definition: prod.definition
+        })
+      ]);
+      return getAlternativesForProd(newDef);
+    } else if (prod instanceof RepetitionMandatoryWithSeparator) {
+      const newDef = [
+        new Alternative({ definition: prod.definition }),
+        new Repetition({
+          definition: [new Terminal({ terminalType: prod.separator })].concat(prod.definition)
+        })
+      ];
+      return getAlternativesForProd(newDef);
+    } else if (prod instanceof RepetitionWithSeparator) {
+      const newDef = prod.definition.concat([
+        new Repetition({
+          definition: [new Terminal({ terminalType: prod.separator })].concat(prod.definition)
+        })
+      ]);
+      result = getAlternativesForProd(newDef);
+    } else if (prod instanceof Repetition) {
+      const newDef = prod.definition.concat([
+        new Repetition({
+          definition: prod.definition
+        })
+      ]);
+      result = getAlternativesForProd(newDef);
+    } else if (prod instanceof Alternation) {
+      forEach_default(prod.definition, (currAlt) => {
+        if (isEmpty_default(currAlt.definition) === false) {
+          result = getAlternativesForProd(currAlt.definition);
+        }
+      });
+      return result;
+    } else if (prod instanceof Terminal) {
+      currPath.push(prod.terminalType);
+    } else {
+      throw Error("non exhaustive match");
+    }
+    i++;
+  }
+  result.push({
+    partialPath: currPath,
+    suffixDef: drop_default(targetDef, i)
+  });
+  return result;
+}
+function nextPossibleTokensAfter(initialDef, tokenVector, tokMatcher, maxLookAhead) {
+  const EXIT_NON_TERMINAL = "EXIT_NONE_TERMINAL";
+  const EXIT_NON_TERMINAL_ARR = [EXIT_NON_TERMINAL];
+  const EXIT_ALTERNATIVE = "EXIT_ALTERNATIVE";
+  let foundCompletePath = false;
+  const tokenVectorLength = tokenVector.length;
+  const minimalAlternativesIndex = tokenVectorLength - maxLookAhead - 1;
+  const result = [];
+  const possiblePaths = [];
+  possiblePaths.push({
+    idx: -1,
+    def: initialDef,
+    ruleStack: [],
+    occurrenceStack: []
+  });
+  while (!isEmpty_default(possiblePaths)) {
+    const currPath = possiblePaths.pop();
+    if (currPath === EXIT_ALTERNATIVE) {
+      if (foundCompletePath && last_default(possiblePaths).idx <= minimalAlternativesIndex) {
+        possiblePaths.pop();
+      }
+      continue;
+    }
+    const currDef = currPath.def;
+    const currIdx = currPath.idx;
+    const currRuleStack = currPath.ruleStack;
+    const currOccurrenceStack = currPath.occurrenceStack;
+    if (isEmpty_default(currDef)) {
+      continue;
+    }
+    const prod = currDef[0];
+    if (prod === EXIT_NON_TERMINAL) {
+      const nextPath = {
+        idx: currIdx,
+        def: drop_default(currDef),
+        ruleStack: dropRight_default(currRuleStack),
+        occurrenceStack: dropRight_default(currOccurrenceStack)
+      };
+      possiblePaths.push(nextPath);
+    } else if (prod instanceof Terminal) {
+      if (currIdx < tokenVectorLength - 1) {
+        const nextIdx = currIdx + 1;
+        const actualToken = tokenVector[nextIdx];
+        if (tokMatcher(actualToken, prod.terminalType)) {
+          const nextPath = {
+            idx: nextIdx,
+            def: drop_default(currDef),
+            ruleStack: currRuleStack,
+            occurrenceStack: currOccurrenceStack
+          };
+          possiblePaths.push(nextPath);
+        }
+      } else if (currIdx === tokenVectorLength - 1) {
+        result.push({
+          nextTokenType: prod.terminalType,
+          nextTokenOccurrence: prod.idx,
+          ruleStack: currRuleStack,
+          occurrenceStack: currOccurrenceStack
+        });
+        foundCompletePath = true;
+      } else {
+        throw Error("non exhaustive match");
+      }
+    } else if (prod instanceof NonTerminal) {
+      const newRuleStack = clone_default(currRuleStack);
+      newRuleStack.push(prod.nonTerminalName);
+      const newOccurrenceStack = clone_default(currOccurrenceStack);
+      newOccurrenceStack.push(prod.idx);
+      const nextPath = {
+        idx: currIdx,
+        def: prod.definition.concat(EXIT_NON_TERMINAL_ARR, drop_default(currDef)),
+        ruleStack: newRuleStack,
+        occurrenceStack: newOccurrenceStack
+      };
+      possiblePaths.push(nextPath);
+    } else if (prod instanceof Option) {
+      const nextPathWithout = {
+        idx: currIdx,
+        def: drop_default(currDef),
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPathWithout);
+      possiblePaths.push(EXIT_ALTERNATIVE);
+      const nextPathWith = {
+        idx: currIdx,
+        def: prod.definition.concat(drop_default(currDef)),
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPathWith);
+    } else if (prod instanceof RepetitionMandatory) {
+      const secondIteration = new Repetition({
+        definition: prod.definition,
+        idx: prod.idx
+      });
+      const nextDef = prod.definition.concat([secondIteration], drop_default(currDef));
+      const nextPath = {
+        idx: currIdx,
+        def: nextDef,
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPath);
+    } else if (prod instanceof RepetitionMandatoryWithSeparator) {
+      const separatorGast = new Terminal({
+        terminalType: prod.separator
+      });
+      const secondIteration = new Repetition({
+        definition: [separatorGast].concat(prod.definition),
+        idx: prod.idx
+      });
+      const nextDef = prod.definition.concat([secondIteration], drop_default(currDef));
+      const nextPath = {
+        idx: currIdx,
+        def: nextDef,
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPath);
+    } else if (prod instanceof RepetitionWithSeparator) {
+      const nextPathWithout = {
+        idx: currIdx,
+        def: drop_default(currDef),
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPathWithout);
+      possiblePaths.push(EXIT_ALTERNATIVE);
+      const separatorGast = new Terminal({
+        terminalType: prod.separator
+      });
+      const nthRepetition = new Repetition({
+        definition: [separatorGast].concat(prod.definition),
+        idx: prod.idx
+      });
+      const nextDef = prod.definition.concat([nthRepetition], drop_default(currDef));
+      const nextPathWith = {
+        idx: currIdx,
+        def: nextDef,
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPathWith);
+    } else if (prod instanceof Repetition) {
+      const nextPathWithout = {
+        idx: currIdx,
+        def: drop_default(currDef),
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPathWithout);
+      possiblePaths.push(EXIT_ALTERNATIVE);
+      const nthRepetition = new Repetition({
+        definition: prod.definition,
+        idx: prod.idx
+      });
+      const nextDef = prod.definition.concat([nthRepetition], drop_default(currDef));
+      const nextPathWith = {
+        idx: currIdx,
+        def: nextDef,
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      };
+      possiblePaths.push(nextPathWith);
+    } else if (prod instanceof Alternation) {
+      for (let i = prod.definition.length - 1; i >= 0; i--) {
+        const currAlt = prod.definition[i];
+        const currAltPath = {
+          idx: currIdx,
+          def: currAlt.definition.concat(drop_default(currDef)),
+          ruleStack: currRuleStack,
+          occurrenceStack: currOccurrenceStack
+        };
+        possiblePaths.push(currAltPath);
+        possiblePaths.push(EXIT_ALTERNATIVE);
+      }
+    } else if (prod instanceof Alternative) {
+      possiblePaths.push({
+        idx: currIdx,
+        def: prod.definition.concat(drop_default(currDef)),
+        ruleStack: currRuleStack,
+        occurrenceStack: currOccurrenceStack
+      });
+    } else if (prod instanceof Rule) {
+      possiblePaths.push(expandTopLevelRule(prod, currIdx, currRuleStack, currOccurrenceStack));
+    } else {
+      throw Error("non exhaustive match");
+    }
+  }
+  return result;
+}
+function expandTopLevelRule(topRule, currIdx, currRuleStack, currOccurrenceStack) {
+  const newRuleStack = clone_default(currRuleStack);
+  newRuleStack.push(topRule.name);
+  const newCurrOccurrenceStack = clone_default(currOccurrenceStack);
+  newCurrOccurrenceStack.push(1);
+  return {
+    idx: currIdx,
+    def: topRule.definition,
+    ruleStack: newRuleStack,
+    occurrenceStack: newCurrOccurrenceStack
+  };
+}
+
+// node_modules/chevrotain/lib/src/parse/grammar/lookahead.js
+var PROD_TYPE;
+(function(PROD_TYPE2) {
+  PROD_TYPE2[PROD_TYPE2["OPTION"] = 0] = "OPTION";
+  PROD_TYPE2[PROD_TYPE2["REPETITION"] = 1] = "REPETITION";
+  PROD_TYPE2[PROD_TYPE2["REPETITION_MANDATORY"] = 2] = "REPETITION_MANDATORY";
+  PROD_TYPE2[PROD_TYPE2["REPETITION_MANDATORY_WITH_SEPARATOR"] = 3] = "REPETITION_MANDATORY_WITH_SEPARATOR";
+  PROD_TYPE2[PROD_TYPE2["REPETITION_WITH_SEPARATOR"] = 4] = "REPETITION_WITH_SEPARATOR";
+  PROD_TYPE2[PROD_TYPE2["ALTERNATION"] = 5] = "ALTERNATION";
+})(PROD_TYPE || (PROD_TYPE = {}));
+function getProdType(prod) {
+  if (prod instanceof Option || prod === "Option") {
+    return PROD_TYPE.OPTION;
+  } else if (prod instanceof Repetition || prod === "Repetition") {
+    return PROD_TYPE.REPETITION;
+  } else if (prod instanceof RepetitionMandatory || prod === "RepetitionMandatory") {
+    return PROD_TYPE.REPETITION_MANDATORY;
+  } else if (prod instanceof RepetitionMandatoryWithSeparator || prod === "RepetitionMandatoryWithSeparator") {
+    return PROD_TYPE.REPETITION_MANDATORY_WITH_SEPARATOR;
+  } else if (prod instanceof RepetitionWithSeparator || prod === "RepetitionWithSeparator") {
+    return PROD_TYPE.REPETITION_WITH_SEPARATOR;
+  } else if (prod instanceof Alternation || prod === "Alternation") {
+    return PROD_TYPE.ALTERNATION;
+  } else {
+    throw Error("non exhaustive match");
+  }
+}
+function buildLookaheadFuncForOr(occurrence, ruleGrammar, maxLookahead, hasPredicates, dynamicTokensEnabled, laFuncBuilder) {
+  const lookAheadPaths = getLookaheadPathsForOr(occurrence, ruleGrammar, maxLookahead);
+  const tokenMatcher2 = areTokenCategoriesNotUsed(lookAheadPaths) ? tokenStructuredMatcherNoCategories : tokenStructuredMatcher;
+  return laFuncBuilder(lookAheadPaths, hasPredicates, tokenMatcher2, dynamicTokensEnabled);
+}
+function buildLookaheadFuncForOptionalProd(occurrence, ruleGrammar, k, dynamicTokensEnabled, prodType, lookaheadBuilder) {
+  const lookAheadPaths = getLookaheadPathsForOptionalProd(occurrence, ruleGrammar, prodType, k);
+  const tokenMatcher2 = areTokenCategoriesNotUsed(lookAheadPaths) ? tokenStructuredMatcherNoCategories : tokenStructuredMatcher;
+  return lookaheadBuilder(lookAheadPaths[0], tokenMatcher2, dynamicTokensEnabled);
+}
+function buildAlternativesLookAheadFunc(alts, hasPredicates, tokenMatcher2, dynamicTokensEnabled) {
+  const numOfAlts = alts.length;
+  const areAllOneTokenLookahead = every_default(alts, (currAlt) => {
+    return every_default(currAlt, (currPath) => {
+      return currPath.length === 1;
+    });
+  });
+  if (hasPredicates) {
+    return function(orAlts) {
+      const predicates = map_default(orAlts, (currAlt) => currAlt.GATE);
+      for (let t = 0; t < numOfAlts; t++) {
+        const currAlt = alts[t];
+        const currNumOfPaths = currAlt.length;
+        const currPredicate = predicates[t];
+        if (currPredicate !== void 0 && currPredicate.call(this) === false) {
+          continue;
+        }
+        nextPath:
+          for (let j = 0; j < currNumOfPaths; j++) {
+            const currPath = currAlt[j];
+            const currPathLength = currPath.length;
+            for (let i = 0; i < currPathLength; i++) {
+              const nextToken = this.LA(i + 1);
+              if (tokenMatcher2(nextToken, currPath[i]) === false) {
+                continue nextPath;
+              }
+            }
+            return t;
+          }
+      }
+      return void 0;
+    };
+  } else if (areAllOneTokenLookahead && !dynamicTokensEnabled) {
+    const singleTokenAlts = map_default(alts, (currAlt) => {
+      return flatten_default(currAlt);
+    });
+    const choiceToAlt = reduce_default(singleTokenAlts, (result, currAlt, idx) => {
+      forEach_default(currAlt, (currTokType) => {
+        if (!has_default(result, currTokType.tokenTypeIdx)) {
+          result[currTokType.tokenTypeIdx] = idx;
+        }
+        forEach_default(currTokType.categoryMatches, (currExtendingType) => {
+          if (!has_default(result, currExtendingType)) {
+            result[currExtendingType] = idx;
+          }
+        });
+      });
+      return result;
+    }, {});
+    return function() {
+      const nextToken = this.LA(1);
+      return choiceToAlt[nextToken.tokenTypeIdx];
+    };
+  } else {
+    return function() {
+      for (let t = 0; t < numOfAlts; t++) {
+        const currAlt = alts[t];
+        const currNumOfPaths = currAlt.length;
+        nextPath:
+          for (let j = 0; j < currNumOfPaths; j++) {
+            const currPath = currAlt[j];
+            const currPathLength = currPath.length;
+            for (let i = 0; i < currPathLength; i++) {
+              const nextToken = this.LA(i + 1);
+              if (tokenMatcher2(nextToken, currPath[i]) === false) {
+                continue nextPath;
+              }
+            }
+            return t;
+          }
+      }
+      return void 0;
+    };
+  }
+}
+function buildSingleAlternativeLookaheadFunction(alt, tokenMatcher2, dynamicTokensEnabled) {
+  const areAllOneTokenLookahead = every_default(alt, (currPath) => {
+    return currPath.length === 1;
+  });
+  const numOfPaths = alt.length;
+  if (areAllOneTokenLookahead && !dynamicTokensEnabled) {
+    const singleTokensTypes = flatten_default(alt);
+    if (singleTokensTypes.length === 1 && isEmpty_default(singleTokensTypes[0].categoryMatches)) {
+      const expectedTokenType = singleTokensTypes[0];
+      const expectedTokenUniqueKey = expectedTokenType.tokenTypeIdx;
+      return function() {
+        return this.LA(1).tokenTypeIdx === expectedTokenUniqueKey;
+      };
+    } else {
+      const choiceToAlt = reduce_default(singleTokensTypes, (result, currTokType, idx) => {
+        result[currTokType.tokenTypeIdx] = true;
+        forEach_default(currTokType.categoryMatches, (currExtendingType) => {
+          result[currExtendingType] = true;
+        });
+        return result;
+      }, []);
+      return function() {
+        const nextToken = this.LA(1);
+        return choiceToAlt[nextToken.tokenTypeIdx] === true;
+      };
+    }
+  } else {
+    return function() {
+      nextPath:
+        for (let j = 0; j < numOfPaths; j++) {
+          const currPath = alt[j];
+          const currPathLength = currPath.length;
+          for (let i = 0; i < currPathLength; i++) {
+            const nextToken = this.LA(i + 1);
+            if (tokenMatcher2(nextToken, currPath[i]) === false) {
+              continue nextPath;
+            }
+          }
+          return true;
+        }
+      return false;
+    };
+  }
+}
+var RestDefinitionFinderWalker = class extends RestWalker {
+  constructor(topProd, targetOccurrence, targetProdType) {
+    super();
+    this.topProd = topProd;
+    this.targetOccurrence = targetOccurrence;
+    this.targetProdType = targetProdType;
+  }
+  startWalking() {
+    this.walk(this.topProd);
+    return this.restDef;
+  }
+  checkIsTarget(node, expectedProdType, currRest, prevRest) {
+    if (node.idx === this.targetOccurrence && this.targetProdType === expectedProdType) {
+      this.restDef = currRest.concat(prevRest);
+      return true;
+    }
+    return false;
+  }
+  walkOption(optionProd, currRest, prevRest) {
+    if (!this.checkIsTarget(optionProd, PROD_TYPE.OPTION, currRest, prevRest)) {
+      super.walkOption(optionProd, currRest, prevRest);
+    }
+  }
+  walkAtLeastOne(atLeastOneProd, currRest, prevRest) {
+    if (!this.checkIsTarget(atLeastOneProd, PROD_TYPE.REPETITION_MANDATORY, currRest, prevRest)) {
+      super.walkOption(atLeastOneProd, currRest, prevRest);
+    }
+  }
+  walkAtLeastOneSep(atLeastOneSepProd, currRest, prevRest) {
+    if (!this.checkIsTarget(atLeastOneSepProd, PROD_TYPE.REPETITION_MANDATORY_WITH_SEPARATOR, currRest, prevRest)) {
+      super.walkOption(atLeastOneSepProd, currRest, prevRest);
+    }
+  }
+  walkMany(manyProd, currRest, prevRest) {
+    if (!this.checkIsTarget(manyProd, PROD_TYPE.REPETITION, currRest, prevRest)) {
+      super.walkOption(manyProd, currRest, prevRest);
+    }
+  }
+  walkManySep(manySepProd, currRest, prevRest) {
+    if (!this.checkIsTarget(manySepProd, PROD_TYPE.REPETITION_WITH_SEPARATOR, currRest, prevRest)) {
+      super.walkOption(manySepProd, currRest, prevRest);
+    }
+  }
+};
+var InsideDefinitionFinderVisitor = class extends GAstVisitor {
+  constructor(targetOccurrence, targetProdType, targetRef) {
+    super();
+    this.targetOccurrence = targetOccurrence;
+    this.targetProdType = targetProdType;
+    this.targetRef = targetRef;
+    this.result = [];
+  }
+  checkIsTarget(node, expectedProdName) {
+    if (node.idx === this.targetOccurrence && this.targetProdType === expectedProdName && (this.targetRef === void 0 || node === this.targetRef)) {
+      this.result = node.definition;
+    }
+  }
+  visitOption(node) {
+    this.checkIsTarget(node, PROD_TYPE.OPTION);
+  }
+  visitRepetition(node) {
+    this.checkIsTarget(node, PROD_TYPE.REPETITION);
+  }
+  visitRepetitionMandatory(node) {
+    this.checkIsTarget(node, PROD_TYPE.REPETITION_MANDATORY);
+  }
+  visitRepetitionMandatoryWithSeparator(node) {
+    this.checkIsTarget(node, PROD_TYPE.REPETITION_MANDATORY_WITH_SEPARATOR);
+  }
+  visitRepetitionWithSeparator(node) {
+    this.checkIsTarget(node, PROD_TYPE.REPETITION_WITH_SEPARATOR);
+  }
+  visitAlternation(node) {
+    this.checkIsTarget(node, PROD_TYPE.ALTERNATION);
+  }
+};
+function initializeArrayOfArrays(size) {
+  const result = new Array(size);
+  for (let i = 0; i < size; i++) {
+    result[i] = [];
+  }
+  return result;
+}
+function pathToHashKeys(path) {
+  let keys2 = [""];
+  for (let i = 0; i < path.length; i++) {
+    const tokType = path[i];
+    const longerKeys = [];
+    for (let j = 0; j < keys2.length; j++) {
+      const currShorterKey = keys2[j];
+      longerKeys.push(currShorterKey + "_" + tokType.tokenTypeIdx);
+      for (let t = 0; t < tokType.categoryMatches.length; t++) {
+        const categoriesKeySuffix = "_" + tokType.categoryMatches[t];
+        longerKeys.push(currShorterKey + categoriesKeySuffix);
+      }
+    }
+    keys2 = longerKeys;
+  }
+  return keys2;
+}
+function isUniquePrefixHash(altKnownPathsKeys, searchPathKeys, idx) {
+  for (let currAltIdx = 0; currAltIdx < altKnownPathsKeys.length; currAltIdx++) {
+    if (currAltIdx === idx) {
+      continue;
+    }
+    const otherAltKnownPathsKeys = altKnownPathsKeys[currAltIdx];
+    for (let searchIdx = 0; searchIdx < searchPathKeys.length; searchIdx++) {
+      const searchKey = searchPathKeys[searchIdx];
+      if (otherAltKnownPathsKeys[searchKey] === true) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+function lookAheadSequenceFromAlternatives(altsDefs, k) {
+  const partialAlts = map_default(altsDefs, (currAlt) => possiblePathsFrom([currAlt], 1));
+  const finalResult = initializeArrayOfArrays(partialAlts.length);
+  const altsHashes = map_default(partialAlts, (currAltPaths) => {
+    const dict = {};
+    forEach_default(currAltPaths, (item) => {
+      const keys2 = pathToHashKeys(item.partialPath);
+      forEach_default(keys2, (currKey) => {
+        dict[currKey] = true;
+      });
+    });
+    return dict;
+  });
+  let newData = partialAlts;
+  for (let pathLength = 1; pathLength <= k; pathLength++) {
+    const currDataset = newData;
+    newData = initializeArrayOfArrays(currDataset.length);
+    for (let altIdx = 0; altIdx < currDataset.length; altIdx++) {
+      const currAltPathsAndSuffixes = currDataset[altIdx];
+      for (let currPathIdx = 0; currPathIdx < currAltPathsAndSuffixes.length; currPathIdx++) {
+        const currPathPrefix = currAltPathsAndSuffixes[currPathIdx].partialPath;
+        const suffixDef = currAltPathsAndSuffixes[currPathIdx].suffixDef;
+        const prefixKeys = pathToHashKeys(currPathPrefix);
+        const isUnique = isUniquePrefixHash(altsHashes, prefixKeys, altIdx);
+        if (isUnique || isEmpty_default(suffixDef) || currPathPrefix.length === k) {
+          const currAltResult = finalResult[altIdx];
+          if (containsPath(currAltResult, currPathPrefix) === false) {
+            currAltResult.push(currPathPrefix);
+            for (let j = 0; j < prefixKeys.length; j++) {
+              const currKey = prefixKeys[j];
+              altsHashes[altIdx][currKey] = true;
+            }
+          }
+        } else {
+          const newPartialPathsAndSuffixes = possiblePathsFrom(suffixDef, pathLength + 1, currPathPrefix);
+          newData[altIdx] = newData[altIdx].concat(newPartialPathsAndSuffixes);
+          forEach_default(newPartialPathsAndSuffixes, (item) => {
+            const prefixKeys2 = pathToHashKeys(item.partialPath);
+            forEach_default(prefixKeys2, (key) => {
+              altsHashes[altIdx][key] = true;
+            });
+          });
+        }
+      }
+    }
+  }
+  return finalResult;
+}
+function getLookaheadPathsForOr(occurrence, ruleGrammar, k, orProd) {
+  const visitor = new InsideDefinitionFinderVisitor(occurrence, PROD_TYPE.ALTERNATION, orProd);
+  ruleGrammar.accept(visitor);
+  return lookAheadSequenceFromAlternatives(visitor.result, k);
+}
+function getLookaheadPathsForOptionalProd(occurrence, ruleGrammar, prodType, k) {
+  const insideDefVisitor = new InsideDefinitionFinderVisitor(occurrence, prodType);
+  ruleGrammar.accept(insideDefVisitor);
+  const insideDef = insideDefVisitor.result;
+  const afterDefWalker = new RestDefinitionFinderWalker(ruleGrammar, occurrence, prodType);
+  const afterDef = afterDefWalker.startWalking();
+  const insideFlat = new Alternative({ definition: insideDef });
+  const afterFlat = new Alternative({ definition: afterDef });
+  return lookAheadSequenceFromAlternatives([insideFlat, afterFlat], k);
+}
+function containsPath(alternative, searchPath) {
+  compareOtherPath:
+    for (let i = 0; i < alternative.length; i++) {
+      const otherPath = alternative[i];
+      if (otherPath.length !== searchPath.length) {
+        continue;
+      }
+      for (let j = 0; j < otherPath.length; j++) {
+        const searchTok = searchPath[j];
+        const otherTok = otherPath[j];
+        const matchingTokens = searchTok === otherTok || otherTok.categoryMatchesMap[searchTok.tokenTypeIdx] !== void 0;
+        if (matchingTokens === false) {
+          continue compareOtherPath;
+        }
+      }
+      return true;
+    }
+  return false;
+}
+function isStrictPrefixOfPath(prefix, other) {
+  return prefix.length < other.length && every_default(prefix, (tokType, idx) => {
+    const otherTokType = other[idx];
+    return tokType === otherTokType || otherTokType.categoryMatchesMap[tokType.tokenTypeIdx];
+  });
+}
+function areTokenCategoriesNotUsed(lookAheadPaths) {
+  return every_default(lookAheadPaths, (singleAltPaths) => every_default(singleAltPaths, (singlePath) => every_default(singlePath, (token) => isEmpty_default(token.categoryMatches))));
+}
+
+// node_modules/chevrotain/lib/src/parse/grammar/checks.js
+function validateLookahead(options) {
+  const lookaheadValidationErrorMessages = options.lookaheadStrategy.validate({
+    rules: options.rules,
+    tokenTypes: options.tokenTypes,
+    grammarName: options.grammarName
+  });
+  return map_default(lookaheadValidationErrorMessages, (errorMessage) => Object.assign({ type: ParserDefinitionErrorType.CUSTOM_LOOKAHEAD_VALIDATION }, errorMessage));
+}
+function validateGrammar(topLevels, tokenTypes, errMsgProvider, grammarName) {
+  const duplicateErrors = flatMap_default(topLevels, (currTopLevel) => validateDuplicateProductions(currTopLevel, errMsgProvider));
+  const termsNamespaceConflictErrors = checkTerminalAndNoneTerminalsNameSpace(topLevels, tokenTypes, errMsgProvider);
+  const tooManyAltsErrors = flatMap_default(topLevels, (curRule) => validateTooManyAlts(curRule, errMsgProvider));
+  const duplicateRulesError = flatMap_default(topLevels, (curRule) => validateRuleDoesNotAlreadyExist(curRule, topLevels, grammarName, errMsgProvider));
+  return duplicateErrors.concat(termsNamespaceConflictErrors, tooManyAltsErrors, duplicateRulesError);
+}
+function validateDuplicateProductions(topLevelRule, errMsgProvider) {
+  const collectorVisitor2 = new OccurrenceValidationCollector();
+  topLevelRule.accept(collectorVisitor2);
+  const allRuleProductions = collectorVisitor2.allProductions;
+  const productionGroups = groupBy_default(allRuleProductions, identifyProductionForDuplicates);
+  const duplicates = pickBy_default(productionGroups, (currGroup) => {
+    return currGroup.length > 1;
+  });
+  const errors = map_default(values_default(duplicates), (currDuplicates) => {
+    const firstProd = head_default(currDuplicates);
+    const msg = errMsgProvider.buildDuplicateFoundError(topLevelRule, currDuplicates);
+    const dslName = getProductionDslName(firstProd);
+    const defError = {
+      message: msg,
+      type: ParserDefinitionErrorType.DUPLICATE_PRODUCTIONS,
+      ruleName: topLevelRule.name,
+      dslName,
+      occurrence: firstProd.idx
+    };
+    const param = getExtraProductionArgument(firstProd);
+    if (param) {
+      defError.parameter = param;
+    }
+    return defError;
+  });
+  return errors;
+}
+function identifyProductionForDuplicates(prod) {
+  return `${getProductionDslName(prod)}_#_${prod.idx}_#_${getExtraProductionArgument(prod)}`;
+}
+function getExtraProductionArgument(prod) {
+  if (prod instanceof Terminal) {
+    return prod.terminalType.name;
+  } else if (prod instanceof NonTerminal) {
+    return prod.nonTerminalName;
+  } else {
+    return "";
+  }
+}
+var OccurrenceValidationCollector = class extends GAstVisitor {
+  constructor() {
+    super(...arguments);
+    this.allProductions = [];
+  }
+  visitNonTerminal(subrule) {
+    this.allProductions.push(subrule);
+  }
+  visitOption(option) {
+    this.allProductions.push(option);
+  }
+  visitRepetitionWithSeparator(manySep) {
+    this.allProductions.push(manySep);
+  }
+  visitRepetitionMandatory(atLeastOne) {
+    this.allProductions.push(atLeastOne);
+  }
+  visitRepetitionMandatoryWithSeparator(atLeastOneSep) {
+    this.allProductions.push(atLeastOneSep);
+  }
+  visitRepetition(many) {
+    this.allProductions.push(many);
+  }
+  visitAlternation(or) {
+    this.allProductions.push(or);
+  }
+  visitTerminal(terminal) {
+    this.allProductions.push(terminal);
+  }
+};
+function validateRuleDoesNotAlreadyExist(rule, allRules, className, errMsgProvider) {
+  const errors = [];
+  const occurrences = reduce_default(allRules, (result, curRule) => {
+    if (curRule.name === rule.name) {
+      return result + 1;
+    }
+    return result;
+  }, 0);
+  if (occurrences > 1) {
+    const errMsg = errMsgProvider.buildDuplicateRuleNameError({
+      topLevelRule: rule,
+      grammarName: className
+    });
+    errors.push({
+      message: errMsg,
+      type: ParserDefinitionErrorType.DUPLICATE_RULE_NAME,
+      ruleName: rule.name
+    });
+  }
+  return errors;
+}
+function validateRuleIsOverridden(ruleName, definedRulesNames, className) {
+  const errors = [];
+  let errMsg;
+  if (!includes_default(definedRulesNames, ruleName)) {
+    errMsg = `Invalid rule override, rule: ->${ruleName}<- cannot be overridden in the grammar: ->${className}<-as it is not defined in any of the super grammars `;
+    errors.push({
+      message: errMsg,
+      type: ParserDefinitionErrorType.INVALID_RULE_OVERRIDE,
+      ruleName
+    });
+  }
+  return errors;
+}
+function validateNoLeftRecursion(topRule, currRule, errMsgProvider, path = []) {
+  const errors = [];
+  const nextNonTerminals = getFirstNoneTerminal(currRule.definition);
+  if (isEmpty_default(nextNonTerminals)) {
+    return [];
+  } else {
+    const ruleName = topRule.name;
+    const foundLeftRecursion = includes_default(nextNonTerminals, topRule);
+    if (foundLeftRecursion) {
+      errors.push({
+        message: errMsgProvider.buildLeftRecursionError({
+          topLevelRule: topRule,
+          leftRecursionPath: path
+        }),
+        type: ParserDefinitionErrorType.LEFT_RECURSION,
+        ruleName
+      });
+    }
+    const validNextSteps = difference_default(nextNonTerminals, path.concat([topRule]));
+    const errorsFromNextSteps = flatMap_default(validNextSteps, (currRefRule) => {
+      const newPath = clone_default(path);
+      newPath.push(currRefRule);
+      return validateNoLeftRecursion(topRule, currRefRule, errMsgProvider, newPath);
+    });
+    return errors.concat(errorsFromNextSteps);
+  }
+}
+function getFirstNoneTerminal(definition) {
+  let result = [];
+  if (isEmpty_default(definition)) {
+    return result;
+  }
+  const firstProd = head_default(definition);
+  if (firstProd instanceof NonTerminal) {
+    result.push(firstProd.referencedRule);
+  } else if (firstProd instanceof Alternative || firstProd instanceof Option || firstProd instanceof RepetitionMandatory || firstProd instanceof RepetitionMandatoryWithSeparator || firstProd instanceof RepetitionWithSeparator || firstProd instanceof Repetition) {
+    result = result.concat(getFirstNoneTerminal(firstProd.definition));
+  } else if (firstProd instanceof Alternation) {
+    result = flatten_default(map_default(firstProd.definition, (currSubDef) => getFirstNoneTerminal(currSubDef.definition)));
+  } else if (firstProd instanceof Terminal) {
+  } else {
+    throw Error("non exhaustive match");
+  }
+  const isFirstOptional = isOptionalProd(firstProd);
+  const hasMore = definition.length > 1;
+  if (isFirstOptional && hasMore) {
+    const rest = drop_default(definition);
+    return result.concat(getFirstNoneTerminal(rest));
+  } else {
+    return result;
+  }
+}
+var OrCollector = class extends GAstVisitor {
+  constructor() {
+    super(...arguments);
+    this.alternations = [];
+  }
+  visitAlternation(node) {
+    this.alternations.push(node);
+  }
+};
+function validateEmptyOrAlternative(topLevelRule, errMsgProvider) {
+  const orCollector = new OrCollector();
+  topLevelRule.accept(orCollector);
+  const ors = orCollector.alternations;
+  const errors = flatMap_default(ors, (currOr) => {
+    const exceptLast = dropRight_default(currOr.definition);
+    return flatMap_default(exceptLast, (currAlternative, currAltIdx) => {
+      const possibleFirstInAlt = nextPossibleTokensAfter([currAlternative], [], tokenStructuredMatcher, 1);
+      if (isEmpty_default(possibleFirstInAlt)) {
+        return [
+          {
+            message: errMsgProvider.buildEmptyAlternationError({
+              topLevelRule,
+              alternation: currOr,
+              emptyChoiceIdx: currAltIdx
+            }),
+            type: ParserDefinitionErrorType.NONE_LAST_EMPTY_ALT,
+            ruleName: topLevelRule.name,
+            occurrence: currOr.idx,
+            alternative: currAltIdx + 1
+          }
+        ];
+      } else {
+        return [];
+      }
+    });
+  });
+  return errors;
+}
+function validateAmbiguousAlternationAlternatives(topLevelRule, globalMaxLookahead, errMsgProvider) {
+  const orCollector = new OrCollector();
+  topLevelRule.accept(orCollector);
+  let ors = orCollector.alternations;
+  ors = reject_default(ors, (currOr) => currOr.ignoreAmbiguities === true);
+  const errors = flatMap_default(ors, (currOr) => {
+    const currOccurrence = currOr.idx;
+    const actualMaxLookahead = currOr.maxLookahead || globalMaxLookahead;
+    const alternatives = getLookaheadPathsForOr(currOccurrence, topLevelRule, actualMaxLookahead, currOr);
+    const altsAmbiguityErrors = checkAlternativesAmbiguities(alternatives, currOr, topLevelRule, errMsgProvider);
+    const altsPrefixAmbiguityErrors = checkPrefixAlternativesAmbiguities(alternatives, currOr, topLevelRule, errMsgProvider);
+    return altsAmbiguityErrors.concat(altsPrefixAmbiguityErrors);
+  });
+  return errors;
+}
+var RepetitionCollector = class extends GAstVisitor {
+  constructor() {
+    super(...arguments);
+    this.allProductions = [];
+  }
+  visitRepetitionWithSeparator(manySep) {
+    this.allProductions.push(manySep);
+  }
+  visitRepetitionMandatory(atLeastOne) {
+    this.allProductions.push(atLeastOne);
+  }
+  visitRepetitionMandatoryWithSeparator(atLeastOneSep) {
+    this.allProductions.push(atLeastOneSep);
+  }
+  visitRepetition(many) {
+    this.allProductions.push(many);
+  }
+};
+function validateTooManyAlts(topLevelRule, errMsgProvider) {
+  const orCollector = new OrCollector();
+  topLevelRule.accept(orCollector);
+  const ors = orCollector.alternations;
+  const errors = flatMap_default(ors, (currOr) => {
+    if (currOr.definition.length > 255) {
+      return [
+        {
+          message: errMsgProvider.buildTooManyAlternativesError({
+            topLevelRule,
+            alternation: currOr
+          }),
+          type: ParserDefinitionErrorType.TOO_MANY_ALTS,
+          ruleName: topLevelRule.name,
+          occurrence: currOr.idx
+        }
+      ];
+    } else {
+      return [];
+    }
+  });
+  return errors;
+}
+function validateSomeNonEmptyLookaheadPath(topLevelRules, maxLookahead, errMsgProvider) {
+  const errors = [];
+  forEach_default(topLevelRules, (currTopRule) => {
+    const collectorVisitor2 = new RepetitionCollector();
+    currTopRule.accept(collectorVisitor2);
+    const allRuleProductions = collectorVisitor2.allProductions;
+    forEach_default(allRuleProductions, (currProd) => {
+      const prodType = getProdType(currProd);
+      const actualMaxLookahead = currProd.maxLookahead || maxLookahead;
+      const currOccurrence = currProd.idx;
+      const paths = getLookaheadPathsForOptionalProd(currOccurrence, currTopRule, prodType, actualMaxLookahead);
+      const pathsInsideProduction = paths[0];
+      if (isEmpty_default(flatten_default(pathsInsideProduction))) {
+        const errMsg = errMsgProvider.buildEmptyRepetitionError({
+          topLevelRule: currTopRule,
+          repetition: currProd
+        });
+        errors.push({
+          message: errMsg,
+          type: ParserDefinitionErrorType.NO_NON_EMPTY_LOOKAHEAD,
+          ruleName: currTopRule.name
+        });
+      }
+    });
+  });
+  return errors;
+}
+function checkAlternativesAmbiguities(alternatives, alternation, rule, errMsgProvider) {
+  const foundAmbiguousPaths = [];
+  const identicalAmbiguities = reduce_default(alternatives, (result, currAlt, currAltIdx) => {
+    if (alternation.definition[currAltIdx].ignoreAmbiguities === true) {
+      return result;
+    }
+    forEach_default(currAlt, (currPath) => {
+      const altsCurrPathAppearsIn = [currAltIdx];
+      forEach_default(alternatives, (currOtherAlt, currOtherAltIdx) => {
+        if (currAltIdx !== currOtherAltIdx && containsPath(currOtherAlt, currPath) && // ignore (skip) ambiguities with this "other" alternative
+        alternation.definition[currOtherAltIdx].ignoreAmbiguities !== true) {
+          altsCurrPathAppearsIn.push(currOtherAltIdx);
+        }
+      });
+      if (altsCurrPathAppearsIn.length > 1 && !containsPath(foundAmbiguousPaths, currPath)) {
+        foundAmbiguousPaths.push(currPath);
+        result.push({
+          alts: altsCurrPathAppearsIn,
+          path: currPath
+        });
+      }
+    });
+    return result;
+  }, []);
+  const currErrors = map_default(identicalAmbiguities, (currAmbDescriptor) => {
+    const ambgIndices = map_default(currAmbDescriptor.alts, (currAltIdx) => currAltIdx + 1);
+    const currMessage = errMsgProvider.buildAlternationAmbiguityError({
+      topLevelRule: rule,
+      alternation,
+      ambiguityIndices: ambgIndices,
+      prefixPath: currAmbDescriptor.path
+    });
+    return {
+      message: currMessage,
+      type: ParserDefinitionErrorType.AMBIGUOUS_ALTS,
+      ruleName: rule.name,
+      occurrence: alternation.idx,
+      alternatives: currAmbDescriptor.alts
+    };
+  });
+  return currErrors;
+}
+function checkPrefixAlternativesAmbiguities(alternatives, alternation, rule, errMsgProvider) {
+  const pathsAndIndices = reduce_default(alternatives, (result, currAlt, idx) => {
+    const currPathsAndIdx = map_default(currAlt, (currPath) => {
+      return { idx, path: currPath };
+    });
+    return result.concat(currPathsAndIdx);
+  }, []);
+  const errors = compact_default(flatMap_default(pathsAndIndices, (currPathAndIdx) => {
+    const alternativeGast = alternation.definition[currPathAndIdx.idx];
+    if (alternativeGast.ignoreAmbiguities === true) {
+      return [];
+    }
+    const targetIdx = currPathAndIdx.idx;
+    const targetPath = currPathAndIdx.path;
+    const prefixAmbiguitiesPathsAndIndices = filter_default(pathsAndIndices, (searchPathAndIdx) => {
+      return (
+        // ignore (skip) ambiguities with this "other" alternative
+        alternation.definition[searchPathAndIdx.idx].ignoreAmbiguities !== true && searchPathAndIdx.idx < targetIdx && // checking for strict prefix because identical lookaheads
+        // will be be detected using a different validation.
+        isStrictPrefixOfPath(searchPathAndIdx.path, targetPath)
+      );
+    });
+    const currPathPrefixErrors = map_default(prefixAmbiguitiesPathsAndIndices, (currAmbPathAndIdx) => {
+      const ambgIndices = [currAmbPathAndIdx.idx + 1, targetIdx + 1];
+      const occurrence = alternation.idx === 0 ? "" : alternation.idx;
+      const message = errMsgProvider.buildAlternationPrefixAmbiguityError({
+        topLevelRule: rule,
+        alternation,
+        ambiguityIndices: ambgIndices,
+        prefixPath: currAmbPathAndIdx.path
+      });
+      return {
+        message,
+        type: ParserDefinitionErrorType.AMBIGUOUS_PREFIX_ALTS,
+        ruleName: rule.name,
+        occurrence,
+        alternatives: ambgIndices
+      };
+    });
+    return currPathPrefixErrors;
+  }));
+  return errors;
+}
+function checkTerminalAndNoneTerminalsNameSpace(topLevels, tokenTypes, errMsgProvider) {
+  const errors = [];
+  const tokenNames = map_default(tokenTypes, (currToken) => currToken.name);
+  forEach_default(topLevels, (currRule) => {
+    const currRuleName = currRule.name;
+    if (includes_default(tokenNames, currRuleName)) {
+      const errMsg = errMsgProvider.buildNamespaceConflictError(currRule);
+      errors.push({
+        message: errMsg,
+        type: ParserDefinitionErrorType.CONFLICT_TOKENS_RULES_NAMESPACE,
+        ruleName: currRuleName
+      });
+    }
+  });
+  return errors;
+}
+
+// node_modules/chevrotain/lib/src/parse/grammar/gast/gast_resolver_public.js
+function resolveGrammar2(options) {
+  const actualOptions = defaults_default(options, {
+    errMsgProvider: defaultGrammarResolverErrorProvider
+  });
+  const topRulesTable = {};
+  forEach_default(options.rules, (rule) => {
+    topRulesTable[rule.name] = rule;
+  });
+  return resolveGrammar(topRulesTable, actualOptions.errMsgProvider);
+}
+function validateGrammar2(options) {
+  options = defaults_default(options, {
+    errMsgProvider: defaultGrammarValidatorErrorProvider
+  });
+  return validateGrammar(options.rules, options.tokenTypes, options.errMsgProvider, options.grammarName);
+}
+
+// node_modules/chevrotain/lib/src/parse/exceptions_public.js
+var MISMATCHED_TOKEN_EXCEPTION = "MismatchedTokenException";
+var NO_VIABLE_ALT_EXCEPTION = "NoViableAltException";
+var EARLY_EXIT_EXCEPTION = "EarlyExitException";
+var NOT_ALL_INPUT_PARSED_EXCEPTION = "NotAllInputParsedException";
+var RECOGNITION_EXCEPTION_NAMES = [
+  MISMATCHED_TOKEN_EXCEPTION,
+  NO_VIABLE_ALT_EXCEPTION,
+  EARLY_EXIT_EXCEPTION,
+  NOT_ALL_INPUT_PARSED_EXCEPTION
+];
+Object.freeze(RECOGNITION_EXCEPTION_NAMES);
+function isRecognitionException(error) {
+  return includes_default(RECOGNITION_EXCEPTION_NAMES, error.name);
+}
+var RecognitionException = class extends Error {
+  constructor(message, token) {
+    super(message);
+    this.token = token;
+    this.resyncedTokens = [];
+    Object.setPrototypeOf(this, new.target.prototype);
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
+  }
+};
+var MismatchedTokenException = class extends RecognitionException {
+  constructor(message, token, previousToken) {
+    super(message, token);
+    this.previousToken = previousToken;
+    this.name = MISMATCHED_TOKEN_EXCEPTION;
+  }
+};
+var NoViableAltException = class extends RecognitionException {
+  constructor(message, token, previousToken) {
+    super(message, token);
+    this.previousToken = previousToken;
+    this.name = NO_VIABLE_ALT_EXCEPTION;
+  }
+};
+var NotAllInputParsedException = class extends RecognitionException {
+  constructor(message, token) {
+    super(message, token);
+    this.name = NOT_ALL_INPUT_PARSED_EXCEPTION;
+  }
+};
+var EarlyExitException = class extends RecognitionException {
+  constructor(message, token, previousToken) {
+    super(message, token);
+    this.previousToken = previousToken;
+    this.name = EARLY_EXIT_EXCEPTION;
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/recoverable.js
+var EOF_FOLLOW_KEY = {};
+var IN_RULE_RECOVERY_EXCEPTION = "InRuleRecoveryException";
+var InRuleRecoveryException = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = IN_RULE_RECOVERY_EXCEPTION;
+  }
+};
+var Recoverable = class {
+  initRecoverable(config) {
+    this.firstAfterRepMap = {};
+    this.resyncFollows = {};
+    this.recoveryEnabled = has_default(config, "recoveryEnabled") ? config.recoveryEnabled : DEFAULT_PARSER_CONFIG.recoveryEnabled;
+    if (this.recoveryEnabled) {
+      this.attemptInRepetitionRecovery = attemptInRepetitionRecovery;
+    }
+  }
+  getTokenToInsert(tokType) {
+    const tokToInsert = createTokenInstance(tokType, "", NaN, NaN, NaN, NaN, NaN, NaN);
+    tokToInsert.isInsertedInRecovery = true;
+    return tokToInsert;
+  }
+  canTokenTypeBeInsertedInRecovery(tokType) {
+    return true;
+  }
+  canTokenTypeBeDeletedInRecovery(tokType) {
+    return true;
+  }
+  tryInRepetitionRecovery(grammarRule, grammarRuleArgs, lookAheadFunc, expectedTokType) {
+    const reSyncTokType = this.findReSyncTokenType();
+    const savedLexerState = this.exportLexerState();
+    const resyncedTokens = [];
+    let passedResyncPoint = false;
+    const nextTokenWithoutResync = this.LA(1);
+    let currToken = this.LA(1);
+    const generateErrorMessage = () => {
+      const previousToken = this.LA(0);
+      const msg = this.errorMessageProvider.buildMismatchTokenMessage({
+        expected: expectedTokType,
+        actual: nextTokenWithoutResync,
+        previous: previousToken,
+        ruleName: this.getCurrRuleFullName()
+      });
+      const error = new MismatchedTokenException(msg, nextTokenWithoutResync, this.LA(0));
+      error.resyncedTokens = dropRight_default(resyncedTokens);
+      this.SAVE_ERROR(error);
+    };
+    while (!passedResyncPoint) {
+      if (this.tokenMatcher(currToken, expectedTokType)) {
+        generateErrorMessage();
+        return;
+      } else if (lookAheadFunc.call(this)) {
+        generateErrorMessage();
+        grammarRule.apply(this, grammarRuleArgs);
+        return;
+      } else if (this.tokenMatcher(currToken, reSyncTokType)) {
+        passedResyncPoint = true;
+      } else {
+        currToken = this.SKIP_TOKEN();
+        this.addToResyncTokens(currToken, resyncedTokens);
+      }
+    }
+    this.importLexerState(savedLexerState);
+  }
+  shouldInRepetitionRecoveryBeTried(expectTokAfterLastMatch, nextTokIdx, notStuck) {
+    if (notStuck === false) {
+      return false;
+    }
+    if (this.tokenMatcher(this.LA(1), expectTokAfterLastMatch)) {
+      return false;
+    }
+    if (this.isBackTracking()) {
+      return false;
+    }
+    if (this.canPerformInRuleRecovery(expectTokAfterLastMatch, this.getFollowsForInRuleRecovery(expectTokAfterLastMatch, nextTokIdx))) {
+      return false;
+    }
+    return true;
+  }
+  // Error Recovery functionality
+  getFollowsForInRuleRecovery(tokType, tokIdxInRule) {
+    const grammarPath = this.getCurrentGrammarPath(tokType, tokIdxInRule);
+    const follows = this.getNextPossibleTokenTypes(grammarPath);
+    return follows;
+  }
+  tryInRuleRecovery(expectedTokType, follows) {
+    if (this.canRecoverWithSingleTokenInsertion(expectedTokType, follows)) {
+      const tokToInsert = this.getTokenToInsert(expectedTokType);
+      return tokToInsert;
+    }
+    if (this.canRecoverWithSingleTokenDeletion(expectedTokType)) {
+      const nextTok = this.SKIP_TOKEN();
+      this.consumeToken();
+      return nextTok;
+    }
+    throw new InRuleRecoveryException("sad sad panda");
+  }
+  canPerformInRuleRecovery(expectedToken, follows) {
+    return this.canRecoverWithSingleTokenInsertion(expectedToken, follows) || this.canRecoverWithSingleTokenDeletion(expectedToken);
+  }
+  canRecoverWithSingleTokenInsertion(expectedTokType, follows) {
+    if (!this.canTokenTypeBeInsertedInRecovery(expectedTokType)) {
+      return false;
+    }
+    if (isEmpty_default(follows)) {
+      return false;
+    }
+    const mismatchedTok = this.LA(1);
+    const isMisMatchedTokInFollows = find_default(follows, (possibleFollowsTokType) => {
+      return this.tokenMatcher(mismatchedTok, possibleFollowsTokType);
+    }) !== void 0;
+    return isMisMatchedTokInFollows;
+  }
+  canRecoverWithSingleTokenDeletion(expectedTokType) {
+    if (!this.canTokenTypeBeDeletedInRecovery(expectedTokType)) {
+      return false;
+    }
+    const isNextTokenWhatIsExpected = this.tokenMatcher(this.LA(2), expectedTokType);
+    return isNextTokenWhatIsExpected;
+  }
+  isInCurrentRuleReSyncSet(tokenTypeIdx) {
+    const followKey = this.getCurrFollowKey();
+    const currentRuleReSyncSet = this.getFollowSetFromFollowKey(followKey);
+    return includes_default(currentRuleReSyncSet, tokenTypeIdx);
+  }
+  findReSyncTokenType() {
+    const allPossibleReSyncTokTypes = this.flattenFollowSet();
+    let nextToken = this.LA(1);
+    let k = 2;
+    while (true) {
+      const foundMatch = find_default(allPossibleReSyncTokTypes, (resyncTokType) => {
+        const canMatch = tokenMatcher(nextToken, resyncTokType);
+        return canMatch;
+      });
+      if (foundMatch !== void 0) {
+        return foundMatch;
+      }
+      nextToken = this.LA(k);
+      k++;
+    }
+  }
+  getCurrFollowKey() {
+    if (this.RULE_STACK.length === 1) {
+      return EOF_FOLLOW_KEY;
+    }
+    const currRuleShortName = this.getLastExplicitRuleShortName();
+    const currRuleIdx = this.getLastExplicitRuleOccurrenceIndex();
+    const prevRuleShortName = this.getPreviousExplicitRuleShortName();
+    return {
+      ruleName: this.shortRuleNameToFullName(currRuleShortName),
+      idxInCallingRule: currRuleIdx,
+      inRule: this.shortRuleNameToFullName(prevRuleShortName)
+    };
+  }
+  buildFullFollowKeyStack() {
+    const explicitRuleStack = this.RULE_STACK;
+    const explicitOccurrenceStack = this.RULE_OCCURRENCE_STACK;
+    return map_default(explicitRuleStack, (ruleName, idx) => {
+      if (idx === 0) {
+        return EOF_FOLLOW_KEY;
+      }
+      return {
+        ruleName: this.shortRuleNameToFullName(ruleName),
+        idxInCallingRule: explicitOccurrenceStack[idx],
+        inRule: this.shortRuleNameToFullName(explicitRuleStack[idx - 1])
+      };
+    });
+  }
+  flattenFollowSet() {
+    const followStack = map_default(this.buildFullFollowKeyStack(), (currKey) => {
+      return this.getFollowSetFromFollowKey(currKey);
+    });
+    return flatten_default(followStack);
+  }
+  getFollowSetFromFollowKey(followKey) {
+    if (followKey === EOF_FOLLOW_KEY) {
+      return [EOF];
+    }
+    const followName = followKey.ruleName + followKey.idxInCallingRule + IN + followKey.inRule;
+    return this.resyncFollows[followName];
+  }
+  // It does not make any sense to include a virtual EOF token in the list of resynced tokens
+  // as EOF does not really exist and thus does not contain any useful information (line/column numbers)
+  addToResyncTokens(token, resyncTokens) {
+    if (!this.tokenMatcher(token, EOF)) {
+      resyncTokens.push(token);
+    }
+    return resyncTokens;
+  }
+  reSyncTo(tokType) {
+    const resyncedTokens = [];
+    let nextTok = this.LA(1);
+    while (this.tokenMatcher(nextTok, tokType) === false) {
+      nextTok = this.SKIP_TOKEN();
+      this.addToResyncTokens(nextTok, resyncedTokens);
+    }
+    return dropRight_default(resyncedTokens);
+  }
+  attemptInRepetitionRecovery(prodFunc, args, lookaheadFunc, dslMethodIdx, prodOccurrence, nextToksWalker, notStuck) {
+  }
+  getCurrentGrammarPath(tokType, tokIdxInRule) {
+    const pathRuleStack = this.getHumanReadableRuleStack();
+    const pathOccurrenceStack = clone_default(this.RULE_OCCURRENCE_STACK);
+    const grammarPath = {
+      ruleStack: pathRuleStack,
+      occurrenceStack: pathOccurrenceStack,
+      lastTok: tokType,
+      lastTokOccurrence: tokIdxInRule
+    };
+    return grammarPath;
+  }
+  getHumanReadableRuleStack() {
+    return map_default(this.RULE_STACK, (currShortName) => this.shortRuleNameToFullName(currShortName));
+  }
+};
+function attemptInRepetitionRecovery(prodFunc, args, lookaheadFunc, dslMethodIdx, prodOccurrence, nextToksWalker, notStuck) {
+  const key = this.getKeyForAutomaticLookahead(dslMethodIdx, prodOccurrence);
+  let firstAfterRepInfo = this.firstAfterRepMap[key];
+  if (firstAfterRepInfo === void 0) {
+    const currRuleName = this.getCurrRuleFullName();
+    const ruleGrammar = this.getGAstProductions()[currRuleName];
+    const walker = new nextToksWalker(ruleGrammar, prodOccurrence);
+    firstAfterRepInfo = walker.startWalking();
+    this.firstAfterRepMap[key] = firstAfterRepInfo;
+  }
+  let expectTokAfterLastMatch = firstAfterRepInfo.token;
+  let nextTokIdx = firstAfterRepInfo.occurrence;
+  const isEndOfRule = firstAfterRepInfo.isEndOfRule;
+  if (this.RULE_STACK.length === 1 && isEndOfRule && expectTokAfterLastMatch === void 0) {
+    expectTokAfterLastMatch = EOF;
+    nextTokIdx = 1;
+  }
+  if (expectTokAfterLastMatch === void 0 || nextTokIdx === void 0) {
+    return;
+  }
+  if (this.shouldInRepetitionRecoveryBeTried(expectTokAfterLastMatch, nextTokIdx, notStuck)) {
+    this.tryInRepetitionRecovery(prodFunc, args, lookaheadFunc, expectTokAfterLastMatch);
+  }
+}
+
+// node_modules/chevrotain/lib/src/parse/grammar/keys.js
+var BITS_FOR_METHOD_TYPE = 4;
+var BITS_FOR_OCCURRENCE_IDX = 8;
+var BITS_FOR_ALT_IDX = 8;
+var OR_IDX = 1 << BITS_FOR_OCCURRENCE_IDX;
+var OPTION_IDX = 2 << BITS_FOR_OCCURRENCE_IDX;
+var MANY_IDX = 3 << BITS_FOR_OCCURRENCE_IDX;
+var AT_LEAST_ONE_IDX = 4 << BITS_FOR_OCCURRENCE_IDX;
+var MANY_SEP_IDX = 5 << BITS_FOR_OCCURRENCE_IDX;
+var AT_LEAST_ONE_SEP_IDX = 6 << BITS_FOR_OCCURRENCE_IDX;
+function getKeyForAutomaticLookahead(ruleIdx, dslMethodIdx, occurrence) {
+  return occurrence | dslMethodIdx | ruleIdx;
+}
+var BITS_START_FOR_ALT_IDX = 32 - BITS_FOR_ALT_IDX;
+
+// node_modules/chevrotain/lib/src/parse/grammar/llk_lookahead.js
+var LLkLookaheadStrategy = class {
+  constructor(options) {
+    var _a;
+    this.maxLookahead = (_a = options === null || options === void 0 ? void 0 : options.maxLookahead) !== null && _a !== void 0 ? _a : DEFAULT_PARSER_CONFIG.maxLookahead;
+  }
+  validate(options) {
+    const leftRecursionErrors = this.validateNoLeftRecursion(options.rules);
+    if (isEmpty_default(leftRecursionErrors)) {
+      const emptyAltErrors = this.validateEmptyOrAlternatives(options.rules);
+      const ambiguousAltsErrors = this.validateAmbiguousAlternationAlternatives(options.rules, this.maxLookahead);
+      const emptyRepetitionErrors = this.validateSomeNonEmptyLookaheadPath(options.rules, this.maxLookahead);
+      const allErrors = [
+        ...leftRecursionErrors,
+        ...emptyAltErrors,
+        ...ambiguousAltsErrors,
+        ...emptyRepetitionErrors
+      ];
+      return allErrors;
+    }
+    return leftRecursionErrors;
+  }
+  validateNoLeftRecursion(rules) {
+    return flatMap_default(rules, (currTopRule) => validateNoLeftRecursion(currTopRule, currTopRule, defaultGrammarValidatorErrorProvider));
+  }
+  validateEmptyOrAlternatives(rules) {
+    return flatMap_default(rules, (currTopRule) => validateEmptyOrAlternative(currTopRule, defaultGrammarValidatorErrorProvider));
+  }
+  validateAmbiguousAlternationAlternatives(rules, maxLookahead) {
+    return flatMap_default(rules, (currTopRule) => validateAmbiguousAlternationAlternatives(currTopRule, maxLookahead, defaultGrammarValidatorErrorProvider));
+  }
+  validateSomeNonEmptyLookaheadPath(rules, maxLookahead) {
+    return validateSomeNonEmptyLookaheadPath(rules, maxLookahead, defaultGrammarValidatorErrorProvider);
+  }
+  buildLookaheadForAlternation(options) {
+    return buildLookaheadFuncForOr(options.prodOccurrence, options.rule, options.maxLookahead, options.hasPredicates, options.dynamicTokensEnabled, buildAlternativesLookAheadFunc);
+  }
+  buildLookaheadForOptional(options) {
+    return buildLookaheadFuncForOptionalProd(options.prodOccurrence, options.rule, options.maxLookahead, options.dynamicTokensEnabled, getProdType(options.prodType), buildSingleAlternativeLookaheadFunction);
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/looksahead.js
+var LooksAhead = class {
+  initLooksAhead(config) {
+    this.dynamicTokensEnabled = has_default(config, "dynamicTokensEnabled") ? config.dynamicTokensEnabled : DEFAULT_PARSER_CONFIG.dynamicTokensEnabled;
+    this.maxLookahead = has_default(config, "maxLookahead") ? config.maxLookahead : DEFAULT_PARSER_CONFIG.maxLookahead;
+    this.lookaheadStrategy = has_default(config, "lookaheadStrategy") ? config.lookaheadStrategy : new LLkLookaheadStrategy({ maxLookahead: this.maxLookahead });
+    this.lookAheadFuncsCache = /* @__PURE__ */ new Map();
+  }
+  preComputeLookaheadFunctions(rules) {
+    forEach_default(rules, (currRule) => {
+      this.TRACE_INIT(`${currRule.name} Rule Lookahead`, () => {
+        const { alternation, repetition, option, repetitionMandatory, repetitionMandatoryWithSeparator, repetitionWithSeparator } = collectMethods(currRule);
+        forEach_default(alternation, (currProd) => {
+          const prodIdx = currProd.idx === 0 ? "" : currProd.idx;
+          this.TRACE_INIT(`${getProductionDslName(currProd)}${prodIdx}`, () => {
+            const laFunc = this.lookaheadStrategy.buildLookaheadForAlternation({
+              prodOccurrence: currProd.idx,
+              rule: currRule,
+              maxLookahead: currProd.maxLookahead || this.maxLookahead,
+              hasPredicates: currProd.hasPredicates,
+              dynamicTokensEnabled: this.dynamicTokensEnabled
+            });
+            const key = getKeyForAutomaticLookahead(this.fullRuleNameToShort[currRule.name], OR_IDX, currProd.idx);
+            this.setLaFuncCache(key, laFunc);
+          });
+        });
+        forEach_default(repetition, (currProd) => {
+          this.computeLookaheadFunc(currRule, currProd.idx, MANY_IDX, "Repetition", currProd.maxLookahead, getProductionDslName(currProd));
+        });
+        forEach_default(option, (currProd) => {
+          this.computeLookaheadFunc(currRule, currProd.idx, OPTION_IDX, "Option", currProd.maxLookahead, getProductionDslName(currProd));
+        });
+        forEach_default(repetitionMandatory, (currProd) => {
+          this.computeLookaheadFunc(currRule, currProd.idx, AT_LEAST_ONE_IDX, "RepetitionMandatory", currProd.maxLookahead, getProductionDslName(currProd));
+        });
+        forEach_default(repetitionMandatoryWithSeparator, (currProd) => {
+          this.computeLookaheadFunc(currRule, currProd.idx, AT_LEAST_ONE_SEP_IDX, "RepetitionMandatoryWithSeparator", currProd.maxLookahead, getProductionDslName(currProd));
+        });
+        forEach_default(repetitionWithSeparator, (currProd) => {
+          this.computeLookaheadFunc(currRule, currProd.idx, MANY_SEP_IDX, "RepetitionWithSeparator", currProd.maxLookahead, getProductionDslName(currProd));
+        });
+      });
+    });
+  }
+  computeLookaheadFunc(rule, prodOccurrence, prodKey, prodType, prodMaxLookahead, dslMethodName) {
+    this.TRACE_INIT(`${dslMethodName}${prodOccurrence === 0 ? "" : prodOccurrence}`, () => {
+      const laFunc = this.lookaheadStrategy.buildLookaheadForOptional({
+        prodOccurrence,
+        rule,
+        maxLookahead: prodMaxLookahead || this.maxLookahead,
+        dynamicTokensEnabled: this.dynamicTokensEnabled,
+        prodType
+      });
+      const key = getKeyForAutomaticLookahead(this.fullRuleNameToShort[rule.name], prodKey, prodOccurrence);
+      this.setLaFuncCache(key, laFunc);
+    });
+  }
+  // this actually returns a number, but it is always used as a string (object prop key)
+  getKeyForAutomaticLookahead(dslMethodIdx, occurrence) {
+    const currRuleShortName = this.getLastExplicitRuleShortName();
+    return getKeyForAutomaticLookahead(currRuleShortName, dslMethodIdx, occurrence);
+  }
+  getLaFuncFromCache(key) {
+    return this.lookAheadFuncsCache.get(key);
+  }
+  /* istanbul ignore next */
+  setLaFuncCache(key, value) {
+    this.lookAheadFuncsCache.set(key, value);
+  }
+};
+var DslMethodsCollectorVisitor = class extends GAstVisitor {
+  constructor() {
+    super(...arguments);
+    this.dslMethods = {
+      option: [],
+      alternation: [],
+      repetition: [],
+      repetitionWithSeparator: [],
+      repetitionMandatory: [],
+      repetitionMandatoryWithSeparator: []
+    };
+  }
+  reset() {
+    this.dslMethods = {
+      option: [],
+      alternation: [],
+      repetition: [],
+      repetitionWithSeparator: [],
+      repetitionMandatory: [],
+      repetitionMandatoryWithSeparator: []
+    };
+  }
+  visitOption(option) {
+    this.dslMethods.option.push(option);
+  }
+  visitRepetitionWithSeparator(manySep) {
+    this.dslMethods.repetitionWithSeparator.push(manySep);
+  }
+  visitRepetitionMandatory(atLeastOne) {
+    this.dslMethods.repetitionMandatory.push(atLeastOne);
+  }
+  visitRepetitionMandatoryWithSeparator(atLeastOneSep) {
+    this.dslMethods.repetitionMandatoryWithSeparator.push(atLeastOneSep);
+  }
+  visitRepetition(many) {
+    this.dslMethods.repetition.push(many);
+  }
+  visitAlternation(or) {
+    this.dslMethods.alternation.push(or);
+  }
+};
+var collectorVisitor = new DslMethodsCollectorVisitor();
+function collectMethods(rule) {
+  collectorVisitor.reset();
+  rule.accept(collectorVisitor);
+  const dslMethods = collectorVisitor.dslMethods;
+  collectorVisitor.reset();
+  return dslMethods;
+}
+
+// node_modules/chevrotain/lib/src/parse/cst/cst.js
+function setNodeLocationOnlyOffset(currNodeLocation, newLocationInfo) {
+  if (isNaN(currNodeLocation.startOffset) === true) {
+    currNodeLocation.startOffset = newLocationInfo.startOffset;
+    currNodeLocation.endOffset = newLocationInfo.endOffset;
+  } else if (currNodeLocation.endOffset < newLocationInfo.endOffset === true) {
+    currNodeLocation.endOffset = newLocationInfo.endOffset;
+  }
+}
+function setNodeLocationFull(currNodeLocation, newLocationInfo) {
+  if (isNaN(currNodeLocation.startOffset) === true) {
+    currNodeLocation.startOffset = newLocationInfo.startOffset;
+    currNodeLocation.startColumn = newLocationInfo.startColumn;
+    currNodeLocation.startLine = newLocationInfo.startLine;
+    currNodeLocation.endOffset = newLocationInfo.endOffset;
+    currNodeLocation.endColumn = newLocationInfo.endColumn;
+    currNodeLocation.endLine = newLocationInfo.endLine;
+  } else if (currNodeLocation.endOffset < newLocationInfo.endOffset === true) {
+    currNodeLocation.endOffset = newLocationInfo.endOffset;
+    currNodeLocation.endColumn = newLocationInfo.endColumn;
+    currNodeLocation.endLine = newLocationInfo.endLine;
+  }
+}
+function addTerminalToCst(node, token, tokenTypeName) {
+  if (node.children[tokenTypeName] === void 0) {
+    node.children[tokenTypeName] = [token];
+  } else {
+    node.children[tokenTypeName].push(token);
+  }
+}
+function addNoneTerminalToCst(node, ruleName, ruleResult) {
+  if (node.children[ruleName] === void 0) {
+    node.children[ruleName] = [ruleResult];
+  } else {
+    node.children[ruleName].push(ruleResult);
+  }
+}
+
+// node_modules/chevrotain/lib/src/lang/lang_extensions.js
+var NAME = "name";
+function defineNameProp(obj, nameValue) {
+  Object.defineProperty(obj, NAME, {
+    enumerable: false,
+    configurable: true,
+    writable: false,
+    value: nameValue
+  });
+}
+
+// node_modules/chevrotain/lib/src/parse/cst/cst_visitor.js
+function defaultVisit(ctx, param) {
+  const childrenNames = keys_default(ctx);
+  const childrenNamesLength = childrenNames.length;
+  for (let i = 0; i < childrenNamesLength; i++) {
+    const currChildName = childrenNames[i];
+    const currChildArray = ctx[currChildName];
+    const currChildArrayLength = currChildArray.length;
+    for (let j = 0; j < currChildArrayLength; j++) {
+      const currChild = currChildArray[j];
+      if (currChild.tokenTypeIdx === void 0) {
+        this[currChild.name](currChild.children, param);
+      }
+    }
+  }
+}
+function createBaseSemanticVisitorConstructor(grammarName, ruleNames) {
+  const derivedConstructor = function() {
+  };
+  defineNameProp(derivedConstructor, grammarName + "BaseSemantics");
+  const semanticProto = {
+    visit: function(cstNode, param) {
+      if (isArray_default(cstNode)) {
+        cstNode = cstNode[0];
+      }
+      if (isUndefined_default(cstNode)) {
+        return void 0;
+      }
+      return this[cstNode.name](cstNode.children, param);
+    },
+    validateVisitor: function() {
+      const semanticDefinitionErrors = validateVisitor(this, ruleNames);
+      if (!isEmpty_default(semanticDefinitionErrors)) {
+        const errorMessages = map_default(semanticDefinitionErrors, (currDefError) => currDefError.msg);
+        throw Error(`Errors Detected in CST Visitor <${this.constructor.name}>:
+	${errorMessages.join("\n\n").replace(/\n/g, "\n	")}`);
+      }
+    }
+  };
+  derivedConstructor.prototype = semanticProto;
+  derivedConstructor.prototype.constructor = derivedConstructor;
+  derivedConstructor._RULE_NAMES = ruleNames;
+  return derivedConstructor;
+}
+function createBaseVisitorConstructorWithDefaults(grammarName, ruleNames, baseConstructor) {
+  const derivedConstructor = function() {
+  };
+  defineNameProp(derivedConstructor, grammarName + "BaseSemanticsWithDefaults");
+  const withDefaultsProto = Object.create(baseConstructor.prototype);
+  forEach_default(ruleNames, (ruleName) => {
+    withDefaultsProto[ruleName] = defaultVisit;
+  });
+  derivedConstructor.prototype = withDefaultsProto;
+  derivedConstructor.prototype.constructor = derivedConstructor;
+  return derivedConstructor;
+}
+var CstVisitorDefinitionError;
+(function(CstVisitorDefinitionError2) {
+  CstVisitorDefinitionError2[CstVisitorDefinitionError2["REDUNDANT_METHOD"] = 0] = "REDUNDANT_METHOD";
+  CstVisitorDefinitionError2[CstVisitorDefinitionError2["MISSING_METHOD"] = 1] = "MISSING_METHOD";
+})(CstVisitorDefinitionError || (CstVisitorDefinitionError = {}));
+function validateVisitor(visitorInstance, ruleNames) {
+  const missingErrors = validateMissingCstMethods(visitorInstance, ruleNames);
+  return missingErrors;
+}
+function validateMissingCstMethods(visitorInstance, ruleNames) {
+  const missingRuleNames = filter_default(ruleNames, (currRuleName) => {
+    return isFunction_default(visitorInstance[currRuleName]) === false;
+  });
+  const errors = map_default(missingRuleNames, (currRuleName) => {
+    return {
+      msg: `Missing visitor method: <${currRuleName}> on ${visitorInstance.constructor.name} CST Visitor.`,
+      type: CstVisitorDefinitionError.MISSING_METHOD,
+      methodName: currRuleName
+    };
+  });
+  return compact_default(errors);
+}
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/tree_builder.js
+var TreeBuilder = class {
+  initTreeBuilder(config) {
+    this.CST_STACK = [];
+    this.outputCst = config.outputCst;
+    this.nodeLocationTracking = has_default(config, "nodeLocationTracking") ? config.nodeLocationTracking : DEFAULT_PARSER_CONFIG.nodeLocationTracking;
+    if (!this.outputCst) {
+      this.cstInvocationStateUpdate = noop_default;
+      this.cstFinallyStateUpdate = noop_default;
+      this.cstPostTerminal = noop_default;
+      this.cstPostNonTerminal = noop_default;
+      this.cstPostRule = noop_default;
+    } else {
+      if (/full/i.test(this.nodeLocationTracking)) {
+        if (this.recoveryEnabled) {
+          this.setNodeLocationFromToken = setNodeLocationFull;
+          this.setNodeLocationFromNode = setNodeLocationFull;
+          this.cstPostRule = noop_default;
+          this.setInitialNodeLocation = this.setInitialNodeLocationFullRecovery;
+        } else {
+          this.setNodeLocationFromToken = noop_default;
+          this.setNodeLocationFromNode = noop_default;
+          this.cstPostRule = this.cstPostRuleFull;
+          this.setInitialNodeLocation = this.setInitialNodeLocationFullRegular;
+        }
+      } else if (/onlyOffset/i.test(this.nodeLocationTracking)) {
+        if (this.recoveryEnabled) {
+          this.setNodeLocationFromToken = setNodeLocationOnlyOffset;
+          this.setNodeLocationFromNode = setNodeLocationOnlyOffset;
+          this.cstPostRule = noop_default;
+          this.setInitialNodeLocation = this.setInitialNodeLocationOnlyOffsetRecovery;
+        } else {
+          this.setNodeLocationFromToken = noop_default;
+          this.setNodeLocationFromNode = noop_default;
+          this.cstPostRule = this.cstPostRuleOnlyOffset;
+          this.setInitialNodeLocation = this.setInitialNodeLocationOnlyOffsetRegular;
+        }
+      } else if (/none/i.test(this.nodeLocationTracking)) {
+        this.setNodeLocationFromToken = noop_default;
+        this.setNodeLocationFromNode = noop_default;
+        this.cstPostRule = noop_default;
+        this.setInitialNodeLocation = noop_default;
+      } else {
+        throw Error(`Invalid <nodeLocationTracking> config option: "${config.nodeLocationTracking}"`);
+      }
+    }
+  }
+  setInitialNodeLocationOnlyOffsetRecovery(cstNode) {
+    cstNode.location = {
+      startOffset: NaN,
+      endOffset: NaN
+    };
+  }
+  setInitialNodeLocationOnlyOffsetRegular(cstNode) {
+    cstNode.location = {
+      // without error recovery the starting Location of a new CstNode is guaranteed
+      // To be the next Token's startOffset (for valid inputs).
+      // For invalid inputs there won't be any CSTOutput so this potential
+      // inaccuracy does not matter
+      startOffset: this.LA(1).startOffset,
+      endOffset: NaN
+    };
+  }
+  setInitialNodeLocationFullRecovery(cstNode) {
+    cstNode.location = {
+      startOffset: NaN,
+      startLine: NaN,
+      startColumn: NaN,
+      endOffset: NaN,
+      endLine: NaN,
+      endColumn: NaN
+    };
+  }
+  /**
+       *  @see setInitialNodeLocationOnlyOffsetRegular for explanation why this work
+  
+       * @param cstNode
+       */
+  setInitialNodeLocationFullRegular(cstNode) {
+    const nextToken = this.LA(1);
+    cstNode.location = {
+      startOffset: nextToken.startOffset,
+      startLine: nextToken.startLine,
+      startColumn: nextToken.startColumn,
+      endOffset: NaN,
+      endLine: NaN,
+      endColumn: NaN
+    };
+  }
+  cstInvocationStateUpdate(fullRuleName) {
+    const cstNode = {
+      name: fullRuleName,
+      children: /* @__PURE__ */ Object.create(null)
+    };
+    this.setInitialNodeLocation(cstNode);
+    this.CST_STACK.push(cstNode);
+  }
+  cstFinallyStateUpdate() {
+    this.CST_STACK.pop();
+  }
+  cstPostRuleFull(ruleCstNode) {
+    const prevToken = this.LA(0);
+    const loc = ruleCstNode.location;
+    if (loc.startOffset <= prevToken.startOffset === true) {
+      loc.endOffset = prevToken.endOffset;
+      loc.endLine = prevToken.endLine;
+      loc.endColumn = prevToken.endColumn;
+    } else {
+      loc.startOffset = NaN;
+      loc.startLine = NaN;
+      loc.startColumn = NaN;
+    }
+  }
+  cstPostRuleOnlyOffset(ruleCstNode) {
+    const prevToken = this.LA(0);
+    const loc = ruleCstNode.location;
+    if (loc.startOffset <= prevToken.startOffset === true) {
+      loc.endOffset = prevToken.endOffset;
+    } else {
+      loc.startOffset = NaN;
+    }
+  }
+  cstPostTerminal(key, consumedToken) {
+    const rootCst = this.CST_STACK[this.CST_STACK.length - 1];
+    addTerminalToCst(rootCst, consumedToken, key);
+    this.setNodeLocationFromToken(rootCst.location, consumedToken);
+  }
+  cstPostNonTerminal(ruleCstResult, ruleName) {
+    const preCstNode = this.CST_STACK[this.CST_STACK.length - 1];
+    addNoneTerminalToCst(preCstNode, ruleName, ruleCstResult);
+    this.setNodeLocationFromNode(preCstNode.location, ruleCstResult.location);
+  }
+  getBaseCstVisitorConstructor() {
+    if (isUndefined_default(this.baseCstVisitorConstructor)) {
+      const newBaseCstVisitorConstructor = createBaseSemanticVisitorConstructor(this.className, keys_default(this.gastProductionsCache));
+      this.baseCstVisitorConstructor = newBaseCstVisitorConstructor;
+      return newBaseCstVisitorConstructor;
+    }
+    return this.baseCstVisitorConstructor;
+  }
+  getBaseCstVisitorConstructorWithDefaults() {
+    if (isUndefined_default(this.baseCstVisitorWithDefaultsConstructor)) {
+      const newConstructor = createBaseVisitorConstructorWithDefaults(this.className, keys_default(this.gastProductionsCache), this.getBaseCstVisitorConstructor());
+      this.baseCstVisitorWithDefaultsConstructor = newConstructor;
+      return newConstructor;
+    }
+    return this.baseCstVisitorWithDefaultsConstructor;
+  }
+  getLastExplicitRuleShortName() {
+    const ruleStack = this.RULE_STACK;
+    return ruleStack[ruleStack.length - 1];
+  }
+  getPreviousExplicitRuleShortName() {
+    const ruleStack = this.RULE_STACK;
+    return ruleStack[ruleStack.length - 2];
+  }
+  getLastExplicitRuleOccurrenceIndex() {
+    const occurrenceStack = this.RULE_OCCURRENCE_STACK;
+    return occurrenceStack[occurrenceStack.length - 1];
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/lexer_adapter.js
+var LexerAdapter = class {
+  initLexerAdapter() {
+    this.tokVector = [];
+    this.tokVectorLength = 0;
+    this.currIdx = -1;
+  }
+  set input(newInput) {
+    if (this.selfAnalysisDone !== true) {
+      throw Error(`Missing <performSelfAnalysis> invocation at the end of the Parser's constructor.`);
+    }
+    this.reset();
+    this.tokVector = newInput;
+    this.tokVectorLength = newInput.length;
+  }
+  get input() {
+    return this.tokVector;
+  }
+  // skips a token and returns the next token
+  SKIP_TOKEN() {
+    if (this.currIdx <= this.tokVector.length - 2) {
+      this.consumeToken();
+      return this.LA(1);
+    } else {
+      return END_OF_FILE;
+    }
+  }
+  // Lexer (accessing Token vector) related methods which can be overridden to implement lazy lexers
+  // or lexers dependent on parser context.
+  LA(howMuch) {
+    const soughtIdx = this.currIdx + howMuch;
+    if (soughtIdx < 0 || this.tokVectorLength <= soughtIdx) {
+      return END_OF_FILE;
+    } else {
+      return this.tokVector[soughtIdx];
+    }
+  }
+  consumeToken() {
+    this.currIdx++;
+  }
+  exportLexerState() {
+    return this.currIdx;
+  }
+  importLexerState(newState) {
+    this.currIdx = newState;
+  }
+  resetLexerState() {
+    this.currIdx = -1;
+  }
+  moveToTerminatedState() {
+    this.currIdx = this.tokVector.length - 1;
+  }
+  getLexerPosition() {
+    return this.exportLexerState();
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/recognizer_api.js
+var RecognizerApi = class {
+  ACTION(impl) {
+    return impl.call(this);
+  }
+  consume(idx, tokType, options) {
+    return this.consumeInternal(tokType, idx, options);
+  }
+  subrule(idx, ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, idx, options);
+  }
+  option(idx, actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, idx);
+  }
+  or(idx, altsOrOpts) {
+    return this.orInternal(altsOrOpts, idx);
+  }
+  many(idx, actionORMethodDef) {
+    return this.manyInternal(idx, actionORMethodDef);
+  }
+  atLeastOne(idx, actionORMethodDef) {
+    return this.atLeastOneInternal(idx, actionORMethodDef);
+  }
+  CONSUME(tokType, options) {
+    return this.consumeInternal(tokType, 0, options);
+  }
+  CONSUME1(tokType, options) {
+    return this.consumeInternal(tokType, 1, options);
+  }
+  CONSUME2(tokType, options) {
+    return this.consumeInternal(tokType, 2, options);
+  }
+  CONSUME3(tokType, options) {
+    return this.consumeInternal(tokType, 3, options);
+  }
+  CONSUME4(tokType, options) {
+    return this.consumeInternal(tokType, 4, options);
+  }
+  CONSUME5(tokType, options) {
+    return this.consumeInternal(tokType, 5, options);
+  }
+  CONSUME6(tokType, options) {
+    return this.consumeInternal(tokType, 6, options);
+  }
+  CONSUME7(tokType, options) {
+    return this.consumeInternal(tokType, 7, options);
+  }
+  CONSUME8(tokType, options) {
+    return this.consumeInternal(tokType, 8, options);
+  }
+  CONSUME9(tokType, options) {
+    return this.consumeInternal(tokType, 9, options);
+  }
+  SUBRULE(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 0, options);
+  }
+  SUBRULE1(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 1, options);
+  }
+  SUBRULE2(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 2, options);
+  }
+  SUBRULE3(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 3, options);
+  }
+  SUBRULE4(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 4, options);
+  }
+  SUBRULE5(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 5, options);
+  }
+  SUBRULE6(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 6, options);
+  }
+  SUBRULE7(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 7, options);
+  }
+  SUBRULE8(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 8, options);
+  }
+  SUBRULE9(ruleToCall, options) {
+    return this.subruleInternal(ruleToCall, 9, options);
+  }
+  OPTION(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 0);
+  }
+  OPTION1(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 1);
+  }
+  OPTION2(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 2);
+  }
+  OPTION3(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 3);
+  }
+  OPTION4(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 4);
+  }
+  OPTION5(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 5);
+  }
+  OPTION6(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 6);
+  }
+  OPTION7(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 7);
+  }
+  OPTION8(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 8);
+  }
+  OPTION9(actionORMethodDef) {
+    return this.optionInternal(actionORMethodDef, 9);
+  }
+  OR(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 0);
+  }
+  OR1(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 1);
+  }
+  OR2(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 2);
+  }
+  OR3(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 3);
+  }
+  OR4(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 4);
+  }
+  OR5(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 5);
+  }
+  OR6(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 6);
+  }
+  OR7(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 7);
+  }
+  OR8(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 8);
+  }
+  OR9(altsOrOpts) {
+    return this.orInternal(altsOrOpts, 9);
+  }
+  MANY(actionORMethodDef) {
+    this.manyInternal(0, actionORMethodDef);
+  }
+  MANY1(actionORMethodDef) {
+    this.manyInternal(1, actionORMethodDef);
+  }
+  MANY2(actionORMethodDef) {
+    this.manyInternal(2, actionORMethodDef);
+  }
+  MANY3(actionORMethodDef) {
+    this.manyInternal(3, actionORMethodDef);
+  }
+  MANY4(actionORMethodDef) {
+    this.manyInternal(4, actionORMethodDef);
+  }
+  MANY5(actionORMethodDef) {
+    this.manyInternal(5, actionORMethodDef);
+  }
+  MANY6(actionORMethodDef) {
+    this.manyInternal(6, actionORMethodDef);
+  }
+  MANY7(actionORMethodDef) {
+    this.manyInternal(7, actionORMethodDef);
+  }
+  MANY8(actionORMethodDef) {
+    this.manyInternal(8, actionORMethodDef);
+  }
+  MANY9(actionORMethodDef) {
+    this.manyInternal(9, actionORMethodDef);
+  }
+  MANY_SEP(options) {
+    this.manySepFirstInternal(0, options);
+  }
+  MANY_SEP1(options) {
+    this.manySepFirstInternal(1, options);
+  }
+  MANY_SEP2(options) {
+    this.manySepFirstInternal(2, options);
+  }
+  MANY_SEP3(options) {
+    this.manySepFirstInternal(3, options);
+  }
+  MANY_SEP4(options) {
+    this.manySepFirstInternal(4, options);
+  }
+  MANY_SEP5(options) {
+    this.manySepFirstInternal(5, options);
+  }
+  MANY_SEP6(options) {
+    this.manySepFirstInternal(6, options);
+  }
+  MANY_SEP7(options) {
+    this.manySepFirstInternal(7, options);
+  }
+  MANY_SEP8(options) {
+    this.manySepFirstInternal(8, options);
+  }
+  MANY_SEP9(options) {
+    this.manySepFirstInternal(9, options);
+  }
+  AT_LEAST_ONE(actionORMethodDef) {
+    this.atLeastOneInternal(0, actionORMethodDef);
+  }
+  AT_LEAST_ONE1(actionORMethodDef) {
+    return this.atLeastOneInternal(1, actionORMethodDef);
+  }
+  AT_LEAST_ONE2(actionORMethodDef) {
+    this.atLeastOneInternal(2, actionORMethodDef);
+  }
+  AT_LEAST_ONE3(actionORMethodDef) {
+    this.atLeastOneInternal(3, actionORMethodDef);
+  }
+  AT_LEAST_ONE4(actionORMethodDef) {
+    this.atLeastOneInternal(4, actionORMethodDef);
+  }
+  AT_LEAST_ONE5(actionORMethodDef) {
+    this.atLeastOneInternal(5, actionORMethodDef);
+  }
+  AT_LEAST_ONE6(actionORMethodDef) {
+    this.atLeastOneInternal(6, actionORMethodDef);
+  }
+  AT_LEAST_ONE7(actionORMethodDef) {
+    this.atLeastOneInternal(7, actionORMethodDef);
+  }
+  AT_LEAST_ONE8(actionORMethodDef) {
+    this.atLeastOneInternal(8, actionORMethodDef);
+  }
+  AT_LEAST_ONE9(actionORMethodDef) {
+    this.atLeastOneInternal(9, actionORMethodDef);
+  }
+  AT_LEAST_ONE_SEP(options) {
+    this.atLeastOneSepFirstInternal(0, options);
+  }
+  AT_LEAST_ONE_SEP1(options) {
+    this.atLeastOneSepFirstInternal(1, options);
+  }
+  AT_LEAST_ONE_SEP2(options) {
+    this.atLeastOneSepFirstInternal(2, options);
+  }
+  AT_LEAST_ONE_SEP3(options) {
+    this.atLeastOneSepFirstInternal(3, options);
+  }
+  AT_LEAST_ONE_SEP4(options) {
+    this.atLeastOneSepFirstInternal(4, options);
+  }
+  AT_LEAST_ONE_SEP5(options) {
+    this.atLeastOneSepFirstInternal(5, options);
+  }
+  AT_LEAST_ONE_SEP6(options) {
+    this.atLeastOneSepFirstInternal(6, options);
+  }
+  AT_LEAST_ONE_SEP7(options) {
+    this.atLeastOneSepFirstInternal(7, options);
+  }
+  AT_LEAST_ONE_SEP8(options) {
+    this.atLeastOneSepFirstInternal(8, options);
+  }
+  AT_LEAST_ONE_SEP9(options) {
+    this.atLeastOneSepFirstInternal(9, options);
+  }
+  RULE(name, implementation, config = DEFAULT_RULE_CONFIG) {
+    if (includes_default(this.definedRulesNames, name)) {
+      const errMsg = defaultGrammarValidatorErrorProvider.buildDuplicateRuleNameError({
+        topLevelRule: name,
+        grammarName: this.className
+      });
+      const error = {
+        message: errMsg,
+        type: ParserDefinitionErrorType.DUPLICATE_RULE_NAME,
+        ruleName: name
+      };
+      this.definitionErrors.push(error);
+    }
+    this.definedRulesNames.push(name);
+    const ruleImplementation = this.defineRule(name, implementation, config);
+    this[name] = ruleImplementation;
+    return ruleImplementation;
+  }
+  OVERRIDE_RULE(name, impl, config = DEFAULT_RULE_CONFIG) {
+    const ruleErrors = validateRuleIsOverridden(name, this.definedRulesNames, this.className);
+    this.definitionErrors = this.definitionErrors.concat(ruleErrors);
+    const ruleImplementation = this.defineRule(name, impl, config);
+    this[name] = ruleImplementation;
+    return ruleImplementation;
+  }
+  BACKTRACK(grammarRule, args) {
+    return function() {
+      this.isBackTrackingStack.push(1);
+      const orgState = this.saveRecogState();
+      try {
+        grammarRule.apply(this, args);
+        return true;
+      } catch (e) {
+        if (isRecognitionException(e)) {
+          return false;
+        } else {
+          throw e;
+        }
+      } finally {
+        this.reloadRecogState(orgState);
+        this.isBackTrackingStack.pop();
+      }
+    };
+  }
+  // GAST export APIs
+  getGAstProductions() {
+    return this.gastProductionsCache;
+  }
+  getSerializedGastProductions() {
+    return serializeGrammar(values_default(this.gastProductionsCache));
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/recognizer_engine.js
+var RecognizerEngine = class {
+  initRecognizerEngine(tokenVocabulary, config) {
+    this.className = this.constructor.name;
+    this.shortRuleNameToFull = {};
+    this.fullRuleNameToShort = {};
+    this.ruleShortNameIdx = 256;
+    this.tokenMatcher = tokenStructuredMatcherNoCategories;
+    this.subruleIdx = 0;
+    this.definedRulesNames = [];
+    this.tokensMap = {};
+    this.isBackTrackingStack = [];
+    this.RULE_STACK = [];
+    this.RULE_OCCURRENCE_STACK = [];
+    this.gastProductionsCache = {};
+    if (has_default(config, "serializedGrammar")) {
+      throw Error("The Parser's configuration can no longer contain a <serializedGrammar> property.\n	See: https://chevrotain.io/docs/changes/BREAKING_CHANGES.html#_6-0-0\n	For Further details.");
+    }
+    if (isArray_default(tokenVocabulary)) {
+      if (isEmpty_default(tokenVocabulary)) {
+        throw Error("A Token Vocabulary cannot be empty.\n	Note that the first argument for the parser constructor\n	is no longer a Token vector (since v4.0).");
+      }
+      if (typeof tokenVocabulary[0].startOffset === "number") {
+        throw Error("The Parser constructor no longer accepts a token vector as the first argument.\n	See: https://chevrotain.io/docs/changes/BREAKING_CHANGES.html#_4-0-0\n	For Further details.");
+      }
+    }
+    if (isArray_default(tokenVocabulary)) {
+      this.tokensMap = reduce_default(tokenVocabulary, (acc, tokType) => {
+        acc[tokType.name] = tokType;
+        return acc;
+      }, {});
+    } else if (has_default(tokenVocabulary, "modes") && every_default(flatten_default(values_default(tokenVocabulary.modes)), isTokenType)) {
+      const allTokenTypes2 = flatten_default(values_default(tokenVocabulary.modes));
+      const uniqueTokens = uniq_default(allTokenTypes2);
+      this.tokensMap = reduce_default(uniqueTokens, (acc, tokType) => {
+        acc[tokType.name] = tokType;
+        return acc;
+      }, {});
+    } else if (isObject_default(tokenVocabulary)) {
+      this.tokensMap = clone_default(tokenVocabulary);
+    } else {
+      throw new Error("<tokensDictionary> argument must be An Array of Token constructors, A dictionary of Token constructors or an IMultiModeLexerDefinition");
+    }
+    this.tokensMap["EOF"] = EOF;
+    const allTokenTypes = has_default(tokenVocabulary, "modes") ? flatten_default(values_default(tokenVocabulary.modes)) : values_default(tokenVocabulary);
+    const noTokenCategoriesUsed = every_default(allTokenTypes, (tokenConstructor) => isEmpty_default(tokenConstructor.categoryMatches));
+    this.tokenMatcher = noTokenCategoriesUsed ? tokenStructuredMatcherNoCategories : tokenStructuredMatcher;
+    augmentTokenTypes(values_default(this.tokensMap));
+  }
+  defineRule(ruleName, impl, config) {
+    if (this.selfAnalysisDone) {
+      throw Error(`Grammar rule <${ruleName}> may not be defined after the 'performSelfAnalysis' method has been called'
+Make sure that all grammar rule definitions are done before 'performSelfAnalysis' is called.`);
+    }
+    const resyncEnabled = has_default(config, "resyncEnabled") ? config.resyncEnabled : DEFAULT_RULE_CONFIG.resyncEnabled;
+    const recoveryValueFunc = has_default(config, "recoveryValueFunc") ? config.recoveryValueFunc : DEFAULT_RULE_CONFIG.recoveryValueFunc;
+    const shortName = this.ruleShortNameIdx << BITS_FOR_METHOD_TYPE + BITS_FOR_OCCURRENCE_IDX;
+    this.ruleShortNameIdx++;
+    this.shortRuleNameToFull[shortName] = ruleName;
+    this.fullRuleNameToShort[ruleName] = shortName;
+    let invokeRuleWithTry;
+    if (this.outputCst === true) {
+      invokeRuleWithTry = function invokeRuleWithTry2(...args) {
+        try {
+          this.ruleInvocationStateUpdate(shortName, ruleName, this.subruleIdx);
+          impl.apply(this, args);
+          const cst = this.CST_STACK[this.CST_STACK.length - 1];
+          this.cstPostRule(cst);
+          return cst;
+        } catch (e) {
+          return this.invokeRuleCatch(e, resyncEnabled, recoveryValueFunc);
+        } finally {
+          this.ruleFinallyStateUpdate();
+        }
+      };
+    } else {
+      invokeRuleWithTry = function invokeRuleWithTryCst(...args) {
+        try {
+          this.ruleInvocationStateUpdate(shortName, ruleName, this.subruleIdx);
+          return impl.apply(this, args);
+        } catch (e) {
+          return this.invokeRuleCatch(e, resyncEnabled, recoveryValueFunc);
+        } finally {
+          this.ruleFinallyStateUpdate();
+        }
+      };
+    }
+    const wrappedGrammarRule = Object.assign(invokeRuleWithTry, { ruleName, originalGrammarAction: impl });
+    return wrappedGrammarRule;
+  }
+  invokeRuleCatch(e, resyncEnabledConfig, recoveryValueFunc) {
+    const isFirstInvokedRule = this.RULE_STACK.length === 1;
+    const reSyncEnabled = resyncEnabledConfig && !this.isBackTracking() && this.recoveryEnabled;
+    if (isRecognitionException(e)) {
+      const recogError = e;
+      if (reSyncEnabled) {
+        const reSyncTokType = this.findReSyncTokenType();
+        if (this.isInCurrentRuleReSyncSet(reSyncTokType)) {
+          recogError.resyncedTokens = this.reSyncTo(reSyncTokType);
+          if (this.outputCst) {
+            const partialCstResult = this.CST_STACK[this.CST_STACK.length - 1];
+            partialCstResult.recoveredNode = true;
+            return partialCstResult;
+          } else {
+            return recoveryValueFunc(e);
+          }
+        } else {
+          if (this.outputCst) {
+            const partialCstResult = this.CST_STACK[this.CST_STACK.length - 1];
+            partialCstResult.recoveredNode = true;
+            recogError.partialCstResult = partialCstResult;
+          }
+          throw recogError;
+        }
+      } else if (isFirstInvokedRule) {
+        this.moveToTerminatedState();
+        return recoveryValueFunc(e);
+      } else {
+        throw recogError;
+      }
+    } else {
+      throw e;
+    }
+  }
+  // Implementation of parsing DSL
+  optionInternal(actionORMethodDef, occurrence) {
+    const key = this.getKeyForAutomaticLookahead(OPTION_IDX, occurrence);
+    return this.optionInternalLogic(actionORMethodDef, occurrence, key);
+  }
+  optionInternalLogic(actionORMethodDef, occurrence, key) {
+    let lookAheadFunc = this.getLaFuncFromCache(key);
+    let action;
+    if (typeof actionORMethodDef !== "function") {
+      action = actionORMethodDef.DEF;
+      const predicate = actionORMethodDef.GATE;
+      if (predicate !== void 0) {
+        const orgLookaheadFunction = lookAheadFunc;
+        lookAheadFunc = () => {
+          return predicate.call(this) && orgLookaheadFunction.call(this);
+        };
+      }
+    } else {
+      action = actionORMethodDef;
+    }
+    if (lookAheadFunc.call(this) === true) {
+      return action.call(this);
+    }
+    return void 0;
+  }
+  atLeastOneInternal(prodOccurrence, actionORMethodDef) {
+    const laKey = this.getKeyForAutomaticLookahead(AT_LEAST_ONE_IDX, prodOccurrence);
+    return this.atLeastOneInternalLogic(prodOccurrence, actionORMethodDef, laKey);
+  }
+  atLeastOneInternalLogic(prodOccurrence, actionORMethodDef, key) {
+    let lookAheadFunc = this.getLaFuncFromCache(key);
+    let action;
+    if (typeof actionORMethodDef !== "function") {
+      action = actionORMethodDef.DEF;
+      const predicate = actionORMethodDef.GATE;
+      if (predicate !== void 0) {
+        const orgLookaheadFunction = lookAheadFunc;
+        lookAheadFunc = () => {
+          return predicate.call(this) && orgLookaheadFunction.call(this);
+        };
+      }
+    } else {
+      action = actionORMethodDef;
+    }
+    if (lookAheadFunc.call(this) === true) {
+      let notStuck = this.doSingleRepetition(action);
+      while (lookAheadFunc.call(this) === true && notStuck === true) {
+        notStuck = this.doSingleRepetition(action);
+      }
+    } else {
+      throw this.raiseEarlyExitException(prodOccurrence, PROD_TYPE.REPETITION_MANDATORY, actionORMethodDef.ERR_MSG);
+    }
+    this.attemptInRepetitionRecovery(this.atLeastOneInternal, [prodOccurrence, actionORMethodDef], lookAheadFunc, AT_LEAST_ONE_IDX, prodOccurrence, NextTerminalAfterAtLeastOneWalker);
+  }
+  atLeastOneSepFirstInternal(prodOccurrence, options) {
+    const laKey = this.getKeyForAutomaticLookahead(AT_LEAST_ONE_SEP_IDX, prodOccurrence);
+    this.atLeastOneSepFirstInternalLogic(prodOccurrence, options, laKey);
+  }
+  atLeastOneSepFirstInternalLogic(prodOccurrence, options, key) {
+    const action = options.DEF;
+    const separator = options.SEP;
+    const firstIterationLookaheadFunc = this.getLaFuncFromCache(key);
+    if (firstIterationLookaheadFunc.call(this) === true) {
+      action.call(this);
+      const separatorLookAheadFunc = () => {
+        return this.tokenMatcher(this.LA(1), separator);
+      };
+      while (this.tokenMatcher(this.LA(1), separator) === true) {
+        this.CONSUME(separator);
+        action.call(this);
+      }
+      this.attemptInRepetitionRecovery(this.repetitionSepSecondInternal, [
+        prodOccurrence,
+        separator,
+        separatorLookAheadFunc,
+        action,
+        NextTerminalAfterAtLeastOneSepWalker
+      ], separatorLookAheadFunc, AT_LEAST_ONE_SEP_IDX, prodOccurrence, NextTerminalAfterAtLeastOneSepWalker);
+    } else {
+      throw this.raiseEarlyExitException(prodOccurrence, PROD_TYPE.REPETITION_MANDATORY_WITH_SEPARATOR, options.ERR_MSG);
+    }
+  }
+  manyInternal(prodOccurrence, actionORMethodDef) {
+    const laKey = this.getKeyForAutomaticLookahead(MANY_IDX, prodOccurrence);
+    return this.manyInternalLogic(prodOccurrence, actionORMethodDef, laKey);
+  }
+  manyInternalLogic(prodOccurrence, actionORMethodDef, key) {
+    let lookaheadFunction = this.getLaFuncFromCache(key);
+    let action;
+    if (typeof actionORMethodDef !== "function") {
+      action = actionORMethodDef.DEF;
+      const predicate = actionORMethodDef.GATE;
+      if (predicate !== void 0) {
+        const orgLookaheadFunction = lookaheadFunction;
+        lookaheadFunction = () => {
+          return predicate.call(this) && orgLookaheadFunction.call(this);
+        };
+      }
+    } else {
+      action = actionORMethodDef;
+    }
+    let notStuck = true;
+    while (lookaheadFunction.call(this) === true && notStuck === true) {
+      notStuck = this.doSingleRepetition(action);
+    }
+    this.attemptInRepetitionRecovery(
+      this.manyInternal,
+      [prodOccurrence, actionORMethodDef],
+      lookaheadFunction,
+      MANY_IDX,
+      prodOccurrence,
+      NextTerminalAfterManyWalker,
+      // The notStuck parameter is only relevant when "attemptInRepetitionRecovery"
+      // is invoked from manyInternal, in the MANY_SEP case and AT_LEAST_ONE[_SEP]
+      // An infinite loop cannot occur as:
+      // - Either the lookahead is guaranteed to consume something (Single Token Separator)
+      // - AT_LEAST_ONE by definition is guaranteed to consume something (or error out).
+      notStuck
+    );
+  }
+  manySepFirstInternal(prodOccurrence, options) {
+    const laKey = this.getKeyForAutomaticLookahead(MANY_SEP_IDX, prodOccurrence);
+    this.manySepFirstInternalLogic(prodOccurrence, options, laKey);
+  }
+  manySepFirstInternalLogic(prodOccurrence, options, key) {
+    const action = options.DEF;
+    const separator = options.SEP;
+    const firstIterationLaFunc = this.getLaFuncFromCache(key);
+    if (firstIterationLaFunc.call(this) === true) {
+      action.call(this);
+      const separatorLookAheadFunc = () => {
+        return this.tokenMatcher(this.LA(1), separator);
+      };
+      while (this.tokenMatcher(this.LA(1), separator) === true) {
+        this.CONSUME(separator);
+        action.call(this);
+      }
+      this.attemptInRepetitionRecovery(this.repetitionSepSecondInternal, [
+        prodOccurrence,
+        separator,
+        separatorLookAheadFunc,
+        action,
+        NextTerminalAfterManySepWalker
+      ], separatorLookAheadFunc, MANY_SEP_IDX, prodOccurrence, NextTerminalAfterManySepWalker);
+    }
+  }
+  repetitionSepSecondInternal(prodOccurrence, separator, separatorLookAheadFunc, action, nextTerminalAfterWalker) {
+    while (separatorLookAheadFunc()) {
+      this.CONSUME(separator);
+      action.call(this);
+    }
+    this.attemptInRepetitionRecovery(this.repetitionSepSecondInternal, [
+      prodOccurrence,
+      separator,
+      separatorLookAheadFunc,
+      action,
+      nextTerminalAfterWalker
+    ], separatorLookAheadFunc, AT_LEAST_ONE_SEP_IDX, prodOccurrence, nextTerminalAfterWalker);
+  }
+  doSingleRepetition(action) {
+    const beforeIteration = this.getLexerPosition();
+    action.call(this);
+    const afterIteration = this.getLexerPosition();
+    return afterIteration > beforeIteration;
+  }
+  orInternal(altsOrOpts, occurrence) {
+    const laKey = this.getKeyForAutomaticLookahead(OR_IDX, occurrence);
+    const alts = isArray_default(altsOrOpts) ? altsOrOpts : altsOrOpts.DEF;
+    const laFunc = this.getLaFuncFromCache(laKey);
+    const altIdxToTake = laFunc.call(this, alts);
+    if (altIdxToTake !== void 0) {
+      const chosenAlternative = alts[altIdxToTake];
+      return chosenAlternative.ALT.call(this);
+    }
+    this.raiseNoAltException(occurrence, altsOrOpts.ERR_MSG);
+  }
+  ruleFinallyStateUpdate() {
+    this.RULE_STACK.pop();
+    this.RULE_OCCURRENCE_STACK.pop();
+    this.cstFinallyStateUpdate();
+    if (this.RULE_STACK.length === 0 && this.isAtEndOfInput() === false) {
+      const firstRedundantTok = this.LA(1);
+      const errMsg = this.errorMessageProvider.buildNotAllInputParsedMessage({
+        firstRedundant: firstRedundantTok,
+        ruleName: this.getCurrRuleFullName()
+      });
+      this.SAVE_ERROR(new NotAllInputParsedException(errMsg, firstRedundantTok));
+    }
+  }
+  subruleInternal(ruleToCall, idx, options) {
+    let ruleResult;
+    try {
+      const args = options !== void 0 ? options.ARGS : void 0;
+      this.subruleIdx = idx;
+      ruleResult = ruleToCall.apply(this, args);
+      this.cstPostNonTerminal(ruleResult, options !== void 0 && options.LABEL !== void 0 ? options.LABEL : ruleToCall.ruleName);
+      return ruleResult;
+    } catch (e) {
+      throw this.subruleInternalError(e, options, ruleToCall.ruleName);
+    }
+  }
+  subruleInternalError(e, options, ruleName) {
+    if (isRecognitionException(e) && e.partialCstResult !== void 0) {
+      this.cstPostNonTerminal(e.partialCstResult, options !== void 0 && options.LABEL !== void 0 ? options.LABEL : ruleName);
+      delete e.partialCstResult;
+    }
+    throw e;
+  }
+  consumeInternal(tokType, idx, options) {
+    let consumedToken;
+    try {
+      const nextToken = this.LA(1);
+      if (this.tokenMatcher(nextToken, tokType) === true) {
+        this.consumeToken();
+        consumedToken = nextToken;
+      } else {
+        this.consumeInternalError(tokType, nextToken, options);
+      }
+    } catch (eFromConsumption) {
+      consumedToken = this.consumeInternalRecovery(tokType, idx, eFromConsumption);
+    }
+    this.cstPostTerminal(options !== void 0 && options.LABEL !== void 0 ? options.LABEL : tokType.name, consumedToken);
+    return consumedToken;
+  }
+  consumeInternalError(tokType, nextToken, options) {
+    let msg;
+    const previousToken = this.LA(0);
+    if (options !== void 0 && options.ERR_MSG) {
+      msg = options.ERR_MSG;
+    } else {
+      msg = this.errorMessageProvider.buildMismatchTokenMessage({
+        expected: tokType,
+        actual: nextToken,
+        previous: previousToken,
+        ruleName: this.getCurrRuleFullName()
+      });
+    }
+    throw this.SAVE_ERROR(new MismatchedTokenException(msg, nextToken, previousToken));
+  }
+  consumeInternalRecovery(tokType, idx, eFromConsumption) {
+    if (this.recoveryEnabled && // TODO: more robust checking of the exception type. Perhaps Typescript extending expressions?
+    eFromConsumption.name === "MismatchedTokenException" && !this.isBackTracking()) {
+      const follows = this.getFollowsForInRuleRecovery(tokType, idx);
+      try {
+        return this.tryInRuleRecovery(tokType, follows);
+      } catch (eFromInRuleRecovery) {
+        if (eFromInRuleRecovery.name === IN_RULE_RECOVERY_EXCEPTION) {
+          throw eFromConsumption;
+        } else {
+          throw eFromInRuleRecovery;
+        }
+      }
+    } else {
+      throw eFromConsumption;
+    }
+  }
+  saveRecogState() {
+    const savedErrors = this.errors;
+    const savedRuleStack = clone_default(this.RULE_STACK);
+    return {
+      errors: savedErrors,
+      lexerState: this.exportLexerState(),
+      RULE_STACK: savedRuleStack,
+      CST_STACK: this.CST_STACK
+    };
+  }
+  reloadRecogState(newState) {
+    this.errors = newState.errors;
+    this.importLexerState(newState.lexerState);
+    this.RULE_STACK = newState.RULE_STACK;
+  }
+  ruleInvocationStateUpdate(shortName, fullName, idxInCallingRule) {
+    this.RULE_OCCURRENCE_STACK.push(idxInCallingRule);
+    this.RULE_STACK.push(shortName);
+    this.cstInvocationStateUpdate(fullName);
+  }
+  isBackTracking() {
+    return this.isBackTrackingStack.length !== 0;
+  }
+  getCurrRuleFullName() {
+    const shortName = this.getLastExplicitRuleShortName();
+    return this.shortRuleNameToFull[shortName];
+  }
+  shortRuleNameToFullName(shortName) {
+    return this.shortRuleNameToFull[shortName];
+  }
+  isAtEndOfInput() {
+    return this.tokenMatcher(this.LA(1), EOF);
+  }
+  reset() {
+    this.resetLexerState();
+    this.subruleIdx = 0;
+    this.isBackTrackingStack = [];
+    this.errors = [];
+    this.RULE_STACK = [];
+    this.CST_STACK = [];
+    this.RULE_OCCURRENCE_STACK = [];
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/error_handler.js
+var ErrorHandler = class {
+  initErrorHandler(config) {
+    this._errors = [];
+    this.errorMessageProvider = has_default(config, "errorMessageProvider") ? config.errorMessageProvider : DEFAULT_PARSER_CONFIG.errorMessageProvider;
+  }
+  SAVE_ERROR(error) {
+    if (isRecognitionException(error)) {
+      error.context = {
+        ruleStack: this.getHumanReadableRuleStack(),
+        ruleOccurrenceStack: clone_default(this.RULE_OCCURRENCE_STACK)
+      };
+      this._errors.push(error);
+      return error;
+    } else {
+      throw Error("Trying to save an Error which is not a RecognitionException");
+    }
+  }
+  get errors() {
+    return clone_default(this._errors);
+  }
+  set errors(newErrors) {
+    this._errors = newErrors;
+  }
+  // TODO: consider caching the error message computed information
+  raiseEarlyExitException(occurrence, prodType, userDefinedErrMsg) {
+    const ruleName = this.getCurrRuleFullName();
+    const ruleGrammar = this.getGAstProductions()[ruleName];
+    const lookAheadPathsPerAlternative = getLookaheadPathsForOptionalProd(occurrence, ruleGrammar, prodType, this.maxLookahead);
+    const insideProdPaths = lookAheadPathsPerAlternative[0];
+    const actualTokens = [];
+    for (let i = 1; i <= this.maxLookahead; i++) {
+      actualTokens.push(this.LA(i));
+    }
+    const msg = this.errorMessageProvider.buildEarlyExitMessage({
+      expectedIterationPaths: insideProdPaths,
+      actual: actualTokens,
+      previous: this.LA(0),
+      customUserDescription: userDefinedErrMsg,
+      ruleName
+    });
+    throw this.SAVE_ERROR(new EarlyExitException(msg, this.LA(1), this.LA(0)));
+  }
+  // TODO: consider caching the error message computed information
+  raiseNoAltException(occurrence, errMsgTypes) {
+    const ruleName = this.getCurrRuleFullName();
+    const ruleGrammar = this.getGAstProductions()[ruleName];
+    const lookAheadPathsPerAlternative = getLookaheadPathsForOr(occurrence, ruleGrammar, this.maxLookahead);
+    const actualTokens = [];
+    for (let i = 1; i <= this.maxLookahead; i++) {
+      actualTokens.push(this.LA(i));
+    }
+    const previousToken = this.LA(0);
+    const errMsg = this.errorMessageProvider.buildNoViableAltMessage({
+      expectedPathsPerAlt: lookAheadPathsPerAlternative,
+      actual: actualTokens,
+      previous: previousToken,
+      customUserDescription: errMsgTypes,
+      ruleName: this.getCurrRuleFullName()
+    });
+    throw this.SAVE_ERROR(new NoViableAltException(errMsg, this.LA(1), previousToken));
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/context_assist.js
+var ContentAssist = class {
+  initContentAssist() {
+  }
+  computeContentAssist(startRuleName, precedingInput) {
+    const startRuleGast = this.gastProductionsCache[startRuleName];
+    if (isUndefined_default(startRuleGast)) {
+      throw Error(`Rule ->${startRuleName}<- does not exist in this grammar.`);
+    }
+    return nextPossibleTokensAfter([startRuleGast], precedingInput, this.tokenMatcher, this.maxLookahead);
+  }
+  // TODO: should this be a member method or a utility? it does not have any state or usage of 'this'...
+  // TODO: should this be more explicitly part of the public API?
+  getNextPossibleTokenTypes(grammarPath) {
+    const topRuleName = head_default(grammarPath.ruleStack);
+    const gastProductions = this.getGAstProductions();
+    const topProduction = gastProductions[topRuleName];
+    const nextPossibleTokenTypes = new NextAfterTokenWalker(topProduction, grammarPath).startWalking();
+    return nextPossibleTokenTypes;
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/gast_recorder.js
+var RECORDING_NULL_OBJECT = {
+  description: "This Object indicates the Parser is during Recording Phase"
+};
+Object.freeze(RECORDING_NULL_OBJECT);
+var HANDLE_SEPARATOR = true;
+var MAX_METHOD_IDX = Math.pow(2, BITS_FOR_OCCURRENCE_IDX) - 1;
+var RFT = createToken({ name: "RECORDING_PHASE_TOKEN", pattern: Lexer.NA });
+augmentTokenTypes([RFT]);
+var RECORDING_PHASE_TOKEN = createTokenInstance(
+  RFT,
+  "This IToken indicates the Parser is in Recording Phase\n	See: https://chevrotain.io/docs/guide/internals.html#grammar-recording for details",
+  // Using "-1" instead of NaN (as in EOF) because an actual number is less likely to
+  // cause errors if the output of LA or CONSUME would be (incorrectly) used during the recording phase.
+  -1,
+  -1,
+  -1,
+  -1,
+  -1,
+  -1
+);
+Object.freeze(RECORDING_PHASE_TOKEN);
+var RECORDING_PHASE_CSTNODE = {
+  name: "This CSTNode indicates the Parser is in Recording Phase\n	See: https://chevrotain.io/docs/guide/internals.html#grammar-recording for details",
+  children: {}
+};
+var GastRecorder = class {
+  initGastRecorder(config) {
+    this.recordingProdStack = [];
+    this.RECORDING_PHASE = false;
+  }
+  enableRecording() {
+    this.RECORDING_PHASE = true;
+    this.TRACE_INIT("Enable Recording", () => {
+      for (let i = 0; i < 10; i++) {
+        const idx = i > 0 ? i : "";
+        this[`CONSUME${idx}`] = function(arg1, arg2) {
+          return this.consumeInternalRecord(arg1, i, arg2);
+        };
+        this[`SUBRULE${idx}`] = function(arg1, arg2) {
+          return this.subruleInternalRecord(arg1, i, arg2);
+        };
+        this[`OPTION${idx}`] = function(arg1) {
+          return this.optionInternalRecord(arg1, i);
+        };
+        this[`OR${idx}`] = function(arg1) {
+          return this.orInternalRecord(arg1, i);
+        };
+        this[`MANY${idx}`] = function(arg1) {
+          this.manyInternalRecord(i, arg1);
+        };
+        this[`MANY_SEP${idx}`] = function(arg1) {
+          this.manySepFirstInternalRecord(i, arg1);
+        };
+        this[`AT_LEAST_ONE${idx}`] = function(arg1) {
+          this.atLeastOneInternalRecord(i, arg1);
+        };
+        this[`AT_LEAST_ONE_SEP${idx}`] = function(arg1) {
+          this.atLeastOneSepFirstInternalRecord(i, arg1);
+        };
+      }
+      this[`consume`] = function(idx, arg1, arg2) {
+        return this.consumeInternalRecord(arg1, idx, arg2);
+      };
+      this[`subrule`] = function(idx, arg1, arg2) {
+        return this.subruleInternalRecord(arg1, idx, arg2);
+      };
+      this[`option`] = function(idx, arg1) {
+        return this.optionInternalRecord(arg1, idx);
+      };
+      this[`or`] = function(idx, arg1) {
+        return this.orInternalRecord(arg1, idx);
+      };
+      this[`many`] = function(idx, arg1) {
+        this.manyInternalRecord(idx, arg1);
+      };
+      this[`atLeastOne`] = function(idx, arg1) {
+        this.atLeastOneInternalRecord(idx, arg1);
+      };
+      this.ACTION = this.ACTION_RECORD;
+      this.BACKTRACK = this.BACKTRACK_RECORD;
+      this.LA = this.LA_RECORD;
+    });
+  }
+  disableRecording() {
+    this.RECORDING_PHASE = false;
+    this.TRACE_INIT("Deleting Recording methods", () => {
+      const that = this;
+      for (let i = 0; i < 10; i++) {
+        const idx = i > 0 ? i : "";
+        delete that[`CONSUME${idx}`];
+        delete that[`SUBRULE${idx}`];
+        delete that[`OPTION${idx}`];
+        delete that[`OR${idx}`];
+        delete that[`MANY${idx}`];
+        delete that[`MANY_SEP${idx}`];
+        delete that[`AT_LEAST_ONE${idx}`];
+        delete that[`AT_LEAST_ONE_SEP${idx}`];
+      }
+      delete that[`consume`];
+      delete that[`subrule`];
+      delete that[`option`];
+      delete that[`or`];
+      delete that[`many`];
+      delete that[`atLeastOne`];
+      delete that.ACTION;
+      delete that.BACKTRACK;
+      delete that.LA;
+    });
+  }
+  //   Parser methods are called inside an ACTION?
+  //   Maybe try/catch/finally on ACTIONS while disabling the recorders state changes?
+  // @ts-expect-error -- noop place holder
+  ACTION_RECORD(impl) {
+  }
+  // Executing backtracking logic will break our recording logic assumptions
+  BACKTRACK_RECORD(grammarRule, args) {
+    return () => true;
+  }
+  // LA is part of the official API and may be used for custom lookahead logic
+  // by end users who may forget to wrap it in ACTION or inside a GATE
+  LA_RECORD(howMuch) {
+    return END_OF_FILE;
+  }
+  topLevelRuleRecord(name, def) {
+    try {
+      const newTopLevelRule = new Rule({ definition: [], name });
+      newTopLevelRule.name = name;
+      this.recordingProdStack.push(newTopLevelRule);
+      def.call(this);
+      this.recordingProdStack.pop();
+      return newTopLevelRule;
+    } catch (originalError) {
+      if (originalError.KNOWN_RECORDER_ERROR !== true) {
+        try {
+          originalError.message = originalError.message + '\n	 This error was thrown during the "grammar recording phase" For more info see:\n	https://chevrotain.io/docs/guide/internals.html#grammar-recording';
+        } catch (mutabilityError) {
+          throw originalError;
+        }
+      }
+      throw originalError;
+    }
+  }
+  // Implementation of parsing DSL
+  optionInternalRecord(actionORMethodDef, occurrence) {
+    return recordProd.call(this, Option, actionORMethodDef, occurrence);
+  }
+  atLeastOneInternalRecord(occurrence, actionORMethodDef) {
+    recordProd.call(this, RepetitionMandatory, actionORMethodDef, occurrence);
+  }
+  atLeastOneSepFirstInternalRecord(occurrence, options) {
+    recordProd.call(this, RepetitionMandatoryWithSeparator, options, occurrence, HANDLE_SEPARATOR);
+  }
+  manyInternalRecord(occurrence, actionORMethodDef) {
+    recordProd.call(this, Repetition, actionORMethodDef, occurrence);
+  }
+  manySepFirstInternalRecord(occurrence, options) {
+    recordProd.call(this, RepetitionWithSeparator, options, occurrence, HANDLE_SEPARATOR);
+  }
+  orInternalRecord(altsOrOpts, occurrence) {
+    return recordOrProd.call(this, altsOrOpts, occurrence);
+  }
+  subruleInternalRecord(ruleToCall, occurrence, options) {
+    assertMethodIdxIsValid(occurrence);
+    if (!ruleToCall || has_default(ruleToCall, "ruleName") === false) {
+      const error = new Error(`<SUBRULE${getIdxSuffix(occurrence)}> argument is invalid expecting a Parser method reference but got: <${JSON.stringify(ruleToCall)}>
+ inside top level rule: <${this.recordingProdStack[0].name}>`);
+      error.KNOWN_RECORDER_ERROR = true;
+      throw error;
+    }
+    const prevProd = last_default(this.recordingProdStack);
+    const ruleName = ruleToCall.ruleName;
+    const newNoneTerminal = new NonTerminal({
+      idx: occurrence,
+      nonTerminalName: ruleName,
+      label: options === null || options === void 0 ? void 0 : options.LABEL,
+      // The resolving of the `referencedRule` property will be done once all the Rule's GASTs have been created
+      referencedRule: void 0
+    });
+    prevProd.definition.push(newNoneTerminal);
+    return this.outputCst ? RECORDING_PHASE_CSTNODE : RECORDING_NULL_OBJECT;
+  }
+  consumeInternalRecord(tokType, occurrence, options) {
+    assertMethodIdxIsValid(occurrence);
+    if (!hasShortKeyProperty(tokType)) {
+      const error = new Error(`<CONSUME${getIdxSuffix(occurrence)}> argument is invalid expecting a TokenType reference but got: <${JSON.stringify(tokType)}>
+ inside top level rule: <${this.recordingProdStack[0].name}>`);
+      error.KNOWN_RECORDER_ERROR = true;
+      throw error;
+    }
+    const prevProd = last_default(this.recordingProdStack);
+    const newNoneTerminal = new Terminal({
+      idx: occurrence,
+      terminalType: tokType,
+      label: options === null || options === void 0 ? void 0 : options.LABEL
+    });
+    prevProd.definition.push(newNoneTerminal);
+    return RECORDING_PHASE_TOKEN;
+  }
+};
+function recordProd(prodConstructor, mainProdArg, occurrence, handleSep = false) {
+  assertMethodIdxIsValid(occurrence);
+  const prevProd = last_default(this.recordingProdStack);
+  const grammarAction = isFunction_default(mainProdArg) ? mainProdArg : mainProdArg.DEF;
+  const newProd = new prodConstructor({ definition: [], idx: occurrence });
+  if (handleSep) {
+    newProd.separator = mainProdArg.SEP;
+  }
+  if (has_default(mainProdArg, "MAX_LOOKAHEAD")) {
+    newProd.maxLookahead = mainProdArg.MAX_LOOKAHEAD;
+  }
+  this.recordingProdStack.push(newProd);
+  grammarAction.call(this);
+  prevProd.definition.push(newProd);
+  this.recordingProdStack.pop();
+  return RECORDING_NULL_OBJECT;
+}
+function recordOrProd(mainProdArg, occurrence) {
+  assertMethodIdxIsValid(occurrence);
+  const prevProd = last_default(this.recordingProdStack);
+  const hasOptions = isArray_default(mainProdArg) === false;
+  const alts = hasOptions === false ? mainProdArg : mainProdArg.DEF;
+  const newOrProd = new Alternation({
+    definition: [],
+    idx: occurrence,
+    ignoreAmbiguities: hasOptions && mainProdArg.IGNORE_AMBIGUITIES === true
+  });
+  if (has_default(mainProdArg, "MAX_LOOKAHEAD")) {
+    newOrProd.maxLookahead = mainProdArg.MAX_LOOKAHEAD;
+  }
+  const hasPredicates = some_default(alts, (currAlt) => isFunction_default(currAlt.GATE));
+  newOrProd.hasPredicates = hasPredicates;
+  prevProd.definition.push(newOrProd);
+  forEach_default(alts, (currAlt) => {
+    const currAltFlat = new Alternative({ definition: [] });
+    newOrProd.definition.push(currAltFlat);
+    if (has_default(currAlt, "IGNORE_AMBIGUITIES")) {
+      currAltFlat.ignoreAmbiguities = currAlt.IGNORE_AMBIGUITIES;
+    } else if (has_default(currAlt, "GATE")) {
+      currAltFlat.ignoreAmbiguities = true;
+    }
+    this.recordingProdStack.push(currAltFlat);
+    currAlt.ALT.call(this);
+    this.recordingProdStack.pop();
+  });
+  return RECORDING_NULL_OBJECT;
+}
+function getIdxSuffix(idx) {
+  return idx === 0 ? "" : `${idx}`;
+}
+function assertMethodIdxIsValid(idx) {
+  if (idx < 0 || idx > MAX_METHOD_IDX) {
+    const error = new Error(
+      // The stack trace will contain all the needed details
+      `Invalid DSL Method idx value: <${idx}>
+	Idx value must be a none negative value smaller than ${MAX_METHOD_IDX + 1}`
+    );
+    error.KNOWN_RECORDER_ERROR = true;
+    throw error;
+  }
+}
+
+// node_modules/chevrotain/lib/src/parse/parser/traits/perf_tracer.js
+var PerformanceTracer = class {
+  initPerformanceTracer(config) {
+    if (has_default(config, "traceInitPerf")) {
+      const userTraceInitPerf = config.traceInitPerf;
+      const traceIsNumber = typeof userTraceInitPerf === "number";
+      this.traceInitMaxIdent = traceIsNumber ? userTraceInitPerf : Infinity;
+      this.traceInitPerf = traceIsNumber ? userTraceInitPerf > 0 : userTraceInitPerf;
+    } else {
+      this.traceInitMaxIdent = 0;
+      this.traceInitPerf = DEFAULT_PARSER_CONFIG.traceInitPerf;
+    }
+    this.traceInitIndent = -1;
+  }
+  TRACE_INIT(phaseDesc, phaseImpl) {
+    if (this.traceInitPerf === true) {
+      this.traceInitIndent++;
+      const indent = new Array(this.traceInitIndent + 1).join("	");
+      if (this.traceInitIndent < this.traceInitMaxIdent) {
+        console.log(`${indent}--> <${phaseDesc}>`);
+      }
+      const { time, value } = timer(phaseImpl);
+      const traceMethod = time > 10 ? console.warn : console.log;
+      if (this.traceInitIndent < this.traceInitMaxIdent) {
+        traceMethod(`${indent}<-- <${phaseDesc}> time: ${time}ms`);
+      }
+      this.traceInitIndent--;
+      return value;
+    } else {
+      return phaseImpl();
+    }
+  }
+};
+
+// node_modules/chevrotain/lib/src/parse/parser/utils/apply_mixins.js
+function applyMixins(derivedCtor, baseCtors) {
+  baseCtors.forEach((baseCtor) => {
+    const baseProto = baseCtor.prototype;
+    Object.getOwnPropertyNames(baseProto).forEach((propName) => {
+      if (propName === "constructor") {
+        return;
+      }
+      const basePropDescriptor = Object.getOwnPropertyDescriptor(baseProto, propName);
+      if (basePropDescriptor && (basePropDescriptor.get || basePropDescriptor.set)) {
+        Object.defineProperty(derivedCtor.prototype, propName, basePropDescriptor);
+      } else {
+        derivedCtor.prototype[propName] = baseCtor.prototype[propName];
+      }
+    });
+  });
+}
+
+// node_modules/chevrotain/lib/src/parse/parser/parser.js
+var END_OF_FILE = createTokenInstance(EOF, "", NaN, NaN, NaN, NaN, NaN, NaN);
+Object.freeze(END_OF_FILE);
+var DEFAULT_PARSER_CONFIG = Object.freeze({
+  recoveryEnabled: false,
+  maxLookahead: 3,
+  dynamicTokensEnabled: false,
+  outputCst: true,
+  errorMessageProvider: defaultParserErrorProvider,
+  nodeLocationTracking: "none",
+  traceInitPerf: false,
+  skipValidations: false
+});
+var DEFAULT_RULE_CONFIG = Object.freeze({
+  recoveryValueFunc: () => void 0,
+  resyncEnabled: true
+});
+var ParserDefinitionErrorType;
+(function(ParserDefinitionErrorType2) {
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["INVALID_RULE_NAME"] = 0] = "INVALID_RULE_NAME";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["DUPLICATE_RULE_NAME"] = 1] = "DUPLICATE_RULE_NAME";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["INVALID_RULE_OVERRIDE"] = 2] = "INVALID_RULE_OVERRIDE";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["DUPLICATE_PRODUCTIONS"] = 3] = "DUPLICATE_PRODUCTIONS";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["UNRESOLVED_SUBRULE_REF"] = 4] = "UNRESOLVED_SUBRULE_REF";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["LEFT_RECURSION"] = 5] = "LEFT_RECURSION";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["NONE_LAST_EMPTY_ALT"] = 6] = "NONE_LAST_EMPTY_ALT";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["AMBIGUOUS_ALTS"] = 7] = "AMBIGUOUS_ALTS";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["CONFLICT_TOKENS_RULES_NAMESPACE"] = 8] = "CONFLICT_TOKENS_RULES_NAMESPACE";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["INVALID_TOKEN_NAME"] = 9] = "INVALID_TOKEN_NAME";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["NO_NON_EMPTY_LOOKAHEAD"] = 10] = "NO_NON_EMPTY_LOOKAHEAD";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["AMBIGUOUS_PREFIX_ALTS"] = 11] = "AMBIGUOUS_PREFIX_ALTS";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["TOO_MANY_ALTS"] = 12] = "TOO_MANY_ALTS";
+  ParserDefinitionErrorType2[ParserDefinitionErrorType2["CUSTOM_LOOKAHEAD_VALIDATION"] = 13] = "CUSTOM_LOOKAHEAD_VALIDATION";
+})(ParserDefinitionErrorType || (ParserDefinitionErrorType = {}));
+var Parser = class {
+  /**
+   *  @deprecated use the **instance** method with the same name instead
+   */
+  static performSelfAnalysis(parserInstance) {
+    throw Error("The **static** `performSelfAnalysis` method has been deprecated.	\nUse the **instance** method with the same name instead.");
+  }
+  performSelfAnalysis() {
+    this.TRACE_INIT("performSelfAnalysis", () => {
+      let defErrorsMsgs;
+      this.selfAnalysisDone = true;
+      const className = this.className;
+      this.TRACE_INIT("toFastProps", () => {
+        toFastProperties(this);
+      });
+      this.TRACE_INIT("Grammar Recording", () => {
+        try {
+          this.enableRecording();
+          forEach_default(this.definedRulesNames, (currRuleName) => {
+            const wrappedRule = this[currRuleName];
+            const originalGrammarAction = wrappedRule["originalGrammarAction"];
+            let recordedRuleGast;
+            this.TRACE_INIT(`${currRuleName} Rule`, () => {
+              recordedRuleGast = this.topLevelRuleRecord(currRuleName, originalGrammarAction);
+            });
+            this.gastProductionsCache[currRuleName] = recordedRuleGast;
+          });
+        } finally {
+          this.disableRecording();
+        }
+      });
+      let resolverErrors = [];
+      this.TRACE_INIT("Grammar Resolving", () => {
+        resolverErrors = resolveGrammar2({
+          rules: values_default(this.gastProductionsCache)
+        });
+        this.definitionErrors = this.definitionErrors.concat(resolverErrors);
+      });
+      this.TRACE_INIT("Grammar Validations", () => {
+        if (isEmpty_default(resolverErrors) && this.skipValidations === false) {
+          const validationErrors = validateGrammar2({
+            rules: values_default(this.gastProductionsCache),
+            tokenTypes: values_default(this.tokensMap),
+            errMsgProvider: defaultGrammarValidatorErrorProvider,
+            grammarName: className
+          });
+          const lookaheadValidationErrors = validateLookahead({
+            lookaheadStrategy: this.lookaheadStrategy,
+            rules: values_default(this.gastProductionsCache),
+            tokenTypes: values_default(this.tokensMap),
+            grammarName: className
+          });
+          this.definitionErrors = this.definitionErrors.concat(validationErrors, lookaheadValidationErrors);
+        }
+      });
+      if (isEmpty_default(this.definitionErrors)) {
+        if (this.recoveryEnabled) {
+          this.TRACE_INIT("computeAllProdsFollows", () => {
+            const allFollows = computeAllProdsFollows(values_default(this.gastProductionsCache));
+            this.resyncFollows = allFollows;
+          });
+        }
+        this.TRACE_INIT("ComputeLookaheadFunctions", () => {
+          var _a, _b;
+          (_b = (_a = this.lookaheadStrategy).initialize) === null || _b === void 0 ? void 0 : _b.call(_a, {
+            rules: values_default(this.gastProductionsCache)
+          });
+          this.preComputeLookaheadFunctions(values_default(this.gastProductionsCache));
+        });
+      }
+      if (!Parser.DEFER_DEFINITION_ERRORS_HANDLING && !isEmpty_default(this.definitionErrors)) {
+        defErrorsMsgs = map_default(this.definitionErrors, (defError) => defError.message);
+        throw new Error(`Parser Definition Errors detected:
+ ${defErrorsMsgs.join("\n-------------------------------\n")}`);
+      }
+    });
+  }
+  constructor(tokenVocabulary, config) {
+    this.definitionErrors = [];
+    this.selfAnalysisDone = false;
+    const that = this;
+    that.initErrorHandler(config);
+    that.initLexerAdapter();
+    that.initLooksAhead(config);
+    that.initRecognizerEngine(tokenVocabulary, config);
+    that.initRecoverable(config);
+    that.initTreeBuilder(config);
+    that.initContentAssist();
+    that.initGastRecorder(config);
+    that.initPerformanceTracer(config);
+    if (has_default(config, "ignoredIssues")) {
+      throw new Error("The <ignoredIssues> IParserConfig property has been deprecated.\n	Please use the <IGNORE_AMBIGUITIES> flag on the relevant DSL method instead.\n	See: https://chevrotain.io/docs/guide/resolving_grammar_errors.html#IGNORING_AMBIGUITIES\n	For further details.");
+    }
+    this.skipValidations = has_default(config, "skipValidations") ? config.skipValidations : DEFAULT_PARSER_CONFIG.skipValidations;
+  }
+};
+Parser.DEFER_DEFINITION_ERRORS_HANDLING = false;
+applyMixins(Parser, [
+  Recoverable,
+  LooksAhead,
+  TreeBuilder,
+  LexerAdapter,
+  RecognizerEngine,
+  RecognizerApi,
+  ErrorHandler,
+  ContentAssist,
+  GastRecorder,
+  PerformanceTracer
+]);
+var CstParser = class extends Parser {
+  constructor(tokenVocabulary, config = DEFAULT_PARSER_CONFIG) {
+    const configClone = clone_default(config);
+    configClone.outputCst = true;
+    super(tokenVocabulary, configClone);
+  }
+};
+
+// src/tokens.js
+function getTokens(v2Compatible) {
+  let Symbols = {
+    OR: "|",
+    ELSE: "||",
+    DYNAMIC: "$",
+    STATIC: "#",
+    ENTITY: "&",
+    OPEN_GATE: "@",
+    CLOSE_GATE: "@",
+    PENDING_GATE: "@@",
+    OPEN_SILENT: "{",
+    CLOSE_SILENT: "}"
+  };
+  let v2Symbols = {
+    OPEN_CHOICE: "(",
+    CLOSE_CHOICE: ")",
+    OPEN_WEIGHT: "[",
+    CLOSE_WEIGHT: "]",
+    CONTINUATION: "\\"
+  };
+  let v3Symbols = {
+    OPEN_CHOICE: "[",
+    CLOSE_CHOICE: "]",
+    OPEN_WEIGHT: "^",
+    // also allows (int), eg. (3)
+    CLOSE_WEIGHT: "^",
+    CONTINUATION: "~"
+  };
+  Object.assign(Symbols, v2Compatible ? v2Symbols : v3Symbols);
+  const Escaped = {};
+  Object.entries(Symbols).forEach(([k, v]) => {
+    Escaped[k] = escapeRegex(v);
+  });
+  const PENDING_GATE_PATTERN = new RegExp(`${Escaped.PENDING_GATE}([0-9]{9,11})`);
+  Escaped.SPECIAL = Object.values(Escaped).join("").replace(/[<>]/g, "");
+  Symbols.PENDING_GATE_RE = new RegExp(PENDING_GATE_PATTERN.source, "g");
+  const ExitGate = createToken({
+    name: "ExitGate",
+    pattern: new RegExp(`\\s*${Escaped.CLOSE_GATE}`),
+    pop_mode: true
+  });
+  const Gate = createToken({
+    name: "Gate",
+    pattern: new RegExp(`[^${Escaped.CLOSE_GATE}]+`)
+  });
+  const PendingGate = createToken({
+    name: "PendingGate",
+    pattern: PENDING_GATE_PATTERN
+  });
+  const EnterGate = createToken({
+    name: "EnterGate",
+    pattern: new RegExp(`${Escaped.OPEN_GATE}\\s*`),
+    push_mode: "gate_mode"
+  });
+  const OC = createToken({ name: "OC", pattern: new RegExp(Escaped.OPEN_CHOICE + "\\s*") });
+  const CC = createToken({ name: "CC", pattern: new RegExp(`\\s*${Escaped.CLOSE_CHOICE}`) });
+  const OR = createToken({ name: "OR", pattern: /\s*\|\s*/ });
+  const ELSE = createToken({ name: "ELSE", pattern: /\s*\|\|\s*/ });
+  const EQ = createToken({ name: "EQ", pattern: /\s*=\s*/ });
+  const TF = createToken({ name: "TF", pattern: /\.[A-Za-z_0-9][A-Za-z_0-9]*(\(\))?/ });
+  const OS = createToken({ name: "OS", pattern: new RegExp(`${Escaped.OPEN_SILENT}\\s*`) });
+  const CS = createToken({ name: "CS", pattern: new RegExp(`\\s*${Escaped.CLOSE_SILENT}`) });
+  const SYM = createToken({ name: "SYM", pattern: new RegExp(`[${Escaped.DYNAMIC}${Escaped.STATIC}][A-Za-z_0-9]*`) });
+  const Entity = createToken({ name: "Entity", pattern: /&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-fA-F]{1,6});/i });
+  const Weight = createToken({ name: "Weight", pattern: new RegExp(`\\s*${Escaped.OPEN_WEIGHT}.+${Escaped.CLOSE_WEIGHT}\\s*`) });
+  const Raw = createToken({ name: "Raw", pattern: new RegExp(`[^${Escaped.SPECIAL}]+`) });
+  const normalMode = [Entity, Weight, ELSE, OC, CC, OR, EQ, SYM, TF, OS, CS, PendingGate, Raw, EnterGate];
+  const gateMode = [Gate, ExitGate];
+  const multiMode = {
+    modes: {
+      normal: normalMode,
+      gate_mode: gateMode
+    },
+    defaultMode: "normal"
+  };
+  return { tokens: multiMode, Constants: { Symbols, Escaped } };
+}
+function escapeRegex(s) {
+  return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+}
+
+// src/parser.js
+var RiScriptParser = class extends CstParser {
+  constructor(allTokens) {
+    super(allTokens, { nodeLocationTracking: "full" });
+    this.atomTypes = ["silent", "assign", "symbol", "choice", "pgate", "text", "entity"];
+    this.buildRules();
+  }
+  parse(opts) {
+    this.input = opts.tokens;
+    let cst = this.script();
+    if (this.errors.length > 0)
+      throw Error("[PARSING]\n" + this.errors[0].message);
+    return cst;
+  }
+  buildRules() {
+    const $ = this, Tokens = this.tokensMap;
+    $.RULE("script", () => {
+      $.MANY(() => $.SUBRULE($.expr));
+    });
+    $.RULE("pgate", () => {
+      $.CONSUME(Tokens.PendingGate);
+      $.MANY(() => $.CONSUME(Tokens.TF));
+    });
+    $.RULE("entity", () => {
+      $.CONSUME(Tokens.Entity);
+    });
+    $.RULE("gate", () => {
+      $.CONSUME(Tokens.EnterGate);
+      $.MANY(() => $.CONSUME(Tokens.Gate));
+      $.CONSUME(Tokens.ExitGate);
+    });
+    $.RULE("silent", () => {
+      $.CONSUME(Tokens.OS);
+      $.OPTION1(() => $.SUBRULE($.gate));
+      $.CONSUME(Tokens.SYM);
+      $.OPTION2(() => {
+        $.CONSUME(Tokens.EQ);
+        $.SUBRULE($.expr);
+      });
+      $.CONSUME(Tokens.CS);
+    });
+    $.RULE("assign", () => {
+      $.CONSUME(Tokens.SYM);
+      $.CONSUME(Tokens.EQ);
+      $.SUBRULE($.expr);
+    });
+    $.RULE("symbol", () => {
+      $.CONSUME(Tokens.SYM);
+      $.MANY(() => $.CONSUME(Tokens.TF));
+    });
+    $.RULE("accept", () => {
+      $.SUBRULE($.or_expr);
+    });
+    $.RULE("reject", () => {
+      $.SUBRULE($.or_expr);
+    });
+    $.RULE("or_expr", () => {
+      $.MANY_SEP({
+        SEP: Tokens.OR,
+        DEF: () => $.SUBRULE($.wexpr)
+      });
+    });
+    $.RULE("choice", () => {
+      $.CONSUME(Tokens.OC);
+      $.OPTION1(() => $.SUBRULE($.gate));
+      $.SUBRULE($.accept);
+      $.OPTION2(() => {
+        $.CONSUME(Tokens.ELSE);
+        $.SUBRULE($.reject);
+      });
+      $.CONSUME(Tokens.CC);
+      $.MANY(() => $.CONSUME(Tokens.TF));
+    });
+    $.RULE("wexpr", () => {
+      $.MANY(() => {
+        $.OR([
+          { ALT: () => $.SUBRULE($.expr) },
+          { ALT: () => $.CONSUME(Tokens.Weight) }
+        ]);
+      });
+    });
+    $.RULE("expr", () => {
+      $.AT_LEAST_ONE(() => $.SUBRULE($.atom));
+    });
+    $.RULE("atom", () => {
+      $.OR(this.atomTypes.map((t) => ({ ALT: () => $.SUBRULE($[t]) })));
+    });
+    $.RULE("text", () => {
+      $.CONSUME(Tokens.Raw);
+    });
+    this.performSelfAnalysis();
+  }
+};
+
+// src/visitor.js
+var BaseVisitor = class {
+  constructor(riScript) {
+    this.input = 0;
+    this.path = "";
+    this.tracePath = true;
+    this.scripting = riScript;
+    this.warnOnInvalidGates = false;
+    this.RiScript = this.scripting.constructor;
+  }
+  isCstNode(o) {
+    return typeof o === "object" && ("accept" in o || "name" in o && "location" in o && "children" in o);
+  }
+  visit(cstNode, param) {
+    if (Array.isArray(cstNode)) {
+      cstNode = cstNode[0];
+    }
+    if (typeof cstNode === "undefined") {
+      return void 0;
+    }
+    if (!this.isCstNode(cstNode)) {
+      throw Error("Non-cstNode passed to visit: " + JSON.stringify(cstNode));
+    }
+    const { name, location } = cstNode;
+    this.nodeText = this.input.substring(
+      location.startOffset,
+      location.endOffset + 1
+    );
+    if (typeof this[name] !== "function") {
+      throw Error(`BaseVisitor.visit: expecting function for this[${name}], found ${typeof this[name]}: ${JSON.stringify(this[name])}`);
+    }
+    if (this.tracePath && !/(expr|atom|silent)/.test(name)) {
+      this.path += name + ".";
+    }
+    return this[name](cstNode.children, param);
+  }
+  validateVisitor() {
+  }
+};
+var RiScriptVisitor = class extends BaseVisitor {
+  constructor(riScript, context = {}) {
+    super(riScript);
+    this.context = context;
+    this.trace = 0;
+    this.choices = {};
+    this.isNoRepeat = false;
+    this.symbols = this.scripting.Symbols;
+    this.escaped = this.scripting.Escaped;
+    this.statics = {};
+    this.dynamics = {};
+    this.pendingGates = {};
+    this.pendingSymbols = /* @__PURE__ */ new Set();
+    this.validateVisitor();
+  }
+  start(opts = {}) {
+    this.input = opts.input;
+    this.trace = opts.trace;
+    this.traceTx = opts.traceTx;
+    if (!opts.cst)
+      throw Error("no cst");
+    return super.visit(opts.cst);
+  }
+  script(ctx) {
+    this.order = 0;
+    const count = ctx.expr ? ctx.expr.length : 0;
+    this.print("script", "'" + this.RiScript._escapeText(this.input) + "' :: " + count + " expression(s)");
+    if (!count)
+      return "";
+    if (Object.keys(ctx).length !== 1)
+      throw Error("script: invalid expr");
+    return this.visit(ctx.expr);
+  }
+  expr(ctx) {
+    const types = Object.keys(ctx);
+    if (types.length !== 1)
+      throw Error("invalid expr: " + types.length);
+    const exprs = ctx.atom.map((c) => this.visit(c));
+    for (let i = 1; i < exprs.length - 1; i++) {
+      if (exprs[i].length === 0 && exprs[i - 1].endsWith(" ") && exprs[i + 1].startsWith(" ")) {
+        exprs[i + 1] = exprs[i + 1].substring(1);
+      }
+    }
+    return exprs.join("");
+  }
+  wexpr(ctx) {
+    this.print("wexpr");
+  }
+  gate(ctx) {
+    if (ctx.Gate.length !== 1)
+      throw Error("Invalid gate: " + ctx.Gate);
+    let mingoQuery;
+    const raw = ctx.Gate[0].image;
+    try {
+      mingoQuery = this.scripting._query(raw);
+    } catch (e) {
+      if (!this.warnOnInvalidGates) {
+        throw Error(`Invalid gate[2]: "@${raw}@"
+
+RootCause -> ${e}`);
+      }
+      if (!this.scripting.RiTa.SILENT && !this.scripting.silent) {
+        console.warn(`[WARN] Ignoring invalid gate: @${raw}@
+`, e);
+      }
+      return { decision: "accept" };
+    }
+    const resolvedOps = {};
+    const unresolvedOps = [];
+    const operands = mingoQuery.operands();
+    operands.forEach((sym) => {
+      let { result: result2, resolved, isStatic, isUser } = this.checkContext(sym);
+      if (typeof result2 === "function") {
+        result2 = result2.call();
+        resolved = !this.scripting.isParseable(result2);
+      }
+      if (typeof result2 === "undefined" || !resolved) {
+        unresolvedOps.push(sym);
+      } else {
+        if (isStatic) {
+          this.statics[sym] = result2;
+        } else if (isUser) {
+          this.context[sym] = result2;
+        } else {
+          this.dynamics[sym] = result2;
+        }
+        resolvedOps[sym] = result2;
+      }
+    });
+    if (Object.keys(resolvedOps).length + unresolvedOps.length !== operands.length) {
+      throw Error("invalid operands");
+    }
+    if (unresolvedOps.length) {
+      return { decision: "defer", operands: unresolvedOps };
+    }
+    let result = mingoQuery.test(resolvedOps);
+    if (!result && this.castValues(resolvedOps)) {
+      result = mingoQuery.test(resolvedOps);
+    }
+    return { decision: result ? "accept" : "reject" };
+  }
+  assign(ctx, opts) {
+    const sym = ctx.SYM[0].image;
+    let value;
+    let info;
+    const ident = sym.replace(this.scripting.AnySymbolRE, "");
+    const isStatic = sym.startsWith(this.symbols.STATIC);
+    if (isStatic) {
+      value = this.visit(ctx.expr);
+      if (this.scripting.isParseable(value)) {
+        this.statics[ident] = value;
+        value = this.inlineAssignment(ident, ctx.TF, value);
+      } else {
+        this.statics[ident] = value;
+        this.pendingSymbols.delete(ident);
+        this.trace && console.log(
+          "  [pending.delete]",
+          sym,
+          this.pendingSymbols.length ? JSON.stringify(this.pendingSymbols) : ""
+        );
+      }
+      info = `${sym} = ${this.RiScript._escapeText(value)} [#static] ${opts?.silent ? "{silent}" : ""}`;
+    } else {
+      const $ = this;
+      value = () => $.visit(ctx.expr);
+      info = `${sym} = <f*:pending>` + (opts?.silent ? "{silent}" : "");
+      this.dynamics[ident] = value;
+    }
+    this.print("assign", info);
+    return value;
+  }
+  silent(ctx) {
+    if (ctx.EQ) {
+      this.assign(ctx, { silent: true });
+    } else {
+      this.symbol(ctx, { silent: true });
+    }
+    return "";
+  }
+  atom(ctx) {
+    let result;
+    const types = Object.keys(ctx);
+    if (types.length !== 1)
+      throw Error("invalid atom: " + types);
+    this.scripting.parser.atomTypes.forEach((type) => {
+      const context = ctx[type];
+      if (context) {
+        if (context.length !== 1) {
+          throw Error(type + ": bad length -> " + ctx[type].length);
+        }
+        result = this.visit(context[0]);
+      }
+    });
+    if (typeof result === "function") {
+      result = result.call();
+    }
+    return result;
+  }
+  text(ctx) {
+    if (ctx.Raw.length !== 1)
+      throw Error("[1] invalid text");
+    if (Object.keys(ctx).length !== 1)
+      throw Error("[2] invalid text");
+    const image = ctx.Raw[0].image;
+    this.print("text", this.RiScript._escapeText("'" + image + "'"));
+    return image;
+  }
+  entity(ctx) {
+    return this.nodeText;
+  }
+  symbol(ctx, opts) {
+    if (ctx.SYM.length !== 1)
+      throw Error("[1] invalid symbol");
+    const original = this.nodeText;
+    const symbol = ctx.SYM[0].image;
+    const ident = symbol.replace(this.scripting.AnySymbolRE, "");
+    this.isNoRepeat = this.hasNoRepeat(ctx.TF);
+    if (this.pendingSymbols.has(ident)) {
+      this.print("symbol", `${symbol} [is-pending]`);
+      return original;
+    }
+    let { result, isStatic, isUser, resolved } = this.checkContext(ident);
+    if (!isStatic && symbol.startsWith(this.symbols.STATIC)) {
+      if (!this.scripting.EntityRE.test(symbol)) {
+        throw Error(`Attempt to refer to dynamic symbol '${ident}' as ${this.symbols.STATIC}${ident}, did you mean $${ident}?`);
+      }
+    }
+    if (typeof result === "function") {
+      result = result.call();
+      resolved = !this.scripting.isParseable(result);
+    }
+    if (this.isNoRepeat && (isStatic || isUser)) {
+      this.isNoRepeat = false;
+      const msg = "Attempt to call norepeat() on " + (isStatic ? "static symbol '" + symbol + "'. Did you mean to use '" + this.symbols.DYNAMIC + ident + "' ?" : "non-dynamic symbol '" + ident + "'. Did you mean to define '" + this.symbols.DYNAMIC + ident + "' in riscript?");
+      throw Error(msg);
+    }
+    if (typeof result === "undefined") {
+      this.print("symbol", symbol + " -> '" + original + "' ctx=" + this.lookupsToString(), "[deferred]", opts?.silent ? "{silent}" : "");
+      return original;
+    }
+    let info = original + " -> '" + result + "'" + (opts?.silent ? " {silent}" : "");
+    if (typeof result === "string" && !resolved) {
+      if (isStatic) {
+        this.pendingSymbols.add(ident);
+        result = this.inlineAssignment(ident, ctx.TF, result);
+        this.print("symbol*", `${original} -> ${result} :: pending.add(${ident})`);
+      } else {
+        if (ctx.TF)
+          result = this.restoreTransforms(result, ctx.TF);
+        this.print("symbol", info);
+      }
+      return result;
+    }
+    if (isStatic) {
+      this.statics[ident] = result;
+    }
+    if (ctx.TF) {
+      result = this.applyTransforms(result, ctx.TF);
+      info += " -> '" + result + "'";
+      if (this.isNoRepeat)
+        info += " (norepeat)";
+    }
+    this.print("symbol", info);
+    if (this.pendingSymbols.has(ident)) {
+      this.trace && console.log(
+        "  [$pending.delete]",
+        (isStatic ? "#" : "$") + ident,
+        this.pendingSymbols.length ? JSON.stringify(this.pendingSymbols) : ""
+      );
+      this.pendingSymbols.delete(ident);
+    }
+    this.isNoRepeat = false;
+    return result;
+  }
+  pgate(ctx) {
+    this.print("pgate", this.nodeText);
+    const original = this.nodeText;
+    const ident = original.replace(this.symbols.PENDING_GATE, "");
+    const lookup = this.pendingGates[ident];
+    if (!lookup) {
+      throw Error('no pending gate="' + original + '" pgates=' + JSON.stringify(Object.keys(this.pendingGates)));
+    }
+    const stillUnresolved = lookup.operands.some((o) => {
+      let { result: result2, resolved } = this.checkContext(o);
+      if (typeof result2 === "function") {
+        result2 = result2.call();
+        resolved = !this.scripting.isParseable(result2);
+      }
+      return typeof result2 === "undefined" || !resolved;
+    });
+    if (stillUnresolved)
+      return original;
+    const result = this.choice(lookup.deferredContext);
+    return result;
+  }
+  else(ctx) {
+    return this.visit(ctx.expr).trim();
+  }
+  choice(ctx, opts) {
+    const $ = this.symbols;
+    let rawGate, gateResult;
+    const original = this.nodeText;
+    let info = original;
+    const choiceKey = this.RiScript._stringHash(original + " #" + this.choiceId(ctx));
+    if (!this.isNoRepeat && this.hasNoRepeat(ctx.TF)) {
+      throw Error("noRepeat() not allowed on choice (use a $variable instead): " + original);
+    }
+    let decision = "accept";
+    if (opts?.forceReject) {
+      decision = "reject";
+    } else {
+      if (ctx.gate) {
+        rawGate = ctx.gate[0].children.Gate[0].image;
+        gateResult = this.visit(ctx.gate);
+        decision = gateResult.decision;
+        info += `
+  [gate] ${rawGate} -> ${decision !== "defer" ? decision.toUpperCase() : `DEFER ${$.PENDING_GATE}${choiceKey}`}  ${this.lookupsToString()}`;
+      }
+      if (gateResult) {
+        if (gateResult.decision === "defer") {
+          this.pendingGates[choiceKey] = {
+            deferredContext: ctx,
+            operands: gateResult.operands
+          };
+          return `${$.PENDING_GATE}${choiceKey}`;
+        }
+      }
+    }
+    if (decision === "reject" && !("reject" in ctx)) {
+      return "";
+    }
+    const orExpr = ctx[decision]?.[0]?.children?.or_expr?.[0];
+    const options = this.parseOptions(orExpr);
+    if (!options)
+      throw Error("No options in choice: " + original);
+    let value = null;
+    const excluded = [];
+    let restored = false;
+    while (value === null) {
+      value = this.choose(options, excluded).value;
+      if (this.scripting.isParseable(value)) {
+        if (ctx.TF)
+          value = this.restoreTransforms(value, ctx.TF);
+        restored = true;
+        break;
+      }
+      if (ctx.TF)
+        value = this.applyTransforms(value, ctx.TF);
+      if (this.isNoRepeat && value === this.choices[choiceKey]) {
+        this.print("choice.reject", value + " [norepeat]");
+        excluded.push(value);
+        value = null;
+        continue;
+      }
+    }
+    if (!restored)
+      this.choices[choiceKey] = value;
+    return value;
+  }
+  // Helpers ================================================
+  hasNoRepeat(tfs) {
+    const transforms = this.RiScript._transformNames(tfs);
+    if (transforms.length) {
+      return transforms.includes("nr") || transforms.includes("norepeat");
+    }
+    return false;
+  }
+  checkContext(ident) {
+    let isStatic = false;
+    let isUser = false;
+    let result;
+    if (ident.length === 0) {
+      return { result: "", resolved: true, isStatic, isUser };
+    }
+    result = this.dynamics[ident];
+    if (typeof result === "undefined") {
+      result = this.statics[ident];
+      if (typeof result !== "undefined") {
+        isStatic = true;
+      }
+    }
+    if (typeof result === "undefined") {
+      result = this.context[ident];
+      if (typeof result !== "undefined") {
+        isUser = true;
+      } else {
+        result = this.context[this.symbols.DYNAMIC + ident];
+        if (typeof result !== "undefined") {
+        }
+      }
+    }
+    const resolved = !this.scripting.isParseable(result);
+    return { result, isStatic, isUser, resolved };
+  }
+  inlineAssignment(ident, tfs, result) {
+    const $ = this.symbols;
+    const lhs = $.STATIC + ident;
+    const rhs = this.restoreTransforms(result, tfs);
+    result = $.OPEN_CHOICE + (lhs + "=" + rhs) + $.CLOSE_CHOICE;
+    return result;
+  }
+  choiceId(ctx) {
+    if (!ctx.OC || !ctx.OC.length)
+      throw Error("invalid choice");
+    return ctx.OC[0].startOffset + "." + ctx.OC[0].endOffset;
+  }
+  parseOptions(ctx) {
+    const options = [];
+    if (ctx && ctx?.children?.wexpr) {
+      const wexprs = ctx.children.wexpr;
+      for (let i = 0; i < wexprs.length; i++) {
+        const wexpr = wexprs[i];
+        const expr = wexpr.children.expr;
+        if (expr && expr.length != 1) {
+          throw Error("invalid choice-expr: " + expr.length);
+        }
+        const weight = wexpr.children.Weight;
+        if (weight) {
+          if (weight.length != 1) {
+            throw Error("invalid weight: " + weight.length);
+          }
+          let mult = 1;
+          try {
+            mult = parseInt(
+              this.symbols.CLOSE_WEIGHT.length ? weight[0].image.trim().slice(1, -1) : weight[0].image.trim().slice(1)
+            );
+          } catch (e) {
+            console.log("EX: " + mult);
+          }
+          Array.from({ length: mult }, () => options.push(expr));
+        } else {
+          options.push(expr || "");
+        }
+      }
+    }
+    return options;
+  }
+  chooseUnique(options, choiceKey) {
+    const isUnique = false;
+    while (options.length && !isUnique) {
+      const { index, value } = this.choose(options);
+      if (value !== this.choices[choiceKey])
+        return value;
+      options.splice(index, 1);
+    }
+    throw Error("No remaining options");
+  }
+  choose(options, excludes = []) {
+    if (!options || !options.length) {
+      throw Error("Invalid choice: no options");
+    }
+    const valid = options.filter((x) => !excludes.includes(x));
+    if (!valid.length) {
+      throw Error("Invalid choice: no valid options");
+    }
+    const index = this.scripting.RiTa.randi(valid.length);
+    let value = "";
+    const selected = valid[index];
+    if (typeof selected === "string") {
+      this.print("choice.text", "''");
+    } else {
+      this.path = "choice." + this.path;
+      value = this.visit(selected);
+    }
+    if (typeof value === "string")
+      value = value.trim();
+    return { index, value };
+  }
+  applyTransforms(value, txs) {
+    if (this.traceTx) {
+      console.log("applyTransforms", this.formatTxs(...arguments));
+    }
+    for (let i = 0; i < txs.length; i++) {
+      value = this.applyTransform(value, txs[i]);
+    }
+    return value;
+  }
+  // value is not yet resolved, so store with transform for later
+  restoreTransforms(value, txs) {
+    if (typeof value === "string") {
+      const patt = new RegExp(
+        "^" + this.escaped.OPEN_CHOICE + ".*" + this.escaped.CLOSE_CHOICE + "$"
+      );
+      if (!patt.test(value)) {
+        value = this.symbols.OPEN_CHOICE + value + this.symbols.CLOSE_CHOICE;
+      }
+      if (txs) {
+        txs.forEach((tx) => value += tx.image);
+      }
+      if (this.traceTx)
+        console.log("restoreTransforms:", value);
+    }
+    return value;
+  }
+  castValues(obj) {
+    let madeCast = false;
+    Object.entries(obj).forEach(([k, v]) => {
+      const num = parseFloat(v);
+      if (!isNaN(num)) {
+        madeCast = true;
+        obj[k] = num;
+      }
+    });
+    return madeCast;
+  }
+  contextIsResolved(table) {
+    let allResolved = true;
+    Object.entries(table).forEach(([key, val]) => {
+      if (!this.scripting.isParseable(val)) {
+        allResolved = false;
+      }
+    });
+    return allResolved;
+  }
+  applyTransform(target, transform) {
+    const image = transform.image;
+    let result;
+    const raw = target + image;
+    const tx = image.substring(1).replace(/\(\)$/, "");
+    if (typeof this.dynamics[tx] === "function") {
+      result = this.dynamics[tx](target);
+    } else if (typeof this.statics[tx] === "function") {
+      result = this.statics[tx](target);
+    } else if (typeof this.context[tx] === "function") {
+      result = this.context[tx](target);
+    } else if (typeof this.RiScript.transforms[tx] === "function") {
+      result = this.RiScript.transforms[tx](target);
+    } else if (typeof target[tx] === "function") {
+      result = target[tx]();
+    } else {
+      if (target.hasOwnProperty(tx)) {
+        result = target[tx];
+      } else {
+        if (!this.scripting.RiTa.SILENT && !this.scripting.silent) {
+          console.warn("[WARN] Unresolved transform: " + raw);
+        }
+        result = raw.replace(/\(\)$/, "&lpar;&rpar;");
+      }
+    }
+    if (this.trace) {
+      console.log(`${this.tindent()}[transform] ${raw} -> '${result}'`);
+    }
+    return result;
+  }
+  lookupsToString() {
+    const dyns = {};
+    const stats = {};
+    Object.entries(this.dynamics || {}).forEach(
+      ([k, v]) => dyns[`$${k} `] = v
+    );
+    Object.entries(this.statics || {}).forEach(
+      ([k, v]) => stats[`#${k} `] = v
+    );
+    return JSON.stringify(
+      { ...this.context, ...stats, ...dyns },
+      (k, v) => typeof v === "function" ? "<f*:pending>" : v
+    ).replace(/"/g, "");
+  }
+  formatTxs(value, txs) {
+    return value + txs.map((tx) => tx.image.replace(/()/, "") + "()").join("");
+  }
+  print(s, ...args) {
+    if (this.trace) {
+      if (this.path && s !== "script") {
+        s = this.path.replace(/\.$/, "");
+      }
+      console.log(++this.order, `[${s}]`, ...args);
+      this.path = "";
+    }
+  }
+  tindent() {
+    return " ".repeat((this.order + "").length + 1);
+  }
+};
+
+// src/riscript.js
+var { decode } = import_he.default;
+var VowelRE = /[aeiou]/;
+var RegexEscape = "_RE_";
+var HtmlEntities = /&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-fA-F]{1,6});/gi;
+var RiQuery = class extends import_mingo.Query {
+  constructor(scripting, condition, options) {
+    if (typeof condition === "string") {
+      let raw = condition;
+      condition = scripting.parseJSOL(condition);
+    }
+    super(condition, options);
+  }
+  test(obj) {
+    for (let i = 0, len = this.compiled.length; i < len; i++) {
+      if (!this.compiled[i](obj))
+        return false;
+    }
+    return true;
+  }
+  operands() {
+    const stack = [this.condition];
+    const keys2 = /* @__PURE__ */ new Set();
+    while (stack?.length > 0) {
+      const currentObj = stack.pop();
+      Object.keys(currentObj).forEach((key) => {
+        const value = currentObj[key];
+        if (!key.startsWith("$"))
+          keys2.add(key);
+        if (typeof value === "object" && value !== null) {
+          const eles = Array.isArray(value) ? value : [value];
+          eles.forEach((ele) => stack.push(ele));
+        }
+      });
+    }
+    return Array.from(keys2);
+  }
+};
+var _RiScript = class {
+  static evaluate(script, context, opts = {}) {
+    return new _RiScript().evaluate(script, context, opts);
+  }
+  constructor(opts = {}) {
+    this.visitor = 0;
+    this.v2Compatible = opts.compatibility === 2;
+    const { Constants, tokens } = getTokens(this.v2Compatible);
+    this.Escaped = Constants.Escaped;
+    this.Symbols = Constants.Symbols;
+    const anysym = Constants.Escaped.STATIC + Constants.Escaped.DYNAMIC;
+    const open = Constants.Escaped.OPEN_CHOICE;
+    const close = Constants.Escaped.CLOSE_CHOICE;
+    this.JSOLIdentRE = new RegExp(`([${anysym}]?[A-Za-z_0-9][A-Za-z_0-9]*)\\s*:`, "g");
+    this.RawAssignRE = new RegExp(`^[${anysym}][A-Za-z_0-9][A-Za-z_0-9]*\\s*=`);
+    this.ChoiceWrapRE = new RegExp("^" + open + "[^" + open + close + "]*" + close + "$");
+    this.SpecialRE = new RegExp(`[${this.Escaped.SPECIAL.replace("&", "")}]`);
+    this.ContinueRE = new RegExp(this.Escaped.CONTINUATION + "\\r?\\n", "g");
+    this.WhitespaceRE = /[\u00a0\u2000-\u200b\u2028-\u2029\u3000]+/g;
+    this.AnySymbolRE = new RegExp(`[${anysym}]`);
+    this.silent = false;
+    this.lexer = new Lexer(tokens);
+    this.parser = new RiScriptParser(tokens);
+    this.RiTa = opts.RiTa || {
+      VERSION: 0,
+      randi: (k) => Math.floor(Math.random() * k)
+    };
+  }
+  lex(opts) {
+    if (!opts.input)
+      throw Error("no input");
+    const lexResult = this.lexer.tokenize(opts.input);
+    if (lexResult.errors.length) {
+      console.error("Input: " + opts.input + "\n", lexResult.errors[0].message);
+      throw Error("[LEXING] " + lexResult.errors[0].message);
+    }
+    if (opts.trace)
+      this.printTokens(lexResult.tokens);
+    opts.tokens = lexResult.tokens;
+  }
+  parse(opts) {
+    opts.cst = this.parser.parse(opts);
+  }
+  visit(opts) {
+    return this.visitor.start(opts);
+  }
+  lexParseVisit(opts = {}) {
+    this.lex(opts);
+    this.parse(opts);
+    return this.visit(opts);
+  }
+  evaluate(script, context, opts = {}) {
+    if (typeof script !== "string") {
+      throw Error("RiScript.evaluate() expects a string, got " + typeof script);
+    }
+    opts.input = script;
+    opts.visitor = new RiScriptVisitor(this, context);
+    return this._evaluate(opts);
+  }
+  _evaluate(opts) {
+    const { input } = opts;
+    let last2, endingBreak = /\r?\n$/.test(input);
+    let expr = this.preParse(input, opts);
+    if (!expr)
+      return "";
+    if (opts.trace)
+      console.log(`
+Input:  '${_RiScript._escapeText(input)}'`);
+    if (opts.trace && input !== expr) {
+      console.log(`Parsed: '${_RiScript._escapeText(expr)}'`);
+    }
+    if (!opts.visitor)
+      throw Error("no visitor");
+    this.visitor = opts.visitor;
+    delete opts.visitor;
+    for (let i = 1; expr !== last2 && i <= 10; i++) {
+      last2 = expr;
+      if (opts.trace)
+        console.log("-".repeat(20) + " Pass#" + i + " " + "-".repeat(20));
+      opts.input = expr;
+      expr = this.lexParseVisit(opts);
+      if (opts.trace) {
+        console.log(`Result(${i}) -> "${_RiScript._escapeText(expr)}" ctx=${this.visitor.lookupsToString()}`);
+      }
+      if (opts.onepass || !this.isParseable(expr))
+        break;
+    }
+    if (!this.silent && !this.RiTa.SILENT) {
+      if (this.AnySymbolRE.test(expr.replace(HtmlEntities, ""))) {
+        console.warn('[WARN] Unresolved symbol(s) in "' + expr.replace(/\n/g, "\\n") + '" ');
+      }
+    }
+    return this.postParse(expr, opts) + (endingBreak ? "\n" : "");
+  }
+  _query(rawQuery, opts) {
+    return new RiQuery(this, rawQuery, opts);
+  }
+  printTokens(tokens) {
+    let s = tokens.reduce((str, t) => {
+      let { name } = t.tokenType;
+      let tag = name;
+      if (tag === "TEXT")
+        tag = _RiScript._escapeText(t.image, 1);
+      if (tag === "SYM")
+        tag = "sym(" + t.image + ")";
+      if (tag === "TX")
+        tag = "tx(" + t.image + ")";
+      return str + tag + ", ";
+    }, "").slice(0, -2);
+    console.log(
+      "\nTokens: [ " + s + " ]  Context:",
+      this.visitor.lookupsToString()
+    );
+  }
+  postParse(input, opts) {
+    if (typeof input !== "string")
+      return "";
+    let decoded = decode(input);
+    let result = decoded.replace(this.WhitespaceRE, " ").replace(/\r?\n$/, "");
+    let gates = [...result.matchAll(this.Symbols.PENDING_GATE_RE)];
+    gates.forEach((g) => {
+      if (!g || !g[0] || !g[1])
+        throw Error("bad gate: " + g);
+      let deferredGate = this.visitor.pendingGates[g[1]];
+      let { deferredContext, operands } = deferredGate;
+      if (!operands.length)
+        throw Error("no operands");
+      let reject2 = this.visitor.choice(deferredContext, { forceReject: true });
+      result = result.replace(g[0], reject2);
+      if (opts.trace)
+        console.log("  " + g[0] + "-> " + reject2);
+    });
+    if (opts.trace)
+      console.log(`
+Final: '${result}'`);
+    if (!opts.preserveLookups) {
+      this.visitor.statics = void 0;
+      this.visitor.dynamics = void 0;
+    }
+    return result;
+  }
+  preParse(script, opts) {
+    if (typeof script !== "string")
+      return "";
+    const $ = this.Symbols;
+    let input = script;
+    if (!this.v2Compatible) {
+      input = input.replace(/\((\s*\d+\s*)\)/g, "^$1^");
+    }
+    input = input.replace(/\/\*[^]*?(\r?\n)?\//g, "");
+    input = input.replace(/\/\/[^\n]+(\r?\n|$)/g, "");
+    input = input.replace(this.ContinueRE, "");
+    input = slashEscapesToEntities(input);
+    let result = "";
+    let lines = input.split(/\r?\n/);
+    for (let i = 0; i < lines.length; i++) {
+      if (
+        /*!opts.noAddedSilence && */
+        this.RawAssignRE.test(lines[i])
+      ) {
+        let eqIdx = lines[i].indexOf("=");
+        if (eqIdx < 0)
+          throw Error("invalid state: no assigment: " + lines[i]);
+        let lhs = lines[i].substring(0, eqIdx), rhs = lines[i].substring(eqIdx + 1);
+        let opens = charCount(rhs, $.OPEN_CHOICE);
+        let closes = charCount(rhs, $.CLOSE_CHOICE);
+        while (opens > closes) {
+          let line = lines[++i];
+          rhs += "\n" + line;
+          opens += charCount(line, $.OPEN_CHOICE);
+          closes += charCount(line, $.CLOSE_CHOICE);
+        }
+        result += $.OPEN_SILENT + (lhs + "=" + rhs) + $.CLOSE_SILENT;
+      } else {
+        result += lines[i];
+        if (i < lines.length - 1)
+          result += "\n";
+      }
+    }
+    return result;
+  }
+  /**
+   * Parses a mingo query into JSON format
+   */
+  parseJSOL(text) {
+    const unescapeRegexProperty = (text2) => {
+      let res = text2;
+      if (typeof text2 === "string" && text2.startsWith(RegexEscape) && text2.endsWith(RegexEscape)) {
+        let parts = text2.split(RegexEscape);
+        if (parts.length !== 4)
+          throw Error("invalid regex in unescape");
+        res = new RegExp(parts[1], parts[2]);
+      }
+      return res;
+    };
+    let escaped = _RiScript._escapeJSONRegex(text).replace(this.JSOLIdentRE, '"$1":').replace(/'/g, '"');
+    let result = JSON.parse(escaped), urp = unescapeRegexProperty;
+    Object.keys(result).forEach((k) => result[k] = urp(result[k]));
+    return result;
+  }
+  isParseable(s) {
+    let result = true;
+    let isStrOrNum = /(string|number)/.test(typeof s);
+    if (isStrOrNum)
+      result = this.SpecialRE.test(s.toString());
+    return result;
+  }
+  // ========================= statics ===============================
+  // Default transform that adds an article
+  static articlize(s) {
+    if (!s || !s.length)
+      return "";
+    let first2 = s.split(/\s+/)[0];
+    if (!_RiScript.RiTa?.phones) {
+      if (!_RiScript.RiTaWarnings.phones) {
+        console.warn("[WARN] Install RiTa for proper phonemes");
+        _RiScript.RiTaWarnings.phones = true;
+      }
+      return (/^[aeiou].*/i.test(first2) ? "an " : "a ") + s;
+    }
+    let phones = _RiScript.RiTa.phones(first2, { silent: true });
+    return (phones && phones.length && VowelRE.test(phones[0]) ? "an " : "a ") + s;
+  }
+  // Default transform that capitalizes the first character
+  static capitalize(s) {
+    return s ? s[0].toUpperCase() + s.substring(1) : "";
+  }
+  // Default transform that capitalizes the string
+  static uppercase(s) {
+    return s ? s.toUpperCase() : "";
+  }
+  // Default transform that wraps the string in (smart) quotes.
+  static quotify(s) {
+    return "&#8220;" + (s || "") + "&#8221;";
+  }
+  // Default transform that pluralizes a string (requires RiTa)
+  static pluralize(s) {
+    if (!_RiScript.RiTa?.pluralize) {
+      if (!_RiScript.RiTaWarnings.plurals) {
+        _RiScript.RiTaWarnings.plurals = true;
+        console.warn("[WARN] Install RiTa for proper pluralization");
+      }
+      return s.endsWith("s") ? s : s + "s";
+    }
+    return _RiScript.RiTa.pluralize(s);
+  }
+  // Default no-op transform
+  static identity(s) {
+    return s;
+  }
+  // static helpers
+  static _transformNames(txs) {
+    return txs && txs.length ? txs.map((tx) => tx.image.replace(/(^\.|\(\)$)/g, ""), []) : [];
+  }
+  static _escapeText(s, quotify) {
+    if (typeof s !== "string")
+      return s;
+    let t = s.replace(/\r?\n/g, "\\n");
+    return quotify || !t.length ? "'" + t + "'" : t;
+  }
+  static _escapeJSONRegex(text) {
+    return text.replace(
+      /\/([^/]+?)\/([igmsuy]*)/g,
+      `"${RegexEscape}$1${RegexEscape}$2${RegexEscape}"`
+    );
+  }
+  static _stringHash(s) {
+    let chr, hash = 0;
+    for (let i = 0; i < s.length; i++) {
+      chr = s.charCodeAt(i);
+      hash = (hash << 5) - hash + chr;
+      hash |= 0;
+    }
+    let strHash = hash.toString();
+    return hash < 0 ? strHash.replace("-", "0") : strHash;
+  }
+};
+var RiScript = _RiScript;
+__publicField(RiScript, "Query", RiQuery);
+__publicField(RiScript, "VERSION", "[VI]{version}[/VI]");
+__publicField(RiScript, "RiTaWarnings", { plurals: false, phones: false });
+RiScript.transforms = {
+  quotify: RiScript.quotify,
+  pluralize: RiScript.pluralize,
+  capitalize: RiScript.capitalize,
+  articlize: RiScript.articlize,
+  uppercase: RiScript.uppercase,
+  // sequences
+  norepeat: RiScript.identity,
+  // aliases
+  art: RiScript.articlize,
+  nr: RiScript.identity,
+  cap: RiScript.capitalize,
+  ucf: RiScript.capitalize,
+  // deprecated?
+  uc: RiScript.uppercase,
+  qq: RiScript.quotify,
+  s: RiScript.pluralize
+};
+function slashEscapesToEntities(s) {
+  s = replaceAll(s, "\\(", "&lpar;");
+  s = replaceAll(s, "\\)", "&rpar;");
+  s = replaceAll(s, "\\[", "&lsqb;");
+  s = replaceAll(s, "\\]", "&rsqb;");
+  s = replaceAll(s, "\\{", "&lcqb;");
+  s = replaceAll(s, "\\}", "&rcqb;");
+  s = replaceAll(s, "\\@", "&commat;");
+  s = replaceAll(s, "\\#", "&num;");
+  s = replaceAll(s, "\\|", " &vert");
+  s = replaceAll(s, "\\=", " &equals");
+  return s;
+}
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function replaceAll(str, match, replacement) {
+  return str.replace(new RegExp(escapeRegExp(match), "g"), () => replacement);
+}
+function charCount(str, c) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === c)
+      count++;
+  }
+  return count;
+}
+
+// src/grammar.js
+var RiGrammar = class {
+  constructor(rules = {}, context = {}) {
+    if (typeof rules !== "object") {
+      throw Error("RiGrammar: expecting object, found " + typeof rules);
+    }
+    this.scripting = new RiScript();
+    this.context = context;
+    this.setRules(rules);
+  }
+  static expand(rules, context, opts) {
+    return new RiGrammar(rules, context).expand(opts);
+  }
+  addTransform() {
+    return RiScript.addTransform(...arguments);
+  }
+  removeTransform() {
+    return RiScript.removeTransform(...arguments);
+  }
+  getTransforms() {
+    return RiScript.transforms;
+  }
+  equals(rg) {
+    return rg.toJSON() === this.toJSON();
+  }
+  expand(opts = {}) {
+    if ("context" in opts) {
+      throw Error("pass context to RiScript.grammar() or new RiGrammar() instead");
+    }
+    opts.visitor = opts.visitor || new RiScript.Visitor(this.scripting);
+    opts.visitor.context = this.context || {};
+    opts.input = this._toScript(opts);
+    return this.scripting._evaluate(opts);
+  }
+  addRule(name, def) {
+    this._validateRule(name, def);
+    this.rules[name] = def;
+  }
+  setRules(rules) {
+    if (typeof rules === "undefined")
+      throw Error("undefined rules");
+    this.rules = {};
+    let incoming = typeof rules === "string" ? parseJSON(rules) : rules;
+    let self2 = this;
+    Object.entries(incoming).forEach((e) => self2.addRule(...e));
+  }
+  removeRule(name) {
+    if (name in this.rules) {
+      delete this.rules[name];
+    }
+  }
+  toJSON() {
+    return JSON.stringify(this.rules, ...arguments);
+  }
+  toString(opts = {}) {
+    let replacer = opts.replacer || 0;
+    let space = opts.space || 2;
+    let lb = opts?.linebreak;
+    let res = this.toJSON(replacer, space);
+    if (lb)
+      res = res.replace(/\n/g, lb);
+    return res;
+  }
+  static fromJSON(str, opts) {
+    return new RiGrammar(JSON.parse(str), opts);
+  }
+  /* 
+    Convert grammar to inline rules;
+    rules are dynamic, unless otherwise specified with leading #
+  */
+  _toScript(opts) {
+    let script = "", start = opts.start || "start";
+    let { Symbols } = this.scripting;
+    if (start.startsWith(Symbols.DYNAMIC)) {
+      start = start.substring(Symbols.DYNAMIC.length);
+    }
+    if (start.startsWith(Symbols.STATIC)) {
+      start = start.substring(Symbols.STATIC.length);
+    }
+    if (!(start in this.rules || Symbols.STATIC + start in this.rules)) {
+      throw Error('Rule: "' + start + '" not found in grammar');
+    }
+    Object.entries(this.rules).forEach(([name, rule], i) => {
+      while (name.startsWith(Symbols.DYNAMIC)) {
+        name = name.substring(1);
+      }
+      if (!name.startsWith(Symbols.STATIC)) {
+        name = Symbols.DYNAMIC + name;
+      }
+      if (!this.scripting.ChoiceWrapRE.test(rule)) {
+        rule = Symbols.OPEN_CHOICE + rule + Symbols.CLOSE_CHOICE;
+      }
+      script += `${name}=${rule}
+`;
+    });
+    if (opts.trace)
+      console.log("Grammar:\n" + script.replace(/^\$/gm, "  $"));
+    script += `${Symbols.DYNAMIC}${start}`;
+    return script;
+  }
+  _validateRule(name, def) {
+    if (typeof name !== "string" || name.length === 0) {
+      throw Error("expected [string] name");
+    }
+    if (typeof def === "undefined") {
+      throw Error("undefined rule def: " + name);
+    }
+    let { Symbols } = this.scripting;
+    if (name.startsWith(Symbols.DYNAMIC)) {
+      name = name.substring(Symbols.DYNAMIC.length);
+      throw Error(
+        "Grammar rules are dynamic by default; if you need a static rule, use '" + Symbols.STATIC + name + "', otherwise just use '" + name + "'."
+      );
+    }
+  }
+};
+function parseJSON(json) {
+  if (typeof json === "string") {
+    try {
+      return JSON.parse(json);
+    } catch (e) {
+      throw Error(
+        "RiGrammar appears to be invalid JSON, please check it at http://jsonlint.com/\n" + json
+      );
+    }
+  }
+}
+
+// src/index.js
+RiScript.Grammar = RiGrammar;
+RiScript.Visitor = RiScriptVisitor;
+var src_default = RiScript;
 /*! Bundled license information:
 
 lodash-es/lodash.js:
@@ -135,3 +10483,9 @@ lodash-es/lodash.js:
    *)
 */
 //# sourceMappingURL=riscript.cjs.map
+// fix-cjs-exports
+if (module.exports.default) {
+  Object.assign(module.exports.default, module.exports);
+  module.exports = module.exports.default;
+  delete module.exports.default;
+}

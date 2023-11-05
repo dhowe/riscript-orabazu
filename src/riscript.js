@@ -21,8 +21,6 @@ import { RiScriptVisitor } from './visitor.js';
     raw: Raw
 */
 
-// TODO: integrate with rita, test node-packages, linting, coverage?
-
 const { decode } = he;
 const VowelRE = /[aeiou]/;
 const RegexEscape = '_RE_';

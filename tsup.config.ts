@@ -10,27 +10,45 @@ const opts: Options = {
   outDir: 'dist',
   watch: false,
   clean: true,
-  minify: true,
+  minify: false,
   sourcemap: true,
   dts: false,
   bundle: true,
-  splitting: true,
 }
 
-const esmOpts: Options = {
+const esm: Options = {
   format: ['esm'],
   ...opts,
   target: 'es2020',
+  splitting: true,
   skipNodeModulesBundle: true, // ?
+  outExtension({ format }) {
+    return {
+      js: `.js`,
+    }
+  },
 }
 
-const cjsOpts: Options = {
+const cjs: Options = {
   format: ['cjs'],
   ...opts,
   target: 'es2020', // ?
   noExternal: ['chevrotain'], // ?
-  skipNodeModulesBundle: false, // ?
-  platform: "node"
+  // skipNodeModulesBundle: true, // ?
+  platform: "node",
+  outExtension({ format }) {
+    return {
+      js: `.cjs`,
+    }
+  },
 }
 
-export default defineConfig([esmOpts, cjsOpts]);
+const iife: Options = {
+  format: ['iife'],
+  ...opts,
+  target: 'es2020', // ?
+  platform: "browser",
+  globalName: "RiScript",
+}
+
+export default defineConfig([cjs,esm]);
