@@ -1,6 +1,6 @@
 {
   "name": "riscript",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "url": "https://github.com/dhowe/riscript",
   "main": "./dist/riscript.js",
   "type": "module",
