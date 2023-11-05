@@ -65,8 +65,7 @@ class RiQuery extends Query {
 class RiScript {
   static Query = RiQuery;
 
-  static VERSION = '[VI]{version}[/VI]';
-
+  static VERSION = '[VI]{{inject}}[/VI]';
   static RiTaWarnings = { plurals: false, phones: false };
 
   static evaluate(script, context, opts = {}) {
