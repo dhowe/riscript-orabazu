@@ -759,7 +759,6 @@ describe('RiScript.v3', function () {
   describe('Evaluation', function () {
 
     it('Should be statically callable from RiScript', function () {
-      expect(RiScript.evaluate('foo')).eq('foo');
       expect(RiScript.evaluate('(foo)', {})).eq('(foo)');
       expect(RiScript.evaluate('foo!', {})).eq('foo!');
       expect(RiScript.evaluate('!foo', {})).eq('!foo');

@@ -277,7 +277,7 @@ class RiScript {
     return result;
   }
 
-  /**
+  /*
    * Parses a mingo query into JSON format
    */
   parseJSOL(text) {
