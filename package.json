@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test": "NODE_ENV=dev mocha",
-    "test:dist": "NODE_ENV=dev mocha  test/dist",
+    "test:dist": "NODE_ENV=dev mocha test/dist",
     "build": "rm -rf ./dist/ && env NODE_ENV=prod tsup",
     "postbuild": "fix-tsup-cjs --no-dts",
     "pub": "np patch --no-tests"
