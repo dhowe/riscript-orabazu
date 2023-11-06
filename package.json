@@ -21,7 +21,7 @@
     "test": "NODE_ENV=dev mocha",
     "test:dist": "NODE_ENV=dev mocha test/dist",
     "build": "rm -rf ./dist/ && tsup",
-    "pub": "np patch --no-tests"
+    "publish": "np patch --no-tests"
   },
   "devDependencies": {
     "@types/chai": "^4.3.9",

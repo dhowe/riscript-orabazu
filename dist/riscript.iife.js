@@ -1,4 +1,4 @@
-var _global = (() => {
+var RiScript = (() => {
   var __create = Object.create;
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -12608,7 +12608,7 @@ Final: '${result}'`);
       }
       return result;
     }
-    /**
+    /*
      * Parses a mingo query into JSON format
      */
     parseJSOL(text) {
@@ -12705,7 +12705,7 @@ Final: '${result}'`);
     }
   };
   __publicField(_RiScript, "Query", RiQuery);
-  __publicField(_RiScript, "VERSION", "1.0.12");
+  __publicField(_RiScript, "VERSION", "1.0.14");
   __publicField(_RiScript, "RiTaWarnings", { plurals: false, phones: false });
   var RiScript = _RiScript;
   RiScript.transforms = {
@@ -12904,5 +12904,4 @@ lodash-es/lodash.js:
    * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
    *)
 */
-RiScript = _global.default
 //# sourceMappingURL=riscript.iife.js.map
