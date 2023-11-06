@@ -13,14 +13,14 @@ const opts: Options = {
   dts: false,
   esbuildPlugins: [esbuildPluginVersionInjector()],
   outExtension({ format }) { return { js: `.js` } },
+  // skipNodeModulesBundle: true, // ?
 }
 
 const esm: Options = {
   format: ['esm'],
   ...opts,
   target: 'es2020',
-  splitting: true,
-  skipNodeModulesBundle: true, // ?
+  splitting: true
 }
 
 const cjs: Options = {
@@ -28,7 +28,6 @@ const cjs: Options = {
   ...opts,
   target: 'es2020', // ?
   noExternal: ['chevrotain'], // ?
-  // skipNodeModulesBundle: true, // ?
   platform: "node",
   cjsInterop: true,
   splitting: true,
@@ -43,6 +42,7 @@ const iife: Options = {
   platform: "browser",
   globalName: "RiScript",
   outExtension({ format }) { return { js: `.iife.js` } },
+  footer: { js: "window.RiScript = RiScript.default" }
 }
 
 const testEsm: Options = {
