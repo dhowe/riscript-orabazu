@@ -13,11 +13,13 @@
   "exports": {
     ".": {
       "import": "./dist/riscript.js",
-      "require": "./dist/riscript.cjs"
+      "require": "./dist/riscript.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
-    "test": "NODE_ENV=dev npx mocha",
+    "test": "NODE_ENV=dev mocha",
+    "test:dist": "NODE_ENV=dev mocha  test/dist",
     "build": "rm -rf ./dist/ && env NODE_ENV=prod tsup",
     "postbuild": "fix-tsup-cjs --no-dts",
     "pub": "np patch --no-tests"

@@ -1079,7 +1079,7 @@ Final: '${result}'`);
 };
 var RiScript = _RiScript;
 __publicField(RiScript, "Query", RiQuery);
-__publicField(RiScript, "VERSION", "1.0.11");
+__publicField(RiScript, "VERSION", "1.0.12");
 __publicField(RiScript, "RiTaWarnings", { plurals: false, phones: false });
 RiScript.transforms = {
   quotify: RiScript.quotify,
