@@ -898,7 +898,7 @@ var _global = (() => {
     ProcessingMode2["CLONE_OUTPUT"] = "CLONE_OUTPUT";
     ProcessingMode2["CLONE_OFF"] = "CLONE_OFF";
   })(ProcessingMode || (ProcessingMode = {}));
-  var ComputeOptions = class {
+  var ComputeOptions = class _ComputeOptions {
     constructor(_opts, _root, _local, timestamp = Date.now()) {
       this._opts = _opts;
       this._root = _root;
@@ -915,7 +915,7 @@ var _global = (() => {
      * @returns {ComputeOptions}
      */
     static init(options, root2, local) {
-      return options instanceof ComputeOptions ? new ComputeOptions(options._opts, isNil(options.root) ? root2 : options.root, Object.assign({}, options.local, local)) : new ComputeOptions(options, root2, local);
+      return options instanceof _ComputeOptions ? new _ComputeOptions(options._opts, isNil(options.root) ? root2 : options.root, Object.assign({}, options.local, local)) : new _ComputeOptions(options, root2, local);
     }
     /** Updates the internal mutable state. */
     update(root2, local) {
@@ -991,7 +991,7 @@ var _global = (() => {
     OperatorType2["QUERY"] = "query";
     OperatorType2["WINDOW"] = "window";
   })(OperatorType || (OperatorType = {}));
-  var Context = class {
+  var Context = class _Context {
     constructor(ops) {
       this.operators = {
         [OperatorType.ACCUMULATOR]: {},
@@ -1006,10 +1006,10 @@ var _global = (() => {
       }
     }
     static init(ops = {}) {
-      return new Context(ops);
+      return new _Context(ops);
     }
     static from(ctx) {
-      return new Context(ctx.operators);
+      return new _Context(ctx.operators);
     }
     addOperators(type, ops) {
       for (const [name, fn] of Object.entries(ops)) {
@@ -11522,7 +11522,7 @@ Make sure that all grammar rule definitions are done before 'performSelfAnalysis
     ParserDefinitionErrorType2[ParserDefinitionErrorType2["TOO_MANY_ALTS"] = 12] = "TOO_MANY_ALTS";
     ParserDefinitionErrorType2[ParserDefinitionErrorType2["CUSTOM_LOOKAHEAD_VALIDATION"] = 13] = "CUSTOM_LOOKAHEAD_VALIDATION";
   })(ParserDefinitionErrorType || (ParserDefinitionErrorType = {}));
-  var Parser = class {
+  var Parser = class _Parser {
     /**
      *  @deprecated use the **instance** method with the same name instead
      */
@@ -11592,7 +11592,7 @@ Make sure that all grammar rule definitions are done before 'performSelfAnalysis
             this.preComputeLookaheadFunctions(values_default(this.gastProductionsCache));
           });
         }
-        if (!Parser.DEFER_DEFINITION_ERRORS_HANDLING && !isEmpty_default(this.definitionErrors)) {
+        if (!_Parser.DEFER_DEFINITION_ERRORS_HANDLING && !isEmpty_default(this.definitionErrors)) {
           defErrorsMsgs = map_default(this.definitionErrors, (defError) => defError.message);
           throw new Error(`Parser Definition Errors detected:
  ${defErrorsMsgs.join("\n-------------------------------\n")}`);
@@ -12427,7 +12427,7 @@ RootCause -> ${e}`);
       return Array.from(keys2);
     }
   };
-  var _RiScript = class {
+  var _RiScript = class _RiScript {
     static evaluate(script, context, opts = {}) {
       return new _RiScript().evaluate(script, context, opts);
     }
@@ -12704,10 +12704,10 @@ Final: '${result}'`);
       return hash < 0 ? strHash.replace("-", "0") : strHash;
     }
   };
+  __publicField(_RiScript, "Query", RiQuery);
+  __publicField(_RiScript, "VERSION", "1.0.12");
+  __publicField(_RiScript, "RiTaWarnings", { plurals: false, phones: false });
   var RiScript = _RiScript;
-  __publicField(RiScript, "Query", RiQuery);
-  __publicField(RiScript, "VERSION", "1.0.12");
-  __publicField(RiScript, "RiTaWarnings", { plurals: false, phones: false });
   RiScript.transforms = {
     quotify: RiScript.quotify,
     pluralize: RiScript.pluralize,
@@ -12755,7 +12755,7 @@ Final: '${result}'`);
   }
 
   // src/grammar.js
-  var RiGrammar = class {
+  var RiGrammar = class _RiGrammar {
     constructor(rules = {}, context = {}) {
       if (typeof rules !== "object") {
         throw Error("RiGrammar: expecting object, found " + typeof rules);
@@ -12765,7 +12765,7 @@ Final: '${result}'`);
       this.setRules(rules);
     }
     static expand(rules, context, opts) {
-      return new RiGrammar(rules, context).expand(opts);
+      return new _RiGrammar(rules, context).expand(opts);
     }
     addTransform() {
       return RiScript.addTransform(...arguments);
@@ -12818,7 +12818,7 @@ Final: '${result}'`);
       return res;
     }
     static fromJSON(str, opts) {
-      return new RiGrammar(JSON.parse(str), opts);
+      return new _RiGrammar(JSON.parse(str), opts);
     }
     /* 
       Convert grammar to inline rules;

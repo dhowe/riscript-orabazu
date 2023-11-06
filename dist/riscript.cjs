@@ -1,46 +1,13 @@
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; } function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
 
-// src/index.js
-var src_exports = {};
-__export(src_exports, {
-  default: () => src_default
-});
-module.exports = __toCommonJS(src_exports);
-
 // src/riscript.js
-var import_he = __toESM(require("he"), 1);
-var import_mingo = require("mingo");
+var _he = require('he'); var _he2 = _interopRequireDefault(_he);
+var _mingo = require('mingo');
 
 // node_modules/lodash-es/_freeGlobal.js
 var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
@@ -9105,7 +9072,7 @@ var ParserDefinitionErrorType;
   ParserDefinitionErrorType2[ParserDefinitionErrorType2["TOO_MANY_ALTS"] = 12] = "TOO_MANY_ALTS";
   ParserDefinitionErrorType2[ParserDefinitionErrorType2["CUSTOM_LOOKAHEAD_VALIDATION"] = 13] = "CUSTOM_LOOKAHEAD_VALIDATION";
 })(ParserDefinitionErrorType || (ParserDefinitionErrorType = {}));
-var Parser = class {
+var Parser = class _Parser {
   /**
    *  @deprecated use the **instance** method with the same name instead
    */
@@ -9175,7 +9142,7 @@ var Parser = class {
           this.preComputeLookaheadFunctions(values_default(this.gastProductionsCache));
         });
       }
-      if (!Parser.DEFER_DEFINITION_ERRORS_HANDLING && !isEmpty_default(this.definitionErrors)) {
+      if (!_Parser.DEFER_DEFINITION_ERRORS_HANDLING && !isEmpty_default(this.definitionErrors)) {
         defErrorsMsgs = map_default(this.definitionErrors, (defError) => defError.message);
         throw new Error(`Parser Definition Errors detected:
  ${defErrorsMsgs.join("\n-------------------------------\n")}`);
@@ -9558,11 +9525,11 @@ RootCause -> ${e}`);
           this.pendingSymbols.length ? JSON.stringify(this.pendingSymbols) : ""
         );
       }
-      info = `${sym} = ${this.RiScript._escapeText(value)} [#static] ${opts?.silent ? "{silent}" : ""}`;
+      info = `${sym} = ${this.RiScript._escapeText(value)} [#static] ${_optionalChain([opts, 'optionalAccess', _ => _.silent]) ? "{silent}" : ""}`;
     } else {
       const $ = this;
       value = () => $.visit(ctx.expr);
-      info = `${sym} = <f*:pending>` + (opts?.silent ? "{silent}" : "");
+      info = `${sym} = <f*:pending>` + (_optionalChain([opts, 'optionalAccess', _2 => _2.silent]) ? "{silent}" : "");
       this.dynamics[ident] = value;
     }
     this.print("assign", info);
@@ -9634,10 +9601,10 @@ RootCause -> ${e}`);
       throw Error(msg);
     }
     if (typeof result === "undefined") {
-      this.print("symbol", symbol + " -> '" + original + "' ctx=" + this.lookupsToString(), "[deferred]", opts?.silent ? "{silent}" : "");
+      this.print("symbol", symbol + " -> '" + original + "' ctx=" + this.lookupsToString(), "[deferred]", _optionalChain([opts, 'optionalAccess', _3 => _3.silent]) ? "{silent}" : "");
       return original;
     }
-    let info = original + " -> '" + result + "'" + (opts?.silent ? " {silent}" : "");
+    let info = original + " -> '" + result + "'" + (_optionalChain([opts, 'optionalAccess', _4 => _4.silent]) ? " {silent}" : "");
     if (typeof result === "string" && !resolved) {
       if (isStatic) {
         this.pendingSymbols.add(ident);
@@ -9705,7 +9672,7 @@ RootCause -> ${e}`);
       throw Error("noRepeat() not allowed on choice (use a $variable instead): " + original);
     }
     let decision = "accept";
-    if (opts?.forceReject) {
+    if (_optionalChain([opts, 'optionalAccess', _5 => _5.forceReject])) {
       decision = "reject";
     } else {
       if (ctx.gate) {
@@ -9728,7 +9695,7 @@ RootCause -> ${e}`);
     if (decision === "reject" && !("reject" in ctx)) {
       return "";
     }
-    const orExpr = ctx[decision]?.[0]?.children?.or_expr?.[0];
+    const orExpr = _optionalChain([ctx, 'access', _6 => _6[decision], 'optionalAccess', _7 => _7[0], 'optionalAccess', _8 => _8.children, 'optionalAccess', _9 => _9.or_expr, 'optionalAccess', _10 => _10[0]]);
     const options = this.parseOptions(orExpr);
     if (!options)
       throw Error("No options in choice: " + original);
@@ -9805,7 +9772,7 @@ RootCause -> ${e}`);
   }
   parseOptions(ctx) {
     const options = [];
-    if (ctx && ctx?.children?.wexpr) {
+    if (ctx && _optionalChain([ctx, 'optionalAccess', _11 => _11.children, 'optionalAccess', _12 => _12.wexpr])) {
       const wexprs = ctx.children.wexpr;
       for (let i = 0; i < wexprs.length; i++) {
         const wexpr = wexprs[i];
@@ -9973,11 +9940,11 @@ RootCause -> ${e}`);
 };
 
 // src/riscript.js
-var { decode } = import_he.default;
+var { decode } = _he2.default;
 var VowelRE = /[aeiou]/;
 var RegexEscape = "_RE_";
 var HtmlEntities = /&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-fA-F]{1,6});/gi;
-var RiQuery = class extends import_mingo.Query {
+var RiQuery = class extends _mingo.Query {
   constructor(scripting, condition, options) {
     if (typeof condition === "string") {
       let raw = condition;
@@ -9995,7 +9962,7 @@ var RiQuery = class extends import_mingo.Query {
   operands() {
     const stack = [this.condition];
     const keys2 = /* @__PURE__ */ new Set();
-    while (stack?.length > 0) {
+    while (_optionalChain([stack, 'optionalAccess', _13 => _13.length]) > 0) {
       const currentObj = stack.pop();
       Object.keys(currentObj).forEach((key) => {
         const value = currentObj[key];
@@ -10010,7 +9977,7 @@ var RiQuery = class extends import_mingo.Query {
     return Array.from(keys2);
   }
 };
-var _RiScript = class {
+var _RiScript = class _RiScript {
   static evaluate(script, context, opts = {}) {
     return new _RiScript().evaluate(script, context, opts);
   }
@@ -10223,7 +10190,7 @@ Final: '${result}'`);
     if (!s || !s.length)
       return "";
     let first2 = s.split(/\s+/)[0];
-    if (!_RiScript.RiTa?.phones) {
+    if (!_optionalChain([_RiScript, 'access', _14 => _14.RiTa, 'optionalAccess', _15 => _15.phones])) {
       if (!_RiScript.RiTaWarnings.phones) {
         console.warn("[WARN] Install RiTa for proper phonemes");
         _RiScript.RiTaWarnings.phones = true;
@@ -10247,7 +10214,7 @@ Final: '${result}'`);
   }
   // Default transform that pluralizes a string (requires RiTa)
   static pluralize(s) {
-    if (!_RiScript.RiTa?.pluralize) {
+    if (!_optionalChain([_RiScript, 'access', _16 => _16.RiTa, 'optionalAccess', _17 => _17.pluralize])) {
       if (!_RiScript.RiTaWarnings.plurals) {
         _RiScript.RiTaWarnings.plurals = true;
         console.warn("[WARN] Install RiTa for proper pluralization");
@@ -10287,10 +10254,10 @@ Final: '${result}'`);
     return hash < 0 ? strHash.replace("-", "0") : strHash;
   }
 };
+__publicField(_RiScript, "Query", RiQuery);
+__publicField(_RiScript, "VERSION", "1.0.12");
+__publicField(_RiScript, "RiTaWarnings", { plurals: false, phones: false });
 var RiScript = _RiScript;
-__publicField(RiScript, "Query", RiQuery);
-__publicField(RiScript, "VERSION", "1.0.12");
-__publicField(RiScript, "RiTaWarnings", { plurals: false, phones: false });
 RiScript.transforms = {
   quotify: RiScript.quotify,
   pluralize: RiScript.pluralize,
@@ -10338,7 +10305,7 @@ function charCount(str, c) {
 }
 
 // src/grammar.js
-var RiGrammar = class {
+var RiGrammar = class _RiGrammar {
   constructor(rules = {}, context = {}) {
     if (typeof rules !== "object") {
       throw Error("RiGrammar: expecting object, found " + typeof rules);
@@ -10348,7 +10315,7 @@ var RiGrammar = class {
     this.setRules(rules);
   }
   static expand(rules, context, opts) {
-    return new RiGrammar(rules, context).expand(opts);
+    return new _RiGrammar(rules, context).expand(opts);
   }
   addTransform() {
     return RiScript.addTransform(...arguments);
@@ -10394,14 +10361,14 @@ var RiGrammar = class {
   toString(opts = {}) {
     let replacer = opts.replacer || 0;
     let space = opts.space || 2;
-    let lb = opts?.linebreak;
+    let lb = _optionalChain([opts, 'optionalAccess', _18 => _18.linebreak]);
     let res = this.toJSON(replacer, space);
     if (lb)
       res = res.replace(/\n/g, lb);
     return res;
   }
   static fromJSON(str, opts) {
-    return new RiGrammar(JSON.parse(str), opts);
+    return new _RiGrammar(JSON.parse(str), opts);
   }
   /* 
     Convert grammar to inline rules;
@@ -10469,6 +10436,9 @@ function parseJSON(json) {
 RiScript.Grammar = RiGrammar;
 RiScript.Visitor = RiScriptVisitor;
 var src_default = RiScript;
+
+
+exports.default = src_default;
 /*! Bundled license information:
 
 lodash-es/lodash.js:
@@ -10482,10 +10452,5 @@ lodash-es/lodash.js:
    * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
    *)
 */
-//# sourceMappingURL=riscript.cjs.map
-// fix-cjs-exports
-if (module.exports.default) {
-  Object.assign(module.exports.default, module.exports);
-  module.exports = module.exports.default;
-  delete module.exports.default;
-}
+
+module.exports = exports.default//# sourceMappingURL=riscript.cjs.map

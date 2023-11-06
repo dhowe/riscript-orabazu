@@ -800,7 +800,7 @@ var RiQuery = class extends Query {
     return Array.from(keys);
   }
 };
-var _RiScript = class {
+var _RiScript = class _RiScript {
   static evaluate(script, context, opts = {}) {
     return new _RiScript().evaluate(script, context, opts);
   }
@@ -1077,10 +1077,10 @@ Final: '${result}'`);
     return hash < 0 ? strHash.replace("-", "0") : strHash;
   }
 };
+__publicField(_RiScript, "Query", RiQuery);
+__publicField(_RiScript, "VERSION", "1.0.12");
+__publicField(_RiScript, "RiTaWarnings", { plurals: false, phones: false });
 var RiScript = _RiScript;
-__publicField(RiScript, "Query", RiQuery);
-__publicField(RiScript, "VERSION", "1.0.12");
-__publicField(RiScript, "RiTaWarnings", { plurals: false, phones: false });
 RiScript.transforms = {
   quotify: RiScript.quotify,
   pluralize: RiScript.pluralize,
@@ -1128,7 +1128,7 @@ function charCount(str, c) {
 }
 
 // src/grammar.js
-var RiGrammar = class {
+var RiGrammar = class _RiGrammar {
   constructor(rules = {}, context = {}) {
     if (typeof rules !== "object") {
       throw Error("RiGrammar: expecting object, found " + typeof rules);
@@ -1138,7 +1138,7 @@ var RiGrammar = class {
     this.setRules(rules);
   }
   static expand(rules, context, opts) {
-    return new RiGrammar(rules, context).expand(opts);
+    return new _RiGrammar(rules, context).expand(opts);
   }
   addTransform() {
     return RiScript.addTransform(...arguments);
@@ -1191,7 +1191,7 @@ var RiGrammar = class {
     return res;
   }
   static fromJSON(str, opts) {
-    return new RiGrammar(JSON.parse(str), opts);
+    return new _RiGrammar(JSON.parse(str), opts);
   }
   /* 
     Convert grammar to inline rules;

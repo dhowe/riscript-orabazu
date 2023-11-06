@@ -32,12 +32,14 @@ const esm: Options = {
 }
 
 const cjs: Options = {
-  format: ['cjs'],
+  format: ['cjs'],  
   ...opts,
   target: 'es2020', // ?
   noExternal: ['chevrotain'], // ?
   // skipNodeModulesBundle: true, // ?
   platform: "node",
+  cjsInterop: true,
+  splitting: true,
   outExtension({ format }) {
     return {
       js: `.cjs`,
