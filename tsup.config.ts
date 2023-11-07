@@ -8,7 +8,7 @@ const opts: Options = {
   outDir: 'dist',
   watch: false,
   clean: true,
-  minify: false,
+  minify: "terser",
   sourcemap: true,
   dts: false,
   esbuildPlugins: [esbuildPluginVersionInjector()],
