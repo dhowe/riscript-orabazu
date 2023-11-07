@@ -8,7 +8,7 @@ const opts: Options = {
   outDir: 'dist',
   watch: false,
   clean: true,
-  minify: "terser",
+  minify: false,
   sourcemap: true,
   dts: false,
   esbuildPlugins: [esbuildPluginVersionInjector()],
@@ -38,6 +38,7 @@ const iife: Options = {
   format: ['iife'],
   ...opts,
   bundle: true,
+  minify: true,
   target: 'es2020', // ?
   platform: "browser",
   globalName: "RiScript",
